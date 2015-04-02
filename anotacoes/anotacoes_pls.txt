@@ -29,3 +29,4 @@ As organizações estão descobrindo que esta prática de conjuntos de construç
 
 [1] http://www.softwareproductlines.com/
 [2] http://www.sei.cmu.edu/productlines/
+[3] http://www.scielo.br/pdf/ci/v30n1/a09v30n1
