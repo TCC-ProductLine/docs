@@ -50,7 +50,7 @@ $(TARGET): $(MAIN_FILE) $(SOURCES) bibliografia.bib
 clean:
 	rm -f *~ *.dvi *.ps *.backup *.aux *.log
 	rm -f *.lof *.lot *.bbl *.blg *.brf *.toc *.idx
-	rm -f tcc.pdf proposta.pdf
+	rm -f tcc.pdf proposta.pdf TCC_FGA.pdf
 	
 dist: clean
 	tar vczf tcc-fga-latex-$(VERSION).tar.gz *
