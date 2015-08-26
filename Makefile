@@ -24,8 +24,8 @@ EDITAVEIS_SOURCES = informacoes.tex errata.tex dedicatoria.tex \
 
 EDITAVEIS_FILES = $(addprefix $(EDITAVEIS_DIR)/, $(EDITAVEIS_SOURCES))
 
-# MAIN_FILE = tcc.tex
-MAIN_FILE = proposta.tex
+MAIN_FILE = tcc.tex
+# MAIN_FILE = proposta.tex
 DVI_FILE  = $(addsuffix .dvi, $(basename $(MAIN_FILE)))
 AUX_FILE  = $(addsuffix .aux, $(basename $(MAIN_FILE)))
 PS_FILE   = $(addsuffix .ps, $(basename $(MAIN_FILE)))
@@ -37,15 +37,17 @@ SOURCES = $(FIXOS_FILES) $(EDITAVEIS_FILES)
 
 all: 
 	@make $(TARGET)
-     
+
 $(TARGET): $(MAIN_FILE) $(SOURCES) bibliografia.bib
 	$(LATEX) $(MAIN_FILE) $(SOURCES)
-#	$(BIBTEX) $(AUX_FILE)
-#$(LATEX) $(MAIN_FILE) $(SOURCES)
-#$(LATEX) $(MAIN_FILE) $(SOURCES)
+	$(BIBTEX) $(AUX_FILE)
+	$(LATEX) $(MAIN_FILE) $(SOURCES)
+	$(LATEX) $(MAIN_FILE) $(SOURCES)
+	
 	$(DVIPS) $(DVI_FILE)
 	$(PS2PDF) $(PS_FILE)
 	@cp $(PDF_FILE) $(TARGET)
+	@evince proposta.pdf
 
 clean:
 	rm -f *~ *.dvi *.ps *.backup *.aux *.log
