@@ -24,8 +24,8 @@ EDITAVEIS_SOURCES = informacoes.tex errata.tex dedicatoria.tex \
 
 EDITAVEIS_FILES = $(addprefix $(EDITAVEIS_DIR)/, $(EDITAVEIS_SOURCES))
 
-MAIN_FILE = tcc.tex
-# MAIN_FILE = proposta.tex
+# MAIN_FILE = tcc.tex
+MAIN_FILE = proposta.tex
 DVI_FILE  = $(addsuffix .dvi, $(basename $(MAIN_FILE)))
 AUX_FILE  = $(addsuffix .aux, $(basename $(MAIN_FILE)))
 PS_FILE   = $(addsuffix .ps, $(basename $(MAIN_FILE)))
@@ -48,8 +48,10 @@ $(TARGET): $(MAIN_FILE) $(SOURCES) bibliografia.bib
 	$(PS2PDF) $(PS_FILE)
 	@cp $(PDF_FILE) $(TARGET)
 
+	@evince $(subst tex,pdf,$(MAIN_FILE))
+
 clean:
-	rm -f *~ *.dvi *.ps *.backup *.aux *.log
+	rm -f *~ *.dvi *.ps *.backup *.aux *.log *.bak
 	rm -f *.lof *.lot *.bbl *.blg *.brf *.toc *.idx
 	rm -f tcc.pdf proposta.pdf
 
@@ -61,3 +63,6 @@ dist: clean
 
 dist-clean: clean
 	rm -f $(PDF_FILE) $(TARGET)
+
+aspell:
+	aspell -c -d pt_BR -t $(MAIN_FILE)
