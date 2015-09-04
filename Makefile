@@ -48,7 +48,7 @@ $(TARGET): $(MAIN_FILE) $(SOURCES) bibliografia.bib
 	$(PS2PDF) $(PS_FILE)
 	@cp $(PDF_FILE) $(TARGET)
 
-	@evince $(subst tex,pdf,$(MAIN_FILE))
+	@evince $(subst tex,pdf,$(MAIN_FILE)) &
 
 clean:
 	rm -f *~ *.dvi *.ps *.backup *.aux *.log *.bak
@@ -63,6 +63,3 @@ dist: clean
 
 dist-clean: clean
 	rm -f $(PDF_FILE) $(TARGET)
-
-aspell:
-	aspell -c -d pt_BR -t $(MAIN_FILE)
