@@ -15,14 +15,18 @@ FIXOS_SOURCES = informacoes.tex novosComandos.tex fichaCatalografica.tex \
 FIXOS_FILES = $(addprefix $(FIXOS_DIR)/, $(FIXOS_SOURCES))
 
 EDITAVEIS_DIR = editaveis
-EDITAVEIS_SOURCES = informacoes.tex errata.tex dedicatoria.tex \
+EDITAVEIS_SOURCES = informacoes.tex dedicatoria.tex \
 					agradecimentos.tex epigrafe.tex resumo.tex abstract.tex \
 					abreviaturas.tex simbolos.tex introducao.tex \
 					aspectosgerais.tex consideracoes.tex textoepostexto.tex \
 					elementosdotexto.tex elementosdopostexto.tex \
 					apendices.tex anexos.tex
 
+CAPITULOS_DIR = capitulos
+CAPITULOS_SOURCES = capitulo1.tex capitulo2.tex
+
 EDITAVEIS_FILES = $(addprefix $(EDITAVEIS_DIR)/, $(EDITAVEIS_SOURCES))
+CAPITULOS_FILES = $(addprefix $(CAPITULOS_DIR)/, $(CAPITULOS_SOURCES))
 
 MAIN_FILE = tcc.tex
 # MAIN_FILE = proposta.tex
@@ -31,7 +35,7 @@ AUX_FILE  = $(addsuffix .aux, $(basename $(MAIN_FILE)))
 PS_FILE   = $(addsuffix .ps, $(basename $(MAIN_FILE)))
 PDF_FILE  = $(addsuffix .pdf, $(basename $(MAIN_FILE)))
 
-SOURCES = $(FIXOS_FILES) $(EDITAVEIS_FILES)
+SOURCES = $(FIXOS_FILES) $(EDITAVEIS_FILES) $(CAPITULOS_FILES)
 
 .PHONY: all clean dist-clean
 
@@ -46,7 +50,6 @@ $(TARGET): $(MAIN_FILE) $(SOURCES) bibliografia.bib
 	
 	$(DVIPS) $(DVI_FILE)
 	$(PS2PDF) $(PS_FILE)
-	@cp $(PDF_FILE) $(TARGET)
 
 	@evince $(subst tex,pdf,$(MAIN_FILE)) &
 
@@ -62,4 +65,4 @@ dist: clean
 	tar vczf tcc-fga-latex-$(VERSION).tar.gz *
 
 dist-clean: clean
-	rm -f $(PDF_FILE) $(TARGET)
+	rm -f $(PDF_FILE)
