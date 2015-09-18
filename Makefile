@@ -17,13 +17,10 @@ FIXOS_FILES = $(addprefix $(FIXOS_DIR)/, $(FIXOS_SOURCES))
 EDITAVEIS_DIR = editaveis
 EDITAVEIS_SOURCES = informacoes.tex dedicatoria.tex \
 					agradecimentos.tex epigrafe.tex resumo.tex abstract.tex \
-					abreviaturas.tex simbolos.tex introducao.tex \
-					aspectosgerais.tex consideracoes.tex textoepostexto.tex \
-					elementosdotexto.tex elementosdopostexto.tex \
-					apendices.tex anexos.tex
+					abreviaturas.tex simbolos.tex apendices.tex anexos.tex
 
 CAPITULOS_DIR = capitulos
-CAPITULOS_SOURCES = capitulo1.tex capitulo2.tex
+CAPITULOS_SOURCES = capitulo1.tex capitulo2.tex capitulo3.tex capitulo4.tex capitulo5.tex capitulo6.tex 
 
 EDITAVEIS_FILES = $(addprefix $(EDITAVEIS_DIR)/, $(EDITAVEIS_SOURCES))
 CAPITULOS_FILES = $(addprefix $(CAPITULOS_DIR)/, $(CAPITULOS_SOURCES))
