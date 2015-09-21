@@ -39,9 +39,149 @@ A interação constante ocasiona mudanças estruturais e, em relação às inter
 
 Milgram, em sua tese \cite{Milgram:1967} defende que qualquer pessoa está distantes de qualquer outra pessoa do mundo, a no máximo seis graus de separação. Essa tese ficou conhecida como ``mundo pequeno'' e ``teoria dos seis degraus''. Sua pesquisa demonstra que a rede social constitui importante recurso profissional e pessoal. Estar em contato com pessoas que conheçam uma pessoa-alvo, em razão de um interesse específico, já é um passo além para a conquista de um objetivo.
 
-\section{Grafos}
+\section{Teoria dos Grafos}
 
-O desenvolvimento da análise de redes sociais tem como fundamento a teoria dos grafos, ramo da Matemática iniciado por Leonhard Euler, com a sua demonstração matemática de que não era possível atravessar as sete pontes da cidade de Königsberg, passando por elas somente uma vez \cite{Goular:2014}.
+O desenvolvimento da análise de redes sociais tem como fundamento a teoria dos grafos, a seguir serão apresentados os principais conceitos sobre grafos.
+
+\subsection{História}
+
+De acordo com Ore \cite{Ore:1963}, Leonard Euler (1707-1783) teria sido o primeiro a desenvolver um documento sobre a teoria dos grafos. Contam que o povo da cidade de Königsberg (atual Caliningrado), localizado na Prússia e cortada pelo Rio Pregel, com sete pontes ligando duas ilhas e as margens opostas do rio, como pode ser visto na Figura X, propôs ao então famoso matemático Leonard Euler o seguinte problema:
+
+	“Será possível fazer um passeio pela cidade, começando e
+	terminando no mesmo lugar, cruzando cada ponte exatamente uma vez?”
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{figuras/capitulo1/Konigsberg.eps}
+	\caption{Pontes de Königsberg}
+	\label{Konigsberg}
+\end{figure}
+
+Não se sabe se Euler teria resolvido usando a representação de grafos que adotamos hoje. A modelagem do problema por grafo passa pela representação onde cada porção de terra  é representada por um ponto e as pontes estariam representadas por linhas \cite{Ore:1963}, apresentado na Figura X.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{figuras/capitulo1/sete_pontes.eps}
+	\caption{Problema das sete pontes}
+	\label{sete pontes}
+\end{figure}
+
+Analizando, então, este grafo, Euler resolveu a questão provando que uma caminhada assim é possível se, e somente se, o grafo for conexo e todos os seus vértices tiverem grau par, termos estes que serão tratados mais à frente \cite{Malta:2008}.
+
+Assim, Euler mostrou que, uma vez que o grafo de Königsberg tem vértices de grau ímpar, a resposta ao problema era que tal caminhada era impossível. Desde então todo grafo conexo cujos vértices possui grau par é chamado de grafo euleriano, e um caminho fechado em um grafo que passe por cada aresta deste exatamente uma vez é chamado de circuito (ou ciclo) euleriano \cite{Malta:2008}.
+
+Graças à resolução dada por Euler, mais tarde muitos outros problemas importantes, para o desenvolvimento da Matemática Aplicada, foram possíveis de serem modelados. Dada a complexidade da vida nos grandes centros urbanos, muitos serviços precisaram ser organizados e é na Teoria de Grafos que encontramos uma modelagem para circuitos elétricos, rotas, distribuição de serviços (coleta de correspondências), coleta de lixo, distribuição de energia, água, luz, telefone \cite{Mello:2007}.
+
+Também temos em Grafos a possibilidade de modelar relações de amizade, de hierarquia, de trabalho. Netto \cite{Netto:2012}, aponta grafos como um auxílio para o estudo de problemas envolvendo inter-relacionamento de elementos (em Química Orgânica, eletricidade, organização, transporte, psico-sociologia). Na verdade, grafos modelam diversas situações e muitas delas não quantificáveis.
+
+Conforme Ore \cite{Ore:1963}, no século seguinte, o matemático irlandês William Hamilton, em 1859, inventou um jogo chamado ``\textit{The Icosian Game}'', com um peculiar enigma envolvendo um dodecaedro, em que cada um dos 20 vértices foram nomeados com nomes de cidades importantes. O objetivo do jogo era, utilizando as 30 arestas do dodecaedro, passar por cada uma das cidades apenas uma vez, começando e terminando na mesma cidade, um exemplo do grafo pode ser visualizado na Figura X.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{figuras/capitulo1/grafo_hamiltoniano.eps}
+	\caption{Grafo Hamiltoniano}
+	\label{grafo_hamiltoniano}
+\end{figure}
+
+Apesar da simples formulação, o problema admite muitos caminhos como resposta. No problema de Hamilton temos uma diferença significativa em relação ao problema de Euler. Encontrar um caminho euleriano significa encontrar um caminho que passe por todas as arestas do grafo uma única vez, podendo ser aberto ou fechado. Nos caminhos hamiltonianos cada vértice é visitado uma única vez. O problema fica muito mais complexo com tal condição \cite{Costa:2011}.
+
+\subsection{Definições}
+
+\textbf{Definição 1}: Um grafo \textit{G} é um par ordenado \textit{(V(G), E(G))} que consiste de um conjunto \textit{V(G)} de vértices e um conjunto \textit{E(G)}, disjunto de \textit{V(G)}, de arestas, em conjunto com uma incidência função $\psi_G$ que associa a cada aresta de \textit{G} um par não ordenado de (não necessariamente distintas) vértices de \textit{G} \cite{Bondy:2007}.
+
+\textbf{Definição 2}: Um grafo é um par \textit{G} = (\textit{V}, \textit{E}) de conjuntos de tal modo que \textit{E}$\subseteq$[\textit{V}$_2$]; Assim, os elementos de \textit{E} são subconjuntos de pares ordenados de elementos de \textit{V}. Para evitar ambiguidades de notação, deve-se sempre assumir tacitamente que \textit{V}$\cap$\textit{E}=$\oslash$. Os elementos de \textit{V} são os vértices (ou nós ou pontos) do grafo \textit{G}, os elementos de \textit{E} são arestas (ou linhas). A maneira usual de imaginar um grafo é pelo desenho de um ponto para cada vértice e juntando dois destes pontos por uma linha se os correspondentes dois vértices formam uma aresta. Assim como esses pontos e linhas são desenhadas é considerado irrelevante: o que importa é a informação de que pares de vértices formam uma aresta e quais não \cite{Diestel:1997}.
+
+Grafos são assim chamados porque eles podem ser representada graficamente, e é esta representação gráfica que nos ajuda a entender muitas de suas propriedades. Cada vértice é indicado por um ponto, e de cada aresta por uma linha que une os pontos que representam as suas extremidades \cite{Bondy:2007}, um exemplo pode ser observado na Figura X.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{figuras/capitulo1/exemplo_grafo.eps}
+	\caption{Exemplo de Grafo}
+	\label{exemplo_grafo}
+\end{figure}
+
+A maioria das definições e conceitos na teoria dos grafos são sugeridas por esta representação gráfica. As extremidades de uma aresta são referidos como sendo incidente com a aresta, e vice-versa. Dois vértices que são incidente com uma aresta em comum são chamados de adjacentes e dois vértices adjacentes distintos são chamados de vizinhos \cite{Costa:2011}.
+
+Uma aresta com extremidades idênticas é chamado um \textit{loop}, e uma aresta com extremidades distintas é um \textit{link}. Dois ou mais \textit{links} com o mesmo par de extremidades são referidos como sendo arestas paralelas \cite{Bondy:2007}. Na Figura X é possível observar a aresta ``a'' como uma aresta do tipo \textit{loop} e as aresta ``c'' e ``d'' como sendo arestas paralelas.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{figuras/capitulo1/loop_paralela.eps}
+	\caption{Exemplo de loop e arestas paralelas}
+	\label{loop_paralela}
+\end{figure}
+
+Um grafo é finito se tanto o seu conjunto de vértices, quanto o seu conjunto de arestas são finitos. Um grafo sem vértices (e, portanto, sem arestas) é o grafo nulo. Qualquer grafo apenas com um vértice é referido como trivial. Todos os outros grafos são não-triviais \cite{Costa:2011}.
+
+Um grafo é simples se não tem \textit{loops} ou arestas paralelas \cite{Diestel:1997}, como exemplificado na Figura X.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{figuras/capitulo1/grafo_simples.eps}
+	\caption{Exemplo de grafo simples}
+	\label{grafo_simples}
+\end{figure}
+
+Certos tipos de grafos podem desempenhar papéis proeminentes na teoria dos grafos. Um grafo conexo é um grafo simples no qual quaisquer dois vértices são adjacentes, um grafo é vazio quando não há dois vértices adjacentes (isto é, o conjunto de arestas é vazio). Um grafo é bipartido se o seu conjunto de vértices pode ser particionado em dois subconjuntos \textit{X} e \textit{Y} para que cada aresta tem um fim em \textit{X} e um fim em \textit{Y}; uma tal partição (\textit{X}, \textit{Y}) é chamado uma bipartição do grafo, e \textit{X} e \textit{Y} suas partes. Pode-se denotar um grafo bipartido \textit{G} com bipartição (\textit{X}, \textit{Y}) por \textit{G}[\textit{X}, \textit{Y}]. Se \textit{G}[\textit{X}, \textit{Y}] é simples e todos os vértices de \textit{X} está associado a cada vértice em \textit{Y}, então \textit{G} é chamado de um grafo bipartido completo. Uma estrela é um grafo bipartido completo \textit{G}[\textit{X}, \textit{Y}] com |\textit{X}| = 1 ou |\textit{Y}| = 1 \cite{Diestel:1997}.  A Figura X ilustraum grafo bipartido completo.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{figuras/capitulo1/bipartido_completo.eps}
+	\caption{Grafo bipartido completo}
+	\label{bipartido_completo}
+\end{figure}
+
+Um caminho é um grafo simples cujos vértices podem ser dispostos em uma sequência linear, de tal forma que dois vértices são adjacentes se forem consecutivos na sequência, e não adjacentes caso não forem consecutivos \cite{Bondy:2007}. Dessa forma, diz-se que um vértice é alcançável a partir de outro se houver um caminho levando o primeito vértice ao último \cite{Costa:2011}.
+(exemplo)
+
+Do mesmo modo, um ciclo de três ou mais vértices é um grafo simples cujos vértices podem ser dispostos em uma sequência cíclica de tal maneira que dois vértices são adjacentes se forem consecutivos na sequência. Um ciclo em um vértice consiste de um único vértice com um ciclo, e um ciclo de dois vértices consiste em dois vértices ligados por um par de arestas paralelas. O comprimento de um caminho ou de um ciclo é o número de suas arestas \cite{Costa:2011}. É possivel observar na Figura X alguns exemplos de grafos com ciclo.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{figuras/capitulo1/ciclos.eps}
+	\caption{Exemplo de grafos com ciclos}
+	\label{ciclos}
+\end{figure}
+
+Um grafo é conectado se, para cada partição de seus vértices definido em dois conjuntos \textit{X} e \textit{Y} não vazios, existe uma aresta com uma extremidade em \textit{X} e uma extremidade em \textit{Y}; caso contrário, o grafo é desconectado. Em outras palavras, um grafo é desconectado se a conjunto de vértices pode ser particionado em dois subconjuntos não vazios \textit{X} e \textit{Y} e que nenhuma aresta tem uma extremidade em \textit{X} e a outra extremidade em \textit{Y}. (É instrutivo comparar esta definição com que de um grafo bipartido.) Os exemplos de grafos conectados e desconectados são apresentados na Figura X \cite{Bondy:2007}.
+
+\subsection{Representação de Grafos}
+
+Embora desenhos são um meio conveniente de especificação de grafos, eles claramente não são adequado para armazenar grafos em computadores, ou para a aplicação de métodos matemáticos para estudar suas propriedades. Para estes fins, são consideradas duas matrizes associados com um grafo, uma matriz de incidência e uma matriz de adjacência \cite{Bondy:2007}.
+
+Seja \textit{G} um grafo, com conjunto de vértices \textit{V} e conjunto de arestas \textit{E}. A matriz de incidência de \textit{G} é a matriz $M_G:= (m_{ve})$, com dimensões \textit{n$\times$m}, onde $m_{ve}$ é o número de vezes (0, 1, ou 2) que o vértice \textit{v} e aresta \textit{e} estão conectados \cite{Bondy:2007}.
+
+A matriz de adjacência de \textit{G} é a matriz $A_G := (a_{uv})$, com dimensões \textit{n$\times$n}, em que uma $a_{uv}$ é o número de arestas que unem os vértices \textit{u} e \textit{v}, onde cada \textit{loop} conta como duas arestas. É possível verificar que a quantidade de memória necessária para essa representação é $\Theta(|\textit{V}|^2)$ \cite{Bondy:2007}. A Figura X ilustra um grafo \textit{G} representado na matriz de incidência \textit{M} e na matriz de adjacência \textit{A}.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.65]{figuras/capitulo1/matriz.eps}
+	\caption{Representação em matriz}
+	\label{matriz}
+\end{figure}
+
+Pela maioria dos grafos possuirem um número bem maior de arestas do que os vértices, a matriz de adjacência de um grafo geralmente é menor do que a sua matriz de incidência e, assim, necessita de menos espaço de armazenamento. Ao lidar com grafos simples, uma representação ainda mais compacto é possível. Para cada vértice \textit{v}, os vizinhos de \textit{v} são armazenados em uma lista. A lista (\textit{N}(\textit{v}): \textit{v $\in$ V}) é chamada de lista de adjacência do grafo, onde \textit{N}(\textit{v}) representa a os vizinhos do vértice \textit{v}, um exemplo pode ser observado na Figura X. A quantidade de memória necessária para uma lista de adjacências é $\Theta(|\textit{V}| + |\textit{E}|)$. Grafos simples são normalmente armazenados em computadores como listas de adjacência \cite{Costa:2011}.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{figuras/capitulo1/lista_adjacencia.eps}
+	\caption{Representação em lista de adjacência}
+	\label{lista_adjacencia}
+\end{figure}
+
+O grau de um vértice \textit{v} em um grafo \textit{G}, designado por \textit{d$_G$}(\textit{v}) é o número de arestas de \textit{G} que incidem em \textit{v}, para cada \textit{loop} é contado duas arestas. Em particular, se \textit{G} é um grafo simples, \textit{d$_G$}(\textit{v}) é o número de vizinhos de \textit{v} em \textit{G}. Um vértice de grau zero é chamado um vértice isolado. Denominamos por $\delta$(\textit{G}) e $\Delta$(\textit{G}) mínimo e máximo graus dos vértices de \textit{G}, e por \textit{d}(\textit{G}), o seu grau médio, $\frac{1}{n}\sum_{\textit{v}\in\textit{V}} \textit{d}(\textit{v})$ \cite{Diestel:1997}.
+
+Embora muitos problemas possuem formulação na da teoria dos grafos, o conceito de um grafo, por vezes, não é suficientemente adequado. Ao lidar com problemas de fluxo de tráfego, por exemplo, é necessário saber quais estradas são de sentido único e em quais é permitido o tráfego nos dois sentidos. Para contextualizar esse problema é preciso um grafo em que cada ligação tem uma orientação atribuída, ou seja, um grafo dirigido \cite{Bondy:2007}. Um exemplo de grafo dirigido pode ser observado na Figura X.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{figuras/capitulo1/dirigido.eps}
+	\caption{Exemplo de grafo dirigido}
+	\label{dirigido}
+\end{figure}
+
+Formalmente, um grafo dirigido \textit{D} é um par ordenado \textit{(V(D), E(A))} que consiste de um conjunto \textit{V(G)} de vértices e um conjunto \textit{A(G)}, disjunto de \textit{V(G)}, de arcos, em conjunto com uma incidência função $\psi_D$ que associa a cada arco de \textit{D} um par ordenado de (não necessariamente distintas) vértices de \textit{D}. Se \textit{a} é um arco e $\psi_D$(\textit{a}) = (\textit{u,v}), então \textit{a} é dito como como a junção de \textit{u} para \textit{v}, pode-se dizer que \textit{u} domina \textit{v} \cite{Diestel:1997}.
+
 
 \section{Algoritmos}
 
