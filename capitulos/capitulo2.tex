@@ -49,6 +49,32 @@ O desenvolvimento da análise de redes sociais tem como fundamento a teoria dos 
 
 Frameworks compartilham técnicas de reutilização em geral e são considerados uma importante parte da cultura de desenvolvimento no mundo da orientação a objetos \cite{Johnson:1997}.
 
+Fayad e Schimidt em seu artigo \cite{Fayad:Schimidt:1997} sobre frameworks de aplicações orientadas a objetos mostram quais são os principais benefícios no uso de frameworks, que são: modularização, reutilização, extensibilidade e inversão de controle.
+
+\begin{itemize}
+	\item \textbf{Modularização:} Frameworks encapsulam e interfaceiam algums detalhes de implementação, isso reduz o esforço necessário para entender e manter partes do software existente, pois basta ao desenvolvedor o que lhe é oferecido sem necessariamente entender qual a implementação que existe dentro do framework.
+
+	\item \textbf{Reutilzação:} As interfaces providas por frameworks ajudam também na reutilização através da devinição de componentes genéricos, que podem ser aplicadas em outras aplicações. Dessa forma, soluções comuns para sistemas diferentes podem ser usadas da mesma forma sem a necessidade de recriação e das mesmas. Entende-se então, que estas soluções são pensadas uma única vez e ao estarem presentes em um framework basta que sejam usadas.
+
+	\item \textbf{Extensibilidade:} Esta é um dos principais pontos dos frameworks, fornecem métodos e interfaces estáveis que outras aplicações irão usar, e essas aplicações devem poder usar esses métodos visando resolver problemas parecidos em diferentes contextos. Uma boa estrutura de extensibilidade é essencial para garantir a customização de novos serviços e funcionalidades das aplicações.
+
+	\item \textbf{Inversão de controle:} A inversão de controle ocorre pois a forma como serão processados e entendidos muitos dos eventos de uma aplicação fica invisível ao desenvolvedor quando este usa um framework, pois é o próprio framework quem decide o conjunto de métodos que será invocado para realizar uma determinada tarefa da aplicação.
+\end{itemize}
+
+\subsection{Frameworks e Reutilização de Software}
+
+A tecnologia de reutilização ideal provê componentes que podem facilmente ser conectados para criar um novo sistema. Não é necessário ao desenvolvedor ter conhecimento de como o componente é implementado e é fácil para ele aprender como o usar. O resultado é que o sistema será eficiente, fácil de manter e confiável \cite{Johnson:1997}.
+
+Frameworks são aplicações especializadas em prover classes e componentes abstrados que podem ser usados por outros sistemas. Provêem técnicas de reutilização resistentes e de maior granularidade. Sendo aplicações independentes é mais fácil usá-los em um maior número de sistemas \cite{Johnson:Foote:1988}.
+
+Para se alcançar a aplicação efetiva de um dado framework é necessário ao desenvolvedor conhecer as interfaces que o framework proporciona antes de poder usá-las. Como podem existir diversas interfaces complexas aprender a usar um novo framework pode ser difícil. Porém, os frameworks são poderosos e o esforço gasto em sua aprendizagem é recompensado, pois podem reduzir a quantidade de esforço aplicado para se desenvolver uma nova aplicação que os usem \cite{Johnson:1997}.
+
+Ao longo do tempo tornou-se muito caro desenvolver aplicações complexas a partir do zero. Isso porque todos os componentes que são desenvolvidos devem passar por um criterioso processo de validação e manutenção e isso ocorre sempre que um novo sistema é desenvolvido. Ao se usar frameworks pode-se desenvolver componentes comuns e os processos citados são feitos em um único local \cite{Fayad:Schimidt:1997}.
+
+As técnicas de reutilização são diferentes de acordo como o tipo do framework utilizado, esses tipos podem ser "\textit{white box}" ou "\textit{black box}". O primeiro diz respeito a quando o código do framework é aberto e visível ao desenvolvedor, dessa forma, este pode estudar a implementação do framework e modificar o código de determinadas partes de acordo com suas necessidades. Os frameworks do tipo "\textit{black box}" disponibilizam apenas interfaces ao desenvolvedor para que este possa usá-las, a forma como tudo é implementado e processado é desconhecida. No primeiro tipo têm-se uma maior flexibilidade, porém, o uso é mais complexo ao desenvolvedor. No segundo o uso é bem simples, porém, não existe flexibilidade para mudança da implementação \cite{Kroth:2000}.
+
+Além dos tipos de frameworks, estes também podem ser divididos quanto a sua aplicabilidade. Podem ser desenvolvidos para serem aplicados em qualquer domínio, de forma genérica sem se preocupar com algo específico \textit{frameworks horizontais}, ou são desenvolvidos visando atender um tipo específico de domínio de problemas, \textit{frameworks verticais}, essas caracteríscas dependem das necessidades apresentadas ao se trabalhar com frameworks e isso impacta como será aplicada a reutilização \cite{Kroth:2000}.
+
 \section{Padrões de Projeto}
 
 \section{Serviços RestFul}
