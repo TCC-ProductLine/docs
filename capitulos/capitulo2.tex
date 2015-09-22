@@ -66,7 +66,7 @@ Não se sabe se Euler teria resolvido usando a representação de grafos que ado
 	\label{sete_pontes}
 \end{figure}
 
-Analizando, então, este grafo, Euler resolveu a questão provando que uma caminhada assim é possível se, e somente se, o grafo for conexo e todos os seus vértices tiverem grau par, termos estes que serão tratados mais à frente \cite{Malta:2008}.
+Analisando, então, este grafo, Euler resolveu a questão provando que uma caminhada assim é possível se, e somente se, o grafo for conexo e todos os seus vértices tiverem grau par, termos estes que serão tratados mais à frente \cite{Malta:2008}.
 
 Assim, Euler mostrou que, uma vez que o grafo de Königsberg tem vértices de grau ímpar, a resposta ao problema era que tal caminhada era impossível. Desde então todo grafo conexo cujos vértices possui grau par é chamado de grafo euleriano, e um caminho fechado em um grafo que passe por cada aresta deste exatamente uma vez é chamado de circuito (ou ciclo) euleriano \cite{Malta:2008}.
 
@@ -122,7 +122,7 @@ Um grafo é simples se não tem \textit{loops} ou arestas paralelas \cite{Dieste
 	\label{grafo_simples}
 \end{figure}
 
-Certos tipos de grafos podem desempenhar papéis proeminentes na teoria dos grafos. Um grafo conexo é um grafo simples no qual quaisquer dois vértices são adjacentes, um grafo é vazio quando não há dois vértices adjacentes (isto é, o conjunto de arestas é vazio). Um grafo é bipartido se o seu conjunto de vértices pode ser particionado em dois subconjuntos \textit{X} e \textit{Y} para que cada aresta tem um fim em \textit{X} e um fim em \textit{Y}; uma tal partição (\textit{X}, \textit{Y}) é chamado uma bipartição do grafo, e \textit{X} e \textit{Y} suas partes. Pode-se denotar um grafo bipartido \textit{G} com bipartição (\textit{X}, \textit{Y}) por \textit{G}[\textit{X}, \textit{Y}]. Se \textit{G}[\textit{X}, \textit{Y}] é simples e todos os vértices de \textit{X} está associado a cada vértice em \textit{Y}, então \textit{G} é chamado de um grafo bipartido completo. Uma estrela é um grafo bipartido completo \textit{G}[\textit{X}, \textit{Y}] com |\textit{X}| = 1 ou |\textit{Y}| = 1 \cite{Diestel:1997}.  A Figura \ref{bipartido_completo} ilustraum grafo bipartido completo.
+Certos tipos de grafos podem desempenhar papéis proeminentes na teoria dos grafos. Um grafo conexo é um grafo simples no qual quaisquer dois vértices são adjacentes, um grafo é vazio quando não há dois vértices adjacentes (isto é, o conjunto de arestas é vazio). Um grafo é bipartido se o seu conjunto de vértices pode ser particionado em dois subconjuntos \textit{X} e \textit{Y} para que cada aresta tem um fim em \textit{X} e um fim em \textit{Y}; uma tal partição (\textit{X}, \textit{Y}) é chamado uma bipartição do grafo, e \textit{X} e \textit{Y} suas partes. Pode-se denotar um grafo bipartido \textit{G} com bipartição (\textit{X}, \textit{Y}) por \textit{G}[\textit{X}, \textit{Y}]. Se \textit{G}[\textit{X}, \textit{Y}] é simples e todos os vértices de \textit{X} está associado a cada vértice em \textit{Y}, então \textit{G} é chamado de um grafo bipartido completo. Uma estrela é um grafo bipartido completo \textit{G}[\textit{X}, \textit{Y}] com |\textit{X}| = 1 ou |\textit{Y}| = 1 \cite{Diestel:1997}.  A Figura \ref{bipartido_completo} ilustra um grafo bipartido completo.
 
 \begin{figure}[!h]
 	\centering
@@ -131,10 +131,10 @@ Certos tipos de grafos podem desempenhar papéis proeminentes na teoria dos graf
 	\label{bipartido_completo}
 \end{figure}
 
-Um caminho é um grafo simples cujos vértices podem ser dispostos em uma sequência linear, de tal forma que dois vértices são adjacentes se forem consecutivos na sequência, e não adjacentes caso não forem consecutivos \cite{Bondy:2007}. Dessa forma, diz-se que um vértice é alcançável a partir de outro se houver um caminho levando o primeito vértice ao último \cite{Costa:2011}.
+Um caminho é um grafo simples cujos vértices podem ser dispostos em uma sequência linear, de tal forma que dois vértices são adjacentes se forem consecutivos na sequência, e não adjacentes caso não forem consecutivos \cite{Bondy:2007}. Dessa forma, diz-se que um vértice é alcançável a partir de outro se houver um caminho levando o primeiro vértice ao último \cite{Costa:2011}.
 (exemplo)
 
-Do mesmo modo, um ciclo de três ou mais vértices é um grafo simples cujos vértices podem ser dispostos em uma sequência cíclica de tal maneira que dois vértices são adjacentes se forem consecutivos na sequência. Um ciclo em um vértice consiste de um único vértice com um ciclo, e um ciclo de dois vértices consiste em dois vértices ligados por um par de arestas paralelas. O comprimento de um caminho ou de um ciclo é o número de suas arestas \cite{Costa:2011}. É possivel observar na Figura \ref{ciclos} alguns exemplos de grafos com ciclo.
+Do mesmo modo, um ciclo de três ou mais vértices é um grafo simples cujos vértices podem ser dispostos em uma sequência cíclica de tal maneira que dois vértices são adjacentes se forem consecutivos na sequência. Um ciclo em um vértice consiste de um único vértice com um ciclo, e um ciclo de dois vértices consiste em dois vértices ligados por um par de arestas paralelas. O comprimento de um caminho ou de um ciclo é o número de suas arestas \cite{Costa:2011}. É possível observar na Figura \ref{ciclos} alguns exemplos de grafos com ciclo.
 
 \begin{figure}[!h]
 	\centering
@@ -143,7 +143,7 @@ Do mesmo modo, um ciclo de três ou mais vértices é um grafo simples cujos vé
 	\label{ciclos}
 \end{figure}
 
-Um grafo é conectado se, para cada partição de seus vértices definido em dois conjuntos \textit{X} e \textit{Y} não vazios, existe uma aresta com uma extremidade em \textit{X} e uma extremidade em \textit{Y}; caso contrário, o grafo é desconectado. Em outras palavras, um grafo é desconectado se a conjunto de vértices pode ser particionado em dois subconjuntos não vazios \textit{X} e \textit{Y} e que nenhuma aresta tem uma extremidade em \textit{X} e a outra extremidade em \textit{Y}, é instrutivo comparar esta definição com que de um grafo bipartido. Os exemplos de grafos conectados e desconectados são apresentados na Figura \ref{desconectados}, onde o grafo ``X'' e o grafo ``Y'' são dois grafos distindos conectados, porém se fossem trados como um único grafo este seria um grafo desconectado \cite{Bondy:2007}.
+Um grafo é conectado se, para cada partição de seus vértices definido em dois conjuntos \textit{X} e \textit{Y} não vazios, existe uma aresta com uma extremidade em \textit{X} e uma extremidade em \textit{Y}; caso contrário, o grafo é desconectado. Em outras palavras, um grafo é desconectado se a conjunto de vértices pode ser particionado em dois subconjuntos não vazios \textit{X} e \textit{Y} e que nenhuma aresta tem uma extremidade em \textit{X} e a outra extremidade em \textit{Y}, é instrutivo comparar esta definição com que de um grafo bipartido. Os exemplos de grafos conectados e desconectados são apresentados na Figura \ref{desconectados}, onde o grafo ``X'' e o grafo ``Y'' são dois grafos distintos conectados, porém se fossem trados como um único grafo este seria um grafo desconectado \cite{Bondy:2007}.
 
 \begin{figure}[!h]
 	\centering
@@ -167,7 +167,7 @@ A matriz de adjacência de \textit{G} é a matriz $A_G := (a_{uv})$, com dimens�
 	\label{matriz}
 \end{figure}
 
-Pela maioria dos grafos possuirem um número bem maior de arestas do que os vértices, a matriz de adjacência de um grafo geralmente é menor do que a sua matriz de incidência e, assim, necessita de menos espaço de armazenamento. Ao lidar com grafos simples, uma representação ainda mais compacto é possível. Para cada vértice \textit{v}, os vizinhos de \textit{v} são armazenados em uma lista. A lista (\textit{N}(\textit{v}): \textit{v $\in$ V}) é chamada de lista de adjacência do grafo, onde \textit{N}(\textit{v}) representa a os vizinhos do vértice \textit{v}, um exemplo pode ser observado na Figura \ref{lista_adjacencia}. A quantidade de memória necessária para uma lista de adjacências é $\Theta(|\textit{V}| + |\textit{E}|)$. Grafos simples são normalmente armazenados em computadores como listas de adjacência \cite{Costa:2011}.
+Pela maioria dos grafos possuírem um número bem maior de arestas do que os vértices, a matriz de adjacência de um grafo geralmente é menor do que a sua matriz de incidência e, assim, necessita de menos espaço de armazenamento. Ao lidar com grafos simples, uma representação ainda mais compacto é possível. Para cada vértice \textit{v}, os vizinhos de \textit{v} são armazenados em uma lista. A lista (\textit{N}(\textit{v}): \textit{v $\in$ V}) é chamada de lista de adjacência do grafo, onde \textit{N}(\textit{v}) representa a os vizinhos do vértice \textit{v}, um exemplo pode ser observado na Figura \ref{lista_adjacencia}. A quantidade de memória necessária para uma lista de adjacências é $\Theta(|\textit{V}| + |\textit{E}|)$. Grafos simples são normalmente armazenados em computadores como listas de adjacência \cite{Costa:2011}.
 
 \begin{figure}[!h]
 	\centering
@@ -199,9 +199,9 @@ Frameworks compartilham técnicas de reutilização em geral e são considerados
 Fayad e Schimidt em seu artigo \cite{Fayad:Schimidt:1997} sobre frameworks de aplicações orientadas a objetos mostram quais são os principais benefícios no uso de frameworks, que são: modularização, reutilização, extensibilidade e inversão de controle.
 
 \begin{itemize}
-	\item \textbf{Modularização:} Frameworks encapsulam e interfaceiam algums detalhes de implementação, isso reduz o esforço necessário para entender e manter partes do software existente, pois basta ao desenvolvedor o que lhe é oferecido sem necessariamente entender qual a implementação que existe dentro do framework.
+	\item \textbf{Modularização:} Frameworks encapsulam e interfaceiam alguns detalhes de implementação, isso reduz o esforço necessário para entender e manter partes do software existente, pois basta ao desenvolvedor o que lhe é oferecido sem necessariamente entender qual a implementação que existe dentro do framework.
 
-	\item \textbf{Reutilzação:} As interfaces providas por frameworks ajudam também na reutilização através da devinição de componentes genéricos, que podem ser aplicadas em outras aplicações. Dessa forma, soluções comuns para sistemas diferentes podem ser usadas da mesma forma sem a necessidade de recriação e das mesmas. Entende-se então, que estas soluções são pensadas uma única vez e ao estarem presentes em um framework basta que sejam usadas.
+	\item \textbf{Reutilização:} As interfaces providas por frameworks ajudam também na reutilização através da definição de componentes genéricos, que podem ser aplicadas em outras aplicações. Dessa forma, soluções comuns para sistemas diferentes podem ser usadas da mesma forma sem a necessidade de recriação e das mesmas. Entende-se então, que estas soluções são pensadas uma única vez e ao estarem presentes em um framework basta que sejam usadas.
 
 	\item \textbf{Extensibilidade:} Esta é um dos principais pontos dos frameworks, fornecem métodos e interfaces estáveis que outras aplicações irão usar, e essas aplicações devem poder usar esses métodos visando resolver problemas parecidos em diferentes contextos. Uma boa estrutura de extensibilidade é essencial para garantir a customização de novos serviços e funcionalidades das aplicações.
 
@@ -212,7 +212,7 @@ Fayad e Schimidt em seu artigo \cite{Fayad:Schimidt:1997} sobre frameworks de ap
 
 A tecnologia de reutilização ideal provê componentes que podem facilmente ser conectados para criar um novo sistema. Não é necessário ao desenvolvedor ter conhecimento de como o componente é implementado e é fácil para ele aprender como o usar. O resultado é que o sistema será eficiente, fácil de manter e confiável \cite{Johnson:1997}.
 
-Frameworks são aplicações especializadas em prover classes e componentes abstrados que podem ser usados por outros sistemas. Provêem técnicas de reutilização resistentes e de maior granularidade. Sendo aplicações independentes é mais fácil usá-los em um maior número de sistemas \cite{Johnson:Foote:1988}.
+Frameworks são aplicações especializadas em prover classes e componentes abstratos que podem ser usados por outros sistemas. Proveem técnicas de reutilização resistentes e de maior granularidade. Sendo aplicações independentes é mais fácil usá-los em um maior número de sistemas \cite{Johnson:Foote:1988}.
 
 Para se alcançar a aplicação efetiva de um dado framework é necessário ao desenvolvedor conhecer as interfaces que o framework proporciona antes de poder usá-las. Como podem existir diversas interfaces complexas aprender a usar um novo framework pode ser difícil. Porém, os frameworks são poderosos e o esforço gasto em sua aprendizagem é recompensado, pois podem reduzir a quantidade de esforço aplicado para se desenvolver uma nova aplicação que os usem \cite{Johnson:1997}.
 
@@ -220,19 +220,19 @@ Ao longo do tempo tornou-se muito caro desenvolver aplicações complexas a part
 
 As técnicas de reutilização são diferentes de acordo como o tipo do framework utilizado, esses tipos podem ser ``\textit{white box}'' ou ``\textit{black box}''. O primeiro diz respeito a quando o código do framework é aberto e visível ao desenvolvedor, dessa forma, este pode estudar a implementação do framework e modificar o código de determinadas partes de acordo com suas necessidades. Os frameworks do tipo ``\textit{black box}'' disponibilizam apenas interfaces ao desenvolvedor para que este possa usá-las, a forma como tudo é implementado e processado é desconhecida. No primeiro tipo têm-se uma maior flexibilidade, porém, o uso é mais complexo ao desenvolvedor. No segundo o uso é bem simples, porém, não existe flexibilidade para mudança da implementação \cite{Kroth:2000}.
 
-Além dos tipos de frameworks, estes também podem ser divididos quanto a sua aplicabilidade. Podem ser desenvolvidos para serem aplicados em qualquer domínio, de forma genérica sem se preocupar com algo específico \textit{frameworks horizontais}, ou são desenvolvidos visando atender um tipo específico de domínio de problemas, \textit{frameworks verticais}, essas caracteríscas dependem das necessidades apresentadas ao se trabalhar com frameworks e isso impacta como será aplicada a reutilização \cite{Kroth:2000}.
+Além dos tipos de frameworks, estes também podem ser divididos quanto a sua aplicabilidade. Podem ser desenvolvidos para serem aplicados em qualquer domínio, de forma genérica sem se preocupar com algo específico \textit{frameworks horizontais}, ou são desenvolvidos visando atender um tipo específico de domínio de problemas, \textit{frameworks verticais}, essas características dependem das necessidades apresentadas ao se trabalhar com frameworks e isso impacta como será aplicada a reutilização \cite{Kroth:2000}.
 
-Na Engenharia de Software busca-se cada vez mais o aumento da produtividade e da qualidade dos sistemas desenvolvidos. A reutilização de software, ao contrário de todas as outras partes de um sistema é um fator que pode acarretar o aumento desses fatores, considerando que ao se utilizar componentes já desenvolvidos e depurados pode-se reduzir o tempo de desenvolvimento, de testes e as chances de ocorrência de erros que poderiam adivir se fosse necessário a criação destes novos artefatos \cite{Silva:2000}.
+Na Engenharia de Software busca-se cada vez mais o aumento da produtividade e da qualidade dos sistemas desenvolvidos. A reutilização de software, ao contrário de todas as outras partes de um sistema é um fator que pode acarretar o aumento desses fatores, considerando que ao se utilizar componentes já desenvolvidos e depurados pode-se reduzir o tempo de desenvolvimento, de testes e as chances de ocorrência de erros que poderiam advir se fosse necessário a criação destes novos artefatos \cite{Silva:2000}.
 
-Além de uma ganhos na produtividade e na qulidade a reutilização adivinda dos frameworks pode trazer ganhos de desempenho, confiabilidade e interoperabilidade de software \cite{Fayad:Schimidt:1997}.
+Além de ganhos na produtividade e na qualidade a reutilização advinda dos frameworks pode trazer ganhos de desempenho, confiabilidade e interoperabilidade de software \cite{Fayad:Schimidt:1997}.
 
 \subsection{Frameworks e Padrões}
 
-Padrões representam soluções recorrentes para problemas no desenvolvimento de software em um contexto específico. Tanto os padrões como os frameworks são técnicas de reutilização, a grande diferença é que os frameworks 	se concentram na reutilização de estruturas, algoritmos e implementações em uma dada linguagem de programação, já os padrões focam em aprensentar desenhos abstrados de como resolver problemas, são como micro-arquiteturas de software \cite{Fayad:Schimidt:1997}.
+Padrões representam soluções recorrentes para problemas no desenvolvimento de software em um contexto específico. Tanto os padrões como os frameworks são técnicas de reutilização, a grande diferença é que os frameworks 	se concentram na reutilização de estruturas, algoritmos e implementações em uma dada linguagem de programação, já os padrões focam em apresentar desenhos abstratos de como resolver problemas, são como microarquiteturas de software \cite{Fayad:Schimidt:1997}.
 
 Um padrão descreve um problema a ser resolvido e apresenta uma solução e o contexto em que essa solução funciona, nomeia uma técnica e descreve seus custos e benefícios \cite{Johnson:1997}.
 
-Quando um framework é implementado diversas vezes este também pode ser considerado um padrão. O MVC\footnote{http://www.dsc.ufcg.edu.br/~jacques/cursos/map/html/arqu/mvc/mvc.htm} (\textit{Model / View / Controller}) é um framework de interface com usuário que é considerado um padrão \cite{Johnson:1997}.
+Quando um framework é implementado diversas vezes este também pode ser considerado um padrão. O MVC\footnote{http://www.dsc.ufcg.edu.br/$\sim$jacques/cursos/map/html/arqu/mvc/mvc.htm} (\textit{Model / View / Controller}) é um framework de interface com usuário que é considerado um padrão \cite{Johnson:1997}.
 
 Quando usados em conjunto com padrões os frameworks podem aumentar significativamente a qualidade do software e reduzir o esforço de desenvolvimento \cite{Fayad:Schimidt:1997}.
 
