@@ -283,6 +283,24 @@ Ao alcançar o vértice \textit{e}, todos os vértice foram visitados, portanto 
 	\label{dfs_percurso}
 \end{figure}
 
+O algoritmo para a busca em profundidade pode ser visualizado no algoritmo a seguir. Nele, \textit{prework} e \textit{postwork} dependem da aplicação do DFS, definindo as ações que devem ser tomadas, respectivamente, quando um vértice é marcado e quando é necessário voltar por uma aresta ou quando a aresta leva a um vértice já visitado \cite{Manber:1989}.
+
+\begin{lstlisting}[language=Ada]
+Algoritmo DFS(G,v):
+Entrada: G = (V,E), um grafo nao dirigido, e v pertece a V .
+Saida: depende da aplicacao.
+
+inicio
+	marque v;
+	execute prework em v;
+	para todas as arestas (v, w) faca
+		se w nao estiver marcado entao DFS(G,w);
+		execute postwork para (v, w);
+fim
+\end{lstlisting}
+
+Caso o grafo seja conexo, então todos os seus vértices serão marcados pelo algoritmo anterior, e todas as suas
+arestas serão visitadas pelo menos uma vez durante a execução do algoritmo \cite{Manber:1989}.
 \subsubsection{BFS}
 
 \subsection{Ordenação Topológica}
