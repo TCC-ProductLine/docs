@@ -45,7 +45,9 @@ O desenvolvimento da análise de redes sociais tem como fundamento a teoria dos 
 
 \subsection{História}
 
-De acordo com Ore \cite{Ore:1963}, Leonhard Euler\footnote{Grande matemático e físico suíço, 1707-1783, fez importantes descobertas em campos variados como Cálculo e Grafos.} teria sido o primeiro a desenvolver um documento sobre a teoria dos grafos. Contam que o povo da cidade de Königsberg \footnote{atualmente Caliningrado.}, localizado na Prússia e cortada pelo Rio Pregel, com sete pontes ligando duas ilhas e as margens opostas do rio, como pode ser visto na Figura \ref{Konigsberg}, propôs ao então famoso matemático Leonard Euler o seguinte problema:
+O primeiro livro sobre a teoria dos grafos foi publicado por König (1936). Isso levou ao desenvolvimento de uma forte escola de teóricos em grafos na Hungria que incluíram P. Erdős e T. Gallai. Também na década de trinta, H. Whitney publicou uma série de artigos influentes \cite{Bondy:2007}.
+
+De acordo com Ore \cite{Ore:1963}, Leonhard Euler\footnote{Grande matemático e físico suíço, 1707-1783, fez importantes descobertas em campos variados como Cálculo e Grafos.} teria sido um dos matemáticos mais importantes quando se refere a teoria dos grafos. Contam que o povo da cidade de Königsberg \footnote{atualmente Caliningrado.}, localizado na Prússia e cortada pelo Rio Pregel, com sete pontes ligando duas ilhas e as margens opostas do rio, como pode ser visto na Figura \ref{Konigsberg}, propôs ao então famoso matemático Leonard Euler o seguinte problema:
 
 	“Será possível fazer um passeio pela cidade, começando e
 	terminando no mesmo lugar, cruzando cada ponte exatamente uma vez?”
@@ -189,6 +191,27 @@ Embora muitos problemas possuem formulação na da teoria dos grafos, o conceito
 
 Formalmente, um grafo dirigido \textit{D} é um par ordenado \textit{(V(D), E(A))} que consiste de um conjunto \textit{V(G)} de vértices e um conjunto \textit{A(G)}, disjunto de \textit{V(G)}, de arcos, em conjunto com uma incidência função $\psi_D$ que associa a cada arco de \textit{D} um par ordenado de (não necessariamente distintas) vértices de \textit{D}. Se \textit{a} é um arco e $\psi_D$(\textit{a}) = (\textit{u,v}), então \textit{a} é dito como como a junção de \textit{u} para \textit{v}, pode-se dizer que \textit{u} domina \textit{v} \cite{Diestel:1997}.
 
+\subsection{Árvores e Florestas}
+
+Um grafo acíclico é aquele que não contém ciclos. Um grafo acíclico conectado é chamado de uma árvore. As árvores em seis vértices estão apresentados na Figura \ref{arvores_seis_vertices}. De acordo com estas definições, cada componente de um gráfico acíclico é uma árvore. Por esta razão, gráficos acíclicos são geralmente chamados florestas \cite{Bondy:2007}.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{figuras/capitulo1/arvores_seis_vertices.eps}
+	\caption{Exemplo de árvores com seis vértices}
+	\label{arvores_seis_vertices}
+\end{figure}
+
+Em uma árvore, quaisquer dois vértices são conectados por exactamente um caminho. E Diestel \cite{Diestel:1997}, representa esse único caminho de ligação vértices \textit{x} e \textit{y} em uma árvore \textit{T} por \textit{xTy}.
+
+Uma árvore com raiz \textit{T}(\textit{x}) é uma árvore \textit{T} com um vértice específico \textit{x}, chamado a raiz de \textit{T}. Uma orientação de uma árvore com raiz, todos vértices, excluindo o vértice raiz \textit{x}, é chamado de ramificação \cite{Bondy:2007}. Um exemplo de uma árvore com raiz pode ser obeservado na Figura \ref{arvore_raiz}.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{figuras/capitulo1/arvore_raiz.eps}
+	\caption{Exemplo de uma árvore com raiz}
+	\label{arvore_raiz}
+\end{figure}
 
 \section{Algoritmos}
 
