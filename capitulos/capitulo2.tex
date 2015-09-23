@@ -208,12 +208,92 @@ Uma árvore com raiz \textit{T}(\textit{x}) é uma árvore \textit{T} com um vé
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.5]{figuras/capitulo1/arvore_raiz.eps}
+	\includegraphics[scale=0.3]{figuras/capitulo1/arvore_raiz.eps}
 	\caption{Exemplo de uma árvore com raiz}
 	\label{arvore_raiz}
 \end{figure}
 
 \section{Algoritmos}
+
+\subsection{Busca em Grafos}
+
+A busca em grafos refere-se ao método de explorar o grafo, ou seja, obter um método sistemático para percorrer seus vértices e arestas. Para isto, há dois principais algoritmos, busca em profundidade (\textit{DFS - Depth First Search}) e busca em largura (\textit{BFS - Breadth First Search}). Em ambos os casos parte-se de um vértice qualquer.
+
+\subsubsection{DFS}
+A ideia por trás do \textit{DFS} é alcançar ``mais fundo'' no grafo quando possível. A ordem em que os vértices são visitados depende da ordem em que os vizinhos de cada vértice aparecem na lista de adjacência \cite{Cormen:2001}. Considere as figuras a seguir para a exemplificação do DFS.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.4]{figuras/capitulo1/dfs/dfs1.eps}
+	\caption{Exemplo DFS etapa 1}
+	\label{dfs1}
+\end{figure}
+
+A busca irá partir do vértice arbitrátio \textit{v}, chamado de vértice raiz. A partir do vértice raiz é possível percorrer três arestas: (\textit{v}, \textit{a}), (\textit{v}, \textit{b}) e (\textit{v}, \textit{c}). A aresta a ser seguida será (\textit{v}, \textit{a}).
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.4]{figuras/capitulo1/dfs/dfs2.eps}
+	\caption{Exemplo DFS etapa 2}
+	\label{dfs2}
+\end{figure}
+
+O vértice \textit{a} possui três arestas, que são: (\textit{a}, \textit{v}), (\textit{a}, \textit{b}) e (\textit{a}, \textit{d}). Como o vértice \textit{v} já foi visitado, a aresta a ser seguida será (\textit{a}, \textit{b}).
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.4]{figuras/capitulo1/dfs/dfs3.eps}
+	\caption{Exemplo DFS etapa 3}
+	\label{dfs3}
+\end{figure}
+
+A partir de \textit{b} é possível escolher as seguintes arestas: (\textit{b}, \textit{v}), (\textit{b}, \textit{a}) e (\textit{b}, \textit{c}), porém como os vértices \textit{v} e \textit{a} já foram visitados, a opção restante será a aresta (\textit{b}, \textit{c}).
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.4]{figuras/capitulo1/dfs/dfs4.eps}
+	\caption{Exemplo DFS etapa 4}
+	\label{dfs4}
+\end{figure}
+
+Ao alcançar \textit{c}, há duas possibilidades: (\textit{c}, \textit{v}) e (\textit{c}, \textit{b}), porém ambos os vérices \textit{v} e \textit{b} já são conhecidos, então não há para onde se aprofundar, entretando ainda existem vértices não descobertos. Nesse caso deve-se voltar até o vértice \textit{b}, verificando se há alguma aresta que leva a um vértice ainda não visitado. No caso não há, então volta-se novamente pelo caminho percorrido, chegando ao vértice \textit{a}. Em \textit{a}, a aresta (\textit{a}, \textit{d}) leva a um vértice ainda não descoberto, portanto esse caminho deve ser tomado.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.4]{figuras/capitulo1/dfs/dfs5.eps}
+	\caption{Exemplo DFS etapa 5}
+	\label{dfs5}
+\end{figure}
+
+Em \textit{d} há dois caminhos a seguir: (\textit{d}, \textit{a}) e (\textit{d}, \textit{e}), porém a única aresta que leva a um vértice não visitado é (\textit{d}, \textit{e}), portanto esta deverá ser seguinda.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.4]{figuras/capitulo1/dfs/dfs6.eps}
+	\caption{Exemplo DFS etapa 6}
+	\label{dfs6}
+\end{figure}
+
+Ao alcançar o vértice \textit{e}, todos os vértice foram visitados, portanto o percuso realizado pelo \textit{DFS} pode ser observado na Figura \ref{dfs_percurso}, e que é uma árvore.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.4]{figuras/capitulo1/dfs/dfs_percurso.eps}
+	\caption{Percurso do DFS}
+	\label{dfs_percurso}
+\end{figure}
+
+\subsubsection{BFS}
+
+\subsection{Ordenação Topológica}
+
+\subsection{Caminhos Mais Curtos}
+
+\subsubsection{Algoritmo de Dijkstra}
+
+\subsection{Árvore Geradora Mínima}
+
+\subsection{Fluxo em Rede}
 
 \section{Frameworks}
 
