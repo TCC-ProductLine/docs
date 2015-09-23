@@ -1,9 +1,5 @@
 \chapter{Referencial Teórico}
 
-% *****************************************************************
-% Redes Sociais, Grafos, Algoritmos para rotas e agenda, Desenvolvimento de Frameworks, Serviços RestFul, Padrões de Projeto
-% *****************************************************************
-
 \section{Redes Sociais}
 
 Quando se pensa em rede, surge a ideia de um conjunto de nós interligados entre si, como uma teia que ocupa um determinado espaço em um ambiente. Os nós ou pontos estão ligados em pares e podem representar várias situações em áreas de interesse em comum \cite{Newman:2010}.
@@ -54,7 +50,7 @@ De acordo com Ore \cite{Ore:1963}, Leonhard Euler\footnote{Grande matemático e 
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.5]{figuras/capitulo1/Konigsberg.eps}
+	\includegraphics[scale=0.5]{figuras/capitulo2/Konigsberg.eps}
 	\caption{Pontes de Königsberg}
 	\label{Konigsberg}
 \end{figure}
@@ -63,7 +59,7 @@ Não se sabe se Euler teria resolvido usando a representação de grafos que ado
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.5]{figuras/capitulo1/sete_pontes.eps}
+	\includegraphics[scale=0.5]{figuras/capitulo2/sete_pontes.eps}
 	\caption{Problema das sete pontes}
 	\label{sete_pontes}
 \end{figure}
@@ -80,7 +76,7 @@ Conforme Ore \cite{Ore:1963}, no século seguinte, o matemático irlandês Willi
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.5]{figuras/capitulo1/grafo_hamiltoniano.eps}
+	\includegraphics[scale=0.5]{figuras/capitulo2/grafo_hamiltoniano.eps}
 	\caption{Grafo Hamiltoniano}
 	\label{grafo_hamiltoniano}
 \end{figure}
@@ -97,7 +93,7 @@ Grafos são assim chamados porque eles podem ser representada graficamente, e é
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.5]{figuras/capitulo1/exemplo_grafo.eps}
+	\includegraphics[scale=0.5]{figuras/capitulo2/exemplo_grafo.eps}
 	\caption{Exemplo de Grafo}
 	\label{exemplo_grafo}
 \end{figure}
@@ -108,7 +104,7 @@ Uma aresta com extremidades idênticas é chamado um \textit{loop}, e uma aresta
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.5]{figuras/capitulo1/loop_paralela.eps}
+	\includegraphics[scale=0.5]{figuras/capitulo2/loop_paralela.eps}
 	\caption{Exemplo de loop e arestas paralelas}
 	\label{loop_paralela}
 \end{figure}
@@ -119,7 +115,7 @@ Um grafo é simples se não tem \textit{loops} ou arestas paralelas \cite{Dieste
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.5]{figuras/capitulo1/grafo_simples.eps}
+	\includegraphics[scale=0.5]{figuras/capitulo2/grafo_simples.eps}
 	\caption{Exemplo de grafo simples}
 	\label{grafo_simples}
 \end{figure}
@@ -128,7 +124,7 @@ Certos tipos de grafos podem desempenhar papéis proeminentes na teoria dos graf
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.5]{figuras/capitulo1/bipartido_completo.eps}
+	\includegraphics[scale=0.5]{figuras/capitulo2/bipartido_completo.eps}
 	\caption{Grafo bipartido completo}
 	\label{bipartido_completo}
 \end{figure}
@@ -140,7 +136,7 @@ Do mesmo modo, um ciclo de três ou mais vértices é um grafo simples cujos vé
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.5]{figuras/capitulo1/ciclos.eps}
+	\includegraphics[scale=0.5]{figuras/capitulo2/ciclos.eps}
 	\caption{Exemplo de grafos com ciclos}
 	\label{ciclos}
 \end{figure}
@@ -149,7 +145,7 @@ Um grafo é conectado se, para cada partição de seus vértices definido em doi
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.5]{figuras/capitulo1/desconectados.eps}
+	\includegraphics[scale=0.5]{figuras/capitulo2/desconectados.eps}
 	\caption{Exemplo de grafos conectados e desconectados}
 	\label{desconectados}
 \end{figure}
@@ -164,7 +160,7 @@ A matriz de adjacência de \textit{G} é a matriz $A_G := (a_{uv})$, com dimens�
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.65]{figuras/capitulo1/matriz.eps}
+	\includegraphics[scale=0.65]{figuras/capitulo2/matriz.eps}
 	\caption{Representação em matriz}
 	\label{matriz}
 \end{figure}
@@ -173,7 +169,7 @@ Pela maioria dos grafos possuírem um número bem maior de arestas do que os vé
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.5]{figuras/capitulo1/lista_adjacencia.eps}
+	\includegraphics[scale=0.5]{figuras/capitulo2/lista_adjacencia.eps}
 	\caption{Representação em lista de adjacência}
 	\label{lista_adjacencia}
 \end{figure}
@@ -184,7 +180,7 @@ Embora muitos problemas possuem formulação na da teoria dos grafos, o conceito
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.5]{figuras/capitulo1/dirigido.eps}
+	\includegraphics[scale=0.5]{figuras/capitulo2/dirigido.eps}
 	\caption{Exemplo de grafo dirigido}
 	\label{dirigido}
 \end{figure}
@@ -372,10 +368,43 @@ de um milhão de vezes, sem nunca fazê-lo da mesma maneira''
 No livro de padrões de projeto \cite{Gamma:Helm:Johnson:Vlissides:1995} o autor concorda com as afirmações de Alexander, a diferença principal é que no âmbito de software os padrões são expressos em termos de objetos e interfaces ao invés de paredes e portas, porém, em ambos os tipos os padrões dizem respeito a uma solução para um problema em um contexto geral. Além disso Gamma considera que um padrão é dividido em quatro partes principais que são:
 
 \begin{itemize}
-	\item \textbf{Nome:}
-	\item \textbf{Problema:}
-	\item \textbf{Solução:}
-	\item \textbf{Consequências:}
+	\item \textbf{Nome:} Usado para descrever um problema de projeto, suas soluções e consequências em uma ou duas palavras. Quando um padrão possui um nome fica mais fácil de definir um vocabulário comum para tratar deste com outras pessoas.
+	\item \textbf{Problema:} O problema está ligado diretamente a situação em que deve ser aplicado o padrão, ou seja, qual o contexto. Algumas vezes o problema pode conter uma lista de condições que devem ser satisfeitas para que se possa alcançar sentido na aplicação do padrão.
+	\item \textbf{Solução:} Esta descreve todos os elementos que compõem o padrão, seus relacionamentos, responsabilidades e colaborações. É fornecida uma descrição abstrata de um problema de projeto e o arranjo geral de classes e objetos que resolvam o padrão, não há uma solução ou implementação concreta pois padrões são desenhados para serem usados em muitas situações diferentes.
+	\item \textbf{Consequências:} As consequências apresentam uma série de resultados concernentes da aplicação do padrão, devem ser apresentadas vantagens e desvantagens. São elementos críticos que entram na decisam da aplicação ou não do padrão que está em questão.
 \end{itemize}
 
-\section{Serviços RestFul}
+\subsection{Por que usar Padrões de Projeto?}
+
+Os dois pontos que melhor justificam o uso de Padrões de Projeto são porque estes são soluções reutilizáveis e estabelecem uma terminologia comum de acordo com \cite{Shalloway:Trott:2004}. A seguir há uma breve descrição de cada um de acordo com os autores mencionados.
+
+\begin{itemize}
+	\item \textbf{Soluções Reutilizáveis:} O tempo gasto para aprender a utilizar determinado padrão vale a pena pela reutilização que é oferecida. Têm-se o benefício de aplicar o que foi aprendido para diversos projetos e depois de ter o conhecimento fixado não é necessário reinventar soluções para problmeas recorrentes, basta reutilizar o que os padrões oferecem.
+	\item \textbf{Terminologia Comum:} Quando se está em um grupo de trabalho é necessário uma base de vocabulário e pontos de visão do problema comuns. Os padrões de projeto providenciam um ponto comum de referência durante as fases de analise e design de um projeto.
+\end{itemize}
+
+Além do que já foi citado, diz o autor que os padrões dão aos desenvolvedores uma perspectiva de alto nível do problema a ser resolvido, isso facilita o entendimento do problema e uma melhor elaboração de solução.
+
+Gamma ainda diz que os padrões podem ajudar na refatoração de projetos. Um das grandes dificuldades no desenvolvimento de software é que este tem de ser frequentemente reorganizado ou refatorado, os padrões de projeto ao oferecerem soluções comuns e já consolidadas podem reduzir a quantidade de refatoração que deverá ser feita mais tarde \cite{Gamma:Helm:Johnson:Vlissides:1995}.
+
+A figura \ref{ciclo_de_vida_oo} representa o ciclo de vida de aplicações orientadas a objeto segundo \cite{Gamma:Helm:Johnson:Vlissides:1995}.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{figuras/capitulo2/ciclo_de_vida_oo.eps}
+	\caption{Ciclo de vida de aplicações orientadas a objetos}
+	\label{ciclo_de_vida_oo}
+\end{figure}
+
+A prototipação consiste da vida inicial do software que consiste de um conjunto inicial de requisitos. Normalmente nessa etapa são criadas as classes de domínio que representam as entidades principais do domínio inicial do problema.
+
+Após a etapa de prototipação entra-se na etapa de ``mais requisitos'' e começa-se uma expanção para atender esses novos requisitos, porém, esta fase deve ser pensada cautelosamente e não pode ser longa pois o software pode acabar se tornando muito inflexível, é aí que entra a etapa de ``reutilização'' que pode ser definida por um processo de refatoração onde busca-se separar componentes de finalidades genéricas visando alcançar partes retilizáveis para o sistema em desenvolvimento.
+
+Por fim, têm-se a etapa de consolidação onde se obtêm um software mais genérico e que atenda mais requisitos.
+
+Esse é um ciclo inevitável e quando se pensa desde o início em refatorações futuras que podem vir a ser necessárias busca-se a aplicação de padrões que podem evitar tais refatorações \cite{Gamma:Helm:Johnson:Vlissides:1995}.
+
+\subsection{Os Padrões de Projeto}
+
+
+\section{Software com Serviço}
