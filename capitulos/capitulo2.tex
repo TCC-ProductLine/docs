@@ -326,6 +326,30 @@ A partir um grafo, \textit{G}, não dirigido com pesos nas arestas. Escolhe-se u
 
 Primeiro ordena-se as arestas de \textit{G}. Considera-se, então, cada vértice de \textit{G} como pertencendo a uma árvore em \textit{G}, ou seja, $\textit{v}_i \in \textit{T}_i , 1 \leq i \leq |\textit{V}|$. Verifica-se se a menor aresta de \textit{G} une dois vértices pertencentes a árvores diferentes. Se sim, as árvores são unidas e a operação é repetida. Se não, escolhe-se a próxima aresta da lista ordenada e a operação é repetida até que todas as subárvores de \textit{G} estejam unidas.
 
+\subsection{Programação Dinâmica}
+
+Muitas vezes é possível dividir uma problema em sub-problemas, combinando as soluções dos sub-problemas de modo a resolver a problema original. Às vezes a maneira natural de dividir uma problema sugerido pela sua estrutura pode levar a várias sub-problemas sobrepostos. Caso se tente resolver todos os sub-problemas idênticos sem se atentar a essa duplicação, é provável que o algoritmo da solução se torne exponencial. Se, por outro lado, pode-se conseguir proveito da duplicação e resolver cada sub-problema apenas uma vez, conservando a solução para utilização posterior, neste caso o algoritmo utilizado terá um resultado polinomial. A idéia subjacente de programação dinâmica é, portanto, bastante simples: evitar cálculos repetidos, geralmente se mantem uma tabela de resultados conhecidos \cite{Aho:1983}.
+
+Existem duas principais dificuldades com a aplicação desta técnica. Em primeiro lugar, podem nem sempre ser possível combinar as soluções dos dois problemas para formar a solução de um maior. Em segundo lugar, pode haver um número inaceitavel de pequenos problemas a se resolver \cite{Sedgewick:2011}.
+
+\subsubsection{Top-Down x Buttom-Up}
+
+A forma como a tabela na abordagem \textit{bottom-up} é preenchida não é tão intuitiva como a abordagem \textit{top-down}, pois requer algumas ``reversões'' dos sinais na recorrência. No entanto, alguns programadores sentem que a abordagem \textit{bottom-up} é mais intuitiva. A seguir é apresentada uma comparação entre as duas abordagens da programação dinâmica na tabela \ref{top-down_buttom-up} \cite{Halim:2013}:
+
+\begin{minipage}{\linewidth}
+\captionof{table}{Top-Down x Buttom-Up}
+\begin{tabular}{p{7cm}p{7cm}} \toprule
+    {Top-Down} & {Buttom-Up} \\ \toprule
+    {Pró:} & {Pró:} \\
+    {1. É uma transformação natural da busca completa recursiva.} & {1. Mais rápido se muitos sub-problemas são revisitados, pois não há sobrecarga de chamadas recursivas.} \\
+    {2. Computa os sub-problemas somente quando necessário (às vezes isso é mais rápido).} & {2. Pode economizar espaço de memória com a técnica \textit{on-the-fly}.} \\ \midrule
+    {Contra:} & {Contra:} \\
+    {1. Mais lento se muitos sub-problemas são revisitados, devido à sobrecarga de chamadas recursivas.} & {1. Para programadores familiarizados com recursão, pode não ser intuitivo.} \\
+    {2. Se existem \textit{M} estados, tamanho da tabela pode ser de até $\Theta$(\textit{M}).} & {Se existem \textit{M} estados, todos os estados serão visitos e os valores de todos esses estados serão preenchidos.} \\ \bottomrule
+    \label{top-down_buttom-up}
+\end{tabular}
+\end{minipage}
+
 \section{Reutilização de Software}
 
 A reutilização de software tem como objetivos aumentar a qualidade e produtividade no desenvolvimento, pois busca evitar duplicidade de código e do esforço aplicado para desenvolver determinadas tarefas e reaproveita o máximo possível experiências passadas \cite{Lucredio:2009}.
