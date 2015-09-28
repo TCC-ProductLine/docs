@@ -193,7 +193,7 @@ Um grafo acíclico é aquele que não contém ciclos. Um grafo acíclico conecta
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.5]{figuras/capitulo1/arvores_seis_vertices.eps}
+	\includegraphics[scale=0.5]{figuras/capitulo2/arvores_seis_vertices.eps}
 	\caption{Exemplo de árvores com seis vértices}
 	\label{arvores_seis_vertices}
 \end{figure}
@@ -204,7 +204,7 @@ Uma árvore com raiz \textit{T}(\textit{x}) é uma árvore \textit{T} com um vé
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.3]{figuras/capitulo1/arvore_raiz.eps}
+	\includegraphics[scale=0.3]{figuras/capitulo2/arvore_raiz.eps}
 	\caption{Exemplo de uma árvore com raiz}
 	\label{arvore_raiz}
 \end{figure}
@@ -220,7 +220,7 @@ A ideia por trás do \textit{DFS} é alcançar ``mais fundo'' no grafo quando po
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.4]{figuras/capitulo1/dfs/dfs1.eps}
+	\includegraphics[scale=0.4]{figuras/capitulo2/dfs/dfs1.eps}
 	\caption{Exemplo DFS etapa 1}
 	\label{dfs1}
 \end{figure}
@@ -229,7 +229,7 @@ A busca irá partir do vértice arbitrátio \textit{v}, chamado de vértice raiz
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.4]{figuras/capitulo1/dfs/dfs2.eps}
+	\includegraphics[scale=0.4]{figuras/capitulo2/dfs/dfs2.eps}
 	\caption{Exemplo DFS etapa 2}
 	\label{dfs2}
 \end{figure}
@@ -238,7 +238,7 @@ O vértice \textit{a} possui três arestas, que são: (\textit{a}, \textit{v}), 
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.4]{figuras/capitulo1/dfs/dfs3.eps}
+	\includegraphics[scale=0.4]{figuras/capitulo2/dfs/dfs3.eps}
 	\caption{Exemplo DFS etapa 3}
 	\label{dfs3}
 \end{figure}
@@ -247,7 +247,7 @@ A partir de \textit{b} é possível escolher as seguintes arestas: (\textit{b}, 
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.4]{figuras/capitulo1/dfs/dfs4.eps}
+	\includegraphics[scale=0.4]{figuras/capitulo2/dfs/dfs4.eps}
 	\caption{Exemplo DFS etapa 4}
 	\label{dfs4}
 \end{figure}
@@ -256,7 +256,7 @@ Ao alcançar \textit{c}, há duas possibilidades: (\textit{c}, \textit{v}) e (\t
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.4]{figuras/capitulo1/dfs/dfs5.eps}
+	\includegraphics[scale=0.4]{figuras/capitulo2/dfs/dfs5.eps}
 	\caption{Exemplo DFS etapa 5}
 	\label{dfs5}
 \end{figure}
@@ -265,7 +265,7 @@ Em \textit{d} há dois caminhos a seguir: (\textit{d}, \textit{a}) e (\textit{d}
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.4]{figuras/capitulo1/dfs/dfs6.eps}
+	\includegraphics[scale=0.4]{figuras/capitulo2/dfs/dfs6.eps}
 	\caption{Exemplo DFS etapa 6}
 	\label{dfs6}
 \end{figure}
@@ -274,7 +274,7 @@ Ao alcançar o vértice \textit{e}, todos os vértice foram visitados, portanto 
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.4]{figuras/capitulo1/dfs/dfs_percurso.eps}
+	\includegraphics[scale=0.4]{figuras/capitulo2/dfs/dfs_percurso.eps}
 	\caption{Percurso do DFS}
 	\label{dfs_percurso}
 \end{figure}
@@ -295,16 +295,34 @@ inicio
 fim
 \end{lstlisting}
 
-Caso o grafo seja conexo, então todos os seus vértices serão marcados pelo algoritmo anterior, e todas as suas
-arestas serão visitadas pelo menos uma vez durante a execução do algoritmo \cite{Manber:1989}.
+Caso o grafo seja conexo, então todos os seus vértices serão marcados pelo algoritmo anterior, e todas as suas arestas serão visitadas pelo menos uma vez durante a execução do algoritmo \cite{Manber:1989}.
 
 \subsubsection{BFS}
 
-\subsection{Ordenação Topológica}
+Enquanto que o \textit{DFS}, a partir de um vértice \textit{v}, tenta visitar algum vizinho de \textit{v}, em seguida, um vizinho deste vizinho, e assim por diante. O \textit{BFS}, a partir de um vértice \textit{v}, visita todos os vizinhos de \textit{v}, quando visitado todos os vizinhos de um vértice, os visinhos destes visinhos serão visitados \cite{Brassard:1988}.
+
+A Figura \ref{bfs} exemplifica o algoritmo da busca \textit{BFS}, onde as letras significam o estado da busca e a ordem de cada estado. Os vértices marcados como vermelho, representam que estes já foram visitados, os vértices marcados como azul representam que estes vértices serão os próximos a serem visitados.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{figuras/capitulo2/bfs.eps}
+	\caption{Percurso do BFS}
+	\label{bfs}
+\end{figure}
 
 \subsection{Caminhos Mais Curtos}
 
+Os algoritmos de menor caminho buscam obter um percurso mínimo entre dois ou mais vértices de um grafo \cite{Cormen:2001}. A seguir serão apresentados dois dos principais algoritmos de menor caminho.
+
 \subsubsection{Algoritmo de Dijkstra}
+
+No algoritmo de Dijkstra, escolhido um vértice como raiz da busca, este algoritmo calcula o custo mínimo deste vértice para todos os demais vértices do grafo \cite{Cormen:2001}.
+
+O algoritmo consiste em fazer uma visita por todos os vértices do grafo, a partir de um vértice raiz e encontrando sucessivamente o vértice mais próximo, até que todos os vértices do grafo tenham sido visitados \cite{Cormen:2001}.
+
+\subsubsection{Algoritmo de Floyd}
+
+Caso seja necessário saber o menor caminho entre todos os vértices do grafo, por exemplo, indicação das distâncias entre todas as cidades de um mapa, uma possível solução seria repetir o algoritmo de Dijkstra sucessivamente para todos os vértices do grafo. Porém, uma solução mais eficiente é conhecida como algoritmo de Floyd, que utiliza programação dinâmica. A idéia geral desse algoritmo é atualizar a matriz de menores distâncias \textit{n} vezes, onde \textit{n} é o número de vértices do grafo, procurando na \textit{K}-ésima interação por melhores distâncias entre pares de vértices que passem pelo vértice \textit{K} \cite{Sampaio:2005}.
 
 \subsection{Árvore Geradora Mínima}
 
