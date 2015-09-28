@@ -449,4 +449,21 @@ Este padrão oferece algumas vantagens e desvantagens que são apresentadas a se
 	\item \textbf{Suporte a novos tipos de produtos é difícil:} Como a interface do ``\textit{Abstract Factory}'' no início cria uma quantidade fixa de produtos para serem implementados, alterar isso fica difícil, pois é necessário mexer na classe principal e criar as subclasses concernentes.
 \end{itemize}
 
-\subsection{Software com Serviço}
+\subsection{Serviços}
+
+De uma maneira geral serviços são atividades providas e realizadas por uma máquina ou um humano. No desenvolvimento de software, serviços são considerados um bloco de construção reutilizável que oferece uma funcionalidade particular. A noção de reusabilidade apresentada lembra a reutilização antes comentada no conceito de componentes, e de fato essas duas abordagens estão próximas pois representam uma ideia de desenvolvimento comum, onde blocos de software são construídos para serem usados por atores diferentes e em outros locais \cite{Stojanovic:Dahanayake:2005}.
+
+Com o advento dos serviços surgiu um novo termo, a ``Orientação a serviços'', que ocorre quando alguns processos são modelados e construídos como unidades bem definidas e formam serviços, que depois são encapsulados em componentes de software para serem usados por outras aplicações dando a ideia de um sistema provedor (o sistema que provê o serviço) e um sistema consumidor (que consome os serviços prestados) \cite{Victorino:Brascher:2009}.
+
+Apesar das abordagens de orientação a serviços e e orientação a componentes serem bem similares, no livro \cite{Stojanovic:Dahanayake:2005} são apresentadas algumas diferenças entre as mesmas, que são:
+
+\begin{itemize}
+	\item O tempo de integração. Na orientação baseada em componentes a integração com a aplicação desenvolvida ocorre no momento da construção, enquanto na orientação a serviços a integração pode ocorrer antes ou durante a execução, pois apenas as descrições dos serviços estão disponíveis no momento da execução.
+	\item Nos serviços o foco é a descoberta, existe uma ênfase mais forte na separação entre a descrição do serviço e a implementação, e nos componentes é a composição, onde as partes são integradas diretamente na aplicação.
+	\item Serviços são mais voltados para tarefas dinâmicas, ao contrário dos componentes que são mais voltados para pontos estáticos, porém, esse comportamento pode ser feito também em componentes.
+	\item A orientação a componentes dá mais responsabilidade para o ambiente e execução da própria aplicação, os serviços não são necessariamente dessa forma, pois podem estar presentes em outras máquinas e servidores externos.
+\end{itemize}
+
+\subsubsection{Web Services}
+
+Os serviços são informatizados por tecnologias interoperáveis, que são capazes de se comunicar entre si, e isso independe da plataforma e linguagem de programação utilizadas. Dentre essas tefnologias os ``\textit{Web Services}'' (serviços web) se destacam. Esses serviços fornecem um modo padronizado de integrar aplicativos web, e assim, organizações podem se comunicar sem que uma tenha conhecimento abrangente dos sistemas da outra \cite{Victorino:Brascher:2009}.
