@@ -109,12 +109,12 @@ Um grafo é simples se não tem \textit{loops} ou arestas paralelas \cite{Dieste
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.25]{figuras/capitulo2/grafo_simples.eps}
+	\includegraphics[scale=0.2]{figuras/capitulo2/grafo_simples.eps}
 	\caption{Exemplo de grafo simples}
 	\label{grafo_simples}
 \end{figure}
 
-Certos tipos de grafos podem desempenhar papéis proeminentes na teoria dos grafos. Um grafo conexo é um grafo simples no qual quaisquer dois vértices são adjacentes, um grafo é vazio quando não há dois vértices adjacentes (isto é, o conjunto de arestas é vazio). Um grafo é bipartido se o seu conjunto de vértices pode ser particionado em dois subconjuntos \textit{X} e \textit{Y} para que cada aresta tem um fim em \textit{X} e um fim em \textit{Y}; uma tal partição (\textit{X}, \textit{Y}) é chamado uma bipartição do grafo, e \textit{X} e \textit{Y} suas partes. Pode-se denotar um grafo bipartido \textit{G} com bipartição (\textit{X}, \textit{Y}) por \textit{G}[\textit{X}, \textit{Y}]. Se \textit{G}[\textit{X}, \textit{Y}] é simples e todos os vértices de \textit{X} está associado a cada vértice em \textit{Y}, então \textit{G} é chamado de um grafo bipartido completo. Uma estrela é um grafo bipartido completo \textit{G}[\textit{X}, \textit{Y}] com |\textit{X}| = 1 ou |\textit{Y}| = 1 \cite{Diestel:1997}.  A Figura \ref{tipos_grafos} ilustra estes tipos de grafos, o grafo ``A'' é um grafo conexo, o grafo ``B'' é um grafo vazio e o grafo ``C'' é um grafo bipartido completo.
+Certos tipos de grafos podem desempenhar papéis proeminentes na teoria dos grafos. Um grafo conexo é um grafo simples no qual quaisquer dois vértices são ligados por um caminho, um grafo é vazio quando não há dois vértices adjacentes (isto é, o conjunto de arestas é vazio). Um grafo é bipartido se o seu conjunto de vértices pode ser particionado em dois subconjuntos \textit{X} e \textit{Y} para que cada aresta tem um fim em \textit{X} e um fim em \textit{Y}; uma tal partição (\textit{X}, \textit{Y}) é chamado uma bipartição do grafo, e \textit{X} e \textit{Y} suas partes. Pode-se denotar um grafo bipartido \textit{G} com bipartição (\textit{X}, \textit{Y}) por \textit{G}[\textit{X}, \textit{Y}]. Se \textit{G}[\textit{X}, \textit{Y}] é simples e todos os vértices de \textit{X} está associado a cada vértice em \textit{Y}, então \textit{G} é chamado de um grafo bipartido completo. Uma estrela é um grafo bipartido completo \textit{G}[\textit{X}, \textit{Y}] com |\textit{X}| = 1 ou |\textit{Y}| = 1 \cite{Diestel:1997}.  A Figura \ref{tipos_grafos} ilustra estes tipos de grafos, o grafo ``A'' é um grafo conexo, o grafo ``B'' é um grafo vazio e o grafo ``C'' é um grafo bipartido completo.
 
 \begin{figure}[!h]
 	\centering
@@ -133,6 +133,8 @@ Um caminho é um grafo simples cujos vértices podem ser dispostos em uma sequê
 \end{figure}
 
 Do mesmo modo, um ciclo é um grafo simples cujos vértices podem ser dispostos em uma sequência cíclica de tal maneira que dois vértices são adjacentes se forem consecutivos na sequência. O comprimento de um caminho ou de um ciclo é o número de suas arestas \cite{Costa:2011}. É possível observar na Figura \ref{ciclos} alguns exemplos de grafos com ciclo.
+
+\newpage
 
 \begin{figure}[!h]
 	\centering
@@ -236,6 +238,8 @@ A busca irá partir do vértice arbitrário \textit{v}, chamado de vértice raiz
 
 O vértice \textit{a} possui três arestas, que são: (\textit{a}, \textit{v}), (\textit{a}, \textit{b}) e (\textit{a}, \textit{d}). Como o vértice \textit{v} já foi visitado, a aresta a ser seguida será (\textit{a}, \textit{b}).
 
+\newpage
+
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.25]{figuras/capitulo2/dfs/dfs3.eps}
@@ -263,6 +267,8 @@ Ao alcançar \textit{c}, há duas possibilidades: (\textit{c}, \textit{v}) e (\t
 
 Em \textit{d} há dois caminhos a seguir: (\textit{d}, \textit{a}) e (\textit{d}, \textit{e}), porém a única aresta que leva a um vértice não visitado é (\textit{d}, \textit{e}), portanto esta deverá ser seguida.
 
+\newpage
+
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.25]{figuras/capitulo2/dfs/dfs6.eps}
@@ -279,24 +285,6 @@ Ao alcançar o vértice \textit{e}, todos os vértice foram visitados, portanto 
 	\label{dfs_percurso}
 \end{figure}
 
-O algoritmo para a busca em profundidade pode ser visualizado no algoritmo a seguir. Nele, \textit{prework} e \textit{postwork} dependem da aplicação do DFS, definindo as ações que devem ser tomadas, respectivamente, quando um vértice é marcado e quando é necessário voltar por uma aresta ou quando a aresta leva a um vértice já visitado \cite{Manber:1989}.
-
-\begin{lstlisting}[language=Ada]
-Algoritmo DFS(G,v):
-Entrada: G = (V,E), um grafo nao dirigido, e v pertece a V .
-Saida: depende da aplicacao.
-
-inicio
-	marque v;
-	execute prework em v;
-	para todas as arestas (v, w) faca
-		se w nao estiver marcado entao DFS(G,w);
-		execute postwork para (v, w);
-fim
-\end{lstlisting}
-
-Caso o grafo seja conexo, então todos os seus vértices serão marcados pelo algoritmo anterior, e todas as suas arestas serão visitadas pelo menos uma vez durante a execução do algoritmo \cite{Manber:1989}.
-
 \subsubsection{BFS}
 
 Enquanto que o \textit{DFS}, a partir de um vértice \textit{v}, tenta visitar algum vizinho de \textit{v}, em seguida, um vizinho deste vizinho, e assim por diante. O \textit{BFS}, a partir de um vértice \textit{v}, visita todos os vizinhos de \textit{v}, quando visitado todos os vizinhos de um vértice, os vizinhos destes vizinhos serão visitados \cite{Brassard:1988}.
@@ -305,7 +293,7 @@ A Figura \ref{bfs} exemplifica o algoritmo da busca \textit{BFS}, onde as letras
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.5]{figuras/capitulo2/bfs.eps}
+	\includegraphics[scale=0.3]{figuras/capitulo2/bfs.eps}
 	\caption{Percurso do BFS}
 	\label{bfs}
 \end{figure}
@@ -326,7 +314,17 @@ Caso seja necessário saber o menor caminho entre todos os vértices do grafo, p
 
 \subsection{Árvore Geradora Mínima}
 
-\subsection{Fluxo em Rede}
+Uma árvore geradora de um grafo G é uma árvore contendo todos os vértices de G e as arestas que são suficientes para transformar o grafo em uma árvore. Desse modo, uma árvore geradora de custo mínimo de um grafo G é um subgrafo conexo de G, uma árvore, contendo todos os vértices de G, de modo que a soma dos pesos das arestas no subgrafo seja mínima \cite{Rezende:2002}.
+
+Existem dois principais algoritmos para árvores geradoras mínimas \cite{Bondy:2007}:
+
+\subsubsection{Algoritmo de Prim}
+
+A partir um grafo, \textit{G}, não dirigido com pesos nas arestas. Escolhe-se um vértice \textit{v} qualquer de \textit{G}, em seguida é feito um corte em \textit{G}, ({\textit{v}}, \textit{G} $\backslash$ {\textit{v}}) com respeito a \textit{v}. Inicialmente tem-se \textit{T} = {\textit{v}}. A aresta de menor peso desse corte é escolhida, \textit{e}, e esta aresta é incluída em \textit{T} (\textit{T} = \textit{T} $\cup$ {\textit{e}}). até que todos os vértices tenham sido cobertos é feito um novo corte e a aresta de menor peso é incluída em T.
+
+\subsubsection{Algoritmo de Kruskal}
+
+Primeiro ordena-se as arestas de \textit{G}. Considera-se, então, cada vértice de \textit{G} como pertencendo a uma árvore em \textit{G}, ou seja, $\textit{v}_i \in \textit{T}_i , 1 \leq i \leq |\textit{V}|$. Verifica-se se a menor aresta de \textit{G} une dois vértices pertencentes a árvores diferentes. Se sim, as árvores são unidas e a operação é repetida. Se não, escolhe-se a próxima aresta da lista ordenada e a operação é repetida até que todas as subárvores de \textit{G} estejam unidas.
 
 \section{Reutilização de Software}
 
