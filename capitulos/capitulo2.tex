@@ -403,42 +403,53 @@ No livro de padrões de projeto \cite{Gamma:Helm:Johnson:Vlissides:1995} o autor
 
 \subsubsection{Por que usar Padrões de Projeto?}
 
-Os dois pontos que melhor justificam o uso de Padrões de Projeto são porque estes são soluções reutilizáveis e estabelecem uma terminologia comum de acordo com \cite{Shalloway:Trott:2004}. A seguir há uma breve descrição de cada um de acordo com os autores mencionados.
+Os dois pontos que melhor justificam o uso de Padrões de Projeto são brevemente descritos a seguir de acordo com \cite{Shalloway:Trott:2004}:
 
 \begin{itemize}
 	\item \textbf{Soluções Reutilizáveis:} O tempo gasto para aprender a utilizar determinado padrão vale a pena pela reutilização que é oferecida. Têm-se o benefício de aplicar o que foi aprendido para diversos projetos e depois de ter o conhecimento fixado não é necessário reinventar soluções para problmeas recorrentes, basta reutilizar o que os padrões oferecem.
 	\item \textbf{Terminologia Comum:} Quando se está em um grupo de trabalho é necessário uma base de vocabulário e pontos de visão do problema comuns. Os padrões de projeto providenciam um ponto comum de referência durante as fases de analise e design de um projeto.
+	\item \textbf{Perspectiva de alto nível do problema:} Os padrões dão aos desenvolvedores essa perspectiva e ajudam na análise e entendimento dos problemas facilitando a elaboração de uma melhor solução.
 \end{itemize}
-
-Além do que já foi citado, diz o autor que os padrões dão aos desenvolvedores uma perspectiva de alto nível do problema a ser resolvido, isso facilita o entendimento do problema e uma melhor elaboração de solução.
 
 Gamma ainda diz que os padrões podem ajudar na refatoração de projetos. Um das grandes dificuldades no desenvolvimento de software é que este tem de ser frequentemente reorganizado ou refatorado, os padrões de projeto ao oferecerem soluções comuns e já consolidadas podem reduzir a quantidade de refatoração que deverá ser feita mais tarde \cite{Gamma:Helm:Johnson:Vlissides:1995}.
 
-A figura \ref{ciclo de vida oo} representa o ciclo de vida de aplicações orientadas a objeto segundo \cite{Gamma:Helm:Johnson:Vlissides:1995}.
-
-\begin{figure}[!h]
-	\centering
-	\includegraphics[scale=0.5]{figuras/capitulo2/ciclo_de_vida_oo.eps}
-	\caption{Ciclo de vida de aplicações orientadas a objetos}
-	\label{ciclo de vida oo}
-\end{figure}
-
-A prototipação consiste da vida inicial do software que consiste de um conjunto inicial de requisitos. Normalmente nessa etapa são criadas as classes de domínio que representam as entidades principais do domínio inicial do problema.
-
-Após a etapa de prototipação entra-se na etapa de ``mais requisitos'' e começa-se uma expanção para atender esses novos requisitos, porém, esta fase deve ser pensada cautelosamente e não pode ser longa pois o software pode acabar se tornando muito inflexível, é aí que entra a etapa de ``reutilização'' que pode ser definida por um processo de refatoração onde busca-se separar componentes de finalidades genéricas visando alcançar partes retilizáveis para o sistema em desenvolvimento.
-
-Por fim, têm-se a etapa de consolidação onde se obtêm um software mais genérico e que atenda mais requisitos.
-
-Esse é um ciclo inevitável e quando se pensa desde o início em refatorações futuras que podem vir a ser necessárias busca-se a aplicação de padrões que podem evitar tais refatorações \cite{Gamma:Helm:Johnson:Vlissides:1995}.
-
 \subsubsection{Os Padrões de Projeto}
 
-No livro de Padrões de Projeto foram definidos e classificados 23 padrões essa classificação está feita de acordo com dois critérios: \textbf{finalidade} e \textbf{escopo}. O primeiro critério diz respeito ao que o padrão faz, a finalidade pode ser de criação, estrutural ou comportamental. Os padrões de finalidade de criação se preocupam com o processo de criação de objetos, os estruturais focam em composições, de classes ou objetos e os comportamentais caracterizam as maneiras que as classes ou objetos interagem e distribuem responsabilidades.
+Em \cite{Gamma:Helm:Johnson:Vlissides:1995} foram definidos e classificados 23 padrões essa classificação está feita de acordo com dois critérios: \textbf{finalidade} e \textbf{escopo}. O primeiro critério diz respeito ao que o padrão faz, a finalidade pode ser de criação, estrutural ou comportamental. Os padrões com finalidade de criação se preocupam com o processo de criação de objetos, os estruturais focam em composições de classes ou objetos e os comportamentais caracterizam as maneiras que as classes ou objetos interagem e distribuem responsabilidades.
 
-O segundo critério especifica se o padrão é de classe ou objeto. Os padrões de classes lidam com relacionamentos entre classes e suas subclasses, para isso usa-se relacionamentos de herança e os padrões de objetos são mais dinâmnicos pois lidam com relacionamentos entre objetos que podem ser mudados em tempo de execução.
+O segundo critério especifica se o padrão é de classe ou objeto. Os padrões de classes lidam com relacionamentos entre classes e suas subclasses, para isso usa-se relacionamentos de herança e os padrões de objetos são mais dinâmicos pois lidam com relacionamentos entre objetos que podem ser mudados em tempo de execução.
 
-A tabela \ref{divisao dos padroes} ilustra a divisão dos padrões entre finalidade e escopo \cite{Gamma:Helm:Johnson:Vlissides:1995}.
+A seguir têm-se uma breve descrição do padrão ``\textit{Abstract Factory}'' como foi definido em \cite{Gamma:Helm:Johnson:Vlissides:1995}.
 
-AINDA FALTA A TABELA.
+\subsubsection{Abstract Factory}
+
+Esse padrão fornece uma estrutura para criação de famílias de objetos relacionados sem a necessidade de definir suas classes concretas. A figura \ref{abstract factory} apresenta o modelo do ``\textit{Abstract Factory}''.
+
+\newpage
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.6]{figuras/capitulo2/abstract_factory.eps}
+	\caption{Modelo genérico do Abstract Factory}
+	\label{abstract factory}
+\end{figure}
+
+O modelo da figura apresenta 5 tipos de classes. ``\textit{Abstract Factory}'', ``\textit{Concrete Factory}'', ``\textit{Abstract Product}'', ``\textit{Product}'' e ``\textit{Client}''.
+
+\begin{itemize}
+	\item \textbf{\textit{Abstract Factory:}} Faz declarações de interfaces para criação de quaisquer produtos;
+	\item \textbf{\textit{Concrete Factory:}} Essas classes já estão focadas no tipo de produtos que vão criar e implementam os métodos abstrados para essa criação;
+	\item \textbf{\textit{Abstract Product:}} Classes abstradas que declaram interfaces para um determinado tipo de produto que deverá ser criado;
+	\item \textbf{\textit{Product:}} Classes que representam o próprio produto que deverá ser criado, são as classes que são chamadas pelos métodos de criação presentes nas ``\textit{Concrete Factory}'';
+	\item \textbf{\textit{Client:}} É a classe que representa quem irá fazer as chamadas aos métodos de criação, não é necessário que conheça de fato as classes concretas de produto, pois apenas faz uso das interfaces declaradas em ``\textit{Abstract Factory}'' e ``\textit{Abstract Product}'', a primeira para criar os produtos e a segunda para usá-los.
+\end{itemize}
+
+Este padrão oferece algumas vantagens e desvantagens que são apresentadas a seguir:
+
+\begin{itemize}
+	\item \textbf{Isolamento de classes concretas:} O cliente pode trabalhar com as criações dos produtos sem necessariamente conhecer as classes concretas que existem por traz, pois este trabalha apenas com as interfaces abstradas providas.
+	\item \textbf{Fácil troca de famílias de produtos:} Basta trocar qual é a classe concreta que deverá ser usada que todo o comportamento dos produtos irá se alterar de acordo com essa classe, isso pode facilmente ser feito no momento de instanciação da fábrica.
+	\item \textbf{Harmonia entre produtos:} Como o padrão permite aos clientes trabalharem apenas com uma família por vez, fica fácil alcançar harmonia, pois todos os produtos da família estão de alguma forma relacionados.
+	\item \textbf{Suporte a novos tipos de produtos é difícil:} Como a interface do ``\textit{Abstract Factory}'' no início cria uma quantidade fixa de produtos para serem implementados, alterar isso fica difícil, pois é necessário mexer na classe principal e criar as sub-classes concernentes.
+\end{itemize}
 
 \subsection{Software com Serviço}
