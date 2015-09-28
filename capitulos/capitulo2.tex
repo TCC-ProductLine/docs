@@ -297,6 +297,7 @@ fim
 
 Caso o grafo seja conexo, então todos os seus vértices serão marcados pelo algoritmo anterior, e todas as suas
 arestas serão visitadas pelo menos uma vez durante a execução do algoritmo \cite{Manber:1989}.
+
 \subsubsection{BFS}
 
 \subsection{Ordenação Topológica}
@@ -309,7 +310,15 @@ arestas serão visitadas pelo menos uma vez durante a execução do algoritmo \c
 
 \subsection{Fluxo em Rede}
 
-\section{Frameworks}
+\section{Reutilização de Software}
+
+A reutilização de software tem como objetivos aumentar a qualidade e produtividade no desenvolvimento, pois busca evitar duplicidade de código e do esforço aplicado para desenvolver determinadas tarefas e reaproveita o máximo possível experiências passadas \cite{Lucredio:2009}.
+
+Todas as formas de reutilização de software usam algum tipo de abstração.  Essa é uma característica importante presente nas técnicas de reutilização, pois facilita aos desenvolvedores o uso. Sem abstrações os desenvolvedores deveriam analizar todos os artefatos reutilizáveis buscando entender como cada um funciona e como e quando devem ser utilizados \cite{Krueger:1992}.
+
+Os próximos sub-tópicos irão apresentar temas deste trabalho que estão diretamente relacionados a reutilização de software.
+
+\subsection{Frameworks}
 
 Frameworks compartilham técnicas de reutilização em geral e são considerados uma importante parte da cultura de desenvolvimento no mundo da orientação a objetos \cite{Johnson:1997}.
 
@@ -325,7 +334,7 @@ Fayad e Schimidt em seu artigo \cite{Fayad:Schimidt:1997} sobre frameworks de ap
 	\item \textbf{Inversão de controle:} A inversão de controle ocorre devido a forma como serão processados e entendidos muitos dos eventos de uma aplicação, que ficam invisíveis ao desenvolvedor quando este usa um framework, pois é o próprio framework quem decide o conjunto de métodos que será invocado para realizar uma determinada tarefa da aplicação.
 \end{itemize}
 
-\subsection{Frameworks e Reutilização de Software}
+\subsubsection{Frameworks e Reutilização de Software}
 
 A tecnologia de reutilização ideal provê componentes que podem facilmente ser conectados para criar um novo sistema. Não é necessário ao desenvolvedor ter conhecimento de como o componente é implementado e geralmente é fácil para ele aprender como o utilizar. O resultado é que o sistema será eficiente, fácil de manter e confiável \cite{Johnson:1997}.
 
@@ -343,7 +352,7 @@ Na Engenharia de Software busca-se cada vez mais o aumento da produtividade e da
 
 Além de ganhos na produtividade e na qualidade a reutilização advinda dos frameworks pode trazer ganhos de desempenho, confiabilidade e interoperabilidade de software \cite{Fayad:Schimidt:1997}.
 
-\subsection{Frameworks e Padrões}
+\subsubsection{Frameworks e Padrões}
 
 Padrões representam soluções recorrentes para problemas no desenvolvimento de software em um contexto específico. Tanto os padrões como os frameworks são técnicas de reutilização, a grande diferença é que os frameworks 	se concentram na reutilização de estruturas, algoritmos e implementações em uma dada linguagem de programação, já os padrões focam em apresentar desenhos abstratos de como resolver problemas, são como microarquiteturas de software \cite{Fayad:Schimidt:1997}.
 
@@ -353,7 +362,7 @@ Quando um framework é implementado diversas vezes este também pode ser conside
 
 Quando usados em conjunto com padrões os frameworks podem aumentar significativamente a qualidade do software e reduzir o esforço de desenvolvimento \cite{Fayad:Schimidt:1997}.
 
-\section{Padrões de Projeto}
+\subsection{Padrões de Projeto}
 
 Os padrões de Projeto são parte da vanguarda da tecnologia orientada a objetos e este tema tem estado em constante crescimento no decorrer dos tempos. A proposição por trás dos padrões é que a qualidade do software pode ser medida objetivamente, isso considera que ao se analisar o design de um padrão este pode ser considerado bom ou ruim, e assim resultando em uma boa ou má qualidade \cite{Shalloway:Trott:2004}.
 
@@ -374,7 +383,7 @@ No livro de padrões de projeto \cite{Gamma:Helm:Johnson:Vlissides:1995} o autor
 	\item \textbf{Consequências:} As consequências apresentam uma série de resultados concernentes da aplicação do padrão, devem ser apresentadas vantagens e desvantagens. São elementos críticos que entram na decisam da aplicação ou não do padrão que está em questão.
 \end{itemize}
 
-\subsection{Por que usar Padrões de Projeto?}
+\subsubsection{Por que usar Padrões de Projeto?}
 
 Os dois pontos que melhor justificam o uso de Padrões de Projeto são porque estes são soluções reutilizáveis e estabelecem uma terminologia comum de acordo com \cite{Shalloway:Trott:2004}. A seguir há uma breve descrição de cada um de acordo com os autores mencionados.
 
@@ -404,7 +413,7 @@ Por fim, têm-se a etapa de consolidação onde se obtêm um software mais gené
 
 Esse é um ciclo inevitável e quando se pensa desde o início em refatorações futuras que podem vir a ser necessárias busca-se a aplicação de padrões que podem evitar tais refatorações \cite{Gamma:Helm:Johnson:Vlissides:1995}.
 
-\subsection{Os Padrões de Projeto}
+\subsubsection{Os Padrões de Projeto}
 
 No livro de Padrões de Projeto foram definidos e classificados 23 padrões essa classificação está feita de acordo com dois critérios: \textbf{finalidade} e \textbf{escopo}. O primeiro critério diz respeito ao que o padrão faz, a finalidade pode ser de criação, estrutural ou comportamental. Os padrões de finalidade de criação se preocupam com o processo de criação de objetos, os estruturais focam em composições, de classes ou objetos e os comportamentais caracterizam as maneiras que as classes ou objetos interagem e distribuem responsabilidades.
 
@@ -414,4 +423,4 @@ A tabela \ref{divisao dos padroes} ilustra a divisão dos padrões entre finalid
 
 AINDA FALTA A TABELA.
 
-\section{Software com Serviço}
+\subsection{Software com Serviço}
