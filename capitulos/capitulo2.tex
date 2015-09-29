@@ -29,7 +29,7 @@ O conhecimento que a rede possui repercute sobre o meio que esta se encontra, po
 
 A interação constante ocasiona mudanças estruturais e, em relação às interações em que a troca é a informação, a mudança estrutural que pode ser percebida é a do conhecimento, quanto mais informação trocamos com o ambiente que nos cerca, com os atores da nossa rede, maior será nossa bagagem de conhecimento, maior será nosso estoque de informação, e é nesse poliedro de significados que inserimos as redes sociais \cite{Tomae:Alcara:Chiara:2005}.
 
-Milgram, em sua tese \cite{Milgram:1967} defende que qualquer pessoa está distantes de qualquer outra pessoa do mundo, a no máximo seis graus de separação. Essa tese ficou conhecida como ``mundo pequeno'' e ``teoria dos seis degraus''. Sua pesquisa demonstra que a rede social constitui importante recurso profissional e pessoal. Estar em contato com pessoas que conheçam uma pessoa-alvo, em razão de um interesse específico, já é um passo além para a conquista de um objetivo.
+Milgram, em sua tese \cite{Milgram:1967} defende que qualquer pessoa está distante de qualquer outra pessoa do mundo, a no máximo seis graus de separação. Essa tese ficou conhecida como ``mundo pequeno'' e ``teoria dos seis degraus''. Sua pesquisa demonstra que a rede social constitui importante recurso profissional e pessoal. Estar em contato com pessoas que conheçam uma pessoa-alvo, em razão de um interesse específico, já é um passo além para a conquista de um objetivo.
 
 \section{Teoria dos Grafos}
 
@@ -92,7 +92,7 @@ Grafos são assim chamados porque eles podem ser representada graficamente, e é
 	\label{exemplo_grafo}
 \end{figure}
 
-A maioria das definições e conceitos na teoria dos grafos são sugeridas por esta representação gráfica. As extremidades de uma aresta são referidos como sendo incidente com a aresta, e vice-versa. Dois vértices que são incidente com uma aresta em comum são chamados de adjacentes e dois vértices adjacentes distintos são chamados de vizinhos \cite{Costa:2011}.
+A maioria das definições e conceitos na teoria dos grafos são sugeridas por esta representação gráfica. As extremidades de uma aresta são referidos como sendo incidente com a aresta, e vice-versa. Dois vértices que são incidentes com uma aresta em comum são chamados de adjacentes e dois vértices adjacentes distintos são chamados de vizinhos \cite{Costa:2011}.
 
 Uma aresta com extremidades idênticas é chamado um \textit{loop}, e uma aresta com extremidades distintas é um \textit{link}. Dois ou mais \textit{links} com o mesmo par de extremidades são referidos como sendo arestas paralelas \cite{Bondy:2007}. Na Figura \ref{loop_paralela} é possível observar a aresta ``a'' como uma aresta do tipo \textit{loop}, as arestas ``b'' e ``e'' como arestas do tipo \textit{link} e as aresta ``c'' e ``d'' como sendo arestas paralelas.
 
@@ -114,7 +114,7 @@ Um grafo é simples se não tem \textit{loops} ou arestas paralelas \cite{Dieste
 	\label{grafo_simples}
 \end{figure}
 
-Certos tipos de grafos podem desempenhar papéis proeminentes na teoria dos grafos. Um grafo conexo é um grafo simples no qual quaisquer dois vértices são ligados por um caminho, um grafo é vazio quando não há dois vértices adjacentes (isto é, o conjunto de arestas é vazio). Um grafo é bipartido se o seu conjunto de vértices pode ser particionado em dois subconjuntos \textit{X} e \textit{Y} para que cada aresta tem um fim em \textit{X} e um fim em \textit{Y}; uma tal partição (\textit{X}, \textit{Y}) é chamado uma bipartição do grafo, e \textit{X} e \textit{Y} suas partes. Pode-se denotar um grafo bipartido \textit{G} com bipartição (\textit{X}, \textit{Y}) por \textit{G}[\textit{X}, \textit{Y}]. Se \textit{G}[\textit{X}, \textit{Y}] é simples e todos os vértices de \textit{X} está associado a cada vértice em \textit{Y}, então \textit{G} é chamado de um grafo bipartido completo. Uma estrela é um grafo bipartido completo \textit{G}[\textit{X}, \textit{Y}] com |\textit{X}| = 1 ou |\textit{Y}| = 1 \cite{Diestel:1997}.  A Figura \ref{tipos_grafos} ilustra estes tipos de grafos, o grafo ``A'' é um grafo conexo, o grafo ``B'' é um grafo vazio e o grafo ``C'' é um grafo bipartido completo.
+Certos tipos de grafos podem desempenhar papéis proeminentes na teoria dos grafos. Um grafo conexo é um grafo simples no qual quaisquer dois vértices são ligados por um caminho, um grafo é vazio quando não há dois vértices adjacentes (isto é, o conjunto de arestas é vazio). Um grafo é bipartido se o seu conjunto de vértices pode ser particionado em dois subconjuntos \textit{X} e \textit{Y} para que cada aresta tem um fim em \textit{X} e um fim em \textit{Y}; uma tal partição (\textit{X}, \textit{Y}) é chamada uma bipartição do grafo, e \textit{X} e \textit{Y} suas partes. Pode-se denotar um grafo bipartido \textit{G} com bipartição (\textit{X}, \textit{Y}) por \textit{G}[\textit{X}, \textit{Y}]. Se \textit{G}[\textit{X}, \textit{Y}] é simples e todos os vértices de \textit{X} estão associados a cada vértice em \textit{Y}, então \textit{G} é chamado de um grafo bipartido completo. Uma estrela é um grafo bipartido completo \textit{G}[\textit{X}, \textit{Y}] com |\textit{X}| = 1 ou |\textit{Y}| = 1 \cite{Diestel:1997}.  A Figura \ref{tipos_grafos} ilustra estes tipos de grafos, o grafo ``A'' é um grafo conexo, o grafo ``B'' é um grafo vazio e o grafo ``C'' é um grafo bipartido completo.
 
 \begin{figure}[!h]
 	\centering
@@ -133,8 +133,6 @@ Um caminho é um grafo simples cujos vértices podem ser dispostos em uma sequê
 \end{figure}
 
 Do mesmo modo, um ciclo é um grafo simples cujos vértices podem ser dispostos em uma sequência cíclica de tal maneira que dois vértices são adjacentes se forem consecutivos na sequência. O comprimento de um caminho ou de um ciclo é o número de suas arestas \cite{Costa:2011}. É possível observar na Figura \ref{ciclos} alguns exemplos de grafos com ciclo.
-
-\newpage
 
 \begin{figure}[!h]
 	\centering
@@ -156,11 +154,13 @@ O grau de um vértice \textit{v} em um grafo \textit{G}, designado por \textit{d
 
 \subsection{Representação de Grafos}
 
-Embora desenhos são um meio conveniente de especificação de grafos, eles claramente não são adequado para armazenar grafos em computadores, ou para a aplicação de métodos matemáticos para estudar suas propriedades. Para estes fins, são consideradas duas matrizes associados com um grafo, uma matriz de incidência e uma matriz de adjacência \cite{Bondy:2007}.
+Embora desenhos são um meio conveniente de especificação de grafos, eles claramente não são adequados para armazenar grafos em computadores, ou para a aplicação de métodos matemáticos para estudar suas propriedades. Para estes fins, são consideradas duas matrizes associados com um grafo, uma matriz de incidência e uma matriz de adjacência \cite{Bondy:2007}.
 
 Seja \textit{G} um grafo, com conjunto de vértices \textit{V} e conjunto de arestas \textit{E}. A matriz de incidência de \textit{G} é a matriz $M_G:= (m_{ve})$, com dimensões \textit{n$\times$m}, onde $m_{ve}$ é o número de vezes (0, 1, ou 2) que o vértice \textit{v} e aresta \textit{e} estão conectados \cite{Bondy:2007}.
 
 A matriz de adjacência de \textit{G} é a matriz $A_G := (a_{uv})$, com dimensões \textit{n$\times$n}, em que $a_{uv}$ é o número de arestas que unem os vértices \textit{u} e \textit{v}, onde cada \textit{loop} conta como duas arestas. É possível verificar que a quantidade de memória necessária para essa representação é $\Theta(|\textit{V}|^2)$ \cite{Bondy:2007}. A Figura \ref{matriz} ilustra um grafo \textit{G} representado na matriz de incidência \textit{M} e na matriz de adjacência \textit{A}.
+
+\newpage
 
 \begin{figure}[!h]
 	\centering
@@ -169,7 +169,7 @@ A matriz de adjacência de \textit{G} é a matriz $A_G := (a_{uv})$, com dimens�
 	\label{matriz}
 \end{figure}
 
-Pela maioria dos grafos possuírem um número bem maior de arestas do que os vértices, a matriz de adjacência de um grafo geralmente é menor do que a sua matriz de incidência e, assim, necessita de menos espaço de armazenamento. Ao lidar com grafos simples, uma representação ainda mais compacto é possível. Para cada vértice \textit{v}, os vizinhos de \textit{v} são armazenados em uma lista. A lista (\textit{N}(\textit{v}): \textit{v $\in$ V}) é chamada de lista de adjacência do grafo, onde \textit{N}(\textit{v}) representa a os vizinhos do vértice \textit{v}, um exemplo pode ser observado na Figura \ref{lista_adjacencia}. A quantidade de memória necessária para uma lista de adjacências é $\Theta(|\textit{V}| + |\textit{E}|)$. Grafos simples são normalmente armazenados em computadores como listas de adjacência \cite{Costa:2011}.
+Pela maioria dos grafos possuírem um número bem maior de arestas do que os vértices, a matriz de adjacência de um grafo geralmente é menor do que a sua matriz de incidência e, assim, necessita de menos espaço de armazenamento. Ao lidar com grafos simples, uma representação ainda mais compacto é possível. Para cada vértice \textit{v}, os vizinhos de \textit{v} são armazenados em uma lista. A lista (\textit{N}(\textit{v}): \textit{v $\in$ V}) é chamada de lista de adjacência do grafo, onde \textit{N}(\textit{v}) representa os vizinhos do vértice \textit{v}, um exemplo pode ser observado na Figura \ref{lista_adjacencia}. A quantidade de memória necessária para uma lista de adjacências é $\Theta(|\textit{V}| + |\textit{E}|)$. Grafos simples são normalmente armazenados em computadores como listas de adjacência \cite{Costa:2011}.
 
 \begin{figure}[!h]
 	\centering
@@ -178,7 +178,7 @@ Pela maioria dos grafos possuírem um número bem maior de arestas do que os vé
 	\label{lista_adjacencia}
 \end{figure}
 
-Embora muitos problemas possuem formulação na da teoria dos grafos, o conceito de um grafo, por vezes, não é suficientemente adequado. Ao lidar com problemas de fluxo de tráfego, por exemplo, é necessário saber quais estradas são de sentido único e em quais é permitido o tráfego nos dois sentidos. Para contextualizar esse problema é preciso um grafo em que cada ligação tem uma orientação atribuída, ou seja, um grafo dirigido \cite{Bondy:2007}. Um exemplo de grafo dirigido pode ser observado na Figura \ref{dirigido}.
+Embora muitos problemas possuam formulação na da teoria dos grafos, o conceito de um grafo, por vezes, não é suficientemente adequado. Ao lidar com problemas de fluxo de tráfego, por exemplo, é necessário saber quais estradas são de sentido único e em quais é permitido o tráfego nos dois sentidos. Para contextualizar esse problema é preciso um grafo em que cada ligação tem uma orientação atribuída, ou seja, um grafo dirigido \cite{Bondy:2007}. Um exemplo de grafo dirigido pode ser observado na Figura \ref{dirigido}.
 
 \begin{figure}[!h]
 	\centering
@@ -191,7 +191,7 @@ Formalmente, um grafo dirigido \textit{D} é um par ordenado \textit{(V(D), E(A)
 
 \subsection{Árvores e Florestas}
 
-Um grafo acíclico é aquele que não contém ciclos. Um grafo acíclico conectado é chamado de uma árvore. As árvores com seis vértices estão apresentados na Figura \ref{arvores_seis_vertices}. De acordo com estas definições, cada componente de um gráfico acíclico é uma árvore. Por esta razão, gráficos acíclicos são geralmente chamados florestas \cite{Bondy:2007}.
+Um grafo acíclico é aquele que não contém ciclos. Um grafo acíclico conectado é chamado de uma árvore. As árvores com seis vértices estão apresentados na Figura \ref{arvores_seis_vertices}. De acordo com estas definições, cada componente de um grafo acíclico é uma árvore. Por esta razão, grafos acíclicos são geralmente chamados florestas \cite{Bondy:2007}.
 
 \begin{figure}[!h]
 	\centering
@@ -218,7 +218,7 @@ Uma árvore com raiz \textit{T}(\textit{x}) é uma árvore \textit{T} com um vé
 A busca em grafos refere-se ao método de explorar o grafo, ou seja, obter um método sistemático para percorrer seus vértices e arestas. Para isto, há dois principais algoritmos, busca em profundidade (\textit{DFS - Depth First Search}) e busca em largura (\textit{BFS - Breadth First Search}). Em ambos os casos parte-se de um vértice qualquer.
 
 \subsubsection{DFS}
-A ideia por trás do \textit{DFS} é alcançar ``mais fundo'' no grafo quando possível. A ordem em que os vértices são visitados depende da ordem em que os vizinhos de cada vértice aparecem na lista de adjacência \cite{Cormen:2001}. Considere as figuras a seguir para a exemplificação do DFS.
+A ideia por trás do \textit{DFS} é alcançar ``mais fundo'' no grafo quanto possível. A ordem em que os vértices são visitados depende da ordem em que os vizinhos de cada vértice aparecem na lista de adjacência \cite{Cormen:2001}. Considere as figuras a seguir para a exemplificação do DFS.
 
 \begin{figure}[!h]
 	\centering
@@ -238,8 +238,6 @@ A busca irá partir do vértice arbitrário \textit{v}, chamado de vértice raiz
 
 O vértice \textit{a} possui três arestas, que são: (\textit{a}, \textit{v}), (\textit{a}, \textit{b}) e (\textit{a}, \textit{d}). Como o vértice \textit{v} já foi visitado, a aresta a ser seguida será (\textit{a}, \textit{b}).
 
-\newpage
-
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.25]{figuras/capitulo2/dfs/dfs3.eps}
@@ -248,6 +246,8 @@ O vértice \textit{a} possui três arestas, que são: (\textit{a}, \textit{v}), 
 \end{figure}
 
 A partir de \textit{b} é possível escolher as seguintes arestas: (\textit{b}, \textit{v}), (\textit{b}, \textit{a}) e (\textit{b}, \textit{c}), porém como os vértices \textit{v} e \textit{a} já foram visitados, a opção restante será a aresta (\textit{b}, \textit{c}).
+
+\newpage
 
 \begin{figure}[!h]
 	\centering
@@ -267,8 +267,6 @@ Ao alcançar \textit{c}, há duas possibilidades: (\textit{c}, \textit{v}) e (\t
 
 Em \textit{d} há dois caminhos a seguir: (\textit{d}, \textit{a}) e (\textit{d}, \textit{e}), porém a única aresta que leva a um vértice não visitado é (\textit{d}, \textit{e}), portanto esta deverá ser seguida.
 
-\newpage
-
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.25]{figuras/capitulo2/dfs/dfs6.eps}
@@ -276,7 +274,7 @@ Em \textit{d} há dois caminhos a seguir: (\textit{d}, \textit{a}) e (\textit{d}
 	\label{dfs6}
 \end{figure}
 
-Ao alcançar o vértice \textit{e}, todos os vértice foram visitados, portanto o percurso realizado pelo \textit{DFS} pode ser observado na Figura \ref{dfs_percurso}, e que é uma árvore.
+Ao alcançar o vértice \textit{e}, não existem vértices não visitados, mesmo na volta no caminho, portanto o percurso realizado pelo \textit{DFS} pode ser observado na Figura \ref{dfs_percurso}, e que é uma árvore.
 
 \begin{figure}[!h]
 	\centering
@@ -287,7 +285,7 @@ Ao alcançar o vértice \textit{e}, todos os vértice foram visitados, portanto 
 
 \subsubsection{BFS}
 
-Enquanto que o \textit{DFS}, a partir de um vértice \textit{v}, tenta visitar algum vizinho de \textit{v}, em seguida, um vizinho deste vizinho, e assim por diante. O \textit{BFS}, a partir de um vértice \textit{v}, visita todos os vizinhos de \textit{v}, quando visitado todos os vizinhos de um vértice, os vizinhos destes vizinhos serão visitados \cite{Brassard:1988}.
+Enquanto que o \textit{DFS}, a partir de um vértice \textit{v}, tenta visitar algum vizinho deste, em seguida, um vizinho deste vizinho, e assim por diante. O \textit{BFS}, a partir de um vértice \textit{v}, visita todos os vizinhos de \textit{v}, quando visitado todos os vizinhos de um vértice, os vizinhos destes vizinhos serão visitados \cite{Brassard:1988}.
 
 A Figura \ref{bfs} exemplifica o algoritmo da busca \textit{BFS}, onde as letras significam o estado da busca e a ordem de cada estado. Os vértices marcados como vermelho, representam que estes já foram visitados, os vértices marcados como azul representam que estes vértices serão os próximos a serem visitados.
 
@@ -320,7 +318,7 @@ Existem dois principais algoritmos para árvores geradoras mínimas \cite{Bondy:
 
 \subsubsection{Algoritmo de Prim}
 
-A partir um grafo, \textit{G}, não dirigido com pesos nas arestas. Escolhe-se um vértice \textit{v} qualquer de \textit{G}, em seguida é feito um corte em \textit{G}, ({\textit{v}}, \textit{G} $\backslash$ {\textit{v}}) com respeito a \textit{v}. Inicialmente tem-se \textit{T} = {\textit{v}}. A aresta de menor peso desse corte é escolhida, \textit{e}, e esta aresta é incluída em \textit{T} (\textit{T} = \textit{T} $\cup$ {\textit{e}}). até que todos os vértices tenham sido cobertos é feito um novo corte e a aresta de menor peso é incluída em T.
+A partir de um grafo \textit{G}, não dirigido e com pesos nas arestas. Escolhe-se um vértice \textit{v} qualquer de \textit{G}, em seguida é feito um corte em \textit{G}, ({\textit{v}}, \textit{G} $\backslash$ {\textit{v}}) com respeito a \textit{v}. Inicialmente tem-se \textit{T} = {\textit{v}}. A aresta de menor peso desse corte \textit{e} é escolhida, e esta aresta é incluída em \textit{T} (\textit{T} = \textit{T} $\cup$ {\textit{e}}) até que todos os vértices tenham sido cobertos é feito um novo corte e a aresta de menor peso é incluída em T.
 
 \subsubsection{Algoritmo de Kruskal}
 
@@ -328,27 +326,25 @@ Primeiro ordena-se as arestas de \textit{G}. Considera-se, então, cada vértice
 
 \subsection{Programação Dinâmica}
 
-Muitas vezes é possível dividir uma problema em sub-problemas, combinando as soluções dos sub-problemas de modo a resolver a problema original. Às vezes a maneira natural de dividir uma problema sugerido pela sua estrutura pode levar a várias sub-problemas sobrepostos. Caso se tente resolver todos os sub-problemas idênticos sem se atentar a essa duplicação, é provável que o algoritmo da solução se torne exponencial. Se, por outro lado, pode-se conseguir proveito da duplicação e resolver cada sub-problema apenas uma vez, conservando a solução para utilização posterior, neste caso o algoritmo utilizado terá um resultado polinomial. A idéia subjacente de programação dinâmica é, portanto, bastante simples: evitar cálculos repetidos, geralmente se mantem uma tabela de resultados conhecidos \cite{Aho:1983}.
+Muitas vezes é possível dividir uma problema em sub-problemas, combinando as soluções dos sub-problemas de modo a resolver a problema original. Às vezes a maneira natural de dividir um problema sugerido pela sua estrutura pode levar a vários sub-problemas sobrepostos. Caso se tente resolver todos os sub-problemas idênticos sem se atentar a essa duplicação, é provável que o algoritmo da solução se torne exponencial. Se, por outro lado, pode-se conseguir proveito da duplicação e resolver cada sub-problema apenas uma vez, conservando a solução para utilização posterior, neste caso o algoritmo utilizado terá um resultado polinomial. A idéia subjacente de programação dinâmica é, portanto, bastante simples: evitar cálculos repetidos, geralmente se mantém uma tabela de resultados conhecidos \cite{Aho:1983}.
 
 Existem duas principais dificuldades com a aplicação desta técnica. Em primeiro lugar, podem nem sempre ser possível combinar as soluções dos dois problemas para formar a solução de um maior. Em segundo lugar, pode haver um número inaceitavel de pequenos problemas a se resolver \cite{Sedgewick:2011}.
 
 \subsubsection{Top-Down x Buttom-Up}
 
-A forma como a tabela na abordagem \textit{bottom-up} é preenchida não é tão intuitiva como a abordagem \textit{top-down}, pois requer algumas ``reversões'' dos sinais na recorrência. No entanto, alguns programadores sentem que a abordagem \textit{bottom-up} é mais intuitiva. A seguir é apresentada uma comparação entre as duas abordagens da programação dinâmica na tabela \ref{top-down_buttom-up} \cite{Halim:2013}:
+A forma como a tabela na abordagem \textit{bottom-up} é preenchida não é tão intuitiva como a abordagem \textit{top-down}, pois requer algumas ``reversões'' dos sinais na recorrência. No entanto, alguns programadores sentem que a abordagem \textit{bottom-up} é mais intuitiva. A seguir é apresentada uma comparação entre as duas abordagens da programação dinâmica na tabela \ref{top-down_buttom-up} \cite{Halim:Halim:2013}:
 
-\begin{minipage}{\linewidth}
-\captionof{table}{Top-Down x Buttom-Up}
-\begin{tabular}{p{7cm}p{7cm}} \toprule
-    {Top-Down} & {Buttom-Up} \\ \toprule
-    {Pró:} & {Pró:} \\
-    {1. É uma transformação natural da busca completa recursiva.} & {1. Mais rápido se muitos sub-problemas são revisitados, pois não há sobrecarga de chamadas recursivas.} \\
-    {2. Computa os sub-problemas somente quando necessário (às vezes isso é mais rápido).} & {2. Pode economizar espaço de memória com a técnica \textit{on-the-fly}.} \\ \midrule
-    {Contra:} & {Contra:} \\
-    {1. Mais lento se muitos sub-problemas são revisitados, devido à sobrecarga de chamadas recursivas.} & {1. Para programadores familiarizados com recursão, pode não ser intuitivo.} \\
-    {2. Se existem \textit{M} estados, tamanho da tabela pode ser de até $\Theta$(\textit{M}).} & {Se existem \textit{M} estados, todos os estados serão visitos e os valores de todos esses estados serão preenchidos.} \\ \bottomrule
-    \label{top-down_buttom-up}
-\end{tabular}
-\end{minipage}
+\begin{table}[h]
+	\centering
+	\caption{Top-Down x Buttom-Up}
+	\label{top-down_buttom-up}
+	\begin{tabular}{l|l|l|}
+	\cline{2-3}
+	                                       & \textbf{Top-Down}                                                                                                                                                                                                              & \textbf{Bottom-Up}                                                                                                                                                                                                               \\ \hline
+	\multicolumn{1}{|l|}{\textbf{Prós}}    & \begin{tabular}[c]{@{}l@{}}1. É uma transformação natural da\\ busca completa recursiva.\\ \\ \\ 2. Computa os sub-problemas somente\\ quando necessário (às vezes isso é mais\\ rápido).\end{tabular}                         & \begin{tabular}[c]{@{}l@{}}1. Mais rápido se muitos sub-problemas\\ são revisitados, pois não há sobrecarga\\ de chamadas recursivas.\\ \\ 2.Pode economizar espaço de memória\\ com a técnica \textit{on-the-fly}.\end{tabular} \\ \hline
+	\multicolumn{1}{|l|}{\textbf{Contras}} & \begin{tabular}[c]{@{}l@{}}1. Mais lento se muitos sub-problemas\\ são revisitados, devido à sobrecarga de\\ chamadas recursivas.\\ \\ 2. Se existem M estados, tamanho da\\ tabela pode ser de até $\theta$(M ).\end{tabular} & \begin{tabular}[c]{@{}l@{}}1. Para programadores familiarizados\\ com recursão, pode não ser intuitivo.\\ \\ 2. Se existem M estados, todos serão\\ serão visitados e os valores serão\\ preenchidos.\end{tabular}               \\ \hline
+	\end{tabular}
+\end{table}
 
 \section{Reutilização de Software}
 
@@ -367,9 +363,9 @@ Fayad e Schimidt em seu artigo \cite{Fayad:Schimidt:1997} sobre frameworks de ap
 \begin{itemize}
 	\item \textbf{Modularização:} Frameworks encapsulam e interfaceiam alguns detalhes de implementação, isso reduz o esforço necessário para entender e manter partes do software existente, pois basta ao desenvolvedor usar o que lhe é oferecido sem necessariamente entender qual a implementação do framework.
 
-	\item \textbf{Reutilização:} As interfaces providas por frameworks ajudam também na reutilização através da definição de componentes genéricos, que podem ser aplicadas em outras aplicações. Dessa forma, soluções comuns para sistemas diferentes podem ser usadas da mesma forma sem a necessidade de recriação das mesmas. Entende-se então, que estas soluções são pensadas uma única vez e ao estarem presentes em um framework basta que sejam usadas.
+	\item \textbf{Reutilização:} As interfaces providas por frameworks ajudam também na reutilização através da definição de componentes genéricos, que podem ser aplicadas em outras aplicações. Assim sendo, soluções comuns para sistemas diferentes podem ser usadas da mesma forma sem a necessidade de recriação das mesmas. Entende-se então, que estas soluções são pensadas uma única vez e ao estarem presentes em um framework basta que sejam usadas.
 
-	\item \textbf{Extensibilidade:} Este é um dos principais pontos positivos dos frameworks, pois os frameworks fornecem métodos e interfaces estáveis que outras aplicações irão utilizar, e essas aplicações devem poder usar esses métodos visando resolver problemas parecidos em diferentes contextos. Uma boa estrutura de extensibilidade é essencial para garantir a customização de novos serviços e funcionalidades das aplicações.
+	\item \textbf{Extensibilidade:} Este é um dos principais pontos positivos dos frameworks, pois estes fornecem métodos e interfaces estáveis que outras aplicações irão utilizar, e essas aplicações devem poder usar esses métodos visando resolver problemas parecidos em diferentes contextos. Uma boa estrutura de extensibilidade é essencial para garantir a customização de novos serviços e funcionalidades das aplicações.
 
 	\item \textbf{Inversão de controle:} A inversão de controle ocorre devido a forma como serão processados e entendidos muitos dos eventos de uma aplicação, que ficam invisíveis ao desenvolvedor quando este usa um framework, pois é o próprio framework quem decide o conjunto de métodos que será invocado para realizar uma determinada tarefa da aplicação.
 \end{itemize}
@@ -447,7 +443,9 @@ A seguir têm-se uma breve descrição do padrão ``\textit{Abstract Factory}'' 
 
 Esse padrão fornece uma estrutura para criação de famílias de objetos relacionados sem a necessidade de definir suas classes concretas. A figura \ref{abstract factory} apresenta o modelo do ``\textit{Abstract Factory}''.
 
-\begin{figure}
+\newpage
+
+\begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.5]{figuras/capitulo2/abstract_factory.eps}
 	\caption{Modelo genérico do Abstract Factory}
@@ -468,7 +466,7 @@ Este padrão oferece algumas vantagens e desvantagens que são apresentadas a se
 
 \begin{itemize}
 	\item \textbf{Isolamento de classes concretas:} O cliente pode trabalhar com as criações dos produtos sem necessariamente conhecer as classes concretas que existem por traz, pois este trabalha apenas com as interfaces abstratas providas.
-	\item \textbf{Fácil troca de famílias de produtos:} Basta trocar qual é a classe concreta que deverá ser usada que todo o comportamento dos produtos irá se alterar de acordo com essa classe, isso pode facilmente ser feito no momento de instanciação da fábrica.
+	\item \textbf{Fácil troca de famílias de produtos:} Basta trocar qual é a classe concreta que deverá ser usada que todo o comportamento dos produtos irá se alterar de acordo com essa classe, isso pode ser feito facilmente no momento de instanciação da fábrica.
 	\item \textbf{Harmonia entre produtos:} Como o padrão permite aos clientes trabalharem apenas com uma família por vez, fica fácil alcançar harmonia, pois todos os produtos da família estão de alguma forma relacionados.
 	\item \textbf{Suporte a novos tipos de produtos é difícil:} Como a interface do ``\textit{Abstract Factory}'' no início cria uma quantidade fixa de produtos para serem implementados, alterar isso fica difícil, pois é necessário mexer na classe principal e criar as subclasses concernentes.
 \end{itemize}
@@ -479,9 +477,9 @@ De uma maneira geral serviços são atividades providas e realizadas por uma má
 
 Com o advento dos serviços surgiu um novo termo, a ``Orientação a serviços'', que ocorre quando alguns processos são modelados e construídos como unidades bem definidas e formam serviços, que depois são encapsulados em componentes de software para serem usados por outras aplicações dando a ideia de um sistema provedor (o sistema que provê o serviço) e um sistema consumidor (que consome os serviços prestados) \cite{Victorino:Brascher:2009}.
 
-Se todas as aplicações usassem a mesma interface de programação e protocolo de interoperabilidade todo o trabalho de software seria mais simples. Essa é a premissa que trouxe o desenvolvimento orientado a serviços para o mundo da tecnologia da informação, e qando se desenvolve dessa forma os serviços tornam-se a base para a criação de novas estratégias de solução \cite{Newcomer:Lomow:2004}.
+Se todas as aplicações usassem a mesma interface de programação e protocolo de interoperabilidade todo o trabalho de software seria mais simples. Essa é a premissa que trouxe o desenvolvimento orientado a serviços para o mundo da tecnologia da informação, e quando se desenvolve dessa forma os serviços tornam-se a base para a criação de novas estratégias de solução \cite{Newcomer:Lomow:2004}.
 
-Apesar das abordagens de orientação a serviços e e orientação a componentes serem bem similares, no livro \cite{Stojanovic:Dahanayake:2005} são apresentadas algumas diferenças entre as mesmas, que são:
+Apesar das abordagens de orientação a serviços e orientação a componentes serem bem similares, no livro \cite{Stojanovic:Dahanayake:2005} são apresentadas algumas diferenças entre as mesmas, que são:
 
 \begin{itemize}
 	\item O tempo de integração. Na orientação baseada em componentes a integração com a aplicação desenvolvida ocorre no momento da construção, enquanto na orientação a serviços a integração pode ocorrer antes ou durante a execução, pois apenas as descrições dos serviços estão disponíveis no momento da execução.
@@ -494,17 +492,17 @@ Apesar das abordagens de orientação a serviços e e orientação a componentes
 
 Os serviços são informatizados por tecnologias interoperáveis, que são capazes de se comunicar entre si, e isso independe da plataforma e linguagem de programação utilizadas. Dentre essas tefnologias os ``\textit{Web Services}'' (serviços web) se destacam. Esses serviços fornecem um modo padronizado de integrar aplicativos web, e assim, organizações podem se comunicar sem que uma tenha conhecimento abrangente dos sistemas da outra \cite{Victorino:Brascher:2009}.
 
-Um ``\textit{Web Service}'' é uma noção abstrata que deve ser implementada por uma agente concreto, este agente é um pedaço de software que envia e recebe mensagens. O serviço é o recurso caracterizado pela funcionalidade abstrata que é servida \footnote{http://www.w3.org/TR/ws-arch/}.
+Um ``\textit{Web Service}'' é uma noção abstrata que deve ser implementada por um agente concreto, este agente é um pedaço de software que envia e recebe mensagens. O serviço é o recurso caracterizado pela funcionalidade abstrata que é servida \footnote{http://www.w3.org/TR/ws-arch/}.
 
 O XML hoje é amplamente utilizado quase como o protocolo HTTP \footnote{http://www.w3.org/Protocols/HTTP/1.1/rfc2616bis/draft-lafon-rfc2616bis-03.html} e faz parte da solução para aplicação de ``\textit{Web Services}'', é usado para realizar a formatação dos dados \cite{Alonso:Casati:Kuno:Machiraju:2010}.
 
-Simplificando, os ``\textit{Web Services}'' possuem algumas três características e tecnologias principais que são usadas para desenvolvê-los, o XML que é a especificação sobre a qual estes são construídos, WSDL\footnote{http://www.w3.org/TR/wsdl} que provêem as interfaces fundamentais que serão usadas e SOAP\footnote{http://www.w3.org/TR/soap/} que é responsável pela comunicação com outros serviços. Pode-se dizer que um ``\textit{Web Service}'' deve fornecer interfaces de uso simples e se comunicar facilmente com outros serviços \cite{Newcomer:Lomow:2004}.
+Simplificando, os ``\textit{Web Services}'' possuem três características e tecnologias principais que são usadas para desenvolvê-los, o XML que é a especificação sobre a qual estes são construídos, WSDL\footnote{http://www.w3.org/TR/wsdl} que provê as interfaces fundamentais que serão usadas e SOAP\footnote{http://www.w3.org/TR/soap/} que é responsável pela comunicação com outros serviços. Pode-se dizer que um ``\textit{Web Service}'' deve fornecer interfaces de uso simples e se comunicar facilmente com outros serviços \cite{Newcomer:Lomow:2004}.
 
 \subsubsection{Serviços RESTFul}
 
-O uso de serviços RESTFul ganhou um grande impulso no desenvolvimento de aplicações distribuídas baseadas em padrões WEB tradicionais. Esses serviços são leves, práticos e fáceis de serem integrados em várias aplicações \cite{Rosenberg:Curbera:Duftler:Khalaf:2008}.
-
 REST é um estilo arquitetural para sistemas hipermídia distribuídos, reúne um grupo de critérios que serão incorporados ao projeto de aplicações distribuídas. Os Serviços RESTful são serviços web que seguem os critérios REST \cite{Filho:2009}.
+
+O uso de serviços RESTFul ganhou um grande impulso no desenvolvimento de aplicações distribuídas baseadas em padrões WEB tradicionais. Esses serviços são leves, práticos e fáceis de serem integrados em várias aplicações \cite{Rosenberg:Curbera:Duftler:Khalaf:2008}.
 
 Os serviços da web vem a cada dia buscando soluções mais simples e mais leves para compor suas funcionalidades. Os serviços RESTFul introduzem um novo tipo de abstração que busca oferecer as funcionalidades já existentes dos serviços da web comum, porém, de uma forma mais leve e simples \cite{Pautasso:2009}.
 
