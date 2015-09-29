@@ -1,0 +1,117 @@
+As metodologias específicas são necessárias para ajudar a estabelecer uma base de engenharia e de ciência para a Engenharia de Software. [Wohlin00].
+
+É importante notar que experimentos não provam nada. É verdade que nenhum experimento oferece prova com certeza absoluta. Os experimentos verificam a previsão teórica de encontro à realidade. A comunidade aceita uma teoria se todos os fatos conhecidos dentro de seu domínio possam ser deduzidos da teoria, possui uma verificação experimental extensa e prediz o novo fenômeno corretamente.
+
+		Métodos de investigação experimental
+
+O tipo de experimento mais apropriado em uma situação concreta vai depender, por exemplo, dos objetivos do estudo, das propriedades do processo de software usado durante o experimeto, ou dos resultados finais esperados.
+
+O Survey é uma investigação executada em retrospectiva. O Survey é conduzido quando algumas técnicas ou ferramentas já tenham sido utilizadas. Os objetivos do survey são:
+	− descritivo, por exemplo, determinar a distribuição de atributos ou características;
+	− explanatório, por exemplo, explicar porque os desenvolvedores escolheram uma das técnicas;
+	− explorativo, por exemplo, um estudo preliminar para uma investigação mais profunda.
+Os meios principais para coletar a informação quantitativa e qualitativa preliminar são os questionários. O Survey possui habilidade de levantar o grande número de variáveis a serem avaliadas. Entretanto, é necessário visar-se na recuperação de um volume maior da compreensão de um número menor das variáveis porque isso vai simplificar o trabalho analítico. O survey não oferece nenhum controle sobre a execução ou medição e é sempre impossível manipular as variáveis.
+
+Estudo de caso é utilizado para monitorar os projetos, atividades e atribuições. Os estudos de caso visam observar um atributo específico e estabelecer o relacionamento entre atributos diferentes. Há três maneiras de arranjar o estudo de caso:
+	− A comparação dos resultados de usar os métodos novos de encontro a baseline da companhia que está expressa em valores médios dos projetos da companhia;
+	− Projetos semelhantes (sister projects), que implicam a comparação dos resultados de projetos similares um dos quais usa uma tecnologia nova e o outro usa uma tecnologia atual;
+	− Aplicação de um método aleatoriamente atribuído a um projeto da companhia e não atribuído aos outros.
+O nível de controle num estudo de caso é baixo, mas ao contrário de survey, o estudo de caso possui o controle sobre a medição das variáveis. O maior problema do estudo de caso é a possibilidade de fatores de confusão, ou seja, é difícil diferenciar o efeito proveniente de um fator do efeito proveniente de outro fator.
+
+O experimento geralmente é realizado em laboratório e oferece o maior nível de controle. O objetivo do experimento é manipular uma ou algumas variáveis e manter as outras fixas medindo o efeito do resultado. Os experimentos podem ser feitos in-vitro sob condições de laboratório ou in-vivo sob condições normais. Os experimentos são apropriados para confirmar as teorias, confirmar o conhecimento convencional, explorar os relacionamentos, avaliar a predição dos modelos, ou validar as medidas. A maior força do experimento encontra-se no controle total sobre o processo e as variáveis e na possibilidade de ser repetido.
+
+****A comparação das estratégias experimentais está na Tabela 1.****
+
+O estudo qualitativo está relacionado à pesquisa sobre os objetos quando os resultados são apresentados em termos naturais. O estudo quantitativo geralmente é conduzido através um experimento controlado. Uma das vantagens do estudo controlado é que os dados qualitativos promovem a comparação e a análise estatística. Benchmarking é utilizado para a medição do desempenho dos diferentes produtos de software.
+
+@book{Travassos:2002,
+  title={Introdução à engenharia de software experimental},
+  author={Travassos, Guilherme Horta},
+  series={RT-ES-590/02},
+  url={http://www.ufpa.br/cdesouza/teaching/topes/4-ES-Experimental.pdf},
+  year={2002},
+  publisher={UFRJ}
+}
+
+-----------------------------------------------------------------------------------------
+
+Survey: Um survey é freqüentemente uma investigação realizada em retrospecto, quando, por exemplo, uma determinada tecnologia tem sido utilizada durante um certo período de tempo (PFLEEGER, 1994). Dessa forma, a condução de um survey permitiria capturar um “retrato instantâneo” da atual situação. Os principais meios utilizados para a coleta de dados são entrevistas ou questionários. A coleta de dados é realizada utilizando-se uma amostra representativa da população sob estudo. Os resultados do survey são então analisados de forma a extrair-se conclusões que possam ser generalizadas à população da qual a amostra foi tomada. Surveys são discutidos em ROBSON (1993) e BABBIE (1990).
+
+Estudo de Caso: São estudos conduzidos com o propósito de se investigar uma entidade ou um fenômeno dentro de um espaço de tempo específico. Estudos de caso são usados principalmente para a monitoração de atributos presentes em projetos, atividades ou atribuições. Durante a condução de um estudo de caso, dados são coletados e, baseado na coleta desses dados, análises estatísticas são conduzidas de forma a permitir-se avaliar um determinado atributo ou o relacionamento entre diferentes atributos. Uma vantagem na condução de estudos de caso é a facilidade de planejamento. Entretanto, uma desvantagem é a dificuldade em generalizar-se os resultados obtidos. Geralmente, os resultados de um estudo de caso apontam os efeitos em uma situação em particular, não podendo ser generalizados para cada situação presente em outros contextos. Estudos de caso são discutidos em ROBSON (1993), STAKE (1995), PFLEEGER (1994), YIN (1994) e WÖHLIN et al. (2000).
+
+Experimento: Experimentos são conduzidos quando deseja-se obter um maior controle da situação, ao manipular-se as variáveis envolvidas no estudo de forma direta, sistemática e precisa. Experimentos são normalmente conduzidos em ambientes de laboratório, os quais proporcionam um nível relativamente alto de controle sobre as variáveis envolvidas no estudo. Em um experimento, os participantes são atribuídos a diferentes tratamentos de forma aleatória. O objetivo é manipular uma ou mais variáveis e controlar todas as outras variáveis num valor fixo. O efeito da manipulação das variáveis é então medido e, baseado nessa medição, análises estatísticas são conduzidas. A condução de experimentos reais é rara em Engenharia de Software, devido à dificuldade de se alocar os participantes do estudo a diferentes tratamentos de forma aleatória. Nessas situações, tais estudos denominam-se quasi-experimentos.
+
+@article{Hanneman:Riddle:2005,
+	Author = {Sômulo Nogueira Mafra and Guilherme Horta Travassos},
+	Title = {Estudos Primários e Secundários apoiando a busca por Evidência em Engenharia de Software},
+	Year = {2006},
+	Address = {UFRJ: Rio de Janeiro},
+}
+
+-------------------------------------------------------------------------------------------
+
+	Métodos ou técnicas de procedimentos
+
+Histórico: investigação de acontecimentos, processos e instituições no passado para a verificação de sua influência na atualidade;
+
+Comparativo: estudo de semelhanças ou diferenças entre diversos grupos, sociedades ou povos;
+
+Monográfico (ou estudo de caso): estudo de certos elementos, indivíduos, empresas, profissões, grupos, etc., com vistas à obtenção de generalização;
+
+Estatístico: redução de fenômenos sociais à representação quantitativa e aplicação de instrumentos estatísticos de análise;
+
+Tipológico: construção idealizada de um elemento tipo que consiste em modelo perfeito, contra o qual, os dados da realidade são analisados;
+
+Funcionalista: estudo da sociedade a partir das funções de cada elemento;
+
+Estruturalista: preocupa-se com a sociedade como um todo para explicar o comportamento de setores mais específicos ou de indivíduos.
+
+	Pesquisa
+
+Segundo Köche (1997, p. 121) pesquisar significa identificar uma dúvida que necessite ser esclarecida, construir e executar o processo que apresenta a solução desta, quando não há teorias que a expliquem ou quando as teorias que existem não estão aptas para fazê-lo.
+
+Para que uma pesquisa seja considerada científica, ela deve seguir uma metodologia que compreenda uma seqüência de etapas logicamente encadeadas, de forma que possa ser repetida obtendo-se os mesmos resultados. Dessa maneira, os dados obtidos contribuirão para a ampliação do conhecimento já acumulado, bem como para a sua reformulação ou criação.
+
+	Classificações da pesquisa
+
+Existem várias formas de classificar as pesquisas. As formas clássicas de classificação serão apresentadas a seguir, conforme Gil (1991):
+
+a) Do ponto de vista da sua natureza pode ser:
+	Pesquisa Básica: objetiva gerar conhecimentos novos, úteis para o avanço da ciência sem aplicação prática prevista. Envolve verdades e interesses universais.
+
+	Pesquisa Aplicada: objetiva gerar conhecimentos para aplicação prática dirigidos à solução de /problemas específicos. Envolve verdades e interesses locais.
+
+b) Do ponto de vista da forma de abordagem do problema pode ser:
+	Pesquisa Quantitativa: considera que tudo pode ser quantificável, o que significa traduzir em números opiniões e informações para classificá-los e analisá-los. Requer o uso de recursos e de técnicas estatísticas (percentagem, média, moda, mediana, desvio padrão, coeficiente de correlação, análise de regressão, etc...).
+
+	Pesquisa Qualitativa: considera que há uma relação dinâmica entre o mundo real e o sujeito, isto é, um vínculo indissociável entre o mundo objetivo e a subjetividade do sujeito que não pode ser traduzido em números. A interpretação dos fenômenos e a atribuição de significados são básicos no processo de pesquisa qualitativa. Não requer os uso de métodos e técnicas estatísticas. O ambiente natural é a fonte direta para coleta de dados e o pesquisador é o instrumento chave. É descritiva. Os pesquisadores tendem a analisar seus dados indutivamente. O processo e seu significado são os focos principais de abordagem.
+
+c) Do ponto de vista de seus objetivos pode ser:
+	Pesquisa Exploratória: visa proporcionar maior familiaridade com o problema, com vistas a torná-lo explícito ou a construir hipóteses. Envolve levantamento bibliográfico; entrevistas com pessoas que tiveram experiências práticas com o problema pesquisado; análise de exemplos que estimulem a compreensão. Assume, em geral, as formas de Pesquisas Bibliográficas e Estudos de Caso.
+
+	Pesquisa Descritiva: visa descrever as características de determinada população ou fenômeno ou o estabelecimento de relações entre variáveis. Requer o uso de técnicas padronizadas de coleta de dados: questionário e observação sistemática. Assume, em geral, a forma de Levantamento.
+
+	Pesquisa Explicativa: visa identificar os fatores que determinam ou contribuem para a ocorrência dos fenômenos. Aprofunda o conhecimento da realidade porque explica a razão, o "porquê" das coisas. Quando realizada nas ciências naturais requer o uso do método experimental e nas ciências sociais, o uso do método observacional. Assume, em geral, as formas de Pesquisa Experimental e Pesquisa Ex-post-facto.
+
+d) Do ponto de vista dos procedimentos técnicos pode ser:
+	Pesquisa Bibliográfica: utiliza material já publicado, constituído basicamente de livros, artigos de periódicos e atualmente com informações disponibilizadas na Internet. Quase todos os estudos fazem uso do levantamento bibliográfico e algumas pesquisas são desenvolvidas exclusivamente por fontes bibliográficas. Sua principal vantagem é possibilitar ao investigador a cobertura de uma gama de acontecimentos muito mais ampla do que aquela que poderia pesquisar diretamente. (GIL, 1999). A técnica bibliográfica visa encontrar as fontes primárias e secundárias e os materiais científicos e tecnológicos necessários para a realização do trabalho científico ou técnico-científico. Realizada em bibliotecas públicas, faculdades, universidades e, atualmente, nos acervos que fazem parte de catálogo coletivo e das bibliotecas virtuais. (OLIVEIRA, 2002).
+
+	Pesquisa Documental: quando elaborada a partir de materiais que não receberam tratamento analítico, documentos de primeira mão, como documentos oficiais, reportagens de jornal, cartas, contratos, diários, filmes, fotografias, gravações etc., ou ainda documentos de segunda mão, que de alguma forma já foram analisados, tais como: relatórios de pesquisa, relatórios de empresas, tabelas estatísticas, etc. (GIL, 1999); e os localizados no interior de órgãos públicos ou privados, como: manuais, relatórios, balancetes e outros.
+
+	Levantamento: envolve a interrogação direta de pessoas cujo comportamento se deseja conhecer acerca do problema estudado para, em seguida, mediante análise quantitativa, chegar as conclusões correspondentes aos dados coletados. O levantamento feito com informações de todos os integrantes do universo da pesquisa origina um censo. (GIL, 1999). O levantamento usa técnicas estatísticas, análise quantitativa e permite a generalização das conclusões para o total da população e assim para o universo pesquisado, permitindo o cálculo da margem de erro. Os dados são mais descritivos que explicativos. (DENCKER, 2000).
+
+	Estudo de Caso: envolve o estudo profundo e exaustivo de um ou poucos objetos, de maneira que se permita o seu amplo e detalhado conhecimento. (GIL, 1999). O estudo de caso pode abranger análise de exame de registros, observação de acontecimentos, entrevistas estruturadas e não-estruturadas ou qualquer outra técnica de pesquisa. Seu objeto pode ser um indivíduo, um grupo, uma organização, um conjunto de organizações, ou até mesmo uma situação. (DENCKER, 2000). A maior utilidade do estudo de caso é verificada nas pesquisas exploratórias. Por sua flexibilidade, é sugerido nas fases iniciais da pesquisa de temas complexos, para a construção de hipóteses ou reformulação do problema. É utilizado nas mais diversas áreas do conhecimento. A coleta de dados geralmente é feita por mais de um procedimento, entre os mais usados estão: a observação, análise de documentos, a entrevista e a história da vida. (GIL, 1999).
+
+	Pesquisa-Ação: concebida e realizada em estreita associação com uma ação ou com a resolução de um problema coletivo. Os pesquisadores e participantes representativos da situação ou do problema estão envolvidos de modo cooperativo ou participativo. (GIL, 1999). Objetiva definir o campo de investigação, as expectativas dos interessados, bem como o tipo de auxílio que estes poderão exercer ao longo do processo de pesquisa. Implica no contato direto com o campo de estudo envolvendo o reconhecimento visual do local, consulta a documentos diversos e, sobretudo, a discussão com representantes das categorias sociais envolvidas na pesquisa. É delimitado o universo da pesquisa, e recomenda-se a seleção de uma amostra. O critério de representatividade dos grupos investigados na pesquisa-ação é mais qualitativo do que quantitativo. É importante a elaboração de um plano de ação, envolvendo os objetivos que se pretende atingir, a população a ser beneficiada, a definição de medidas, procedimentos e formas de controle do processo e de avaliação de seus resultados. (GIL, 1996). Não segue um plano rigoroso de pesquisa, pois o plano é readequado constantemente de acordo com a necessidade, dos resultados e do andamento das pesquisas. O investigador se envolve no  processo e sua intenção é agir sobre a realidade pesquisada. (DENCKER, 2000).
+
+	Pesquisa Participante: Pesquisa realizada através da integração do investigador que assume uma função no grupo a ser pesquisado, mas sem seguir uma proposta pré-definida de ação. A intenção é adquirir conhecimento mais profundo do grupo. O grupo investigado tem ciência da finalidade, dos objetivos da pesquisa e da identidade do pesquisador. Permite a observação das ações no próprio momento em que ocorrem. (DENCKER, 2000). Esta pesquisa necessita de dados objetivos sobre a situação da população. Isso envolve a coleta de informações sócio- econômicas e tecnológicas que são de natureza idêntica às adquiridas nos tradicionais estudos de comunidades. Esses dados podem ser agrupados por categorias, como: geográficas, demográficas, econômicas, habitacionais, educacionais, e outros. (GIL, 1996).
+
+	Pesquisa Experimental: quando se determina um objeto de estudo, selecionam-se as variáveis que seriam capazes de influenciá-lo, definem-se as formas de controle e de observação dos efeitos que a variável produz no objeto. (GIL, 1999). A pesquisa experimental necessita de previsão de relações entre as variáveis a serem estudadas, como também o seu controle e por isso, na maioria das situações, é inviável quando se trata de objetos sociais. (GIL, 1996). Esse tipo de pesquisa é geralmente utilizado nas ciências naturais. Exemplo: Analisar os efeitos colaterais do uso de um determinado medicamento em crianças de até 8 anos.
+
+	Pesquisa Ex-Post-Facto: quando o experimento se realiza depois dos fatos. O pesquisador não tem controle sobre as variáveis. (GIL, 1999). É um tipo de pesquisa experimental, mas difere da experimental propriamente dita pelo fato de o fenômeno ocorrer naturalmente sem que o investigador tenha controle sobre ele, ou seja, nesse caso, o pesquisador passa a ser um mero observador do acontecimento. Por exemplo: a verificação do processo de erosão sofrido por uma rocha por influência do choque proveniente das ondas do mar. (BOENTE, 2004). Esse tipo de pesquisa é geralmente utilizado nas ciências naturais.
+
+@article{Hanneman:Riddle:2005,
+	Author = {Elisabeth Penzlien Tafner and Renata Silva},
+	Title = {Apostila de Metodologia Científica},
+	Year = {2007},
+}
