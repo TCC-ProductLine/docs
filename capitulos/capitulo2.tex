@@ -479,6 +479,8 @@ De uma maneira geral serviços são atividades providas e realizadas por uma má
 
 Com o advento dos serviços surgiu um novo termo, a ``Orientação a serviços'', que ocorre quando alguns processos são modelados e construídos como unidades bem definidas e formam serviços, que depois são encapsulados em componentes de software para serem usados por outras aplicações dando a ideia de um sistema provedor (o sistema que provê o serviço) e um sistema consumidor (que consome os serviços prestados) \cite{Victorino:Brascher:2009}.
 
+Se todas as aplicações usassem a mesma interface de programação e protocolo de interoperabilidade todo o trabalho de software seria mais simples. Essa é a premissa que trouxe o desenvolvimento orientado a serviços para o mundo da tecnologia da informação, e qando se desenvolve dessa forma os serviços tornam-se a base para a criação de novas estratégias de solução \cite{Newcomer:Lomow:2004}.
+
 Apesar das abordagens de orientação a serviços e e orientação a componentes serem bem similares, no livro \cite{Stojanovic:Dahanayake:2005} são apresentadas algumas diferenças entre as mesmas, que são:
 
 \begin{itemize}
@@ -491,3 +493,27 @@ Apesar das abordagens de orientação a serviços e e orientação a componentes
 \subsubsection{Web Services}
 
 Os serviços são informatizados por tecnologias interoperáveis, que são capazes de se comunicar entre si, e isso independe da plataforma e linguagem de programação utilizadas. Dentre essas tefnologias os ``\textit{Web Services}'' (serviços web) se destacam. Esses serviços fornecem um modo padronizado de integrar aplicativos web, e assim, organizações podem se comunicar sem que uma tenha conhecimento abrangente dos sistemas da outra \cite{Victorino:Brascher:2009}.
+
+Um ``\textit{Web Service}'' é uma noção abstrata que deve ser implementada por uma agente concreto, este agente é um pedaço de software que envia e recebe mensagens. O serviço é o recurso caracterizado pela funcionalidade abstrata que é servida \footnote{http://www.w3.org/TR/ws-arch/}.
+
+O XML hoje é amplamente utilizado quase como o protocolo HTTP \footnote{http://www.w3.org/Protocols/HTTP/1.1/rfc2616bis/draft-lafon-rfc2616bis-03.html} e faz parte da solução para aplicação de ``\textit{Web Services}'', é usado para realizar a formatação dos dados \cite{Alonso:Casati:Kuno:Machiraju:2010}.
+
+Simplificando, os ``\textit{Web Services}'' possuem algumas três características e tecnologias principais que são usadas para desenvolvê-los, o XML que é a especificação sobre a qual estes são construídos, WSDL\footnote{http://www.w3.org/TR/wsdl} que provêem as interfaces fundamentais que serão usadas e SOAP\footnote{http://www.w3.org/TR/soap/} que é responsável pela comunicação com outros serviços. Pode-se dizer que um ``\textit{Web Service}'' deve fornecer interfaces de uso simples e se comunicar facilmente com outros serviços \cite{Newcomer:Lomow:2004}.
+
+\subsubsection{Serviços RESTFul}
+
+O uso de serviços RESTFul ganhou um grande impulso no desenvolvimento de aplicações distribuídas baseadas em padrões WEB tradicionais. Esses serviços são leves, práticos e fáceis de serem integrados em várias aplicações \cite{Rosenberg:Curbera:Duftler:Khalaf:2008}.
+
+REST é um estilo arquitetural para sistemas hipermídia distribuídos, reúne um grupo de critérios que serão incorporados ao projeto de aplicações distribuídas. Os Serviços RESTful são serviços web que seguem os critérios REST \cite{Filho:2009}.
+
+Os serviços da web vem a cada dia buscando soluções mais simples e mais leves para compor suas funcionalidades. Os serviços RESTFul introduzem um novo tipo de abstração que busca oferecer as funcionalidades já existentes dos serviços da web comum, porém, de uma forma mais leve e simples \cite{Pautasso:2009}.
+
+De acordo com \cite{Filho:2009} os Serviços RESTFul possuem cinco conceitos importantes, que são descritos a seguir:
+
+\begin{itemize}
+	\item \textbf{Recurso:} É uma abstração ou conceito relevante para o domínio tratado. Os recursos podem ser concretos ou abstratos e têm-se grande flexibilidade para definição dos mesmos. Um serviço pode ter mais de um recurso sem afetar a sua qualidade.
+	\item \textbf{Representação:} É a representação de um recurso, apresentando informações sobre o mesmo. Dependendo do serviço e do nível de abstração são mostradas mais ou menos informações dos recursos. A representação é uma serialização do recurso em uma linguagem específica, as mais usadas são XML, XHTML\footnote{http://www.w3.org/TR/xhtml1/} e JSON\footnote{http://www.json.org/}. Um serviço pode mostrar mais de um tipo de serialização de seus recursos, basta que as requisições informem qual o formato desejado que o serviço irá apresentar os dados na serialização correta.
+	\item \textbf{Identificador Uniforme:} Cada recurso deve ter ao menos um identificador para localização do mesmo. Se não existe um identificador uniforme não se pode considerar que um objeto é um recurso. Pode-se ter ilimitados identificadores para um mesmo recurso.
+	\item \textbf{Interface Unificada:} A interface unificada diz respeito a todos os serviços utilizarem o mesmo protocolo, no caso o HTTP. Dessa forma um cliente que conheça esse protocolo pode facilmente se utilizar dos métodos que são proporcionados por ele para fazer requisições nos serviços disponíveis.
+	\item \textbf{Escopo de Execução:} Neste caso o serviço RESTFul também se utiliza do protocolo HTTP, porém, diz respeito aos parâmetros que devem ser enviados junto da requisição para que o serviço possa tratar o recurso corretamente, pode ser a identificação de um objeto em um conjunto de recursos, por exemplo.
+\end{itemize}
