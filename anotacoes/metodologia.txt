@@ -115,3 +115,14 @@ d) Do ponto de vista dos procedimentos técnicos pode ser:
 	Title = {Apostila de Metodologia Científica},
 	Year = {2007},
 }
+
+-------------------------------------------------------------------------------------
+
+Com relação às pesquisas, é usual a classificação com base em seus objetivos gerais. Assim, é possível classificar as pesquisas em três grandes grupos: exploratórias, descritivas e explicativas.
+
+Exploratórias: Estas pesquisas têm como objetivo proporcionar maior familiaridade com o problema, com vistas a torná-lo mais explícito ou a constituir hipóteses. Pode-se dizer que estas pesquisas têm como objetivo principal o aprimoramento de idéias ou a descoberta de intuições. Seu planejamento é, portanto, bastante flexível, de modo que possibilite a consideração dos mais variados aspectos relativos ao fato estudado.
+
+Pesquisas descritivos: As pesquisas descritivas têm como objetivo primordial a descrição das características de determinada população ou fenômeno ou, então, o estabelecimento de relações entre variáveis.
+
+Pesquisas explicativas: Essas pesquisas têm como preocupação central identificar os fatores que determinam ou que contribuem para a ocorrência dos fenômenos. Esse é o tipo de pesquisa que mais aprofunda o conhecimento da realidade, porque explica a razão, o porquê das coisas.
+
