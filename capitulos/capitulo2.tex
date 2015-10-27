@@ -382,8 +382,9 @@ Para se alcançar a aplicação efetiva de um dado framework é, necessário ao 
 
 Ao longo do tempo, tornou-se muito caro desenvolver aplicações complexas a partir do zero. Isso porque todos os componentes que são desenvolvidos devem passar por um criterioso processo de validação e manutenção, e isso ocorre sempre que um novo sistema é desenvolvido. Ao se usar frameworks, pode-se desenvolver componentes comuns e os processos citados são feitos em um único local \cite{Fayad:Schimidt:1997}.
 
-% Falar sobre os cinzas.
 As técnicas de reutilização são diferentes de acordo como o tipo do framework utilizado, esses tipos podem ser ``\textit{white box}'' ou ``\textit{black box}''. O primeiro diz respeito a quando o código do framework é aberto e visível ao desenvolvedor, dessa forma, este pode estudar a implementação do framework e modificar o código de determinadas partes de acordo com suas necessidades. Os frameworks do tipo ``\textit{black box}'' disponibilizam apenas interfaces ao desenvolvedor para que este possa usá-las, a forma como tudo é implementado e processado é desconhecida. No primeiro tipo, têm-se uma maior flexibilidade, porém, o uso é mais complexo ao desenvolvedor. No segundo, o uso é bem simples, porém, não existe flexibilidade para mudança da implementação \cite{Kroth:2000}.
+
+Existe também uma metodologia no desenvolvimento de frameworks que une as técnicas ``\textit{white box}'' e ``\textit{black box}'', assim, uma parte do framework é fechada e o desenvolvedor não pode alterar o código, apenas usar as funções disponíveis, a outra parte é aberta ao desenvolvedor para realizar alterações no código, essa abordagem é conhecida como frameworks do tipo ``\textit{black box}'' ou ``caixa cinza'' \cite{Kristensen:2004}.
 
 Além dos tipos de frameworks, estes também podem ser divididos quanto a sua aplicabilidade. Podem ser desenvolvidos para serem aplicados em qualquer domínio, de forma genérica sem se preocupar com algo específico \textit{frameworks horizontais}, ou podem ser desenvolvidos visando atender um tipo específico de domínio de problemas, \textit{frameworks verticais}. Essas características dependem das necessidades apresentadas ao se trabalhar com frameworks, e isso impacta como será aplicada a reutilização \cite{Kroth:2000}.
 
@@ -523,4 +524,16 @@ De acordo com \cite{Filho:2009}, os serviços RESTFul possuem cinco conceitos im
 	\item \textbf{Escopo de Execução:} Neste caso, o serviço RESTFul também se utiliza do protocolo HTTP, porém, diz respeito aos parâmetros que devem ser enviados junto da requisição para que o serviço possa tratar o recurso corretamente. Pode ser, por exemplo, a identificação de um objeto em um conjunto de recursos.
 \end{itemize}
 
-% Considerações Finais
+\section{Resumo do Capítulo}
+Este capítulo apresentou o levantamento bibliográfico dos temas relacionados ao desenvolvimento deste trabalho. A seguir são apresentados os temas descritos nesse capítulo.
+
+\begin{itemize}
+	\item Redes Sociais: Este é o tema em que este trabalho é desenovlvido, como a proposta tem o objetivo de desenvolver um framework para redes sociais é essencial o conhecimento e entendimento deste tema para a realização do trabalho.
+	\item Teoria dos Grafos: O desenvolvimento de redes sociais têm como base o uso de grafos e, sendo assim, este é também um tema de suma importância para este trabalho.
+	\item Algoritmos: Neste tópico são apresentados alguns dos principais algoritmos já consolidados no que diz respeito a aplicação de grafos como, por exemplo, a realização de pesquisas em um dados grafo.
+	\item Reutilização de Sofware: Este tópico representa um importante objetivo que se pretende alcançar ao final deste trabalho. A reutilização de software é apresentada no uso de frameworks, padrões de projeto e serviços, todos estes deverão ser usados na implementação do framework proposto.
+\end{itemize}
+
+Mais detalhes de alguns tópicos apresentados neste capítulo podem ser encontrados na parte de apêndices deste documento.
+
+O próximo capítulo apresentará o suporte tecnológico com todas as principais ferramentas que serão usadas no decorrer da escrita e implementação deste trabalho.
