@@ -8,6 +8,25 @@ A proposta deste trabalho é desenvolver um framework que auxilie no desenvolvim
 
 \subsection{Relacionamento de Usuários}
 
+O relacionamento em redes sociais dá-se por meio de iterações entre os usuários, estas iterações variam de acordo com a rede em que o usuário está inserido. Alguém pode apenas seguir outras pessoas e acompanhar suas postagens, este é um relacionamento unidirecional, pois não é nessário que uma pessoa seguida acompanhe também postagens de seus seguidores. Existe também outro tipo de relacionamento onde é necessário que as duas pessoas estejam diretamente ligadas entre si, o que o torna necessariamente bidirecional, neste tipo pode-se considerar relacionamentos entre conhecidos, amigos, namorados, familiares, entre outros.
+
+Na montagem da estrutura de relacionamentos entre os usuários para redes sociais é nessário fazer uso de grafos onde os usuários serão representados como os vértices e os relacionamentos como as arestas. No caso dos relacionamentos unidirecionais apenas uma aresta é criada. Esta aresta faz uma ligação a partir do vértice do usuário seguidor para o vértice do usuário que este deseja seguir. No caso dos relacionamentos bidirecionais a ligação deverá ser feita usando-se duas arestas paralelas. É necessário que ambos os usuários exista uma possibilidade de se chegar ao outro, portanto, deve existir uma aresta que ligue um usuário ``A'' a um usuário ``B'' e uma aresta que ligue o usuário ``B'' ao usuário ``A''.
+
+Cada aresta deverá possuir uma ou mais descrições que detalham qual o relacionamento entre os usuários. Isso fica mais claro ao se falar de relacionamentos bidirecionais, onde pode existir entre duas pessoas um relaciomanento de amizade e parentesco, por exemplo.
+
+A seguir têm-se algumas imagens que exemplificam os relacionamentos citados.
+
+% A -> B
+% C -> B
+
+% 	amigo
+% A <-> B
+
+% 	amigo
+% 	mae
+% 	filho
+% A <-> B
+
 \subsection{Controle de Rotas}
 
 \subsection{Controle de Agenda}
