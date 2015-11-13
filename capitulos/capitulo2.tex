@@ -46,22 +46,20 @@ De acordo com Ore \cite{Ore:1963}, Leonhard Euler\footnote{Grande matemático e 
 	``Será possível fazer um passeio pela cidade, começando e
 	terminando no mesmo lugar, cruzando cada ponte exatamente uma vez?''
 
-% ---------------------------------------------
-% REFERENCIAR ESSA FIGURA E TODAS AS OUTRAS
-% ---------------------------------------------
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.35]{figuras/capitulo2/Konigsberg.eps}
-	\caption{Pontes de Königsberg}
+	\caption[Pontes de Königsberg]{Pontes de Königsberg\footnotemark}
 	\label{Konigsberg}
 \end{figure}
+\footnotetext{\url{http://www.mat.uc.pt/~alma/escolas/pontes/}}
 
 Não se tem conhecimento sobre o Euler ter resolvido esse problema usando a representação de grafos estudada hoje. A modelagem do problema por grafo passa por uma representação, na qual cada porção de terra  é representada por um ponto e as pontes estariam representadas por linhas \cite{Ore:1963}, apresentado na Figura \ref{sete_pontes}.
 
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.25]{figuras/capitulo2/sete_pontes.eps}
-	\caption{Problema das sete pontes}
+	\caption[Problema das sete pontes]{Problema das sete pontes \cite{Ore:1963}}
 	\label{sete_pontes}
 \end{figure}
 
@@ -80,7 +78,7 @@ Grafos são assim chamados porque eles podem ser representados graficamente, e �
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.3]{figuras/capitulo2/exemplo_grafo.eps}
-	\caption{Exemplo de grafo}
+	\caption[Exemplo de grafo]{Exemplo de grafo \cite{Bondy:2007}}
 	\label{exemplo_grafo}
 \end{figure}
 
@@ -88,10 +86,12 @@ A maioria das definições e conceitos na teoria dos grafos são sugeridas por e
 
 Uma aresta com extremidades idênticas é chamada um \textit{loop}, e uma aresta com extremidades distintas é um \textit{link}. Dois ou mais \textit{links} com o mesmo par de extremidades são referidos como sendo arestas paralelas \cite{Bondy:2007}. Na Figura \ref{loop_paralela}, é possível observar a aresta ``a'' como uma aresta do tipo \textit{loop}, e as arestas ``b'' e ``e'' como arestas do tipo \textit{link}, e as aresta ``c'' e ``d'' como sendo arestas paralelas.
 
+\newpage
+
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.4]{figuras/capitulo2/loop_paralela.eps}
-	\caption{Exemplo de loop e arestas paralelas}
+	\caption[Exemplo de loop e arestas paralelas]{Exemplo de loop e arestas paralelas \cite{Bondy:2007}}
 	\label{loop_paralela}
 \end{figure}
 
@@ -106,18 +106,16 @@ A matriz de adjacência de \textit{G} é a matriz $A_G := (a_{uv})$, com dimens�
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.6]{figuras/capitulo2/matriz.eps}
-	\caption{Representação em matriz}
+	\caption[Representação em matriz]{Representação em matriz \cite{Bondy:2007}}
 	\label{matriz}
 \end{figure}
 
 Como a maioria dos grafos possui um número bem maior de arestas do que os vértices, a matriz de adjacência de um grafo geralmente é menor do que a sua matriz de incidência e, assim, necessita de menos espaço de armazenamento. Ao lidar com grafos simples, uma representação ainda mais otimizada é possível. Para cada vértice \textit{v}, os vizinhos de \textit{v} são armazenados em uma lista. A lista (\textit{N}(\textit{v}): \textit{v $\in$ V}) é chamada de lista de adjacência do grafo, onde \textit{N}(\textit{v}) representa os vizinhos do vértice \textit{v}. Um exemplo pode ser observado na Figura \ref{lista_adjacencia}. A quantidade de memória necessária para uma lista de adjacências é $\Theta(|\textit{V}| + |\textit{E}|)$. Grafos simples são normalmente armazenados em computadores como listas de adjacência \cite{Costa:2011}.
 
-\newpage
-
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.3]{figuras/capitulo2/lista_adjacencia.eps}
-	\caption{Representação em lista de adjacência}
+	\caption[Representação em lista de adjacência]{Representação em lista de adjacência \cite{Costa:2011}}
 	\label{lista_adjacencia}
 \end{figure}
 
@@ -126,7 +124,7 @@ Embora muitos problemas possuam formulação na teoria dos grafos, o conceito de
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.15]{figuras/capitulo2/dirigido.eps}
-	\caption{Exemplo de grafo dirigido}
+	\caption[Exemplo de grafo dirigido]{Exemplo de grafo dirigido \cite{Bondy:2007}}
 	\label{dirigido}
 \end{figure}
 
@@ -150,7 +148,7 @@ A Figura \ref{bfs} exemplifica o algoritmo da busca \textit{BFS}, onde as letras
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.55]{figuras/capitulo2/bfs.eps}
-	\caption{Percurso do BFS}
+	\caption[Percurso do BFS]{Percurso do BFS \cite{Brassard:1988}}
 	\label{bfs}
 \end{figure}
 
@@ -177,8 +175,6 @@ Existem duas principais dificuldades com a aplicação desta técnica. Em primei
 \subsubsection{Top-Down x Bottom-Up}
 
 A forma como a tabela na abordagem \textit{bottom-up} é preenchida não é tão intuitiva como a abordagem \textit{top-down}, pois requer algumas ``reversões'' dos sinais na recorrência. No entanto, alguns programadores sentem que a abordagem \textit{bottom-up} é mais intuitiva. A seguir é apresentada uma comparação entre as duas abordagens da programação dinâmica na tabela \ref{top-down_bottom-up} \cite{Halim:Halim:2013}:
-
-\newpage
 
 \begin{table}[!h]
 	\centering
@@ -258,7 +254,7 @@ ambiente e o cerne da sua solução, de tal forma que você possa usar essa solu
 de um milhão de vezes, sem nunca fazê-lo da mesma maneira''
 \end{quote}
 
-No livro de padrões de projeto \cite{Gamma:Helm:Johnson:Vlissides:1995}, os autores concordam com as afirmações de Alexander. A diferença principal é que no âmbito de software os padrões são expressos em termos de objetos e interfaces ao invés de paredes e portas. Porém, ambos os tipos os padrões dizem respeito a uma solução para um problema em um contexto geral. Os autores consideram ainda que um padrão é dividido em quatro partes principais, que são:
+No livro de padrões de projeto \cite{Gamma:1995}, os autores concordam com as afirmações de Alexander. A diferença principal é que no âmbito de software os padrões são expressos em termos de objetos e interfaces ao invés de paredes e portas. Porém, ambos os tipos os padrões dizem respeito a uma solução para um problema em um contexto geral. Os autores consideram ainda que um padrão é dividido em quatro partes principais, que são:
 
 \begin{itemize}
 	\item \textbf{Nome:} Usado para descrever um problema de projeto, suas soluções e consequências em uma ou duas palavras. Quando um padrão possui um nome fica mais fácil de definir um vocabulário comum para tratar deste com outras pessoas.
@@ -277,11 +273,11 @@ Os dois pontos que justificam de forma adequada o uso de padrões de projeto sã
 	\item \textbf{Perspectiva de alto nível do problema:} Os padrões dão aos desenvolvedores essa perspectiva e ajudam na análise e entendimento dos problemas, facilitando a elaboração de uma solução mais adequada.
 \end{itemize}
 
-Os padrões ainda podem ajudar na refatoração de projetos. Uma das grandes dificuldades no desenvolvimento de software é que este tem de ser frequentemente reorganizado ou refatorados. Os padrões de projeto ao oferecerem soluções comuns e já consolidadas podem reduzir a quantidade de refatoração que deverá ser feita mais tarde \cite{Gamma:Helm:Johnson:Vlissides:1995}.
+Os padrões ainda podem ajudar na refatoração de projetos. Uma das grandes dificuldades no desenvolvimento de software é que este tem de ser frequentemente reorganizado ou refatorados. Os padrões de projeto ao oferecerem soluções comuns e já consolidadas podem reduzir a quantidade de refatoração que deverá ser feita mais tarde \cite{Gamma:1995}.
 
 \subsubsection{Classificação de Padrões de Projeto}
 
-Em \cite{Gamma:Helm:Johnson:Vlissides:1995}, foram definidos e classificados 23 padrões. Essa classificação está feita de acordo com dois critérios: \textbf{finalidade} e \textbf{escopo}. O primeiro critério diz respeito ao que o padrão faz, a finalidade pode ser de criação, estrutural ou comportamental. Os padrões com finalidade de criação se preocupam com o processo de criação de objetos. Os estruturais focam em composições de classes ou objetos. Os comportamentais caracterizam as maneiras que as classes ou objetos interagem e distribuem responsabilidades.
+Em \cite{Gamma:1995}, foram definidos e classificados 23 padrões. Essa classificação está feita de acordo com dois critérios: \textbf{finalidade} e \textbf{escopo}. O primeiro critério diz respeito ao que o padrão faz, a finalidade pode ser de criação, estrutural ou comportamental. Os padrões com finalidade de criação se preocupam com o processo de criação de objetos. Os estruturais focam em composições de classes ou objetos. Os comportamentais caracterizam as maneiras que as classes ou objetos interagem e distribuem responsabilidades.
 
 O segundo critério especifica se o padrão é de classe ou objeto. Os padrões de classe lidam com relacionamentos entre classes e suas subclasses, para isso são utilizados relacionamentos de herança. E os padrões de objetos são mais dinâmicos, pois lidam com relacionamentos entre objetos que podem ser mudados em tempo de execução.
 
