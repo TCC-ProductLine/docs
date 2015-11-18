@@ -57,28 +57,34 @@ Redes socias podem utilizar estes dados para aplicações diversas como, por exe
 
 Outra funcionalidade que o framework irá fornercer é a conciliação de agendas entre os usuários, possibilitando assim encontrar dias da semana e horários específicos que são comuns a um determinado grupo. Esta funcinalidade pode auxiliar os usuários em diversos aspectos como, por exemplo, encontrar um horário em comum para realizar uma tarefa.
 
+\subsection{Modelo Inicial}
+
+A figura \ref{diagrama de componentes} apresenta os principais componentes que serão oferecidos pelo framework, fica evidenciado no modelo o relacionamento de usuário com rotas e agendas. Em cada um desses componentes existiram diversas classes que implementarão todo o modelo e regras de negócio propostas.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.55]{figuras/capitulo5/diagrama_componentes.eps}
+	\caption{Diagrama de componentes inicial}
+	\label{diagrama de componentes}
+\end{figure}
+
+Este modelo servirá como base para a implementação de todas as funcionalidades propostas.
+
 \section{Uso do Framework}
 
 O framework será desenvolvido em \textit{``Ruby on Rails''} e terá sua \textit{``Gem''}\footnote{\url{http://www.akitaonrails.com/2009/2/2/entendendo-rubygems}} publicada em um repositório online para uso de outros desenvolvedores.
 
-Para comprovação do funcionamento do framework, este trabalho propõe o desenvolvimento de uma rede social que faça uso do mesmo. Esta rede deverá fazer uso dos principais recursos providos pelo framework, dessa forma, pode-se ver o seu uso na prática.
+Para comprovação do funcionamento do \textit{framework}, este trabalho propõe o desenvolvimento de uma rede social que faça uso do mesmo. Esta rede deverá fazer uso dos principais recursos providos pelo \textit{framework}, dessa forma, pode-se ver o seu uso na prática.
 
 \section{Prova de Conceito}
 
-\subsection{Algoritmos}
+Foi desenvolvida uma pequena aplicação para implementação de alguns conceitos discutidos neste trabalho.
 
-\subsection{Modelo Inicial}
+De modo geral a aplicação desenvolvida implementa uma rede de usuários ligados entre si formando um grafo, conta com as classes Usuário, Aresta que é usada para fazer as ligações entre as entidades e a classe Grafo que representa a própria rede com todos os usuários. Foram implementadas as funcionalidades de relacionamento descritas nas figuras \ref{segue} e \ref{amigo}, além de uma varredura dos usuários presentes no grafo pelos algoritmos de busca ~\nameref{subsec:bfs} e ~\nameref{subsec:dfs}.
 
-Como apresentado na figura \ref{diagrama de classe} o modelo de classes possui as classes de usuário, grupo, rota e agenda. No qual, um usuário pode pertencer muitos grupos, pode ter uma agenda e pode possuir muitas rotas.
+Todo o código fonte da aplicação citada pode ser encontrado em \url{https://github.com/TCC-SocialNetwork/concept-test}.
 
-\begin{figure}[!h]
-	\centering
-	\includegraphics[scale=0.55]{figuras/capitulo5/diagrama_classe.eps}
-	\caption{Diagrama de classe inicial}
-	\label{diagrama de classe}
-\end{figure}
-
-Este modelo servirá como base para a implementação de todas as funcionalidades propostas.
+Essa aplicação traz a prova do desenvolvimento do \textit{framework} proposto no ponto de relacionamento de usuários, representa um passo inicial para o desenvolvimento real que se dará na segunda etapa deste trabalho.
 
 \section{Trabalhos Relacionados}
 

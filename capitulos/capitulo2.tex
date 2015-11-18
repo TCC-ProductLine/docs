@@ -137,9 +137,12 @@ Formalmente, um grafo dirigido \textit{D} é um par ordenado \textit{(V(D), E(A)
 A busca em grafos refere-se ao método de explorar o grafo, ou seja, obter um método sistemático para percorrer seus vértices e arestas. Para isto, há dois principais algoritmos, busca em profundidade (\textit{DFS - Depth First Search}) e busca em largura (\textit{BFS - Breadth First Search}). Em ambos os casos parte-se de um vértice qualquer.
 
 \subsubsection{DFS}
+\label{subsec:dfs}
+
 A ideia por trás do \textit{DFS} é alcançar ``mais fundo'' no grafo quanto possível. A ordem em que os vértices são visitados depende da ordem em que os vizinhos de cada vértice aparecem na lista de adjacência \cite{Cormen:2001}. No apêndice ~\nameref{sec:exemplificacao dfs}, pode-se encontrar um fluxo que exemplifica o funcionamento do DFS.
 
 \subsubsection{BFS}
+\label{subsec:bfs}
 
 O \textit{DFS}, a partir de um vértice \textit{v}, tenta visitar algum vizinho deste, em seguida, um vizinho deste vizinho, e assim por diante. O \textit{BFS}, a partir de um vértice \textit{v}, visita todos os vizinhos de \textit{v}. Quando visitado todos os vizinhos de um vértice, os vizinhos destes vizinhos serão visitados \cite{Brassard:1988}.
 
