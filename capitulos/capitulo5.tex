@@ -8,9 +8,9 @@ A proposta deste trabalho é desenvolver um framework que auxilie no desenvolvim
 
 \subsection{Relacionamento de Usuários}
 
-O relacionamento em redes sociais dá-se por meio de iterações entre os usuários, estas iterações variam de acordo com a rede em que o usuário está inserido. Alguém pode apenas seguir outras pessoas e acompanhar suas postagens, este é um relacionamento unidirecional, pois não é nessário que uma pessoa seguida acompanhe também postagens de seus seguidores. Existe também outro tipo de relacionamento onde é necessário que as duas pessoas estejam diretamente ligadas entre si, o que o torna necessariamente bidirecional, neste tipo pode-se considerar relacionamentos entre conhecidos, amigos, namorados, familiares, entre outros.
+O relacionamento em redes sociais dá-se por meio de interações entre os usuários, estas interações variam de acordo com a rede em que o usuário está inserido. Alguém pode apenas seguir outras pessoas e acompanhar suas postagens, este é um relacionamento unidirecional, pois não é nessário que uma pessoa seguida acompanhe também postagens de seus seguidores. Existe também outro tipo de relacionamento onde é necessário que as duas pessoas estejam diretamente ligadas entre si, o que o torna necessariamente bidirecional, neste tipo pode-se considerar relacionamentos entre conhecidos, amigos, namorados, familiares, entre outros.
 
-Na montagem da estrutura de relacionamentos entre os usuários para redes sociais é nessário fazer uso de grafos onde os usuários serão representados como os vértices e os relacionamentos como as arestas. No caso dos relacionamentos unidirecionais apenas uma aresta é criada. Esta aresta faz uma ligação a partir do vértice do usuário seguidor para o vértice do usuário que este deseja seguir, como pode ser observado na figura \ref{segue}. No caso dos relacionamentos bidirecionais a ligação deverá ser feita usando-se duas arestas paralelas. É necessário que para ambos os usuários exista uma possibilidade de se chegar ao outro, portanto, deve existir uma aresta que ligue um usuário ``A'' a um usuário ``B'' e uma aresta que ligue o usuário ``B'' ao usuário ``A'', vide a figura \ref{amigo}.
+Na montagem da estrutura de relacionamentos entre os usuários para redes sociais é nessário fazer uso de grafos onde os usuários serão representados como os vértices e os relacionamentos como as arestas. No caso dos relacionamentos unidirecionais apenas uma aresta é criada. Esta aresta faz uma ligação a partir do vértice do usuário seguidor para o vértice do usuário que este deseja seguir, como pode ser observado na Figura \ref{segue}. No caso dos relacionamentos bidirecionais a ligação deverá ser feita usando-se duas arestas paralelas. É necessário que para ambos os usuários exista uma possibilidade de se chegar ao outro, portanto, deve existir uma aresta que ligue um usuário ``A'' a um usuário ``B'' e uma aresta que ligue o usuário ``B'' ao usuário ``A'', vide a Figura \ref{amigo}.
 
 \begin{figure}[!h]
 	\centering
@@ -26,7 +26,7 @@ Na montagem da estrutura de relacionamentos entre os usuários para redes sociai
 	\label{amigo}
 \end{figure}
 
-Cada aresta deverá possuir uma ou mais descrições que detalham qual o relacionamento entre os usuários. Isso fica mais claro ao se falar de relacionamentos bidirecionais, onde pode existir entre duas pessoas um relaciomanento de amizade e parentesco, por exemplo, esse relacionamento pode ser visualizado na figura \ref{parentes}.
+Cada aresta deverá possuir uma ou mais descrições que detalham qual o relacionamento entre os usuários. Isso fica mais claro ao se falar de relacionamentos bidirecionais, onde pode existir entre duas pessoas um relaciomanento de amizade e parentesco, por exemplo, esse relacionamento pode ser visualizado na Figura \ref{parentes}.
 
 \begin{figure}[!h]
 	\centering
@@ -37,7 +37,7 @@ Cada aresta deverá possuir uma ou mais descrições que detalham qual o relacio
 
 \subsection{Controle de Rotas}
 
-Rota\footnote{\url{http://www.dicio.com.br/rota/}} é um itenerário que se percorre para ir de um lugar a outro, indicando a direção ou rumo a ser percorrido, um exemplo de rota pode ser visualizado na figura \ref{rota}.
+Rota\footnote{\url{http://www.dicio.com.br/rota/}} é um itenerário que se percorre para ir de um lugar a outro, indicando a direção ou rumo a ser percorrido, um exemplo de rota pode ser visualizado na Figura \ref{rota}.
 
 \newpage
 
@@ -59,7 +59,7 @@ Outra funcionalidade que o framework irá fornercer é a conciliação de agenda
 
 \subsection{Modelo Inicial}
 
-A figura \ref{diagrama de componentes} apresenta os principais componentes que serão oferecidos pelo framework, fica evidenciado no modelo o relacionamento de usuário com rotas e agendas. Em cada um desses componentes existiram diversas classes que implementarão todo o modelo e regras de negócio propostas.
+A Figura \ref{diagrama de componentes} apresenta os principais componentes que serão oferecidos pelo framework, fica evidenciado no modelo o relacionamento de usuário com rotas e agendas. Em cada um desses componentes existiram diversas classes que implementarão todo o modelo e regras de negócio propostas.
 
 \begin{figure}[!h]
 	\centering
@@ -80,7 +80,7 @@ Para comprovação do funcionamento do \textit{framework}, este trabalho propõe
 
 Foi desenvolvida aplicação simples para implementação de alguns conceitos discutidos neste trabalho.
 
-De modo geral a aplicação desenvolvida implementa uma rede de usuários ligados entre si formando um grafo, conta com as classes Usuário, Aresta que é usada para fazer as ligações entre as entidades e a classe Grafo que representa a própria rede com todos os usuários. Foram implementadas as funcionalidades de relacionamento descritas nas figuras \ref{segue} e \ref{amigo}, além de uma varredura dos usuários presentes no grafo pelos algoritmos de busca ~\nameref{subsec:bfs} e ~\nameref{subsec:dfs}.
+De modo geral a aplicação desenvolvida implementa uma rede de usuários ligados entre si formando um grafo, conta com as classes Usuário, Aresta que é usada para fazer as ligações entre as entidades e a classe Grafo que representa a própria rede com todos os usuários. Foram implementadas as funcionalidades de relacionamento descritas nas Figuras \ref{segue} e \ref{amigo}, além de uma varredura dos usuários presentes no grafo pelos algoritmos de busca ~\nameref{subsec:bfs} e ~\nameref{subsec:dfs}.
 
 Todo o código fonte da aplicação citada pode ser encontrado em \url{https://github.com/TCC-SocialNetwork/concept-test}.
 
