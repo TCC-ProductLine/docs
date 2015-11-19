@@ -1,6 +1,6 @@
 \chapter{Referencial Teórico}
 
-Neste capítulo serão abordados os tópicos considerados mais relevantes para atingir o embasamento teórico necessário para a realização deste trabalho.
+Neste capítulo, serão abordados os tópicos considerados mais relevantes para atingir o embasamento teórico necessário para a realização deste trabalho.
 
 \section{Redes Sociais}
 
@@ -35,7 +35,7 @@ Milgram, em sua tese \cite{Milgram:1967}, defende que qualquer pessoa está dist
 
 \section{Teoria dos Grafos}
 
-A análise de redes sociais tem como fundamento a teoria dos grafos, a seguir serão apresentados os principais conceitos sobre grafos.
+A análise de redes sociais tem como fundamento a teoria dos grafos. A seguir serão apresentados os principais conceitos sobre grafos.
 
 \subsection{História}
 
@@ -54,7 +54,7 @@ De acordo com Ore \cite{Ore:1963}, Leonhard Euler\footnote{Grande matemático e 
 \end{figure}
 \footnotetext{\url{http://www.mat.uc.pt/~alma/escolas/pontes/}}
 
-Não se tem conhecimento sobre o Euler ter resolvido esse problema usando a representação de grafos estudada hoje. A modelagem do problema por grafo passa por uma representação, na qual cada porção de terra  é representada por um ponto e as pontes estariam representadas por linhas \cite{Ore:1963}, apresentado na Figura \ref{sete_pontes}.
+Não se tem conhecimento sobre o Euler ter resolvido esse problema usando a representação de grafos estudada hoje. A modelagem do problema por grafo passa por uma representação, na qual cada porção de terra  é representada por um ponto e as pontes estariam representadas por linhas \cite{Ore:1963}, conforme apresentado na Figura \ref{sete_pontes}.
 
 \begin{figure}[!h]
 	\centering
@@ -69,9 +69,9 @@ Assim, Euler mostrou que, uma vez que o grafo de Königsberg tem vértices de gr
 
 \subsection{Definições}
 
-\textbf{Definição 1}: Um grafo \textit{G} é um par ordenado (\textit{V}(\textit{G}), \textit{E}(\textit{G})). Que consiste de um conjunto \textit{V}(\textit{G}) de vértices, um conjunto \textit{E}(\textit{G}), disjunto de \textit{V}(\textit{G}), de arestas, e uma função de incidência $\psi_G$ que associa a cada aresta de \textit{G} um par não ordenado de (não necessariamente distintos) vértices de \textit{G} \cite{Bondy:2007}.
+\textbf{Definição 1}: Um grafo \textit{G} é um par ordenado (\textit{V}(\textit{G}), \textit{E}(\textit{G})). Que consiste de um conjunto \textit{V}(\textit{G}) de vértices, um conjunto \textit{E}(\textit{G}), disjunto de \textit{V}(\textit{G}), de arestas, e uma função de incidência $\psi_G$ que associa a cada aresta de \textit{G} um par não ordenado de vértices de \textit{G} (não necessariamente distintos) \cite{Bondy:2007}.
 
-\textbf{Definição 2}: Um grafo é um par \textit{G} = (\textit{V}, \textit{E}) de conjuntos de tal modo que \textit{E}$\subseteq$[\textit{V}$_2$]; Assim, os elementos de \textit{E} são subconjuntos de pares ordenados de elementos de \textit{V}. Para evitar ambiguidades de notação, deve-se sempre assumir implicitamente que \textit{V}$\cap$\textit{E}=$\oslash$. Os elementos de \textit{V} são os vértices (ou nós ou pontos) do grafo \textit{G}, os elementos de \textit{E} são arestas (ou linhas) \cite{Diestel:1997}.
+\textbf{Definição 2}: Um grafo é um par \textit{G} = (\textit{V}, \textit{E}) de conjuntos de tal modo que \textit{E}$\subseteq$[\textit{V}$_2$]. Assim, os elementos de \textit{E} são subconjuntos de pares ordenados de elementos de \textit{V}. Para evitar ambiguidades de notação, deve-se sempre assumir implicitamente que \textit{V}$\cap$\textit{E}=$\oslash$. Os elementos de \textit{V} são os vértices (ou nós ou pontos) do grafo \textit{G}, os elementos de \textit{E} são arestas (ou linhas) \cite{Diestel:1997}.
 
 Grafos são assim chamados porque eles podem ser representados graficamente, e é esta representação gráfica que possibilita entender muitas de suas propriedades. Cada vértice é indicado por um ponto, e cada aresta por uma linha que une os pontos que representam as suas extremidades \cite{Bondy:2007}. Um exemplo pode ser observado na Figura \ref{exemplo_grafo}.
 
@@ -221,11 +221,11 @@ A tecnologia de reutilização ideal provê componentes que podem facilmente ser
 
 \textit{Frameworks} são aplicações especializadas em prover classes e componentes abstratos que podem ser usados por outros sistemas. Estes proveem técnicas de reutilização robustas e de maior granularidade. Sendo aplicações independentes é mais fácil usá-los em um maior número de sistemas \cite{Johnson:Foote:1988}.
 
-Para se alcançar a aplicação efetiva de um dado \textit{framework} é, necessário ao desenvolvedor conhecer as interfaces que o \textit{framework} proporciona antes de poder usá-las. Como podem existir diversas interfaces complexas, aprender a usar um novo \textit{framework} pode ser difícil. Porém, os \textit{frameworks} são poderosos e o tempo gasto em sua aprendizagem é recompensado, pois podem reduzir a quantidade de esforço aplicado para se desenvolver uma nova aplicação que os usem \cite{Johnson:1997}.
+Para se alcançar a aplicação efetiva de um dado \textit{framework}, é necessário ao desenvolvedor conhecer as interfaces que o \textit{framework} proporciona antes de poder usá-las. Como podem existir diversas interfaces complexas, aprender a usar um novo \textit{framework} pode ser difícil. Porém, os \textit{frameworks} são poderosos e o tempo gasto em sua aprendizagem é recompensado, pois podem reduzir a quantidade de esforço aplicado para se desenvolver uma nova aplicação que os use \cite{Johnson:1997}.
 
 Ao longo do tempo, tornou-se muito caro desenvolver aplicações complexas a partir do zero. Isso porque todos os componentes que são desenvolvidos devem passar por um criterioso processo de validação e manutenção, e isso ocorre sempre que um novo sistema é desenvolvido. Ao se usar \textit{frameworks}, pode-se desenvolver componentes comuns e os processos citados são feitos em um único local \cite{Fayad:Schimidt:1997}.
 
-As técnicas de reutilização são diferentes de acordo como o tipo do \textit{framework} utilizado, esses tipos podem ser ``\textit{white box}'' ou ``\textit{black box}''. O primeiro diz respeito a quando o código do \textit{framework} é aberto e visível ao desenvolvedor, dessa forma, este pode estudar a implementação do \textit{framework} e modificar o código de determinadas partes de acordo com suas necessidades. Os \textit{frameworks} do tipo ``\textit{black box}'' disponibilizam apenas interfaces ao desenvolvedor para que este possa usá-las, a forma como tudo é implementado e processado é desconhecida. No primeiro tipo, têm-se uma maior flexibilidade, porém, o uso é mais complexo ao desenvolvedor. No segundo, o uso é bem simples, porém, não existe flexibilidade para mudança da implementação \cite{Kroth:2000}.
+As técnicas de reutilização são diferentes de acordo como o tipo do \textit{framework} utilizado, esses tipos podem ser ``\textit{white box}'' ou ``\textit{black box}''. O primeiro diz respeito a quando o código do \textit{framework} é aberto e visível ao desenvolvedor, dessa forma, este pode estudar a implementação do \textit{framework} e modificar o código de determinadas partes de acordo com suas necessidades. Os \textit{frameworks} do tipo ``\textit{black box}'' disponibilizam apenas interfaces ao desenvolvedor para que este possa usá-las. A forma como tudo é implementado e processado é desconhecida. No primeiro tipo, têm-se uma maior flexibilidade, porém, o uso é mais complexo ao desenvolvedor. No segundo, o uso é bem simples, porém, não existe flexibilidade para mudança da implementação \cite{Kroth:2000}.
 
 Existe também uma metodologia no desenvolvimento de \textit{frameworks} que une as técnicas ``\textit{white box}'' e ``\textit{black box}'', assim, uma parte do \textit{framework} é fechada e o desenvolvedor não pode alterar o código, apenas usar as funções disponíveis; a outra parte é aberta ao desenvolvedor para realizar alterações no código. Essa abordagem é conhecida como \textit{frameworks} do tipo ``\textit{gray box}'' ou ``caixa cinza'' \cite{Kristensen:2004}.
 
@@ -233,11 +233,11 @@ Além dos tipos de \textit{frameworks}, estes também podem ser divididos quanto
 
 Na Engenharia de Software, busca-se cada vez mais o aumento da produtividade e da qualidade dos sistemas desenvolvidos. A reutilização de software, ao contrário de todas as outras partes de um sistema, é um fator que pode acarretar o aumento desses fatores, considerando que ao se utilizar componentes já desenvolvidos e depurados pode-se reduzir o tempo de desenvolvimento, de testes e as chances de ocorrência de erros que poderiam advir se fosse necessária a criação destes novos artefatos \cite{Silva:2000}.
 
-E na qualidade a reutilização advinda dos \textit{frameworks} pode trazer ganhos de desempenho, confiabilidade e interoperabilidade de software \cite{Fayad:Schimidt:1997}.
+Na qualidade, a reutilização advinda dos \textit{frameworks} pode trazer ganhos de desempenho, confiabilidade e interoperabilidade de software \cite{Fayad:Schimidt:1997}.
 
 \subsubsection{Frameworks e Padrões}
 
-Padrões representam soluções recorrentes para problemas no desenvolvimento de software em um contexto específico. Tanto os padrões como os \textit{frameworks} são técnicas de reutilização, a grande diferença é que os \textit{frameworks} 	se concentram na reutilização de estruturas, algoritmos e implementações em uma dada linguagem de programação. Já os padrões focam em apresentar desenhos abstratos de como resolver problemas; como microarquiteturas de software \cite{Fayad:Schimidt:1997}.
+Padrões representam soluções recorrentes para problemas no desenvolvimento de software em um contexto específico. Tanto os padrões como os \textit{frameworks} são técnicas de reutilização. A grande diferença é que os \textit{frameworks} 	se concentram na reutilização de estruturas, algoritmos e implementações em uma dada linguagem de programação. Já os padrões focam em apresentar desenhos abstratos de como resolver problemas; como microarquiteturas de software \cite{Fayad:Schimidt:1997}.
 
 Um padrão descreve um problema a ser resolvido e apresenta uma solução e o contexto em que essa solução funciona, nomeia uma técnica e descreve seus custos e benefícios \cite{Johnson:1997}.
 
@@ -262,13 +262,13 @@ No livro de padrões de projeto \cite{Gamma:1995}, os autores concordam com as a
 \begin{itemize}
 	\item \textbf{Nome:} Usado para descrever um problema de projeto, suas soluções e consequências em uma ou duas palavras. Quando um padrão possui um nome fica mais fácil de definir um vocabulário comum para tratar deste com outras pessoas.
 	\item \textbf{Problema:} O problema está ligado diretamente à situação em que deve ser aplicado o padrão, ou seja, qual o contexto. Algumas vezes o problema pode conter uma lista de condições que devem ser satisfeitas para que se possa alcançar sentido na aplicação do padrão.
-	\item \textbf{Solução:} Esta descreve todos os elementos que compõem o padrão, seus relacionamentos, responsabilidades e colaborações. É fornecida uma descrição abstrata de um problema de projeto e o arranjo geral de classes e objetos que resolvam o padrão. Não há uma solução ou implementação concreta, pois padrões são desenhados para serem usados diferentes situações.
+	\item \textbf{Solução:} Esta descreve todos os elementos que compõem o padrão, seus relacionamentos, responsabilidades e colaborações. É fornecida uma descrição abstrata de um problema de projeto e o arranjo geral de classes e objetos que resolvam o padrão. Não há uma solução ou implementação concreta, pois padrões são desenhados para serem usados em diferentes situações.
 	\item \textbf{Consequências:} As consequências apresentam uma série de resultados concernentes da aplicação do padrão, normalmente apresentando vantagens e desvantagens. São elementos críticos que entram na decisão da aplicação ou não do padrão que está em questão.
 \end{itemize}
 
 \subsubsection{Por que usar Padrões de Projeto?}
 
-Os dois pontos que justificam de forma adequada o uso de padrões de projeto são brevemente descritos a seguir, de acordo com \cite{Shalloway:Trott:2004}:
+Os três pontos que justificam de forma adequada o uso de padrões de projeto são brevemente descritos a seguir, de acordo com \cite{Shalloway:Trott:2004}:
 
 \begin{itemize}
 	\item \textbf{Soluções Reutilizáveis:} O tempo gasto para aprender a utilizar determinado padrão é compensado pela reutilização que é oferecida. Têm-se o benefício de aplicar o que foi aprendido para diversos projetos. Depois de ter o conhecimento fixado, não é necessário reinventar soluções para problemas recorrentes, basta reutilizar o que os padrões oferecem.
@@ -276,11 +276,11 @@ Os dois pontos que justificam de forma adequada o uso de padrões de projeto sã
 	\item \textbf{Perspectiva de alto nível do problema:} Os padrões dão aos desenvolvedores essa perspectiva e ajudam na análise e entendimento dos problemas, facilitando a elaboração de uma solução mais adequada.
 \end{itemize}
 
-Os padrões ainda podem ajudar na refatoração de projetos. Uma das grandes dificuldades no desenvolvimento de software é que este tem de ser frequentemente reorganizado ou refatorados. Os padrões de projeto ao oferecerem soluções comuns e já consolidadas podem reduzir a quantidade de refatoração que deverá ser feita mais tarde \cite{Gamma:1995}.
+Os padrões ainda podem ajudar na refatoração de projetos. Uma das grandes dificuldades no desenvolvimento de software é que este tem de ser frequentemente reorganizado ou refatorado. Os padrões de projeto, ao oferecerem soluções comuns e já consolidadas, podem reduzir a quantidade de refatoração que deverá ser feita mais tarde \cite{Gamma:1995}.
 
 \subsubsection{Classificação de Padrões de Projeto}
 
-Em \cite{Gamma:1995}, foram definidos e classificados 23 padrões. Essa classificação está feita de acordo com dois critérios: \textbf{finalidade} e \textbf{escopo}. O primeiro critério diz respeito ao que o padrão faz, a finalidade pode ser de criação, estrutural ou comportamental. Os padrões com finalidade de criação se preocupam com o processo de criação de objetos. Os estruturais focam em composições de classes ou objetos. Os comportamentais caracterizam as maneiras que as classes ou objetos interagem e distribuem responsabilidades.
+Em \cite{Gamma:1995}, foram definidos e classificados 23 padrões. Essa classificação está feita de acordo com dois critérios: \textbf{finalidade} e \textbf{escopo}. O primeiro critério diz respeito ao que o padrão faz. A finalidade pode ser de criação, estrutural ou comportamental. Os padrões com finalidade de criação se preocupam com o processo de criação de objetos. Os estruturais focam em composições de classes ou objetos. Os comportamentais caracterizam as maneiras que as classes ou objetos interagem e distribuem responsabilidades.
 
 O segundo critério especifica se o padrão é de classe ou objeto. Os padrões de classe lidam com relacionamentos entre classes e suas subclasses, para isso são utilizados relacionamentos de herança. E os padrões de objetos são mais dinâmicos, pois lidam com relacionamentos entre objetos que podem ser mudados em tempo de execução.
 
@@ -297,10 +297,10 @@ Se todas as aplicações usassem a mesma interface de programação e o mesmo pr
 Apesar das abordagens de orientação a serviços e orientação a componentes serem bem similares, no livro \cite{Stojanovic:Dahanayake:2005}, são apresentadas algumas diferenças entre as mesmas, que são:
 
 \begin{itemize}
-	\item O tempo de integração. Na orientação baseada em componentes a integração com a aplicação desenvolvida ocorre no momento da construção; enquanto na orientação a serviços a integração pode ocorrer antes ou durante a execução, pois apenas as descrições dos serviços estão disponíveis no momento da execução.
+	\item O tempo de integração. Na orientação baseada em componentes, a integração com a aplicação desenvolvida ocorre no momento da construção; enquanto, na orientação a serviços, a integração pode ocorrer antes ou durante a execução, pois apenas as descrições dos serviços estão disponíveis no momento da execução.
 	\item Nos serviços, o foco é a descoberta, existindo uma ênfase mais forte na separação entre a descrição do serviço e a implementação. Nos componentes, é a composição, onde as partes são integradas diretamente na aplicação.
 	\item Serviços são mais voltados para tarefas dinâmicas, ao contrário dos componentes que são mais voltados para pontos estáticos. Porém, esse comportamento pode ser feito também em componentes.
-	\item A orientação a componentes fornece mais responsabilidade para o ambiente e execução da própria aplicação. Os serviços não são necessariamente dessa forma, pois podem estar presentes em outras máquinas e servidores externos.
+	\item A orientação a componentes atribui maior responsabilidade para o ambiente e execução da própria aplicação. Os serviços não são necessariamente dessa forma, pois podem estar presentes em outras máquinas e servidores externos.
 \end{itemize}
 
 A seguir serão apresentadas duas formas conhecidas e já consolidadas de implementações de serviços, os \textit{Web Services} e os \textit{Serviços RESTful}.
@@ -309,7 +309,7 @@ A seguir serão apresentadas duas formas conhecidas e já consolidadas de implem
 
 Os serviços são informatizados por tecnologias interoperáveis, que são capazes de se comunicar entre si, e isso independe da plataforma e linguagem de programação utilizadas. Dentre essas tecnologias, os ``\textit{Web Services}'' (serviços web) se destacam. Esses serviços fornecem um modo padronizado de integrar aplicativos web, e assim, organizações podem se comunicar sem que uma tenha conhecimento abrangente dos sistemas da outra \cite{Victorino:Brascher:2009}.
 
-Um ``\textit{Web Service}'' é uma noção abstrata que deve ser implementada por um agente concreto, este agente é um pedaço de software que envia e recebe mensagens. O serviço é o recurso caracterizado pela funcionalidade abstrata que é servida.
+Um ``\textit{Web Service}'' é uma noção abstrata que deve ser implementada por um agente concreto, sendo esse agente um pedaço de software que envia e recebe mensagens. O serviço é o recurso caracterizado pela funcionalidade abstrata que é servida.
 
 O XML hoje é amplamente utilizado quase como o protocolo HTTP, e faz parte da solução para aplicação de ``\textit{Web Services}''. Normalmente, usado para realizar a formatação dos dados \cite{Alonso:Casati:Kuno:Machiraju:2010}.
 
