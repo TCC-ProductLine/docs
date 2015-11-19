@@ -3,9 +3,15 @@
 
 A seguir será detalhado cada ponto proposto em tópicos mais detalhados, visando especificar cada fragmento que será desenvolvido no decorrer deste trabalho.
 
+Ao final deste capítulo será possível ter uma ideia concreta da proposta deste trabalho e do principal funcionamento do \textit{framework}.
+
 \section{O Framework}
 
 A proposta deste trabalho é desenvolver um \textit{framework} que auxilie no desenvolvimento de redes sociais. Este \textit{framework} deve oferecer recursos gerais com toda a lógica de usuários e relacionamentos, e recursos mais específicos para redes sociais baseadas em rotas e agendas. O recurso de rotas deve ser capaz de fazer um mapeamento de trajetos de interesse de um determinado usuário e auxiliar este a fazer comparações com rotas de outros usuários. A agenda deve oferecer recursos de controle de ocupações no decorrer de dias e horários e auxiliar um usuário a encontrar dias e/ou horários comuns entre um grupo de usuários qualquer.
+
+Todo o \textit{framework} será extensível de forma que será possível que o desenvolvedor, a partir de heranças, consiga acrescentar e ou mudar implementações conforme as suas necessidades. Porém, o \textit{framework} por si só já irá oferecer recurso variados e completos que darão ao desenvolvedor a possibilidade de criação de uma rede social completa sem a necessidade de realização de quaisquer alterações no que é fornecido, a extensibilidade só é necessária quando se chega a algumas especificidades da aplicação que não são fornecidas.
+
+A seguir têm-se um maior detalhamento de cada um dos três principais componentes fornecidos pelo \textit{framework}.
 
 \subsection{Relacionamento de Usuários}
 
@@ -29,6 +35,8 @@ Na montagem da estrutura de relacionamentos entre os usuários para redes sociai
 
 Cada aresta deverá possuir uma ou mais descrições que detalham qual o relacionamento entre os usuários. Isso fica mais claro ao se falar de relacionamentos bidirecionais, onde pode existir entre duas pessoas um relaciomanento de amizade e parentesco, por exemplo. Esse relacionamento pode ser visualizado na Figura \ref{parentes}.
 
+\newpage
+
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.45]{figuras/capitulo5/parentes.eps}
@@ -40,8 +48,6 @@ Cada aresta deverá possuir uma ou mais descrições que detalham qual o relacio
 
 Rota\footnote{\url{http://www.dicio.com.br/rota/}} é um itenerário que se percorre para ir de um lugar a outro, indicando a direção ou rumo a ser percorrido, Um exemplo de rota pode ser visualizado na Figura \ref{rota}.
 
-\newpage
-
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.55]{figuras/capitulo5/rota.eps}
@@ -50,13 +56,29 @@ Rota\footnote{\url{http://www.dicio.com.br/rota/}} é um itenerário que se perc
 \end{figure}
 \footnotetext{\url{http://sede.wikidot.com/andy-s-brainstorm}}
 
-O \textit{framework} irá oferecer recursos que auxiliem o usuário a definir as rotas que percorre e os horários de cada percurso, e buscar rotas de outros usuários que coincidem em parte ou integralmente com as suas.
+O \textit{framework} irá oferecer recursos que auxiliem o usuário a definir as rotas que percorre e os horários de cada percurso, e buscar rotas de outros usuários que coincidam em parte ou integralmente com as suas.
 
 Redes socias podem utilizar estes dados para aplicações diversas como, por exemplo, caronas e encontros para ciclistas.
+
+Conforme mostrado na figura \ref{rota}, pode-se ver uma rota que leva do ponto ``0'' ao ponto ``5'', poderiam existir diversos usuários com rotas comuns nesse caminho, por exemplo, um usuário que siga todo o caminho traçado, ou um usuário que partisse do ponto ``2'' e chegasse ao ponto ``4'' e assim por diante. Uma das funcionalidades do \textit{framework} neste contexto seria encontrar todos os usuários que partilhassem desses caminhos em comum, ou encontrar um caminho partilhado entre um grupo de usuários, por exemplo.
 
 \subsection{Controle de Agenda}
 
 Outra funcionalidade que o \textit{framework} irá fornecer é a conciliação de agendas entre os usuários, possibilitando assim encontrar dias da semana e horários específicos que são comuns a um determinado grupo. Esta funcinalidade pode auxiliar os usuários em diversos aspectos como, por exemplo, encontrar um horário em comum para realizar uma tarefa.
+
+A figura \ref{agenda semanal} mostra um exemplo de uma agenda semanal com todos os horários livres.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.55]{figuras/capitulo5/agenda_semanal.eps}
+	\caption[Exemplo de agenda semanal]{Exemplo de agenda semanal\footnotemark}
+	\label{agenda semanal}
+\end{figure}
+\footnotetext{\url{http://universovocesaude.com.br/wp-content/uploads/2014/08/horario-semanal_JPG.jpg}}
+
+Agendas dessa forma auxiliam usuários a terem um melhor controle de suas tarefas semanais, marcarem eventos, entre outros aspecetos. O período compreendido por uma agenda pode variar de acordo com cada contexto, uma agenda semanal conforme a apresentada, mensal, anual, ou ainda um período não necessariamente pré-definido, o que poderia auxiliar usuários a marcarem eventos para longas datas futuras. De modo simplificado, basta dados como dia e horários de início e fim de uma tarefa para aplicar um controle de agenda.
+
+O \textit{framework} oferecerá o suporte para criação de agendas conforme apresentado, assim, é possível a partir de um período pré-determinado encontrar um horário e dia comuns a um conjunto de usuários, isso pode auxiliar a criação e marcação de enventos visando atender o maior número de usuários conforme o contexto da aplicação.
 
 \subsection{Modelo Inicial}
 
