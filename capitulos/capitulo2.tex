@@ -206,28 +206,28 @@ Os próximos subtópicos irão apresentar temas deste trabalho que estão direta
 Fayad e Schimidt, em seu artigo \cite{Fayad:Schimidt:1997} sobre \textit{frameworks} de aplicações orientadas a objetos, mostram quais são os principais benefícios no uso de \textit{frameworks}, dentre eles: modularização, reutilização, extensibilidade e inversão de controle.
 
 \begin{itemize}
-	\item \textbf{Modularização:} \textit{Frameworks} encapsulam e interfaceiam alguns detalhes de implementação. Isso reduz o esforço necessário para entender e manter partes do software existente, pois basta ao desenvolvedor usar o que lhe é oferecido sem necessariamente entender qual a implementação do framework.
+	\item \textbf{Modularização:} \textit{Frameworks} encapsulam e interfaceiam alguns detalhes de implementação. Isso reduz o esforço necessário para entender e manter partes do software existente, pois basta ao desenvolvedor usar o que lhe é oferecido sem necessariamente entender qual a implementação do \textit{framework}.
 
-	\item \textbf{Reutilização:} As interfaces providas por \textit{frameworks} ajudam também na reutilização através da definição de componentes genéricos, que podem ser aplicadas em outras aplicações. Assim sendo, soluções comuns para sistemas diferentes podem ser usadas da mesma forma sem a necessidade de recriação das mesmas. Entende-se então, que estas soluções são pensadas uma única vez, e ao estarem presentes em um framework, basta que sejam usadas.
+	\item \textbf{Reutilização:} As interfaces providas por \textit{frameworks} ajudam também na reutilização através da definição de componentes genéricos, que podem ser aplicadas em outras aplicações. Assim sendo, soluções comuns para sistemas diferentes podem ser usadas da mesma forma sem a necessidade de recriação das mesmas. Entende-se então, que estas soluções são pensadas uma única vez, e ao estarem presentes em um \textit{framework}, basta que sejam usadas.
 
 	\item \textbf{Extensibilidade:} Este é um dos principais pontos positivos dos frameworks, pois estes fornecem métodos e interfaces estáveis que outras aplicações irão utilizar. Recomenda-se que essas aplicações façam uso desses métodos, visando resolver problemas parecidos em diferentes contextos. Uma boa estrutura de extensibilidade é essencial para garantir a customização de novos serviços e funcionalidades das aplicações.
 
-	\item \textbf{Inversão de controle:} A inversão de controle ocorre devido a forma como serão processados e entendidos muitos dos eventos de uma aplicação, que ficam invisíveis ao desenvolvedor quando este usa um framework, pois é o próprio framework quem decide o conjunto de métodos que será invocado para realizar uma determinada tarefa da aplicação.
+	\item \textbf{Inversão de controle:} A inversão de controle ocorre devido a forma como serão processados e entendidos muitos dos eventos de uma aplicação, que ficam invisíveis ao desenvolvedor quando este usa um \textit{framework}, pois é o próprio \textit{framework} quem decide o conjunto de métodos que será invocado para realizar uma determinada tarefa da aplicação.
 \end{itemize}
 
 \subsubsection{Frameworks e Reutilização de Software}
 
 A tecnologia de reutilização ideal provê componentes que podem facilmente ser conectados para criar um novo sistema. Não é necessário ao desenvolvedor ter conhecimento de como o componente é implementado, e geralmente é fácil para ele aprender como o utilizar. O resultado é que o sistema será eficiente, fácil de manter e confiável \cite{Johnson:1997}.
 
-Frameworks são aplicações especializadas em prover classes e componentes abstratos que podem ser usados por outros sistemas. Estes proveem técnicas de reutilização robustas e de maior granularidade. Sendo aplicações independentes é mais fácil usá-los em um maior número de sistemas \cite{Johnson:Foote:1988}.
+\textit{Frameworks} são aplicações especializadas em prover classes e componentes abstratos que podem ser usados por outros sistemas. Estes proveem técnicas de reutilização robustas e de maior granularidade. Sendo aplicações independentes é mais fácil usá-los em um maior número de sistemas \cite{Johnson:Foote:1988}.
 
-Para se alcançar a aplicação efetiva de um dado framework é, necessário ao desenvolvedor conhecer as interfaces que o framework proporciona antes de poder usá-las. Como podem existir diversas interfaces complexas, aprender a usar um novo framework pode ser difícil. Porém, os \textit{frameworks} são poderosos e o tempo gasto em sua aprendizagem é recompensado, pois podem reduzir a quantidade de esforço aplicado para se desenvolver uma nova aplicação que os usem \cite{Johnson:1997}.
+Para se alcançar a aplicação efetiva de um dado \textit{framework} é, necessário ao desenvolvedor conhecer as interfaces que o \textit{framework} proporciona antes de poder usá-las. Como podem existir diversas interfaces complexas, aprender a usar um novo \textit{framework} pode ser difícil. Porém, os \textit{frameworks} são poderosos e o tempo gasto em sua aprendizagem é recompensado, pois podem reduzir a quantidade de esforço aplicado para se desenvolver uma nova aplicação que os usem \cite{Johnson:1997}.
 
 Ao longo do tempo, tornou-se muito caro desenvolver aplicações complexas a partir do zero. Isso porque todos os componentes que são desenvolvidos devem passar por um criterioso processo de validação e manutenção, e isso ocorre sempre que um novo sistema é desenvolvido. Ao se usar \textit{frameworks}, pode-se desenvolver componentes comuns e os processos citados são feitos em um único local \cite{Fayad:Schimidt:1997}.
 
-As técnicas de reutilização são diferentes de acordo como o tipo do framework utilizado, esses tipos podem ser ``\textit{white box}'' ou ``\textit{black box}''. O primeiro diz respeito a quando o código do framework é aberto e visível ao desenvolvedor, dessa forma, este pode estudar a implementação do framework e modificar o código de determinadas partes de acordo com suas necessidades. Os \textit{frameworks} do tipo ``\textit{black box}'' disponibilizam apenas interfaces ao desenvolvedor para que este possa usá-las, a forma como tudo é implementado e processado é desconhecida. No primeiro tipo, têm-se uma maior flexibilidade, porém, o uso é mais complexo ao desenvolvedor. No segundo, o uso é bem simples, porém, não existe flexibilidade para mudança da implementação \cite{Kroth:2000}.
+As técnicas de reutilização são diferentes de acordo como o tipo do \textit{framework} utilizado, esses tipos podem ser ``\textit{white box}'' ou ``\textit{black box}''. O primeiro diz respeito a quando o código do \textit{framework} é aberto e visível ao desenvolvedor, dessa forma, este pode estudar a implementação do \textit{framework} e modificar o código de determinadas partes de acordo com suas necessidades. Os \textit{frameworks} do tipo ``\textit{black box}'' disponibilizam apenas interfaces ao desenvolvedor para que este possa usá-las, a forma como tudo é implementado e processado é desconhecida. No primeiro tipo, têm-se uma maior flexibilidade, porém, o uso é mais complexo ao desenvolvedor. No segundo, o uso é bem simples, porém, não existe flexibilidade para mudança da implementação \cite{Kroth:2000}.
 
-Existe também uma metodologia no desenvolvimento de \textit{frameworks} que une as técnicas ``\textit{white box}'' e ``\textit{black box}'', assim, uma parte do framework é fechada e o desenvolvedor não pode alterar o código, apenas usar as funções disponíveis; a outra parte é aberta ao desenvolvedor para realizar alterações no código. Essa abordagem é conhecida como \textit{frameworks} do tipo ``\textit{gray box}'' ou ``caixa cinza'' \cite{Kristensen:2004}.
+Existe também uma metodologia no desenvolvimento de \textit{frameworks} que une as técnicas ``\textit{white box}'' e ``\textit{black box}'', assim, uma parte do \textit{framework} é fechada e o desenvolvedor não pode alterar o código, apenas usar as funções disponíveis; a outra parte é aberta ao desenvolvedor para realizar alterações no código. Essa abordagem é conhecida como \textit{frameworks} do tipo ``\textit{gray box}'' ou ``caixa cinza'' \cite{Kristensen:2004}.
 
 Além dos tipos de \textit{frameworks}, estes também podem ser divididos quanto a sua aplicabilidade. Podem ser desenvolvidos para serem aplicados em qualquer domínio, de forma genérica sem se preocupar com algo específico, \textit{frameworks horizontais}, ou podem ser desenvolvidos visando atender um tipo específico de domínio de problemas, \textit{frameworks verticais}. Essas características dependem das necessidades apresentadas ao se trabalhar com \textit{frameworks}, e isso impacta como será aplicada a reutilização \cite{Kroth:2000}.
 
@@ -237,13 +237,13 @@ E na qualidade a reutilização advinda dos \textit{frameworks} pode trazer ganh
 
 \subsubsection{Frameworks e Padrões}
 
-Padrões representam soluções recorrentes para problemas no desenvolvimento de software em um contexto específico. Tanto os padrões como os frameworks são técnicas de reutilização, a grande diferença é que os frameworks 	se concentram na reutilização de estruturas, algoritmos e implementações em uma dada linguagem de programação. Já os padrões focam em apresentar desenhos abstratos de como resolver problemas; como microarquiteturas de software \cite{Fayad:Schimidt:1997}.
+Padrões representam soluções recorrentes para problemas no desenvolvimento de software em um contexto específico. Tanto os padrões como os \textit{frameworks} são técnicas de reutilização, a grande diferença é que os \textit{frameworks} 	se concentram na reutilização de estruturas, algoritmos e implementações em uma dada linguagem de programação. Já os padrões focam em apresentar desenhos abstratos de como resolver problemas; como microarquiteturas de software \cite{Fayad:Schimidt:1997}.
 
 Um padrão descreve um problema a ser resolvido e apresenta uma solução e o contexto em que essa solução funciona, nomeia uma técnica e descreve seus custos e benefícios \cite{Johnson:1997}.
 
-Quando um framework é implementado diversas vezes, este também pode ser considerado um padrão \cite{Johnson:1997}. O MVC (\textit{Model / View / Controller}) é um framework conceitual de interface com usuário que é considerado um padrão \cite{Almeida:2006}.
+Quando um \textit{framework} é implementado diversas vezes, este também pode ser considerado um padrão \cite{Johnson:1997}. O MVC (\textit{Model / View / Controller}) é um \textit{framework} conceitual de interface com usuário que é considerado um padrão \cite{Almeida:2006}.
 
-Segundo \cite{Fayad:Schimidt:1997}, quando usados em conjunto com padrões, os frameworks podem aumentar significativamente a qualidade do software e reduzir o esforço de desenvolvimento.
+Segundo \cite{Fayad:Schimidt:1997}, quando usados em conjunto com padrões, os \textit{frameworks} podem aumentar significativamente a qualidade do software e reduzir o esforço de desenvolvimento.
 
 \subsection{Padrões de Projeto}
 
@@ -337,10 +337,10 @@ De acordo com \cite{Filho:2009}, os serviços RESTFul possuem cinco conceitos im
 Este capítulo apresentou o levantamento bibliográfico dos temas relacionados ao desenvolvimento deste trabalho. A seguir são apresentados os temas descritos nesse capítulo.
 
 \begin{itemize}
-	\item Redes Sociais: Este é o tema em que este trabalho é desenvolvido. Como a proposta tem o objetivo de desenvolver um framework para redes sociais, é essencial o conhecimento e o entendimento deste tema para a realização do trabalho.
+	\item Redes Sociais: Este é o tema em que este trabalho é desenvolvido. Como a proposta tem o objetivo de desenvolver um \textit{framework} para redes sociais, é essencial o conhecimento e o entendimento deste tema para a realização do trabalho.
 	\item Teoria dos Grafos: O desenvolvimento de redes sociais têm como base o uso de grafos e, sendo assim, este é também um tema de suma importância para este trabalho.
 	\item Algoritmos: Neste tópico, são apresentados alguns dos principais algoritmos já consolidados no que diz respeito a aplicação de grafos como, por exemplo, a realização de pesquisas em um dado grafo.
-	\item Reutilização de Sofware: Este tópico representa um importante objetivo que se pretende alcançar ao final deste trabalho. A reutilização de software é apresentada no uso de frameworks, padrões de projeto e serviços, todos estes deverão ser usados na implementação do framework proposto.
+	\item Reutilização de Sofware: Este tópico representa um importante objetivo que se pretende alcançar ao final deste trabalho. A reutilização de software é apresentada no uso de \textit{frameworks}, padrões de projeto e serviços, todos estes deverão ser usados na implementação do \textit{framework} proposto.
 \end{itemize}
 
 Mais detalhes de alguns tópicos apresentados neste capítulo podem ser encontrados na parte de apêndices deste documento.
