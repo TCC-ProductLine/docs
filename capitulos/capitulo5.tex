@@ -99,6 +99,15 @@ O \textit{framework} será desenvolvido em \textit{``Ruby on Rails''} e terá su
 
 Para comprovação do funcionamento do \textit{framework}, este trabalho propõe o desenvolvimento de uma rede social que faça uso do mesmo. Esta rede deverá fazer uso dos principais recursos providos pelo \textit{framework}, dessa forma, pode-se ver o seu uso na prática.
 
+A Figura \ref{uso_proposto} apresenta um modelo de uso para o \textit{framework}.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.45]{figuras/capitulo5/uso_proposto.eps}
+	\caption{Modelo de uso do \textit{Framework}}
+	\label{uso_proposto}
+\end{figure}
+
 \section{Prova de Conceito}
 
 Foi desenvolvida uma aplicação simples para implementação de alguns conceitos discutidos neste trabalho.
@@ -115,25 +124,29 @@ Em algumas pesquisas relacionadas sobre trabalhos parecidos com o que se propõe
 
 Existe uma comparação entre vinte e cinco plataformas, plataformas, as quais colaboram para começar um serviço de rede social\footnote{\url{http://www.tripwiremagazine.com/2010/07/25-best-social-networking-platforms-to-start-your-own-service.html}}  próprio. Porém, a  maioria das plataformas apresentadas é paga ou não é voltada para desenvolvedores, ou seja, são plataformas que fornecem funcionalidades para usuários comuns poderem montar uma rede social a partir de um \textit{template} visual já definido.
 
+\newpage
+
 \begin{table}[]
 \centering
-\caption{My caption}
-\label{my-label}
+\caption{Comparação entre os trabalhos relacionados}
+\label{comparacao}
+\begin{adjustbox}{width=\textwidth}
 \begin{tabular}{@{}llllll@{}}
 \toprule
-\textbf{Rede Social}  & \textbf{Licença} & \textbf{Preço}        & \textbf{Linguagem}  & \textbf{Customizável}                                    & \textbf{Instalação} \\ \midrule
-SocialEngine          & Customizada      & A partir de \$ 299,99 & PHP                 & Sim                                                      &                     \\
-Elgg                  & GPL 2.0          & Grátis                & PHP                 & Extensível via plugins e com uma API flexível            &                     \\
-XOOPS                 & GPL 2.0          & Grátis                & PHP                 & Extensível via módulos                                   &                     \\
-Anahita Social Engine & GPL 2.0          & Grátis                & PHP                 & Sim                                                      &                     \\
-Telligent Community   & Customizada      & Grátis com limitações & ASP .NET            & Extensível via plugins, widgets, tarefas, eventos e REST &                     \\
-Newebe                & AGPL             & Grátis                & Python/Coffeescript & Sim                                                      &                     \\
-Buddycloud            & Apache 2.0       & Grátis                & NodeJS/Java         & Não*                                                     &                     \\
-eXo Platform          & LGPL             & Grátis                & Java                & Extensível via plugins e com uma API flexível            &                     \\
-Kune                  & AGPLv3           & Grátis                & Java                & Extensível via widgets e módulos                         &                     \\
-Diaspora              & AGPLv3           & Grátis                & Ruby                & Sim                                                      &                     \\
-Libertree             & AGPLv3           & Grátis                & Ruby                & Não*                                                     &                     \\ \bottomrule
+\textbf{Rede Social}  & \textbf{Licença} & \textbf{Preço}        & \textbf{Linguagem}  & \textbf{Customizável}                                    \\ \midrule
+SocialEngine          & Customizada      & A partir de \$ 299,99 & PHP                 & Sim                                                      \\
+Elgg                  & GPL 2.0          & Grátis                & PHP                 & Extensível via plugins e com uma API flexível            \\
+XOOPS                 & GPL 2.0          & Grátis                & PHP                 & Extensível via módulos                                   \\
+Anahita Social Engine & GPL 2.0          & Grátis                & PHP                 & Sim                                                      \\
+Telligent Community   & Customizada      & Grátis com limitações & ASP .NET            & Extensível via plugins, widgets, tarefas, eventos e REST \\
+Newebe                & AGPL             & Grátis                & Python/Coffeescript & Sim                                                      \\
+Buddycloud            & Apache 2.0       & Grátis                & NodeJS/Java         & Não*                                                     \\
+eXo Platform          & LGPL             & Grátis                & Java                & Extensível via plugins e com uma API flexível            \\
+Kune                  & AGPLv3           & Grátis                & Java                & Extensível via widgets e módulos                         \\
+Diaspora              & AGPLv3           & Grátis                & Ruby                & Sim                                                      \\
+Libertree             & AGPLv3           & Grátis                & Ruby                & Não*                                                     \\ \bottomrule
 \end{tabular}
+\end{adjustbox}
 \end{table}
 
 Existem também alguns \textit{frameworks} mais semelhantes desenvolvidos em \textit{Ruby}\footnote{\url{https://www.ruby-toolbox.com/categories/social_networking}}. Estes, em sua maioria, fornecem recursos a desenvolvedores porém apenas a parte geral de relacionamento de usuários.
