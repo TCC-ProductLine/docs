@@ -42,7 +42,7 @@ A análise de redes sociais tem como fundamento a teoria dos grafos. A seguir se
 
 O primeiro livro sobre a teoria dos grafos foi publicado por König (1936). Isso levou ao desenvolvimento de uma forte escola de teóricos em grafos na Hungria que incluíram P. Erdős e T. Gallai. Também na década de trinta, H. Whitney publicou uma série de artigos influentes \cite{Bondy:2007}.
 
-De acordo com Ore \cite{Ore:1963}, Leonhard Euler\footnote{Grande matemático e físico suíço, 1707-1783, fez importantes descobertas em campos variados como Cálculo e Grafos.} teria sido um dos matemáticos mais importantes quando se refere a teoria dos grafos. Contam que o povo da cidade de Königsberg \footnote{Atualmente Caliningrado.}, localizado na Prússia e cortada pelo Rio Pregel, com sete pontes ligando duas ilhas e as margens opostas do rio, como pode ser visto na Figura \ref{Konigsberg}, propôs ao então famoso matemático Leonard Euler o seguinte problema:
+De acordo com Ore \cite{Ore:1963}, Leonhard Euler\footnote{Grande matemático e físico suíço, 1707-1783, fez importantes descobertas em campos variados como Cálculo e Grafos.} teria sido um dos matemáticos mais importantes quando se refere a teoria dos grafos. Contam que o povo da cidade de Königsberg \footnote{Atualmente Caliningrado.}, localizado na Prússia e cortada pelo Rio Pregel, com sete pontes ligando duas ilhas e as margens opostas do rio, como pode ser visto na figura \ref{Konigsberg}, propôs ao então famoso matemático Leonard Euler o seguinte problema:
 
 	``Será possível fazer um passeio pela cidade, começando e
 	terminando no mesmo lugar, cruzando cada ponte exatamente uma vez?''
@@ -55,7 +55,7 @@ De acordo com Ore \cite{Ore:1963}, Leonhard Euler\footnote{Grande matemático e 
 \end{figure}
 \footnotetext{\url{http://www.mat.uc.pt/~alma/escolas/pontes/}}
 
-Não se tem conhecimento sobre o Euler ter resolvido esse problema usando a representação de grafos estudada hoje. A modelagem do problema por grafo passa por uma representação, na qual cada porção de terra  é representada por um ponto e as pontes estariam representadas por linhas \cite{Ore:1963}, conforme apresentado na Figura \ref{sete_pontes}.
+Não se tem conhecimento sobre o Euler ter resolvido esse problema usando a representação de grafos estudada hoje. A modelagem do problema por grafo passa por uma representação, na qual cada porção de terra  é representada por um ponto e as pontes estariam representadas por linhas \cite{Ore:1963}, conforme apresentado na figura \ref{sete_pontes}.
 
 \begin{figure}[!h]
 	\centering
@@ -74,7 +74,7 @@ Assim, Euler mostrou que, uma vez que o grafo de Königsberg tem vértices de gr
 
 \textbf{Definição 2}: Um grafo é um par \textit{G} = (\textit{V}, \textit{E}) de conjuntos de tal modo que \textit{E}$\subseteq$[\textit{V}$_2$]. Assim, os elementos de \textit{E} são subconjuntos de pares ordenados de elementos de \textit{V}. Para evitar ambiguidades de notação, deve-se sempre assumir implicitamente que \textit{V}$\cap$\textit{E}=$\oslash$. Os elementos de \textit{V} são os vértices (ou nós ou pontos) do grafo \textit{G}, os elementos de \textit{E} são arestas (ou linhas) \cite{Diestel:1997}.
 
-Grafos são assim chamados porque eles podem ser representados graficamente, e é esta representação gráfica que possibilita entender muitas de suas propriedades. Cada vértice é indicado por um ponto, e cada aresta por uma linha que une os pontos que representam as suas extremidades \cite{Bondy:2007}. Um exemplo pode ser observado na Figura \ref{exemplo_grafo}.
+Grafos são assim chamados porque eles podem ser representados graficamente, e é esta representação gráfica que possibilita entender muitas de suas propriedades. Cada vértice é indicado por um ponto, e cada aresta por uma linha que une os pontos que representam as suas extremidades \cite{Bondy:2007}. Um exemplo pode ser observado na figura \ref{exemplo_grafo}.
 
 \begin{figure}[!h]
 	\centering
@@ -85,7 +85,7 @@ Grafos são assim chamados porque eles podem ser representados graficamente, e �
 
 A maioria das definições e conceitos na teoria dos grafos são sugeridas por esta representação gráfica. As extremidades de uma aresta são referidas como sendo incidentes com a aresta, e vice-versa. Dois vértices que são incidentes com uma aresta em comum são chamados de adjacentes, e dois vértices adjacentes distintos são chamados de vizinhos \cite{Costa:2011}.
 
-Uma aresta com extremidades idênticas é chamada um \textit{loop}, e uma aresta com extremidades distintas é um \textit{link}. Dois ou mais \textit{links} com o mesmo par de extremidades são referidos como sendo arestas paralelas \cite{Bondy:2007}. Na Figura \ref{loop_paralela}, é possível observar a aresta ``a'' como uma aresta do tipo \textit{loop}, e as arestas ``b'' e ``e'' como arestas do tipo \textit{link}, e as aresta ``c'' e ``d'' como sendo arestas paralelas.
+Uma aresta com extremidades idênticas é chamada um \textit{loop}, e uma aresta com extremidades distintas é um \textit{link}. Dois ou mais \textit{links} com o mesmo par de extremidades são referidos como sendo arestas paralelas \cite{Bondy:2007}. Na figura \ref{loop_paralela}, é possível observar a aresta ``a'' como uma aresta do tipo \textit{loop}, e as arestas ``b'' e ``e'' como arestas do tipo \textit{link}, e as aresta ``c'' e ``d'' como sendo arestas paralelas.
 
 \newpage
 
@@ -102,7 +102,7 @@ Embora desenhos são um meio conveniente de especificação de grafos, eles clar
 
 Seja \textit{G} um grafo, com conjunto de vértices \textit{V} e conjunto de arestas \textit{E}. A matriz de incidência de \textit{G} é a matriz $M_G:= (m_{ve})$, com dimensões \textit{n$\times$m}, onde $m_{ve}$ é o número de vezes (0, 1, ou 2) que o vértice \textit{v} e a aresta \textit{e} estão conectados \cite{Bondy:2007}.
 
-A matriz de adjacência de \textit{G} é a matriz $A_G := (a_{uv})$, com dimensões \textit{n$\times$n}, em que $a_{uv}$ é o número de arestas que unem os vértices \textit{u} e \textit{v}, onde cada \textit{loop} conta como duas arestas. É possível verificar que a quantidade de memória necessária para essa representação é $\Theta(|\textit{V}|^2)$ \cite{Bondy:2007}. A Figura \ref{matriz} ilustra um grafo \textit{G} representado na matriz de incidência \textit{M} e na matriz de adjacência \textit{A}.
+A matriz de adjacência de \textit{G} é a matriz $A_G := (a_{uv})$, com dimensões \textit{n$\times$n}, em que $a_{uv}$ é o número de arestas que unem os vértices \textit{u} e \textit{v}, onde cada \textit{loop} conta como duas arestas. É possível verificar que a quantidade de memória necessária para essa representação é $\Theta(|\textit{V}|^2)$ \cite{Bondy:2007}. A figura \ref{matriz} ilustra um grafo \textit{G} representado na matriz de incidência \textit{M} e na matriz de adjacência \textit{A}.
 
 \begin{figure}[!h]
 	\centering
@@ -111,7 +111,7 @@ A matriz de adjacência de \textit{G} é a matriz $A_G := (a_{uv})$, com dimens�
 	\label{matriz}
 \end{figure}
 
-Como a maioria dos grafos possui um número bem maior de arestas do que os vértices, a matriz de adjacência de um grafo geralmente é menor do que a sua matriz de incidência e, assim, necessita de menos espaço de armazenamento. Ao lidar com grafos simples, uma representação ainda mais otimizada é possível. Para cada vértice \textit{v}, os vizinhos de \textit{v} são armazenados em uma lista. A lista (\textit{N}(\textit{v}): \textit{v $\in$ V}) é chamada de lista de adjacência do grafo, onde \textit{N}(\textit{v}) representa os vizinhos do vértice \textit{v}. Um exemplo pode ser observado na Figura \ref{lista_adjacencia}. A quantidade de memória necessária para uma lista de adjacências é $\Theta(|\textit{V}| + |\textit{E}|)$. Grafos simples são normalmente armazenados em computadores como listas de adjacência \cite{Costa:2011}.
+Como a maioria dos grafos possui um número bem maior de arestas do que os vértices, a matriz de adjacência de um grafo geralmente é menor do que a sua matriz de incidência e, assim, necessita de menos espaço de armazenamento. Ao lidar com grafos simples, uma representação ainda mais otimizada é possível. Para cada vértice \textit{v}, os vizinhos de \textit{v} são armazenados em uma lista. A lista (\textit{N}(\textit{v}): \textit{v $\in$ V}) é chamada de lista de adjacência do grafo, onde \textit{N}(\textit{v}) representa os vizinhos do vértice \textit{v}. Um exemplo pode ser observado na figura \ref{lista_adjacencia}. A quantidade de memória necessária para uma lista de adjacências é $\Theta(|\textit{V}| + |\textit{E}|)$. Grafos simples são normalmente armazenados em computadores como listas de adjacência \cite{Costa:2011}.
 
 \begin{figure}[!h]
 	\centering
@@ -120,7 +120,7 @@ Como a maioria dos grafos possui um número bem maior de arestas do que os vért
 	\label{lista_adjacencia}
 \end{figure}
 
-Embora muitos problemas possuam formulação na teoria dos grafos, o conceito de um grafo, por vezes, não é suficientemente adequado. Ao lidar com problemas de fluxo de tráfego, por exemplo, é necessário saber quais estradas são de sentido único, e em quais é permitido o tráfego nos dois sentidos. Para contextualizar esse problema, é preciso um grafo em que cada ligação tem uma orientação atribuída, ou seja, um grafo dirigido \cite{Bondy:2007}. Um exemplo de grafo dirigido pode ser observado na Figura \ref{dirigido}.
+Embora muitos problemas possuam formulação na teoria dos grafos, o conceito de um grafo, por vezes, não é suficientemente adequado. Ao lidar com problemas de fluxo de tráfego, por exemplo, é necessário saber quais estradas são de sentido único, e em quais é permitido o tráfego nos dois sentidos. Para contextualizar esse problema, é preciso um grafo em que cada ligação tem uma orientação atribuída, ou seja, um grafo dirigido \cite{Bondy:2007}. Um exemplo de grafo dirigido pode ser observado na figura \ref{dirigido}.
 
 \begin{figure}[!h]
 	\centering
@@ -147,7 +147,7 @@ A ideia por trás do \textit{DFS} é alcançar ``mais fundo'' no grafo quanto po
 
 O \textit{DFS}, a partir de um vértice \textit{v}, tenta visitar algum vizinho deste, em seguida, um vizinho deste vizinho, e assim por diante. O \textit{BFS}, a partir de um vértice \textit{v}, visita todos os vizinhos de \textit{v}. Quando visitado todos os vizinhos de um vértice, os vizinhos destes vizinhos serão visitados \cite{Brassard:1988}.
 
-A Figura \ref{bfs} exemplifica o algoritmo da busca \textit{BFS}, onde as letras significam o estado da busca e a ordem de cada estado. Os vértices marcados como vermelho representam que estes já foram visitados; os vértices marcados como azul representam que estes vértices serão os próximos a serem visitados.
+A figura \ref{bfs} exemplifica o algoritmo da busca \textit{BFS}, onde as letras significam o estado da busca e a ordem de cada estado. Os vértices marcados como vermelho representam que estes já foram visitados; os vértices marcados como azul representam que estes vértices serão os próximos a serem visitados.
 
 \begin{figure}[!h]
 	\centering

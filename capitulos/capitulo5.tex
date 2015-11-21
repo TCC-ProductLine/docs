@@ -17,7 +17,7 @@ A seguir têm-se um maior detalhamento de cada um dos três principais component
 
 O relacionamento em redes sociais dá-se por meio de interações entre os usuários. Estas interações variam de acordo com a rede em que o usuário está inserido. Alguém pode apenas seguir outras pessoas e acompanhar suas postagens, este é um relacionamento unidirecional, pois não é necessário que uma pessoa seguida acompanhe também postagens de seus seguidores. Existe também outro tipo de relacionamento, onde é necessário que as duas pessoas estejam diretamente ligadas entre si, o que o torna necessariamente bidirecional. Neste tipo pode-se considerar relacionamentos entre conhecidos, amigos, namorados, familiares, entre outros.
 
-Na montagem da estrutura de relacionamentos entre os usuários para redes sociais, é necessário fazer uso de grafos, onde os usuários serão representados como os vértices e os relacionamentos como as arestas. No caso dos relacionamentos unidirecionais, apenas uma aresta é criada. Esta aresta faz uma ligação a partir do vértice do usuário seguidor para o vértice do usuário que este deseja seguir, como pode ser observado na Figura \ref{segue}. No caso dos relacionamentos bidirecionais, a ligação deverá ser feita usando-se duas arestas paralelas. É necessário que para ambos os usuários exista uma possibilidade de se chegar ao outro, portanto, deve existir uma aresta que ligue um usuário ``A'' a um usuário ``B'' e uma aresta que ligue o usuário ``B'' ao usuário ``A'', vide a Figura \ref{amigo}.
+Na montagem da estrutura de relacionamentos entre os usuários para redes sociais, é necessário fazer uso de grafos, onde os usuários serão representados como os vértices e os relacionamentos como as arestas. No caso dos relacionamentos unidirecionais, apenas uma aresta é criada. Esta aresta faz uma ligação a partir do vértice do usuário seguidor para o vértice do usuário que este deseja seguir, como pode ser observado na figura \ref{segue}. No caso dos relacionamentos bidirecionais, a ligação deverá ser feita usando-se duas arestas paralelas. É necessário que para ambos os usuários exista uma possibilidade de se chegar ao outro, portanto, deve existir uma aresta que ligue um usuário ``A'' a um usuário ``B'' e uma aresta que ligue o usuário ``B'' ao usuário ``A'', vide a figura \ref{amigo}.
 
 \begin{figure}[!h]
 	\centering
@@ -33,7 +33,7 @@ Na montagem da estrutura de relacionamentos entre os usuários para redes sociai
 	\label{amigo}
 \end{figure}
 
-Cada aresta deverá possuir uma ou mais descrições que detalham qual o relacionamento entre os usuários. Isso fica mais claro ao se falar de relacionamentos bidirecionais, onde pode existir entre duas pessoas um relaciomanento de amizade e parentesco, por exemplo. Esse relacionamento pode ser visualizado na Figura \ref{parentes}.
+Cada aresta deverá possuir uma ou mais descrições que detalham qual o relacionamento entre os usuários. Isso fica mais claro ao se falar de relacionamentos bidirecionais, onde pode existir entre duas pessoas um relaciomanento de amizade e parentesco, por exemplo. Esse relacionamento pode ser visualizado na figura \ref{parentes}.
 
 \newpage
 
@@ -46,7 +46,7 @@ Cada aresta deverá possuir uma ou mais descrições que detalham qual o relacio
 
 \subsection{Controle de Rotas}
 
-Rota\footnote{\url{http://www.dicio.com.br/rota/}} é um itenerário que se percorre para ir de um lugar a outro, indicando a direção ou rumo a ser percorrido, Um exemplo de rota pode ser visualizado na Figura \ref{rota}.
+Rota\footnote{\url{http://www.dicio.com.br/rota/}} é um itenerário que se percorre para ir de um lugar a outro, indicando a direção ou rumo a ser percorrido, Um exemplo de rota pode ser visualizado na figura \ref{rota}.
 
 \begin{figure}[!h]
 	\centering
@@ -82,7 +82,7 @@ O \textit{framework} oferecerá o suporte para criação de agendas conforme apr
 
 \subsection{Modelo Inicial}
 
-A Figura \ref{diagrama de componentes} apresenta os principais componentes que serão oferecidos pelo \textit{framework}. Fica evidenciado, no modelo, o relacionamento de usuário com rotas e agendas. Em cada um desses componentes, existirão diversas classes que implementarão todo o modelo e as regras de negócio propostas.
+A figura \ref{diagrama de componentes} apresenta os principais componentes que serão oferecidos pelo \textit{framework}. Fica evidenciado, no modelo, o relacionamento de usuário com rotas e agendas. Em cada um desses componentes, existirão diversas classes que implementarão todo o modelo e as regras de negócio propostas.
 
 \begin{figure}[!h]
 	\centering
@@ -99,7 +99,7 @@ O \textit{framework} será desenvolvido em \textit{``Ruby on Rails''} e terá su
 
 Para comprovação do funcionamento do \textit{framework}, este trabalho propõe o desenvolvimento de uma rede social que faça uso do mesmo. Esta rede deverá fazer uso dos principais recursos providos pelo \textit{framework}, dessa forma, pode-se ver o seu uso na prática.
 
-A Figura \ref{uso_proposto} apresenta um modelo de uso para o \textit{framework}.
+A figura \ref{uso_proposto} apresenta um modelo de uso para o \textit{framework}.
 
 \begin{figure}[!h]
 	\centering
@@ -114,9 +114,18 @@ Seguindo o modelo na figura, é indicado ainda o uso de serviços \textit{RESTFu
 
 \section{Prova de Conceito}
 
-Foi desenvolvida uma aplicação simples para implementação de alguns conceitos discutidos neste trabalho.
+Foi desenvolvida uma pequena aplicação para implementação de alguns conceitos discutidos neste trabalho.
 
-De modo geral, a aplicação desenvolvida implementa uma rede de usuários ligados entre si formando um grafo. A solução contêm com as classes Usuário, Aresta e Grafo. A classe Aresta é usada para fazer as ligações entre as entidades. A classe Grafo representa a própria rede com todos os usuários. Foram implementadas as funcionalidades de relacionamento descritas nas Figuras \ref{segue} e \ref{amigo}, além de uma varredura dos usuários presentes no grafo pelos algoritmos de busca ~\nameref{subsec:bfs}, \textit{Breadth-First Search}, e ~\nameref{subsec:dfs}, \textit{Depth-First Search}.
+De modo geral, a aplicação desenvolvida implementa uma rede de usuários ligados entre si formando um grafo. A solução contêm as classes Usuário, Aresta e Grafo. A classe Aresta é usada para fazer as ligações entre as entidades. A classe Grafo representa a própria rede com todos os usuários. Foram implementadas as funcionalidades de relacionamento descritas nas Figuras \ref{segue} e \ref{amigo}, além de uma varredura dos usuários presentes no grafo pelos algoritmos de busca ~\nameref{subsec:bfs}, \textit{Breadth-First Search}, e ~\nameref{subsec:dfs}, \textit{Depth-First Search}.
+
+A figura \ref{modelo prova de conceito} apresenta o modelo das classes desenvolvidas na aplicação de prova de conceito e seus repectivos relacionamentos.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.8]{figuras/capitulo5/classes_prova_conceito.eps}
+	\caption{Classes da prova de conceito}
+	\label{modelo prova de conceito}
+\end{figure}
 
 Todo o código fonte da aplicação citada pode ser encontrado em \url{https://github.com/TCC-SocialNetwork/concept-test}.
 
