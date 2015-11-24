@@ -3,7 +3,11 @@ TARGET = Presentation_TCC.pdf
 .PHONY: all clean dist-clean
 
 all: 
-	@pdflatex presentation.tex
+	@latex presentation.tex
+	@latex presentation.tex
+	@latex presentation.tex
+	@dvips presentation.dvi
+	@ps2pdf presentation.ps
 	@evince presentation.pdf &
 
 clean:
