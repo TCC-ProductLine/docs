@@ -78,6 +78,7 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[portuguese]{babel}
+\usepackage{color,soul}
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 
@@ -96,12 +97,17 @@
 Universidade de Brasília\\
 \medskip
 }
-\date{\today}
+\date{15 de Dezembro de 2015}
 
 \begin{document}
 
 \begin{frame}
 \titlepage
+\begin{center}
+Orientadores\\
+Prof. Dr. Maurício Serrano\\
+Prof. Dr. Milene Serrano
+\end{center}
 \end{frame}
 
 \begin{frame}
@@ -120,7 +126,49 @@ Universidade de Brasília\\
 
 \begin{itemize}
 \item Reutilização de Software;
-\item Redes Sociais;
+	\begin{itemize}
+		\item Processo de criar sistemas de software a partir de um software já existente \cite{krueger}.
+	\end{itemize}
+\item Redes Sociais.
+	\begin{itemize}
+		\item Conjunto de participantes unindo ideias e recursos em torno de relacionamentos, valores e interesses compartilhados \cite{marteleto}.
+	\end{itemize}
+\end{itemize}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.45]{figuras/social_network.eps}
+\end{figure}
+
+\end{frame}
+
+\section{Motivação}
+
+\begin{frame}
+\frametitle{Motivação}
+
+\begin{itemize}
+	\item Ideia inicial para \textbf{redes sociais generalizadas};
+	\item Problema com \textbf{muitas ideias parecidas} já existentes;
+	\item Solução na busca de nichos específicos como \textbf{rotas e agendas}.
+\end{itemize}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.15]{figuras/motivation.eps}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplos de uso}
+
+\begin{itemize}
+	\item Caronas;
+	\item Ciclismo;
+	\item Marcação de eventos;
+	\item Grupo de estudos;
+	\item Casamento de horários.
 \end{itemize}
 
 \end{frame}
@@ -132,6 +180,11 @@ Universidade de Brasília\\
 
 É possível oferecer um \textit{framework} que auxilie no desenvolvimento de redes sociais, disponibilizando recursos gerais de relacionamentos e específicos de definições de rotas e agenda, proporcionando ao desenvolvedor facilidade ao lidar com preocupações intrínsecas desse contexto?
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.15]{figuras/search.eps}
+\end{figure}
+
 \end{frame}
 
 \section{Justificativa}
@@ -142,7 +195,7 @@ Universidade de Brasília\\
 \begin{itemize}
 	\item Crescimento de redes sociais virtuais;
 	\item Falta de suporte para redes sociais com nichos específicos;
-	\item Proporcionar desenvolvimento ágil e com maior qualidade;
+	\item Proporcionar desenvolvimento ágil e com maior qualidade.
 \end{itemize}
 
 \end{frame}
@@ -156,6 +209,11 @@ Universidade de Brasília\\
 
 Oferecer um \textit{framework} para ser utilizado no desenvolvimento de redes sociais, o qual disponibiliza recursos gerais de relacionamentos e específicos de definição de rotas e agenda, procurando auxiliar o desenvolvedor de software ao lidar com preocupações intrínsecas desse contexto.
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.4]{figuras/objective.eps}
+\end{figure}
+
 \end{frame}
 
 \subsection{Objetivos Específicos}
@@ -164,9 +222,9 @@ Oferecer um \textit{framework} para ser utilizado no desenvolvimento de redes so
 \frametitle{Objetivos Específicos}
 
 \begin{itemize}
-	\item Aprofundar os conhecimentos em termos de redes sociais e afins, através da leitura de materiais bibliográficos.
-	\item Definir uma arquitetura com base no uso de grafos, alinhada às boas práticas da Engenharia de Software, para representar os relacionamento entre as pessoas bem como as rotas percorridas por elas.
-	\item Evoluir a arquitetura proposta, visando lidar com algoritmos para compatibilizar agendas entre os interessados.
+	\item \textbf{Aprofundar os conhecimentos em termos de redes sociais} e afins, através da leitura de materiais bibliográficos.
+	\item Definir uma arquitetura com base no \textbf{uso de grafos}, alinhada às boas práticas da Engenharia de Software, para representar os relacionamento entre as pessoas bem como as rotas percorridas por elas.
+	\item Evoluir a arquitetura proposta, visando lidar com \textbf{algoritmos para compatibilizar agendas entre os interessados}.
 \end{itemize}
 
 \end{frame}
@@ -175,9 +233,9 @@ Oferecer um \textit{framework} para ser utilizado no desenvolvimento de redes so
 \frametitle{Objetivos Específicos}
 
 \begin{itemize}
-	\item Usar estruturas de dados e algoritmos específicos, implementados de forma otimizada, visando desempenho e facilidades na manutenção evolutiva do software.
-	\item Instanciar um produto de software - i.e. uma rede social específica - a partir do \textit{framework}, no intuito de coletar as primeiras impressões acerca do suporte desenvolvido como tema foco desse trabalho.
-	\item Orientar-se por uma metodologia que permita trabalhar a investigação do domínio de redes sociais, a identificação de suporte tecnológico adequado, o desenvolvimento do \textit{framework}, a instanciação do mesmo, e a coleta das primeiras impressões com base nos resultados obtidos.
+	\item \textbf{Usar estruturas de dados e algoritmos específicos}, implementados de forma otimizada, visando \textbf{desempenho e facilidades na manutenção evolutiva do software}.
+	\item \textbf{Instanciar um produto de software} - i.e. uma rede social específica - a partir do \textit{framework}, no intuito de coletar as primeiras impressões acerca do suporte desenvolvido como tema foco desse trabalho.
+	\item Orientar-se por uma \textbf{metodologia que permita trabalhar a investigação do domínio de redes sociais}, a identificação de suporte tecnológico adequado, o desenvolvimento do \textit{framework}, a instanciação do mesmo, e a coleta das primeiras impressões com base nos resultados obtidos.
 \end{itemize}
 
 \end{frame}
@@ -185,14 +243,12 @@ Oferecer um \textit{framework} para ser utilizado no desenvolvimento de redes so
 \section{Metodologia}
 
 \begin{frame}
-\frametitle{Metodologia de Pesquisa}
+\frametitle{Fluxo Geral de Trabalho}
 
-\begin{itemize}
-	\item Do ponto de vista da natureza: Pesquisa aplicada;
-	\item Abordagens quantitativa e qualitativa;
-	\item Do ponto de vista dos objetivos: Pesquisa exploratória;
-	\item Do ponto de vista dos procedimentos técnicos: Pesquisa bibliográfica e pesquisa-ação (ciclos evolutivos);
-\end{itemize}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.45]{../figuras/capitulo4/processo_tcc.eps}
+\end{figure}
 
 \end{frame}
 
@@ -201,14 +257,17 @@ Oferecer um \textit{framework} para ser utilizado no desenvolvimento de redes so
 
 Práticas ágeis baseadas no SCRUM e XP;
 
-\end{frame}
-
-\begin{frame}
-\frametitle{Fluxo Geral de Trabalho}
+\begin{itemize}
+	\item Pareamento;
+	\item Estórias de usuário;
+	\item Backlog;
+	\item Planning poker;
+	\item Sprints;
+\end{itemize}
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.45]{../figuras/capitulo4/processo_tcc.eps}
+	\includegraphics[scale=0.3]{figuras/scrum.eps}
 \end{figure}
 
 \end{frame}
@@ -226,20 +285,21 @@ Práticas ágeis baseadas no SCRUM e XP;
 \section{Proposta}
 
 \begin{frame}
-\frametitle{Proposta}
-
-Desenvolver um \textit{framework} que auxilie no desenvolvimento de redes sociais, oferecendo  recursos específicos de rotas e agendas, além de recursos gerais de relacionamento entre usuários.
-
-\end{frame}
-
-\begin{frame}
 \frametitle{O Framework}
 
 \begin{itemize}
+	\item Recursos de rotas;
+	\item Recursos de agendas;
+	\item Recursos gerais;
 	\item Caixa cinza;
 	\item Extensível, com pontos flexíveis;
-	\item Tecnologia Ruby on Rails;
+	\item Tecnologia Ruby on Rails.
 \end{itemize}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.35]{figuras/framework.eps}
+\end{figure}
 
 \end{frame}
 
@@ -248,7 +308,7 @@ Desenvolver um \textit{framework} que auxilie no desenvolvimento de redes sociai
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.6]{relacionamentos.eps}
+	\includegraphics[scale=0.6]{figuras/relacionamentos.eps}
 \end{figure}
 
 \end{frame}
@@ -261,14 +321,9 @@ Desenvolver um \textit{framework} que auxilie no desenvolvimento de redes sociai
 	\item Compatibilidade de rotas;
 \end{itemize}
 
-\end{frame}
-
-\begin{frame}
-\frametitle{Rotas}
-
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.55]{../figuras/capitulo5/rota.eps}
+	\includegraphics[scale=0.4]{../figuras/capitulo5/rota.eps}
 	\caption[Exemplo de rota]{Exemplo de rota\footnotemark}
 	\label{rota}
 \end{figure}
@@ -284,6 +339,11 @@ Desenvolver um \textit{framework} que auxilie no desenvolvimento de redes sociai
 	\item Marcação de eventos;
 	\item Compatibilidade de horários;
 \end{itemize}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.8]{figuras/scheduler.eps}
+\end{figure}
 
 \end{frame}
 
@@ -311,7 +371,36 @@ Desenvolver um \textit{framework} que auxilie no desenvolvimento de redes sociai
 \end{frame}
 
 \begin{frame}
+\frametitle{Próximas etapas}
+
+\begin{itemize}
+	\item Definição de backlog do produto;
+	\item Definição e priorização de sprints;
+	\item Desenvolvimento do framework;
+	\item Desenvolvimento da rede social;
+\end{itemize}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.15]{figuras/future.eps}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
 \Huge{\centerline{Obrigado!}}
+\end{frame}
+
+\begin{frame}
+\frametitle{Referências}
+\footnotesize{
+\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+\bibitem[Krueger, 1992]{krueger} Krueger, Charles W. (1992)
+\newblock Software Reuse
+\bibitem[Marteleto, 2001]{marteleto} Marteleto, Regina Maria (2001)
+\newblock Mídias Sociais: uma contribuição de análise
+\end{thebibliography}
+}
 \end{frame}
 
 \end{document} 
