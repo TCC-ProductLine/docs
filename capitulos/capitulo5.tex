@@ -17,7 +17,7 @@ A seguir, têm-se um maior detalhamento de cada um dos três principais componen
 
 O relacionamento em redes sociais dá-se por meio de interações entre os usuários. Estas interações variam de acordo com a rede em que o usuário está inserido. Alguém pode apenas seguir outras pessoas e acompanhar suas postagens. Este é um relacionamento unidirecional, pois não é necessário que uma pessoa seguida acompanhe também postagens de seus seguidores. Existe também outro tipo de relacionamento, onde é necessário que as duas pessoas estejam diretamente ligadas entre si, o que o torna necessariamente bidirecional. Neste tipo, podem ser considerados relacionamentos entre conhecidos, amigos, namorados, familiares, entre outros.
 
-Na montagem da estrutura de relacionamentos entre os usuários para redes sociais, é necessário fazer uso de grafos, onde os usuários serão representados como os vértices e os relacionamentos como as arestas. No caso dos relacionamentos unidirecionais, apenas uma aresta é criada. Esta aresta faz uma ligação a partir do vértice do usuário seguidor para o vértice do usuário que este deseja seguir, como pode ser observado na Figura \ref{segue}. No caso dos relacionamentos bidirecionais, a ligação deverá ser feita usando-se duas arestas paralelas. É necessário que para ambos os usuários exista uma possibilidade de se chegar ao outro, portanto, deve existir uma aresta que ligue um usuário ``A'' a um usuário ``B'' e uma aresta que ligue o usuário ``B'' ao usuário ``A'', vide a Figura \ref{amigo}.
+Na montagem da estrutura de relacionamentos entre os usuários para redes sociais, é necessário fazer uso de grafos, onde os usuários serão representados como os vértices e os relacionamentos como as arestas. No caso dos relacionamentos unidirecionais, apenas uma aresta é criada. Esta aresta faz uma ligação a partir do vértice do usuário seguidor para o vértice do usuário que este deseja seguir, como pode ser observado na Figura \ref{segue}. No caso dos relacionamentos bidirecionais, a ligação deverá ser feita usando-se duas arestas. É necessário que para ambos os usuários exista uma possibilidade de se chegar ao outro, portanto, deve existir uma aresta que ligue um usuário ``A'' a um usuário ``B'' e uma aresta que ligue o usuário ``B'' ao usuário ``A'', vide a Figura \ref{amigo}.
 
 \begin{figure}[!h]
 	\centering
@@ -29,7 +29,7 @@ Na montagem da estrutura de relacionamentos entre os usuários para redes sociai
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.45]{figuras/capitulo5/amigo.eps}
-	\caption{Exemplo de arestas paralelas de amizade}
+	\caption{Exemplo de aresta bidirecional de amizade}
 	\label{amigo}
 \end{figure}
 
@@ -40,7 +40,7 @@ Cada aresta deverá possuir uma ou mais descrições que detalham qual o relacio
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.45]{figuras/capitulo5/parentes.eps}
-	\caption{Exemplo de arestas paralelas parentesco}
+	\caption{Exemplo de aresta bidirecional de parentesco}
 	\label{parentes}
 \end{figure}
 
@@ -56,13 +56,13 @@ Rota\footnote{\url{http://www.dicio.com.br/rota/}} é um itinerário que se perc
 \end{figure}
 \footnotetext{\url{http://sede.wikidot.com/andy-s-brainstorm}}
 
-O \textit{framework} irá oferecer recursos que auxiliem o usuário a definir as rotas que percorre e os horários de cada percurso, e buscar rotas de outros usuários que coincidam em parte ou integralmente com as suas. Redes sociais podem utilizar estes dados para aplicações diversas como, por exemplo, caronas e encontros para ciclistas.
+O \textit{framework} oferece recursos que auxiliem o usuário a definir os horários de cada percurso, e buscar rotas de outros usuários que coincidam em parte ou integralmente com as suas. Redes sociais podem utilizar estes dados para aplicações diversas como, por exemplo, caronas e encontros para ciclistas.
 
 Conforme mostrado na Figura \ref{rota}, pode-se ver uma rota que leva do ponto ``0'' ao ponto ``5''. Podem existir diversos usuários com rotas comuns nesse caminho, por exemplo, um usuário que siga todo o caminho traçado, ou um usuário que partisse do ponto ``2'' e chegasse ao ponto ``4'' e assim por diante. Uma das funcionalidades do \textit{framework}, neste contexto, seria encontrar todos os usuários que compartilhassem esses caminhos, ou encontrar um caminho compartilhado entre um grupo de usuários, por exemplo.
 
 \subsection{Controle de Agenda}
 
-Outra funcionalidade que o \textit{framework} irá fornecer é a conciliação de agendas entre os usuários, possibilitando assim encontrar dias da semana e horários específicos que são comuns a um determinado grupo. Esta funcionalidade pode auxiliar os usuários em diversos aspectos como, por exemplo, encontrar um horário em comum para realizar uma tarefa.
+Outra funcionalidade que o \textit{framework} fornece é a conciliação de agendas entre os usuários, possibilitando assim encontrar dias da semana e horários específicos que são comuns a um determinado grupo. Esta funcionalidade pode auxiliar os usuários em diversos aspectos como, por exemplo, encontrar um horário em comum para realizar uma tarefa.
 
 A Figura \ref{agenda semanal} mostra um exemplo de uma agenda semanal com todos os horários livres.
 
@@ -76,11 +76,11 @@ A Figura \ref{agenda semanal} mostra um exemplo de uma agenda semanal com todos 
 
 Agendas dessa forma auxiliam usuários a terem um melhor controle de suas tarefas semanais, marcarem eventos, entre outros aspectos. O período compreendido por uma agenda pode variar de acordo com cada contexto. Pode ser uma agenda semanal, conforme a apresentada, mensal, anual, ou ainda um período não necessariamente pré-definido, o que poderia auxiliar usuários a marcarem eventos para datas futuras. De modo simplificado, basta dados como dia e horários de início e fim de uma tarefa para aplicar um controle de agenda.
 
-O \textit{framework} oferecerá o suporte para criação de agendas conforme apresentado. Assim, é possível a partir de um período pré-determinado encontrar um horário e dia comuns a um conjunto de usuários. Isso pode auxiliar a criação e marcação de eventos visando atender o maior número de usuários, conforme o contexto da aplicação.
+O \textit{framework} oferece o suporte para criação de agendas conforme apresentado. Assim, é possível a partir de um período pré-determinado encontrar um horário e dia comuns a um conjunto de usuários. Isso pode auxiliar a criação e marcação de eventos visando atender o maior número de usuários, conforme o contexto da aplicação.
 
 \subsection{Modelo Inicial}
 
-A Figura \ref{diagrama de componentes} apresenta os principais componentes que serão oferecidos pelo \textit{framework}. Fica evidenciado, no modelo, o relacionamento de \textit{Users} com \textit{Routes} e \textit{Schedules}. Em cada um desses componentes, existirão diversas classes que implementarão todo o modelo e as regras de negócio propostas.
+A Figura \ref{diagrama de componentes} apresenta os principais componentes que são oferecidos pelo \textit{framework}. Fica evidenciado, no modelo, o relacionamento de \textit{Users} com \textit{Routes} e \textit{Schedules}. Em cada um desses componentes, existe classes que implementam todo o modelo e as regras de negócio propostas.
 
 \begin{figure}[!h]
 	\centering
@@ -89,13 +89,13 @@ A Figura \ref{diagrama de componentes} apresenta os principais componentes que s
 	\label{diagrama de componentes}
 \end{figure}
 
-O diagrama mostra apenas um modelo preliminar que dará base para a implementação das funcionalidades propostas. Cada componente conterá diversos algoritmos relacionados e aplicará padrões de projetos que se encaixem, buscando a melhor qualidade, soluções reutilizáveis e fácil manutenção e evolução.
+O diagrama mostra apenas um modelo preliminar que deu base para a implementação das funcionalidades propostas. Cada componente conterá algoritmos relacionados e aplica padrões de projetos que se encaixem, buscando a melhor qualidade, soluções reutilizáveis e fácil manutenção e evolução.
 
 \section{Uso do Framework}
 
-O \textit{framework} será \textit{opensorce} e desenvolvido em \textit{``Ruby on Rails''} e terá sua \textit{``Gem''}\footnote{\url{httpttp://www.akitaonrails.com/2009/2/2/entendendo-rubygems}} publicada em um repositório \textit{online} para uso de outros desenvolvedores.
+O \textit{framework} é \textit{opensorce} e desenvolvido em \textit{``Ruby on Rails''} e tem sua \textit{``Gem''}\footnote{\url{httpttp://www.akitaonrails.com/2009/2/2/entendendo-rubygems}} publicada em um repositório \textit{online} para uso de outros desenvolvedores.
 
-Para comprovação do funcionamento do \textit{framework}, este trabalho propõe o desenvolvimento de uma rede social que faça uso do mesmo. Esta rede deverá fazer uso dos principais recursos providos pelo \textit{framework}. Dessa forma, será possível avaliar o seu uso na prática.
+Para comprovação do funcionamento do \textit{framework}, este trabalho se propos a desenvolver uma rede social que faça uso do mesmo. Esta rede faz uso dos principais recursos providos pelo \textit{framework}. Possibilitando assim avaliar o seu uso na prática.
 
 A Figura \ref{uso_proposto} apresenta um modelo que procura ilustrar e contextualizar um possível uso para o \textit{framework}.
 
@@ -131,15 +131,13 @@ Pode-se ver ainda na Figura \ref{modelo prova de conceito} a apresentação dos 
 
 A classe \textit{Graph} possui o método \textit{``add\_user''}, que é chamado sempre na criação de um novo usuário, visando adicionar este a rede. O método \textit{``set\_white''} tem como objetivo definir a cor de todos os usuários no grafo para branco. Esse atributo é usado ao se trabalhar com os recursos de buscas no grafo. Colorir o nó com a cor branca significa que este ainda não foi visitado. O método \textit{``dfs''} implementa o algoritmo de busca ~\nameref{subsec:dfs} e faz uma varredura no grafo. O mesmo acontece para o método \textit{``bfs''} que implementa a varredura de acordo com o algoritmo ~\nameref{subsec:bfs}. Os métodos \textit{``dfs\_visit''} e \textit{``bfs\_visit''} são métodos auxiliares que visitam o nó corrente e definem o próximo nó que será visitado de acordo com as regras definidas nos algoritmos.
 
-A abordagem de lista de adjacência foi utilizada na implementação do grafo. Como as arestas trabalhadas possuem outras informações além da representação das ligações entre os nós, essa abordagem ocupa menos espaço em memória. Isso ocorre pois não existe representação de arestas que não estejam presentes no grafo. Além da redução da memória gasta, o tempo gasto para listar todos os nós que fazem ligação a um outro nó é reduzido, quando se usa lista de adjacência, pois basta realizar a leitura da lista para se obter essas informações. Já na matriz de adjacência e incidência, é necessário realizar uma busca em uma linha da matriz para verificar todas as ligações que um nó possui.
+A abordagem de lista de adjacência foi utilizada na implementação do grafo. Como as arestas trabalhadas possuem outras informações além da representação das ligações entre os nós, essa abordagem ocupa menos espaço em memória. Isso ocorre pois não existe representação de arestas que não estejam presentes no grafo. Além da redução da memória gasta, o tempo gasto para listar todos os nós que fazem ligação a um outro nó é reduzido, quando se usa lista de adjacência, pois basta realizar a leitura da lista para se obter essas informações. Já na matriz de adjacência e incidência, é necessário realizar uma busca em uma linha da matriz para verificar todas as ligações que um nó possui. O código fonte dessa aplicação pode ser encontrado em \url{https://github.com/TCC-SocialNetwork/concept-test}.
 
-Todo o código fonte da aplicação citada pode ser encontrado em \url{https://github.com/TCC-SocialNetwork/concept-test}.
-
-Essa aplicação representa a prova de conceito visando entender detalhes básicos de redes sociais, e compreender as reais dificuldades para o pleno desenvolvimento do \textit{framework} proposto. Essa prova de conceito procura lidar com uma funcionalidade chave em redes sociais, no caso, o relacionamento de usuários. Portanto, é vista como um passo inicial para o desenvolvimento da proposta. O desenvolvimento completo será realizado na segunda parte deste trabalho, conforme evidenciado no fluxo de trabalho bem como no cronograma, ambos apresentados no capítulo de ~\nameref{chapter:Metodologia}.
+Essa aplicação representa a prova de conceito que possuia o objetivo de entender detalhes básicos de redes sociais, e compreender as reais dificuldades para o pleno desenvolvimento do \textit{framework} proposto. Essa prova de conceito procurou lidar com uma funcionalidade chave em redes sociais, no caso, o relacionamento de usuários. Portanto, é foi um passo inicial para o desenvolvimento da proposta. O desenvolvimento completo foi realizado na segunda parte deste trabalho, conforme evidenciado no fluxo de trabalho bem como no cronograma, ambos apresentados no capítulo de ~\nameref{chapter:Metodologia}.
 
 \section{Trabalhos Relacionados}
 
-Em algumas pesquisas relacionadas sobre trabalhos parecidos com o que se propõe, pode-se encontrar alguns sistemas semelhantes, os quais serão apresentados a seguir.
+Em algumas pesquisas relacionadas sobre trabalhos parecidos com o que se propos, pode-se encontrar alguns sistemas semelhantes, os quais serão apresentados a seguir.
 
 Existe uma comparação entre vinte e cinco plataformas, as quais permitem começar um serviço de rede social\footnote{\url{http://www.tripwiremagazine.com/2010/07/25-best-social-networking-platforms-to-start-your-own-service.html}}  próprio. Porém, algumas das plataformas apresentadas são pagas ou não são voltadas para desenvolvedores, ou seja, são plataformas que fornecem funcionalidades para usuários comuns poderem montar uma rede social a partir de um \textit{template} visual já definido.
 
@@ -187,6 +185,6 @@ Existem também alguns \textit{frameworks} semelhantes desenvolvidos em \textit{
 
 Este capítulo descreveu a proposta deste trabalho apresentando seus pontos principais e alguns detalhes técnicos.
 
-A partir desse escopo inicial, pretende-se desenvolver um \textit{framework}  capaz de auxiliar interessados no desenvolvimento de redes sociais, das funcionalidades básicas às específicas dos domínios de rota e agenda. Dando continuidade aos resultados obtidos até o momento, com a prova de conceito, serão elaborados os requisitos detalhados para construção do \textit{backlog} do produto e, a partir desse, a definição das \textit{sprints} e \textit{releases} que orientarão o desenvolvimento.
+A partir desse escopo inicial, desenvolveu-se um \textit{framework}  capaz de auxiliar interessados no desenvolvimento de redes sociais, das funcionalidades básicas às específicas dos domínios de rota e agenda. Dando continuidade aos resultados obtidos até o momento, com a prova de conceito, serão elaborados os requisitos detalhados para construção do \textit{backlog} do produto e, a partir desse, a definição das \textit{sprints} e \textit{releases} que orientarão o desenvolvimento.
 
 O próximo capítulo fecha este documento com uma conclusão parcial de todo o trabalho feito até o presente momento. Este capítulo deverá ser incrementado após a finalização da etapa de desenvolvimento do \textit{framework}.

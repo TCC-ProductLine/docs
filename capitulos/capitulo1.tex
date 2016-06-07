@@ -2,11 +2,20 @@
 
 Este capítulo irá apresentar a contextualização deste trabalho, o tema proposto, o problema que se tentará resolver, os objetivos a serem alcançados e como o trabalho está organizado.
 
-Desde a sua concepção, \textit{sites} de redes sociais têm atraído milhões de usuários, muitos dos quais têm integrado esses \textit{sites} em suas rotinas diárias. Existem centenas de redes sociais com diversas capacidades tecnológicas suportando uma ampla gama de interesses e práticas. Os principais recursos tecnológicos envolvidos são bem consistentes e semelhantes, porém as culturas que estão impregnadas podem variar bastante. Alguns \textit{sites} tendem a atender diversos tipos de pessoas com interesses variados, outros se voltam a grupoS mais específicos, que se comunicam em uma linguagem comum possuem outros interesses \cite{Boyd:Ellison:2007}.
+Desde a sua concepção, \textit{sites} de redes sociais têm atraído milhões de usuários, muitos dos quais têm integrado esses \textit{sites} em suas rotinas diárias. Existem centenas de redes sociais com diversas capacidades tecnológicas suportando uma ampla gama de interesses e práticas. Os principais recursos tecnológicos envolvidos são bem consistentes e semelhantes, porém as culturas que estão impregnadas podem variar bastante. Alguns \textit{sites} tendem a atender diversos tipos de pessoas com interesses variados, outros se voltam a grupos mais específicos, que se comunicam em uma linguagem comum possuem outros interesses \cite{Boyd:Ellison:2007}.
 
 Nos últimos tempos, sistemas que promovem a interação de pessoas, o compartilhamento de informações e a formação de grupos como as redes sociais, deixaram de ser uma tendência, e se estabeleceram de maneira irreversível. Tal fato tem atraído cada vez mais pessoas para o uso dessas tecnologias, mudando a forma de interação e comunicação entre os indivíduos \cite{Santana:Melo-Solarte:Neris:Miranda:Baranauskas:2009}.
 
-Na América Latina, de acordo com uma publicação de Lipsman \cite{Lipsman:2008} sobre o crescimento de redes sociais, obteve-se um aumento de acessos em 33\%, resultado obtido em uma comparação entre 2007 e 2008.
+O aumento do número de usuários de redes sociais dá-se principalmente pela facilidade de acesso das pessoas a aparelhos que permitem se conectar a internet a qualquer hora e em qualquer lugar, como é o caso dos smartphones. Como pode ser visualizado na Figura \ref{social_network_brazil} o Brasil, até o ano de 2017, faz-se uma projeção de que cerca de 110 milhões de pessoas utilizem as redes sociais, o que representa mais de 89\% dos usuários com acesso à internet \cite{eMarketer:2013}.
+
+\newpage
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.8]{figuras/capitulo1/social_network_brazil.eps}
+	\caption[Uso de redes sociais no Brasil]{Uso de redes sociais no Brasil \cite{eMarketer:2013}}
+	\label{social_network_brazil}
+\end{figure}
 
 Visando colaborar com o contexto de redes sociais, busca-se apresentar uma ferramenta que auxilie desenvolvedores a criar sistemas desse tipo, oferecendo recursos que são comuns à maioria das aplicações sociais. Mais precisamente, esse trabalho propõe-se a desenvolver um \textit{framework} que ofereça esses recursos para o desenvolvedor. Nas próximas seções, essa ideia será contextualizada e justificada.
 
@@ -22,7 +31,7 @@ A relação entre os nós da rede tem várias denominações apresentadas em tra
 
 John Scott, em seu livro \cite{Scott:Carrington:2011}, diz que redes sociais são formadas por dois tipos principais de dados: dados de atributos e dados de relacionamentos. Diz-se que os dados de atributos são as opiniões e os comportamentos dos agentes demonstrados dentro da rede. Portanto, são qualidades e características que pertencem a eles como indivíduos. Esses dados podem ser quantificados e analisados. Os dados de relacionamentos dizem respeito aos contatos, laços e conexões. Esses dados não são dados de um agente, e sim, de um conjunto de agentes conectados que formam um sistema de relacionamentos. É possível também quantificar e analisar esses tipos de dados, podendo encontrar padrões de relacionamentos em grupos.
 
-O software provê mecanismos de análise para melhor planejar e manter a rede de uma organização. Tendo como foco o produto de software e baseando-se nas plataformas tecnológicas, deve-se levar em conta a reutilização de software. Essa necessidade é evidenciada, pois uma empresa geralmente deixa de construir um produto de software isolado, e busca parcerias para construir suas soluções \cite{Lima:2015}.
+Para abstrair o contexto do mundo real para o mundo computacional deve-se utilizar um software para prover mecanismos de análise para melhor planejar e manter a rede de uma organização. Tendo como foco o produto de software e baseando-se nas plataformas tecnológicas, deve-se levar em conta a reutilização de software. Essa necessidade é evidenciada, pois uma empresa geralmente deixa de construir um produto de software isolado, e busca parcerias para construir suas soluções \cite{Lima:2015}.
 
 A reutilização de software é o processo de criar sistemas de software a partir de um software já existente, ao invés de criar a partir do zero \cite{Krueger:1992}. A meta da reutilização de software é reciclar o \textit{design}, código e outros componentes de um software e, assim, reduzir o custo, o tempo e melhorar a qualidade do produto \cite{Keswani:Joshi:Jatain:2014}.
 
@@ -64,9 +73,9 @@ A partir do objetivo geral, pôde-se definir os objetivos específicos, os quais
 Este documento foi dividido em seis capítulos que são descritos brevemente à seguir:
 
 \begin{enumerate}
-	\item ~\nameref{chapter:Referencial_Teorico}: Levantamento bibliográfico de tópicos relevantes para alcançar o embasamento teórico necessário para a realização deste trabalho.
-	\item ~\nameref{chapter:Suporte_Tecnologico}: Exposição das principais ferramentas e tecnologias que serão utilizadas no decorrer deste trabalho.
-	\item ~\nameref{chapter:Metodologia}: Apresentação de como será conduzido o trabalho, abordando modelos de desenvolvimento e modelos de pesquisa utilizados.
-	\item ~\nameref{chapter:Proposta}: Apresentação completa do que este trabalho se propõe a fazer.
+	\item ~\nameref{chapter:Referencial_Teorico}: Levantamento bibliográfico de tópicos relevantes para alcançar o embasamento teórico necessário para a realização deste trabalho;
+	\item ~\nameref{chapter:Suporte_Tecnologico}: Exposição das principais ferramentas e tecnologias que serão utilizadas no decorrer deste trabalho;
+	\item ~\nameref{chapter:Metodologia}: Apresentação de como será conduzido o trabalho, abordando modelos de desenvolvimento e modelos de pesquisa utilizados;
+	\item ~\nameref{chapter:Proposta}: Apresentação completa do que este trabalho se propõe a fazer;
 	\item ~\nameref{chapter:Consideracoes_Finais}: Apresentação dos resultados conquistados até o momento bem como de como se dará a continuidade do desenvolvimento.
 \end{enumerate}

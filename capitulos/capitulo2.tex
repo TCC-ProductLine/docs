@@ -64,7 +64,7 @@ Não se tem conhecimento sobre o Euler ter resolvido esse problema usando a repr
 	\label{sete_pontes}
 \end{figure}
 
-Analisando, então, este grafo, Euler resolveu a questão provando que uma caminhada assim é possível se, e somente se, o grafo for conexo e todos os seus vértices tiverem grau par, termos estes que serão tratados mais à frente \cite{Malta:2008}.
+Analisando, então, este problema, Euler resolveu a questão provando que uma caminhada assim é possível se, e somente se, o grafo for conexo e todos os seus vértices tiverem grau par, termos estes que serão tratados mais à frente \cite{Malta:2008}.
 
 Assim, Euler mostrou que, uma vez que o grafo de Königsberg tem vértices de grau ímpar, a resposta ao problema era que tal caminhada era impossível. Desde então, todo grafo conexo, cujos vértices possuem grau par, é chamado de grafo euleriano, e um caminho fechado em um grafo que passe por cada aresta deste exatamente uma vez é chamado de circuito (ou ciclo) euleriano \cite{Malta:2008}.
 
@@ -83,24 +83,13 @@ Grafos são assim chamados porque eles podem ser representados graficamente, e �
 
 A maioria das definições e conceitos na teoria dos grafos são sugeridas por esta representação gráfica. As extremidades de uma aresta são referidas como sendo incidentes com a aresta, e vice-versa. Dois vértices que são incidentes com uma aresta em comum são chamados de adjacentes, e dois vértices adjacentes distintos são chamados de vizinhos \cite{Costa:2011}.
 
-Uma aresta com extremidades idênticas é chamada um \textit{loop}, e uma aresta com extremidades distintas é um \textit{link}. Dois ou mais \textit{links} com o mesmo par de extremidades são referidos como sendo arestas paralelas \cite{Bondy:2007}. Na Figura \ref{loop_paralela} é possível observar a aresta ``a'' como uma aresta do tipo \textit{loop}, e as arestas ``b'' e ``e'' como arestas do tipo \textit{link}, e as aresta ``c'' e ``d'' como sendo arestas paralelas.
-
-\newpage
-
-\begin{figure}[!h]
-	\centering
-	\includegraphics[scale=0.4]{figuras/capitulo2/loop_paralela.eps}
-	\caption[Exemplo de loop e arestas paralelas]{Exemplo de loop e arestas paralelas \cite{Bondy:2007}}
-	\label{loop_paralela}
-\end{figure}
-
 \subsection{Representação de Grafos}
 
 Embora desenhos são um meio conveniente de especificação de grafos, eles claramente não são adequados para armazenar grafos em computadores, ou para a aplicação de métodos matemáticos para estudar suas propriedades. Para estes fins, são consideradas duas matrizes associadas com um grafo; uma matriz de incidência e uma matriz de adjacência \cite{Bondy:2007}.
 
 Seja \textit{G} um grafo, com conjunto de vértices \textit{V} e conjunto de arestas \textit{E}. A matriz de incidência de \textit{G} é a matriz $M_G:= (m_{ve})$, com dimensões \textit{n$\times$m}, onde $m_{ve}$ é o número de vezes que o vértice \textit{v} e a aresta \textit{e} estão conectados \cite{Bondy:2007}.
 
-A matriz de adjacência de \textit{G} é a matriz $A_G := (a_{uv})$, com dimensões \textit{n$\times$n}, em que $a_{uv}$ é o número de arestas que unem os vértices \textit{u} e \textit{v}, onde cada \textit{loop} conta como duas arestas. É possível verificar que a quantidade de memória necessária para essa representação é $\Theta(|\textit{V}|^2)$ \cite{Bondy:2007}. A Figura \ref{matriz} ilustra um grafo \textit{G} representado na matriz de incidência \textit{M} e na matriz de adjacência \textit{A}.
+A matriz de adjacência de \textit{G} é a matriz $A_G := (a_{uv})$, com dimensões \textit{n$\times$n}, em que $a_{uv}$ é o número de arestas que unem os vértices \textit{u} e \textit{v}. É possível verificar que a quantidade de memória necessária para essa representação é $\Theta(|\textit{V}|^2)$ \cite{Bondy:2007}. A Figura \ref{matriz} ilustra um grafo \textit{G} representado na matriz de incidência \textit{M} e na matriz de adjacência \textit{A}.
 
 \begin{figure}[!h]
 	\centering
@@ -127,7 +116,72 @@ A busca em grafos refere-se ao método de explorar o grafo, ou seja, obter um m�
 \subsubsection{DFS}
 \label{subsec:dfs}
 
-A ideia por trás do \textit{DFS} é alcançar ``mais fundo'' no grafo quanto possível. A ordem em que os vértices são visitados depende da ordem em que os vizinhos de cada vértice aparecem na lista de adjacência \cite{Cormen:2001}. No apêndice ~\nameref{sec:exemplificacao dfs}, pode-se encontrar um fluxo que exemplifica o funcionamento do DFS.
+A ideia por trás do \textit{DFS} é alcançar ``mais fundo'' no grafo quanto possível. A ordem em que os vértices são visitados depende da ordem em que os vizinhos de cada vértice aparecem na lista de adjacência \cite{Cormen:2001}. A seguir é exemplificado um fluxo do funcionamento do DFS.
+
+Considere as Figuras a seguir para a exemplificação do DFS.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.25]{figuras/capitulo2/dfs/dfs1.eps}
+	\caption[Exemplo DFS etapa 1]{Exemplo DFS etapa 1 \cite{Cormen:2001}}
+	\label{dfs1}
+\end{figure}
+
+A busca irá partir do vértice arbitrário \textit{v}, chamado de vértice raiz. A partir do vértice raiz é possível percorrer três arestas: (\textit{v}, \textit{a}), (\textit{v}, \textit{b}) e (\textit{v}, \textit{c}). A aresta a ser seguida será (\textit{v}, \textit{a}).
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.25]{figuras/capitulo2/dfs/dfs2.eps}
+	\caption[Exemplo DFS etapa 2]{Exemplo DFS etapa 2 \cite{Cormen:2001}}
+	\label{dfs2}
+\end{figure}
+
+O vértice \textit{a} possui três arestas, que são: (\textit{a}, \textit{v}), (\textit{a}, \textit{b}) e (\textit{a}, \textit{d}). Como o vértice \textit{v} já foi visitado, a aresta a ser seguida será (\textit{a}, \textit{b}).
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.25]{figuras/capitulo2/dfs/dfs3.eps}
+	\caption[Exemplo DFS etapa 3]{Exemplo DFS etapa 3 \cite{Cormen:2001}}
+	\label{dfs3}
+\end{figure}
+
+A partir de \textit{b}, é possível escolher as seguintes arestas: (\textit{b}, \textit{v}), (\textit{b}, \textit{a}) e (\textit{b}, \textit{c}). Porém como os vértices \textit{v} e \textit{a} já foram visitados, a opção restante será a aresta (\textit{b}, \textit{c}).
+
+\newpage
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.25]{figuras/capitulo2/dfs/dfs4.eps}
+	\caption[Exemplo DFS etapa 4]{Exemplo DFS etapa 4 \cite{Cormen:2001}}
+	\label{dfs4}
+\end{figure}
+
+Ao alcançar \textit{c}, há duas possibilidades: (\textit{c}, \textit{v}) e (\textit{c}, \textit{b}). Porém ambos os vértices \textit{v} e \textit{b} já são conhecidos. Neste caso não há para onde se aprofundar. Entretanto, ainda existem vértices não descobertos. Nesse caso, deve-se voltar até o vértice \textit{b}, verificando se há alguma aresta que leva a um vértice ainda não visitado. Caso ocorra tal situação, deve-se voltar novamente pelo caminho percorrido, chegando ao vértice \textit{a}. Em \textit{a}, a aresta (\textit{a}, \textit{d}) leva a um vértice ainda não descoberto, portanto, esse caminho deve ser tomado.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.25]{figuras/capitulo2/dfs/dfs5.eps}
+	\caption[Exemplo DFS etapa 5]{Exemplo DFS etapa 5 \cite{Cormen:2001}}
+	\label{dfs5}
+\end{figure}
+
+Em \textit{d}, há dois caminhos a seguir: (\textit{d}, \textit{a}) e (\textit{d}, \textit{e}). Porém a única aresta que leva a um vértice não visitado é (\textit{d}, \textit{e}). Esta deverá ser seguida.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.25]{figuras/capitulo2/dfs/dfs6.eps}
+	\caption[Exemplo DFS etapa 6]{Exemplo DFS etapa 6 \cite{Cormen:2001}}
+	\label{dfs6}
+\end{figure}
+
+Ao alcançar o vértice \textit{e}, não existem vértices não visitados, mesmo na volta no caminho. Portanto, o percurso realizado pelo \textit{DFS} pode ser observado na figura \ref{dfs_percurso}, o qual é uma árvore.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.25]{figuras/capitulo2/dfs/dfs_percurso.eps}
+	\caption[Percurso do DFS]{Percurso do DFS \cite{Cormen:2001}}
+	\label{dfs_percurso}
+\end{figure}
 
 \subsubsection{BFS}
 \label{subsec:bfs}
@@ -142,42 +196,6 @@ A Figura \ref{bfs} exemplifica o algoritmo da busca \textit{BFS}, onde as letras
 	\caption[Percurso do BFS]{Percurso do BFS \cite{Brassard:1988}}
 	\label{bfs}
 \end{figure}
-
-\subsection{Caminhos Mais Curtos}
-
-Os algoritmos de menor caminho buscam obter um percurso mínimo entre dois ou mais vértices de um grafo \cite{Cormen:2001}. A seguir serão apresentados dois dos principais algoritmos de menor caminho.
-
-\subsubsection{Algoritmo de Dijkstra}
-
-No algoritmo de Dijkstra, escolhido um vértice como raiz da busca, este algoritmo calcula o custo mínimo deste vértice para todos os demais vértices do grafo \cite{Cormen:2001}.
-
-O algoritmo consiste em fazer uma visita por todos os vértices do grafo, a partir de um vértice raiz, e encontrando sucessivamente o vértice mais próximo, até que todos os vértices do grafo tenham sido visitados \cite{Cormen:2001}.
-
-\subsubsection{Algoritmo de Floyd}
-
-Caso seja necessário saber o menor caminho entre todos os vértices do grafo, por exemplo, indicação das distâncias entre todas as cidades de um mapa, uma possível solução seria repetir o algoritmo de Dijkstra sucessivamente para todos os vértices do grafo. Porém, uma solução mais eficiente é conhecida como algoritmo de Floyd, que utiliza programação dinâmica. A ideia geral desse algoritmo é atualizar a matriz de menores distâncias \textit{n} vezes, onde \textit{n} é o número de vértices do grafo, procurando na \textit{K}-ésima interação por melhores distâncias entre pares de vértices que passem pelo vértice \textit{K} \cite{Sampaio:2005}.
-
-\subsection{Programação Dinâmica}
-
-Muitas vezes é possível dividir um problema em sub-problemas, combinando as soluções dos sub-problemas de modo a resolver o problema original. Às vezes, a maneira natural de dividir um problema sugerido pela sua estrutura pode levar a vários sub-problemas sobrepostos. Caso se tente resolver todos os sub-problemas idênticos sem se atentar a essa duplicação, é provável que o algoritmo da solução se torne exponencial. Se, por outro lado, pode-se conseguir proveito da duplicação e resolver cada sub-problema apenas uma vez, conservando a solução para utilização posterior, tem-se que o resultado do algoritmo utilizado será polinomial. A ideia subjacente de programação dinâmica é, portanto, bastante simples: evitar cálculos repetidos, geralmente mantendo uma tabela de resultados conhecidos \cite{Aho:1983}.
-
-Existem duas principais dificuldades com a aplicação desta técnica. Em primeiro lugar, pode nem sempre ser possível combinar as soluções dos dois problemas para formar a solução de um maior. Em segundo lugar, pode haver um número inaceitável de pequenos problemas a se resolver \cite{Sedgewick:2011}.
-
-\subsubsection{Top-Down x Bottom-Up}
-
-A forma como a tabela na abordagem \textit{bottom-up} é preenchida não é tão intuitiva como a abordagem \textit{top-down}. No entanto, alguns programadores sentem que a abordagem \textit{bottom-up} é mais intuitiva. A seguir é apresentada uma comparação entre as duas abordagens da programação dinâmica na Tabela \ref{top-down_bottom-up} \cite{Halim:Halim:2013}:
-
-\begin{table}[!h]
-	\centering
-	\caption{Top-Down x Bottom-Up}
-	\label{top-down_bottom-up}
-	\begin{tabular}{l|l|l|}
-	\cline{2-3}
-	                                       & \textbf{Top-Down}                                                                                                                                                                                                              & \textbf{Bottom-Up}                                                                                                                                                                                                               \\ \hline
-	\multicolumn{1}{|l|}{\textbf{Prós}}    & \begin{tabular}[c]{@{}l@{}}1. É uma transformação natural da\\ busca completa recursiva.\\ \\ \\ 2. Computa os sub-problemas somente\\ quando necessário (às vezes isso é mais\\ rápido).\end{tabular}                         & \begin{tabular}[c]{@{}l@{}}1. Mais rápido se muitos sub-problemas\\ são revisitados, pois não há sobrecarga\\ de chamadas recursivas.\\ \\ 2.Pode economizar espaço de memória\\ com a técnica \textit{on-the-fly}.\end{tabular} \\ \hline
-	\multicolumn{1}{|l|}{\textbf{Contras}} & \begin{tabular}[c]{@{}l@{}}1. Mais lento se muitos sub-problemas\\ são revisitados, devido à sobrecarga de\\ chamadas recursivas.\\ \\ 2. Se existem M estados, tamanho da\\ tabela pode ser de até $\theta$(M).\end{tabular} & \begin{tabular}[c]{@{}l@{}}1. Para programadores familiarizados\\ com recursão, pode não ser intuitivo.\\ \\ 2. Se existem M estados, todos serão\\ serão visitados e os valores serão\\ preenchidos.\end{tabular}               \\ \hline
-	\end{tabular}
-\end{table}
 
 \section{Reutilização de Software}
 
@@ -272,7 +290,7 @@ Em \cite{Gamma:1995}, foram definidos e classificados 23 padrões. Essa classifi
 
 O segundo critério especifica se o padrão é de classe ou objeto. Os padrões de classe lidam com relacionamentos entre classes e suas subclasses, para isso são utilizados relacionamentos de herança. E os padrões de objetos são mais dinâmicos, pois lidam com relacionamentos entre objetos que podem ser mudados em tempo de execução.
 
-O apêndice ~\nameref{sec:padrao abstract factory} apresenta a estrutura de um dos principais padrões conhecidos.
+O apêndice ~\nameref{sec:padrao_abstract_factory} apresenta a estrutura de um dos principais padrões conhecidos.
 
 \subsection{Serviços}
 
