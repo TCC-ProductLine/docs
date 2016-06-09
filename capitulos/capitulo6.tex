@@ -112,7 +112,7 @@ config.action_mailer.smtp_settings = {
 
 Pode-se alterar os valores em `domain', `user\_name', e `password' ou criar as variáveis de ambiente locais, isso é indicado para esconder essas informações sigilosas e garantir uma maior segurança. As mesmas configurações são válidas para os ambientes de teste e produção, nos arquivos `test.rb' e `production.rb'.
 
-\subsection{Controllers e Helpers}
+\subsection{Helpers e filtros das controllers}
 
 O Devise fornece alguns elementos para serem usados nas \textit{controllers} e \textit{views}. Para configurar uma \textit{controller} com uma autenticação de usuário basta adicionar o seguinte \textit{before\_action}, isto funciona porque o SocialFramework já contem a classe de usuário.
 
@@ -344,6 +344,72 @@ $ rails generate social_framework:views -v registrations sessions passwords
 \end{lstlisting}
 
 Este comando irá adicionar as \textit{views} ``registrations'', ``sessions'' e ``passwords'' na aplicação. As outras \textit{views} são: ``confirmations'', ``mailer'' and ``unlocks''. Inicialmente, o SocialFramework adiciona as \textit{views} registrations e sessions na aplicação fornecendo autenticação e registro para os usuários.
+
+\subsection{Módulos do SocialFramework}
+
+Atualmente o SocialFramework possui os módulos de usuário, de rotas e de agendas.
+
+\subsubsection{Módulo de usuários}
+
+Este módulo fornece a lógica principal à redes sociais, como criar, confirmar e remover relacionamentos entre os usuários, além de buscas, registros, atualizações e autenticações.
+
+A estrutura de relacionamentos foi construída com um relacionamento de muitos para muitos entre usuários através de arestas. As aresta possuem o usuário de origem, o usuário de destino, o \textit{status}, pode estar ativo ou inativo, se é bidirecional ou não, que  especifica relacionamentos como bidirecional ou unidirecional, e um rótulo com o nome do relacionamento. Pode-se existir múltiplas relações entre os mesmos usuários. Cada relacionamento é representar com uma aresta.
+
+Para criar um novo relacionamento entre dois usuários deve-se utilizar o método `create\_relationship' definido na classe de usuário. Esse método possui a seguinte assinatura:
+
+\begin{lstlisting}[
+    label=listing:create_relationship,
+    caption=Método para criar relacionamento,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+create_relationship(destiny, label, bidirectional=true, active=false)
+\end{lstlisting}
+
+O usuário que pede o relacionamento deve chamar este método e passar o usuário de destino e rótulo para o relacionamento. Por padrão é criada um relacionamento bidirecional e inativa entre esse usuários. É possível mudar esse comportamento passando os outros parâmetros para o método.
+
+Para ativar o relacionamento criado é necessário uma confirmaçaõ. Para confirmar de usuário de destino deve invocar o método `confirm\_relationship'. Esse método possui a seguinte assinatura:
+
+\begin{lstlisting}[
+    label=listing:confirm_relationship,
+    caption=Método para confirmar relacionamento,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+confirm_relationship(user, label)
+\end{lstlisting}
+
+É necessário passar como parâmetro o usuário de origem e o rótulo com o tipo de relacionamento. O único usuário que pode confirmar o relacionamento é o usuário de destino.
+
+Para remover algum relacionamento, os usuários devem chamar o método `remove\_relationship', passando o outro usuário no relacionamento e o rótulo do relacionamento. Esse método possui a seguinte assinatura:
+
+\begin{lstlisting}[
+    label=listing:remove_relationship,
+    caption=Método para remover relacionamento,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+remove_relationship(destiny, label)
+\end{lstlisting}
+
+\subsubsection{Módulo de agendas}
+
+\subsubsection{Módulo de rotas}
 
 \section{Hotspots}
 
