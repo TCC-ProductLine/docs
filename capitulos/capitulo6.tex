@@ -1,47 +1,127 @@
-\chapter{Considerações Finais}
-\label{chapter:Consideracoes_Finais}
+\chapter{Resultados}
+\label{chapter:Resultados}
 
- Este documento completa a primeira etapa deste trabalho, onde foram apresentados os principais pontos quanto ao tema proposto. Esta visão, em um contexto mais amplo, compreende aspectos relacionados a redes sociais e reutilização de software e apresenta a ideia geral de desenvolvimento de um \textit{framework}. Esse suporte procurará auxiliar na criação de redes sociais, oferecendo recursos gerais de relacionamento entre pessoas em uma rede virtual, bem como recursos específicos de rotas e agendas. A partir desses recursos, um desenvolvedor poderá usar este \textit{framework} usufruindo do suporte sem se preocupar, idealmente, com a lógica por trás de sua implementação.
+\section{O framework}
 
- Em um contexto mais técnico, foram discutidas também algumas formas para desenvolver o que se propõe. Entre esses aspectos, foram apresentados pontos como teoria dos grafos, algoritmos relacionados e padrões de projeto.
+O SocialFramework é uma \textit{engine} do Rails que ajuda a construir redes sociais com recursos comuns e específicos.
 
-Durante a construção deste documento, alguns passos foram seguidos buscando apresentar o tema e aspectos relacionados. Inicialmente, foi desenvolvida uma contextualização que traz o tema proposto de uma forma geral e apresenta ao leitor os objetivos deste trabalho. Logo após, foi feito um levantamento bibliográfico com o objetivo de buscar uma melhor adequação ao tema proposto. Esse passo colaborou com a elaboração do capítulo de ~\nameref{chapter:Referencial_Teorico}, onde estão presentes todos os temas pertinentes a esse trabalho, levantados até o momento. Foi feito também um levantamento das tecnologias e ferramentas que serão usadas durante este trabalho, as quais estão documentadas no capítulo de ~\nameref{chapter:Suporte_Tecnologico}. No capítulo de ~\nameref{chapter:Metodologia}, foram definidas as metodologias de pesquisa e de desenvolvimento. Por fim, concretizou-se a ~\nameref{chapter:Proposta} deste trabalho apresentando-a de uma forma mais completa e discorrendo sobre os principais pontos de forma mais técnica. Nessa etapa, também foi desenvolvida uma aplicação que serviu como prova de conceito para aprofundar os conhecimentos quanto às necessidades e dificuldades relacionadas à proposta, ou seja, ao desenvolvimento do \textit{framework} bem como de duas instanciações: uma voltada para o domínio de rotas e outra voltada para o domínio de agendas.
+O SocialFramework é dividido em três módulos, que são: usuários, rotas e agendas. No módulo de usuários são providos os principais recursos para usuários, como autenticação, registro e pesquisas. No módulo de rotas o \textit{framework} provê recursos para checar a compatibilidade de rotas. No módulo de agenda são oferecidos recursos para definir agendas de usuários e a compatibilidade de horário entre usuários.
 
-A Tabela \ref{status atividades} apresenta os status das atividades que estão previstas no cronograma deste trabalho.
+Portanto, o SocialFramework pode ajudar a construir redes sóciais genéricas e específicas de um modo rápido e prático e sem se preocupar com problemas recorrentes nestes tipos de sistemas.
 
-\newpage
+\subsection{Instalação}
 
-\begin{table}[h]
-\centering
-\caption{Status das atividades previstas no cronograma}
-\label{status atividades}
-\begin{tabular}{@{}ll@{}}
-\toprule
-\textbf{Atividade}                     & \textbf{Status} \\ \midrule
-Elaborar Proposta Inicial              & Completa 		 \\
-Definir Escopo                         & Completa 		 \\
-Realizar Levantamento Bibliográfico    & Completa 		 \\
-Definir Metodologia 				   & Completa 		 \\
-Definir Suporte Tecnológico            & Completa 		 \\
-Estabelecer Proposta                   & Completa 		 \\
-Desenvolver Prova de Conceito          & Completa 		 \\
-Apresentar TCC1                        & A Fazer  		 \\
-Refinar TCC1                           & A Fazer  		 \\
-Desenvolver o Framework                & A Fazer  		 \\
-Desenvolver a Rede Social              & A Fazer  		 \\
-Coletar e Avaliar os Resultados        & A Fazer  		 \\
-Apresentar TCC2                        & A Fazer  		 \\
-Refinar TCC2                           & A Fazer  		 \\ \bottomrule
-\end{tabular}
-\end{table}
+A instalação do SocialFramework possui dois passos simples.
 
-Pode-se então ter uma ideia da quantidade do trabalho completo falta ser realizado, de acordo com o gráfico apresentado na Figura \ref{status projeto}. Esses valores levam em consideração a complexidade atribuída às atividades apresentadas.
+Primeiro adicione a seguinte linha no arquivo Gemfile:
 
-\begin{figure}[!h]
-	\centering
-	\includegraphics[scale=0.5]{figuras/capitulo6/status_projeto.eps}
-	\caption{Status do projeto}
-	\label{status projeto}
-\end{figure}
+\begin{lstlisting}[
+    label=listing:Gemfile,
+    caption=Gemfile,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+]
+gem 'social_framework'
+\end{lstlisting}
 
-Pode-se considerar que a primeira etapa desta trabalho está completa. A próxima etapa levará em consideração tudo que foi investigado, desenvolvido e contemplado até o momento. Posteriormente, serão inicializadas as etapas que compreendem maior esforço de desenvolvimento. Na primeira etapa de desenvolvimento, os requisitos detalhados do \textit{framework} serão levantados, o que conduzirá à especificação do \textit{backlog} do produto. Esse, por sua vez, servirá de base para a criação e a priorização das \textit{sprints}, onde de fato o código do \textit{framework} será desenvolvido. A segunda etapa compreende o desenvolvimento de uma aplicação que instanciará o \textit{framework} proposto. Por fim, os resultados serão coletados e apresentados para finalização de todo o trabalho.
+Após a adição da \textit{gem} no Gemfile, instale-o executando o seguinte comando:
+
+\begin{lstlisting}[
+    label=listing:Install,
+    caption=Instalação,
+    numbers=none,
+    language=Bash,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+]
+$ bundle install
+\end{lstlisting}
+
+Isto irá instalar o SocialFramework na aplicação.
+
+\subsection{Primeiros passos}
+
+O SocialFramework utiliza o Devise, que é uma solução de autenticação flexível para Rails. Para visualizar a documentação completa do Devise acesse: \url{https://github.com/plataformatec/devise}. A classe de usuário foi implementada no SocialFramework e possui algumas diferenças da classe de usuário padrão do Devise, como a adição do atributo nome e dos relacionamentos dos usuários. As \textit{controllers} e \textit{views} do Devise também foram alteradas para adicionar os novos recursos.
+
+Inicialmente, alguns arquivos devem ser adicionado na aplicação para que configurações do SocialFramework e do Devise sejam adicionadas. Esses arquivos são os \textit{initializers}, o arquivo de internacionalização (i18n) do Devise, as rotas e as \textit{views} de \textit{registration} e \textit{session} para criar e autenticar usuários. Para isso deve-se executar:
+
+\begin{lstlisting}[
+    label=listing:generate_social_framework,
+    caption=Gerando as configurações do SocialFramework e do Devise,
+    numbers=none,
+    language=Bash,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+]
+$ rails generate social_framework:install
+\end{lstlisting}
+
+Este comando irá criar o arquivo ``config/initializers/devise.rb'' contendo as configurações do Devise, o arquivo ``config/initializers/social\_framework.rb'' que contem as configurações do SocialFramework, o arquivo i18n do Devise e irá adicionar a rota ``devise\_for'' para mapear as \textit{controllers} e \textit{views} do Devise. Com isto a aplicação está preparada para usuar o módulo de usuários com as configurações e comportamentos padrões.
+
+Para testar a aplicação não se deve esquecer de executar as migrations:
+
+\begin{lstlisting}[
+    label=listing:migrations,
+    caption=Migrations,
+    numbers=none,
+    language=Bash,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+]
+$ rake db:create
+$ rake db:migrate
+\end{lstlisting}
+
+Todas as tabelas do \textit{framework} serão criadas no banco de dados da aplicação.
+
+Para acessar a página de autenticação acesse a rota ``/users/sing\_in'', esta página está preparada para autenticar usuários com \textit{email} ou nome de usuário. Para cadastrar um novo usuário deve-se acessar a rota ``/users/sing\_up'', ao criar um novo usuário você estará automaticamente conectado.
+
+Quando se usa o Devise Mailer como o Módulo confirmável é necessário adicionar em seu ambiente as configurações para a ação \textit{mailer}, por exemplo, se estiver no ambiente de desenvolvimento deve-se adicionar as seguintes configurações no arquivo `development.rb'.
+
+\begin{lstlisting}[
+    label=listing:mailer,
+    caption=Configurações de email,
+    numbers=left,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+config.action_mailer.default_url_options = {host: 'localhost', port: 3000}
+
+config.action_mailer.delivery_method = :smtp
+
+config.action_mailer.smtp_settings = {
+  address: "smtp.gmail.com",
+  port: 587,
+  domain: ENV["GMAIL_DOMAIN"],
+  authentication: "plain",
+  enable_starttls_auto: true,
+  user_name: ENV["GMAIL_USERNAME"],
+  password: ENV["GMAIL_PASSWORD"]
+}
+\end{lstlisting}
+
+Pode-se alterar os valores em `domain', `user\_name', e `password' ou criar as variáveis de ambiente locais, isso é indicado para esconder essas informações sigilosas e garantir uma maior segurança. As mesmas configurações são válidas para os ambientes de teste e produção, nos arquivos `test.rb' e `production.rb'.
+
+\section{Hotspots}
+
+\section{Relatório de testes}
+
+\section{Relatório de qualidade}
+
+\section{Relatório de desempenho}
+
+% \subsecton{Tempo de execução}
+
+% \subsecton{Memória}
+
+\section{Uso da rede social}
