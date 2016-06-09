@@ -112,6 +112,239 @@ config.action_mailer.smtp_settings = {
 
 Pode-se alterar os valores em `domain', `user\_name', e `password' ou criar as variáveis de ambiente locais, isso é indicado para esconder essas informações sigilosas e garantir uma maior segurança. As mesmas configurações são válidas para os ambientes de teste e produção, nos arquivos `test.rb' e `production.rb'.
 
+\subsection{Controllers e Helpers}
+
+O Devise fornece alguns elementos para serem usados nas \textit{controllers} e \textit{views}. Para configurar uma \textit{controller} com uma autenticação de usuário basta adicionar o seguinte \textit{before\_action}, isto funciona porque o SocialFramework já contem a classe de usuário.
+
+\begin{lstlisting}[
+    label=listing:authenticate,
+    caption=Requer autenticação de usuário,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+before_action :authenticate_user!
+\end{lstlisting}
+
+Outros elementos são:
+
+\begin{lstlisting}[
+    label=listing:signed_in,
+    caption=Verifica se o usuário está logado,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+user_signed_in?
+\end{lstlisting}
+
+\begin{lstlisting}[
+    label=listing:current_user,
+    caption=Recupera o usuário logado,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+current_user
+\end{lstlisting}
+
+\begin{lstlisting}[
+    label=listing:user_session,
+    caption=Recupera a sessão para este escopo,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+user_session
+\end{lstlisting}
+
+Após o usuário logar, confirmar a conta ou atualizar a senha o Devise irá procurar por uma caminho \textit{root} para redirecionar. Para alterar esse comportamento padrão, pode-se sobrescrever os métodos ``after\_sing\_in\_path\_for'' e ``after\_sing\_out\_path\_for''.
+
+\subsection{Configuração das modelos}
+
+A classe de usuário no SocialFramework implementa os módulos padrões do Devise. Na documentação completa do Devise é possível encontrar todos os módulos e suas características.
+
+Além dos módulos do Devise, a classe de usuário do SocialFramework possui métodos quem implementam os comportamentos para os relacionamentos de usuários. É possível sobrescrever qualquer comportamento extendendo a classe em outra modelo, como:
+
+\begin{lstlisting}[
+    label=listing:extensao_user_class,
+    caption=Extensão da classe de usuário,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+class OtherUserClass < SocialFramework::User
+  # Your code goes here
+end
+\end{lstlisting}
+
+É necessário mudar o nome da classe no arquivo ``routes.rb'' para a nova classe criada, assim o Devise poderá enxergar a nova classe. Para fazer isso:
+
+\begin{lstlisting}[
+    label=listing:devise_new_user_class,
+    caption=Configurando a nova classe de usuário para o Devise,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+devise_for :users, class_name: 'OtherUserClass',
+    controllers: {sessions: 'users/sessions',
+                  registrations: 'users/registrations',
+                  passwords: 'users/passwords'}
+\end{lstlisting}
+
+\subsection{Configuração das migrations}
+
+A classe de usuário fornece como padrão os atributos nome de usuário, e-mail e senha. Para adicionar ou remover atributos para esta ou qualquer outra classe pode-se adicionar a \textit{migrate} na aplicação. O SocialFramework dispõe de um gerador para fazer isso, neste caso só é necessário executar:
+
+\begin{lstlisting}[
+    label=listing:generate_migrate,
+    caption=Geração das migrations,
+    numbers=none,
+    language=Bash,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+$ rails generate social_framework:install_migrations -m users
+\end{lstlisting}
+
+A \textit{migrate} de usuário será adicionada na aplicação e poderá ser alterada. O parâmetro `m' é usado para gerar \textit{migrations} específicas, o \textit{script} espera os nomes das \textit{migrations}. Caso não exista a migration na aplicação, esta será gerada.
+
+Caso seja adicionado ou removido um atributo para o usuário deve-se notificar o Devise, usando um filtro \textit{before} na ``ApplicationController'':
+
+\begin{lstlisting}[
+    label=listing:user_attribute,
+    caption=Configuração para adicionar um novo atributo de usuário,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+class ApplicationController < ActionController::Base
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) << :new_attribute
+    devise_parameter_sanitizer.for(:account_update) << :new_attribute
+  end
+end
+\end{lstlisting}
+
+Isto faz com que o \textit{sign\_up} e o \textit{account\_update} receba o novo atributo. Pode-se usar o método de remoção para remover os atributos existentes. Para adiconar ou remover o parâmetor em outras ações, por exemplo o \textit{sign\_in}, deve-se fazer o mesmo procedimento.
+
+\subsection{Configuração das controllers}
+
+Todas as \textit{controllers} do Devise podem ser extendidas e ter o seus métodos sobrescritos. Por exemplo:
+
+\begin{lstlisting}[
+    label=listing:extensao_controller,
+    caption=Extensão de uma controller,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+class OtherRegistrationControllerClass < Users::RegistrationsController
+  # Your code goes here
+end
+\end{lstlisting}
+
+Outras \textit{controllers} são: ``confirmations'', ``omniauth\_callbacks'', ``passwords'', ``sessions'' e ``unlocks''. Para usar os módulos de ``omniauth\_callbacks'', ``unlocks'' e ``confirmations'' é necessário adicionar esses respectivos módulos do Devise na aplicação. Todas as \textit{controllers} do Devise no SocialFramework possuem o prefixo ``Users''.
+
+\subsection{Configuração das rotas}
+
+Quando se substitui algumas \textit{controllers} do Devise deve-se definir essas novas \textit{controllers} nas rotas. Isto pode ser feito alterando o caminho para a \textit{controller} na configuração \textit{devise\_for}, como no exemplo a seguir:
+
+\begin{lstlisting}[
+    label=listing:configuracao_controller,
+    caption=Configuração de uma controller,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+devise_for :users, class_name: 'SocialFramework::User',
+  controllers: {sessions: 'users/sessions',
+                registrations: 'new_registration_controller_path',
+                passwords: 'users/passwords'}
+\end{lstlisting}
+
+A \textit{controller} de registro foi extendida e a nova \textit{controller} foi adicionada nas configurações de rotas do Devise.
+
+\subsection{Configuração das views}
+
+Para adicionar as \textit{views} do Devise na aplicação o SocialFramework um gerador para executar esta tarefa, para executa-lo deve-se usar o seguinte comando:
+
+\begin{lstlisting}[
+    label=listing:gerar_views,
+    caption=Geração das views,
+    numbers=none,
+    language=Bash,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+$ rails generate social_framework:views
+\end{lstlisting}
+
+Para adicionar uma \textit{view} específica deve-se usar o parâmetro `-v' e passar o nome das \textit{views}, como no exemplo a seguir:
+
+\begin{lstlisting}[
+    label=listing:gerar_views,
+    caption=Geração das views,
+    numbers=none,
+    language=Bash,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+$ rails generate social_framework:views -v registrations sessions passwords
+\end{lstlisting}
+
+Este comando irá adicionar as \textit{views} ``registrations'', ``sessions'' e ``passwords'' na aplicação. As outras \textit{views} são: ``confirmations'', ``mailer'' and ``unlocks''. Inicialmente, o SocialFramework adiciona as \textit{views} registrations e sessions na aplicação fornecendo autenticação e registro para os usuários.
+
 \section{Hotspots}
 
 \section{Relatório de testes}
