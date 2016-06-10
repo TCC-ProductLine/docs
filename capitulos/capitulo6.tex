@@ -353,7 +353,7 @@ Atualmente o SocialFramework possui os módulos de usuário, de rotas e de agend
 
 Este módulo fornece a lógica principal à redes sociais, como criar, confirmar e remover relacionamentos entre os usuários, além de buscas, registros, atualizações e autenticações.
 
-A estrutura de relacionamentos foi construída com um relacionamento de muitos para muitos entre usuários através de arestas. As aresta possuem o usuário de origem, o usuário de destino, o \textit{status}, pode estar ativo ou inativo, se é bidirecional ou não, que  especifica relacionamentos como bidirecional ou unidirecional, e um rótulo com o nome do relacionamento. Pode-se existir múltiplas relações entre os mesmos usuários. Cada relacionamento é representar com uma aresta.
+A estrutura de relacionamentos foi construída com um relacionamento de muitos para muitos entre usuários através de arestas. As aresta possuem o usuário de origem, o usuário de destino, o \textit{status}, pode estar ativo ou inativo, se é bidirecional ou não, que  especifica relacionamentos como bidirecional ou unidirecional, e um rótulo com o nome do relacionamento. Pode-se existir múltiplas relacionamentos entre os mesmos usuários. Cada relacionamento é representar com uma aresta.
 
 Para criar um novo relacionamento entre dois usuários deve-se utilizar o método `create\_relationship' definido na classe de usuário. Esse método possui a seguinte assinatura:
 
@@ -406,6 +406,120 @@ Para remover algum relacionamento, os usuários devem chamar o método `remove\_
 ]
 remove_relationship(destiny, label)
 \end{lstlisting}
+
+A classe de usuário fornece também um método para obter os usuários que estão relacionados com um usuário, para isso deve-se invocar o seguinte método:
+
+\begin{lstlisting}[
+    label=listing:remove_relationship,
+    caption=Método para remover relacionamento,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+relationships(label, status = true, created_by = "any")
+\end{lstlisting}
+
+O ``label'' representa com qual tipo de relacionamento se deseja obter os usuários, o ``status'' é usado para os usuários com relacionamentos ativos ou inativos, o padrão é \textit{true}, o parâmetro ``created\_by'' é usado para especificar qual usuário pode ter criado o relacionamento, se for `any' qualquer usuário poderá ter criado o relacionamento, se for ``self'' os relacionamentos devem possuir como usuário de origem o próprio usuário ou se for ``other'' os relacionamentos devem possuir como usuário de destino o próprio usuário.
+
+O módulo de usuários usa um grafo para fornecer algumas funcionalidades, como buscas na rede e sugestão de relacionamentos. Todas estas funcionalidades estão presentes no ``NetworkHelper'' que implementa as classes ``Graph'', ``Vertex'' e ``Edge''. O gráfico pode ser acessado a partir do método `graph', que está prensente na classe de usuário. Na ação \textit{sign\_in} o grafo é construido com o usuário logado como \textit{root}. O grafo é construído até que a profundidade especificada no \textit{initializer} `social\_framework.rb' na variável `depth\_to\_build', o valor padrão é de três. O método `graph' possui a seguinte assinatura.
+
+\begin{lstlisting}[
+    label=listing:remove_relationship,
+    caption=Método para remover relacionamento,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+build(root, attributes = [:username, :email, :title], relationships = "all")
+\end{lstlisting}
+
+O parametro ``root'' é um usuário que irá ser a raiz do grafo, o parâmetro ``attributes'' corresponde aos atributos de usuário e evento que serão mapeados para os vértices, por padrão contém `username', `email' e `title'. Os relacionamentos são o tipo de relacionamentos que serão utilizados para a construção do grafo, deve ser uma \textit{string} ou um \textit{array}, caso seja passado ``any'' o grafo é construido com qualquer relacionamento. Na ação \textit{sign\_in} o grafo é construído com atributos `username', `email' e `title', além de `id'.
+
+Com o grafo construído é possível sugerir relações. Para isso, analisa-se o terceiro nível do grafo para encontrar relacionamentos comuns com o tipo especificado no \textit{initialize} `social\_framework.rb' na variável `relationship\_type\_to\_suggest', o valor padrão é ``friend'', a variável `amount\_relationship\_to\_suggest' especifica a quantidade de relacionamentos para fazer a sugestão, o valor padrão é de cinco. Esse método possui a seguinte assinatura.
+
+\begin{lstlisting}[
+    label=listing:remove_relationship,
+    caption=Método para remover relacionamento,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+suggest_relationships(type_relationships = SocialFramework.relationship_type_to_suggest,
+  amount_relationships = SocialFramework.amount_relationship_to_suggest)
+\end{lstlisting}
+
+Considerando os valores padrão, se um usuário `A' e um usuário `C' tem cinco relacionamento com o tipo de ``friend'' com outros cinco usuários o sistema irá sugerir ao usuário `A' começar o mesmo relacionamento com o usuário `C'.
+
+A busca no grafo é executado usando o algoritmo BFS. O método da busca possui a seguinte assinatura.
+
+\begin{lstlisting}[
+    label=listing:remove_relationship,
+    caption=Método para remover relacionamento,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+search(map, search_in_progress = false, elements_number = SocialFramework.elements_number_to_search)
+\end{lstlisting}
+
+É passado um mapa para ser usado na pesquisa, este mapa representa as chaves e valores para comparar com os vértices, por exemplo, o mapa `{username: `user', email: `user', title: `event'}' fará com que uma pesquisa retorne qualquer vértice que contem a \textit{string} `user' no \textit{username} ou email ou que contenha a \textit{string} ``event'' no \textit{title}. O parâmetro `search\_in\_progress' é usado para continuar uma busca para encontrar mais resultados, para continuar deve-se passar \textit{true}. O parâmetro `elements\_number' definir a quantidade de resultados para retornar, este valor é especificado no \textit{initialize} `social\_framework.rb' na variável `elements\_number\_to\_search', o valor padrão é de cinco.
+
+Um exemplo para continuar Pesquisas é mostrado abaixo. Por padrão, quando se continua a procurar o param `elements\_number' é usado para aumentar o tamanho máximo para os resultados encontrados. Neste caso, a primeira chamada retorna os primeiros cinco elementos encontrados no grafo, a segunda chamada retorna mais dez elementos e o tamanho final é quinze. O retorno é um hash com duas chaves, a primeira é ``users'' e seu valor é um \textit{array} usuários, e segunda é ``event" e seu valor é um \textit{array} de eventos encontrados.
+
+\begin{lstlisting}[
+    label=listing:remove_relationship,
+    caption=Método para remover relacionamento,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+map = {username: 'user', email: 'user', title: 'event'}
+graph.search(map)
+graph.search(map, true, 10)
+\end{lstlisting}
+
+Pode-se alterar o comportamento padrão para continuar pesquisas passando um bloco para o método, este bloco vai indicar como o ``elements\_number'' deve ser aumentado. Por exemplo:
+
+\begin{lstlisting}[
+    label=listing:remove_relationship,
+    caption=Método para remover relacionamento,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+map = {username: 'user', email: 'user', title: 'event'}
+graph.search(map, false, 1)
+graph.search(map, true) { |elements_number| elements_number *= 2 }
+\end{lstlisting}
+
+
+Nesse caso, o `elements\_number' vai dobrar a cada método de pesquisa chamado com esse bloco. Portanto, a primeira chamada retorna um elemento, devido ao valor passado, o segundo dois, a terceira quatro, e assim por diante.
+
+Quando a pesquisa chega ao fim do grafo e ainda não encontrou todos os elementos necessários uma pesquisa no banco de dados é feito para completar a \textit{hash}.
 
 \subsubsection{Módulo de agendas}
 
