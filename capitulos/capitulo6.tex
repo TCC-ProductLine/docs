@@ -523,6 +523,220 @@ Quando a pesquisa chega ao fim do grafo e ainda não encontrou todos os elemento
 
 \subsubsection{Módulo de agendas}
 
+Este módulo fornece a lógica para trabalhar com a agenda dos usuários de redes sociais, como criar, inserir, convidar, confirmar, sair e remover eventos.
+
+A estrutura de relacionamentos foi construída do seguinte modo: Uma Agenda pertence a um Usuário e tem um relacionamento de muitos para muitos com o Evento através de um ``Participant\_Event'', o ``Participant\_Event'' tem um atributo confirmado que indica se o usuário confirmou o evento ou se a confirmação está pendente. Além de um evento ser capaz de estar presente em várias agendas, um evento tem um título, uma descrição, uma data e hora de início, uma data e hora de termino, pode ou não ter uma rota associada, e se o evento for particular um outro usuário só poderá participar do evento se for convidado, se não for particular, qualquer usuário pode entrar no evento.
+
+Para criar um novo evento utiliza-se o método `create\_event', definido na classe de agenda. Esse método possuí a seguinte assinatura.
+
+\begin{lstlisting}[
+    label=listing:create_evente,
+    caption=Método para criar evento,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+create_event(title, start, duration = nil, description = "", particular = false)
+\end{lstlisting}
+
+Caso não seje passado a duração do evento, a sua descrição ou se é particular, esse terá o seu termino como o final do dia em que o evento ocorrerá, a sua descrição será definida como uma string vazia e o evento não será particular. Estas opção poderão ser alteradas passando os respectivos parâmentros na chamada do método. Para o evento ser criado o usuário não poderá ter eventos em sua agenda que choque com o horário do evento que se deseja criar.
+
+Para um usuário entrar em um evento deve-se usar o método `enter\_in\_event', definido na classe de agenda. Este método possui a seguinte assinatura:
+
+\begin{lstlisting}[
+    label=listing:enter_in_event,
+    caption=Método para entrar em um evento,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+enter_in_event(event)
+\end{lstlisting}
+
+É necessário passar como parâmetro o evento que o usuário deseja entrar. Para que o usuário consiga entrar no evento, ele não poderá ter eventos em sua agenda que choque com o horário do evento que se deseja entrar.
+
+Para um usuário possa confirmar um convite para entrar em um evento deve-se usar o método `confirm\_event', definido na classe de agenda. Este método possui a seguinte assinatura:
+
+\begin{lstlisting}[
+    label=listing:confirm_event,
+    caption=Método para confirmar um evento,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+confirm_event(event)
+\end{lstlisting}
+
+É necessário passar como parâmetro o evento que o usuário deseja confirmar. Para que o usuário consiga entrar no evento, este não poderá ter eventos em sua agenda que choque com o horário do evento que se deseja confirmar.
+
+Para sair de um evento deve-se invocar o método `exit\_event', definido na classe de agenda. Esse método possui a seguinte assinatura:
+
+\begin{lstlisting}[
+    label=listing:exit_event,
+    caption=Método para sair de um evento,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+exit_event(event)
+\end{lstlisting}
+
+É necessário passar como parâmetro o evento que o usuário deseja remover da sua agenda. Mas para conseguir sair do evento o usuário não pode ter o papel de `creator' do evento, caso ele seja o criador do evento este deve passar o papel para outro usuário antes de sair do evento.
+
+Para apagar um evento é necessário invocar o método `remove\_event', definido na classe de agenda. Esse método possui a seguinte assinatura:
+
+\begin{lstlisting}[
+    label=listing:remove_event,
+    caption=Método para remover um evento,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+remove_event(event)
+\end{lstlisting}
+
+É necessário passar como parâmetro o evento que se deseja apagar. Mas para conseguir apagar o evento o usuário deve ter o papel de `creator' do evento.
+
+Para verificar se um usuário possui eventos em um intervalo de tempo definido pode-se usar o método `events\_in\_period', definido na classe de Agenda. Esse método retorna todos os eventos que estão dentro desse intervalo de tempo e possui a seguinte assinatura:
+
+\begin{lstlisting}[
+    label=listing:events_in_period,
+    caption=Método para recuperar os eventos dentro de um período de tempo,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+events_in_period(start, finish = start.end_of_day)
+\end{lstlisting}
+
+Caso não seje passado o final do período como parâmetro, esse terá o seu termino como o final do dia de início.
+
+Para convidar um usuário para um evento deve-se invocar o método `invite', definido na classe evento. Esse método possui a seguinte assinatura:
+
+\begin{lstlisting}[
+    label=listing:invite,
+    caption=Método para convidar um usuário para um evento,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+invite(inviting, guest, relationship = SocialFramework.relationship_type_to_invite)
+\end{lstlisting}
+
+É necessário passar como parâmetro o usuário que está convidando e o usuário convidado, caso não seja passado o tipo de relacionameto que os usuários devem possuir será utilizado o tipo definido no arquivo de configuração. Para convidar um usuário para um evento o usuário que convida deve estar confirmado no evento, ter a permissão de `invite' e ter o convidado em seu círculo de relacionamentos com o tipo de relacionamento específicado, deve-se utilizar o tipo `all' para qualquer tipo de relacionamento.
+
+Para alterar o papel de um participante em um evento deve-se invocar o método `change\_participant\_role', definido na classe evento. Esse método possui a seguinte assinatura:
+
+\begin{lstlisting}[
+    label=listing:change_participant_role,
+    caption=Método para mudar o papel de um usuário,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+change_participant_role(maker, participant, action)
+\end{lstlisting}
+
+É necessário passar como parâmetro o usuário que irá mudar o papel, o usuário que terá o seu papel alterado e a ação que será executada, esta ação deve ter como prefixo `maker' ou `remove', que indica se será atribuido ou removido um papel, seguido por um `\_' e o papel da ação, por exemplo: `:make\_admin'. Para que a mudança de papel seja realizada com sucesso o usuário que irá mudar o papel deve possuir a permissão de executar a ação. E caso a ação seja `:make\_creator' o usuário que irá mudar o papel receberá o papel de `admin', pois só deve existir um usuário criador do evento.
+
+Para remover um participante de um evento deve-se invocar o método `remove\_participant', definido na classe evento. Esse método possui a seguinte assinatura:
+
+\begin{lstlisting}[
+    label=listing:change_participant_role,
+    caption=Método para mudar o papel de um usuário,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+remove_participant(remover, participant)
+\end{lstlisting}
+
+É necessário passar como parâmetro o usuário que irá remover e o usuário que será removido do evento. Para que a remoção seja realizada com sucesso o usuário que irá remover deve ter a permissão de remover um usuário com o papel do usuário que será removido.
+
+Para adicionar uma rota no evento deve-se invocar o método `add\_route', definido na classe Evento. Esse método possui a seguinte assinatura:
+
+\begin{lstlisting}[
+    label=listing:change_participant_role,
+    caption=Método para mudar o papel de um usuário,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+add_route(user, route)
+\end{lstlisting}
+
+É necessário passar como parâmetro o usuário que irá adicionar a rota no evento e a rota a ser adicionada. Para que a adição seja realizada com sucesso o usuário deve ter a permissão de `:add\_route'.
+
+O Módulo de Agenda usa um grafo para fornecer os slotes de tempo de forma ordenada levando em consideração a maior quantidade de peso dos slotes. Essa funcionalidade está presente no `ScheduleHelper', que inclue as classes Vertice e Aresta e implementa a classe Grafo.
+
+Neste grafo os vertices do tipo usuário só possuem ligação com os vértices do tipo slot, e os vértices do tipo slote só possuem ligação com os vértices do tipo usuário, formando assim um grafo bipartido.
+
+Para construir o grafo é necessário incovar o método `build', definido na classe grafo. Esse método possui a seguinte assinatura:
+
+\begin{lstlisting}[
+    label=listing:change_participant_role,
+    caption=Método para mudar o papel de um usuário,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+build(users, start_day, finish_day, start_hour = Time.parse("00:00"), finish_hour = Time.parse("23:59"), slots_size = SocialFramework.slots_size)
+\end{lstlisting}
+
+O parâmetro `users' são os usuários que terão suas agendas verficadas a afim de encontrar o melhor horário para uma possível marcação de evento. Este parâmetro pode ser uma Array, onde nenhum usuário possui peso no evento ou pode ser uma Hash, onde a chave é o usuário e o valor é o peso de sua presença no evento, este peso tem o seu valor máximo definido no arquivo de configuração na variável `max\_weight\_schedule', caso o usuário tenho o seu peso definido como o símbolo `:fixed' este usuário terá sua presença como obrigatória no evento, e só serão analisados os slotes que este usuário possuir disponibilidade.
+
+O parâmetro `start\_day' indica a partir de qual dia o evento poderá ser marcado, e o parâmetro `finish\_day' indica o dia limite para a marcação do evento. O parâmetro `start\_hour' e o parâmetro `finish\_hour' definem o horário de um dia em que o evento poderá ocorrer, por exemplo pode-se definir o horário comercial de 08:00 às 18:00, caso não sejam passados como pâmetro será considerado que o evento poderá ser marcado em qualquer horário.
+
+O parâmetro `slote\_size' indica o tempo de duração dos slotes, caso não seja passado como parâmetro é utilizado o tempo padrão, definido no arquivo configuração e com duração de 1 hora.
+
+A quantidade de slotes que serão adicionados no grafo depende do intervalo de tempo que se deseja analisar e do tempo de duração de cada slote.
+
+Para criar as arestas entre os usuários e os slotes é verificado se o usuário possuim disponibilidade em sua agenda no intervalo de tempo que o slote possui, caso o usuário possua disponibilidade para esse slote é criada uma aresta entre o usuário e o slote, e o peso do usuário é adicionado ao peso do slote. O método retorna os slotes ordenados pelo maior peso que cada slote possui.
+
 \subsubsection{Módulo de rotas}
 
 \section{Hotspots}
