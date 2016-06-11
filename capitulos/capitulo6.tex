@@ -482,7 +482,7 @@ Um exemplo para continuar uma pesquisa é mostrado a seguir. Por padrão, quando
 
 \begin{lstlisting}[
     label=listing:elements_number,
-    caption=Bloco para aumentar o valor do elements_number,
+    caption=Bloco para aumentar o valor do elements\_number,
     numbers=none,
     language=Ruby,
     basicstyle=\footnotesize\sffamily,
@@ -736,5 +736,100 @@ A quantidade de slotes que serão adicionados no grafo depende do intervalo de t
 Para criar as arestas entre os usuários e os slotes é verificado se o usuário possuim disponibilidade em sua agenda no intervalo de tempo que o slote possui, caso o usuário possua disponibilidade para esse slote é criada uma aresta entre o usuário e o slote, e o peso do usuário é adicionado ao peso do slote. O método retorna os slotes ordenados pelo maior peso que cada slote possui.
 
 \subsection{Módulo de rotas}
+
+Este módulo fornece a lógica para trabalhar com rotas. É usado a API do Google Maps para fornecer os alguns recursos para este módulo, como construir uma rota e obter uma localização a partir de uma latitude e uma longitude.
+
+Para um usuário criar uma rota deve-se utilizar o método `create\_route', presente na classe de usuário. A seguir pode-se visualizar a sua assinatura:
+
+\begin{lstlisting}[
+    label=listing:create_route,
+    caption=Método para criar uma rota,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+create_route(title, distance, locations, mode_of_travel = "driving")
+\end{lstlisting}
+
+
+Os parâmetros são o título da rota, a distância que a rota possui e as localizações, que é um \textit{array} com todos os pontos de latitude e longitude para construir rota, a seguir é ilustrado um exemplo do parâmetro \textit{locations}:
+
+\begin{lstlisting}[
+    label=listing:locations,
+    caption=Exemplo de localizações,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+locations = [{latitude: -15.792740000000, longitude: -47.876360000000},
+             {latitude: -15.792520000000, longitude: -47.876900000000}]
+\end{lstlisting}
+
+E o parâmetro modo de transporte  representa qual o meio de transpote que será utilizado para percorrer a rota, pode ser `driving', `bycicling', `walking' ou `transit', o valor padrão é `walking' para viajar de carro.
+
+Este módulo também fornece um recurso para verificar a compatibilidade entre duas rotas. Para isso deve-se chamar o método `compare\_routes' presente no `route\_helper.rb'.
+
+\begin{lstlisting}[
+    label=listing:compare_routes,
+    caption=Método para comparar rotas,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+compare_routes(principal_route, secondary_route,
+          principal_deviation = SocialFramework.principal_deviation,
+          secondary_deviation = SocialFramework.secondary_deviation)
+\end{lstlisting}
+
+Este método é utilizado para verificar se duas rotas podem ser conectadas em apenas uma rota. O parâmetro `principal\_route' representa a rota que será alterada para auxliar a rota `secondary\_route', se possível. Quando a rota principal não pode ser alterada pode-se tentar alterar a rota secundária para atingir o objetivo. Os parâmetros `principal\_deviation' e `secondary\_deviation' representam um mapa com o modo de transporte e o desvio máximo que rota pode sofrer, o desvio máximo é a distância que uma rota pode ser desviada para atingir o objetivo. Os valores padrões para os desvios das rotas princial e secundária estão presentes no \textit{initialize} `social\_framework.rb' e podem ser alterados.
+
+O método \textit{compare\_routes} retorna um mapa com as informações de compatibilidade, como pode ser visualizado a seguir:
+
+\begin{lstlisting}[
+    label=listing:compatible,
+    caption=Retorno do método que compara as rotas,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+{compatible: false, principal_route: {deviation: :none,
+          distance: 0}, secondary_route: {deviation: :none, distance: 0}}
+\end{lstlisting}
+
+A chave `compatible' é falsa quando as rotas são incompatíveis ou verdadeira quando são compatíveis. O desvio representa onde a rota poderá ser desviada, pode ser `none', `both', `origin' ou `destiny', e o `distance' é de valor da distância total que a rota possui com o desvio incluso.
+
+As rotas também podem ser relacionadas com eventos. Para fazer o relacionamento deve-se invocar o método `add\_route', presente na classe de evento.
+
+\begin{lstlisting}[
+    label=listing:compatible,
+    caption=Retorno do método para adicionar uma rota em um evento,
+    numbers=none,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+]
+add_route(user, route)
+\end{lstlisting}
+
+O primeiro parâmetro é o usuário que tentará adicionar a rota no evento, é necessário que o usuário tenha a permissão `add\_route' no evento (as permissões para executar as ações nos eventos estão definidas no \textit{initialize} `social\_framework.rb'). O segundo parâmetro é a rota que será adicionada no evento. Quando uma rota é adicionada a um evento todos os usuários neste evento recebem essa rota.
 
 \section{Hotspots}
