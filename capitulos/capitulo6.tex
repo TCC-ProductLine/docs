@@ -1,7 +1,5 @@
-\chapter{Resultados}
-\label{chapter:Resultados}
-
-\section{O framework}
+\chapter{SocialFramework}
+\label{chapter:SocialFramework}
 
 O SocialFramework é uma \textit{engine} do Rails que ajuda a construir redes sociais com recursos comuns e específicos.
 
@@ -9,7 +7,7 @@ O SocialFramework é dividido em três módulos, que são: usuários, rotas e ag
 
 Portanto, o SocialFramework pode ajudar a construir redes sóciais genéricas e específicas de um modo rápido e prático e sem se preocupar com problemas recorrentes nestes tipos de sistemas.
 
-\subsection{Instalação}
+\section{Instalação}
 
 A instalação do SocialFramework possui dois passos simples.
 
@@ -43,9 +41,9 @@ $ bundle install
 
 Isto irá instalar o SocialFramework na aplicação.
 
-\subsection{Primeiros passos}
+\section{Primeiros passos}
 
-O SocialFramework utiliza o Devise, que é uma solução de autenticação flexível para Rails. Para visualizar a documentação completa do Devise acesse: \url{https://github.com/plataformatec/devise}. A classe de usuário foi implementada no SocialFramework e possui algumas diferenças da classe de usuário padrão do Devise, como a adição do atributo nome e dos relacionamentos dos usuários. As \textit{controllers} e \textit{views} do Devise também foram alteradas para adicionar os novos recursos.
+O SocialFramework utiliza o Devise, que é uma solução de autenticação flexível para Rails. Para visualizar a documentação completa do Devise acesse: \url{https://github.com/plataformatec/devise}. A classe de usuário foi implementada no SocialFramework e possui algumas diferenças da classe de usuário padrão do Devise, como a adição do atributo nome e dos relacionamentos dos usuários. As controladoras e \textit{views} do Devise também foram alteradas para adicionar os novos recursos.
 
 Inicialmente, alguns arquivos devem ser adicionado na aplicação para que configurações do SocialFramework e do Devise sejam adicionadas. Esses arquivos são os \textit{initializers}, o arquivo de internacionalização (i18n) do Devise, as rotas e as \textit{views} de \textit{registration} e \textit{session} para criar e autenticar usuários. Para isso deve-se executar:
 
@@ -61,7 +59,7 @@ Inicialmente, alguns arquivos devem ser adicionado na aplicação para que confi
 $ rails generate social_framework:install
 \end{lstlisting}
 
-Este comando irá criar o arquivo ``config/initializers/devise.rb'' contendo as configurações do Devise, o arquivo ``config/initializers/social\_framework.rb'' que contem as configurações do SocialFramework, o arquivo i18n do Devise e irá adicionar a rota ``devise\_for'' para mapear as \textit{controllers} e \textit{views} do Devise. Com isto a aplicação está preparada para usuar o módulo de usuários com as configurações e comportamentos padrões.
+Este comando irá criar o arquivo ``config/initializers/devise.rb'' contendo as configurações do Devise, o arquivo ``config/initializers/social\_framework.rb'' que contem as configurações do SocialFramework, o arquivo i18n do Devise e irá adicionar a rota ``devise\_for'' para mapear as controladoras e \textit{views} do Devise. Com isto a aplicação está preparada para usuar o módulo de usuários com as configurações e comportamentos padrões.
 
 Para testar a aplicação não se deve esquecer de executar as migrations:
 
@@ -114,7 +112,7 @@ Pode-se alterar os valores em `domain', `user\_name', e `password' ou criar as v
 
 \subsection{Helpers e filtros das controllers}
 
-O Devise fornece alguns elementos para serem usados nas \textit{controllers} e \textit{views}. Para configurar uma \textit{controller} com uma autenticação de usuário basta adicionar o seguinte \textit{before\_action}, isto funciona porque o SocialFramework já contem a classe de usuário.
+O Devise fornece alguns elementos para serem usados nas controladoras e \textit{views}. Para configurar uma controladora com uma autenticação de usuário basta adicionar o seguinte \textit{before\_action}, isto funciona porque o SocialFramework já contem a classe de usuário.
 
 \begin{lstlisting}[
     label=listing:authenticate,
@@ -266,7 +264,7 @@ Isto faz com que o \textit{sign\_up} e o \textit{account\_update} receba o novo 
 
 \subsection{Configuração das controllers}
 
-Todas as \textit{controllers} do Devise podem ser extendidas e ter o seus métodos sobrescritos. Por exemplo:
+Todas as controladoras do Devise podem ser extendidas e ter o seus métodos sobrescritos. Por exemplo:
 
 \begin{lstlisting}[
     label=listing:extensao_controller,
@@ -284,11 +282,11 @@ class OtherRegistrationControllerClass < Users::RegistrationsController
 end
 \end{lstlisting}
 
-Outras \textit{controllers} são: ``confirmations'', ``omniauth\_callbacks'', ``passwords'', ``sessions'' e ``unlocks''. Para usar os módulos de ``omniauth\_callbacks'', ``unlocks'' e ``confirmations'' é necessário adicionar esses respectivos módulos do Devise na aplicação. Todas as \textit{controllers} do Devise no SocialFramework possuem o prefixo ``Users''.
+Outras controladoras são: ``confirmations'', ``omniauth\_callbacks'', ``passwords'', ``sessions'' e ``unlocks''. Para usar os módulos de ``omniauth\_callbacks'', ``unlocks'' e ``confirmations'' é necessário adicionar esses respectivos módulos do Devise na aplicação. Todas as controladoras do Devise no SocialFramework possuem o prefixo ``Users''.
 
 \subsection{Configuração das rotas}
 
-Quando se substitui algumas \textit{controllers} do Devise deve-se definir essas novas \textit{controllers} nas rotas. Isto pode ser feito alterando o caminho para a \textit{controller} na configuração \textit{devise\_for}, como no exemplo a seguir:
+Quando se substitui algumas controladoras do Devise deve-se definir essas novas controladoras nas rotas. Isto pode ser feito alterando o caminho para a controladora na configuração \textit{devise\_for}, como no exemplo a seguir:
 
 \begin{lstlisting}[
     label=listing:configuracao_controller,
@@ -307,7 +305,7 @@ devise_for :users, class_name: 'SocialFramework::User',
                 passwords: 'users/passwords'}
 \end{lstlisting}
 
-A \textit{controller} de registro foi extendida e a nova \textit{controller} foi adicionada nas configurações de rotas do Devise.
+A controladora de registro foi extendida e a nova controladora foi adicionada nas configurações de rotas do Devise.
 
 \subsection{Configuração das views}
 
@@ -343,17 +341,17 @@ Para adicionar uma \textit{view} específica deve-se usar o parâmetro `-v' e pa
 $ rails generate social_framework:views -v registrations sessions passwords
 \end{lstlisting}
 
-Este comando irá adicionar as \textit{views} ``registrations'', ``sessions'' e ``passwords'' na aplicação. As outras \textit{views} são: ``confirmations'', ``mailer'' and ``unlocks''. Inicialmente, o SocialFramework adiciona as \textit{views} registrations e sessions na aplicação fornecendo autenticação e registro para os usuários.
+Este comando irá adicionar as \textit{views} ``registrations'', ``sessions'' e ``passwords'' na aplicação. As outras \textit{views} são: ``confirmations'', ``mailer'' and ``unlocks''. Inicialmente, o SocialFramework adiciona as \textit{views} ``registrations'' e ``sessions'' na aplicação fornecendo autenticação e registro para os usuários.
 
-\subsection{Módulos do SocialFramework}
+\section{Módulos do SocialFramework}
 
 Atualmente o SocialFramework possui os módulos de usuário, de rotas e de agendas.
 
-\subsubsection{Módulo de usuários}
+\subsection{Módulo de usuários}
 
 Este módulo fornece a lógica principal à redes sociais, como criar, confirmar e remover relacionamentos entre os usuários, além de buscas, registros, atualizações e autenticações.
 
-A estrutura de relacionamentos foi construída com um relacionamento de muitos para muitos entre usuários através de arestas. As aresta possuem o usuário de origem, o usuário de destino, o \textit{status}, pode estar ativo ou inativo, se é bidirecional ou não, que  especifica relacionamentos como bidirecional ou unidirecional, e um rótulo com o nome do relacionamento. Pode-se existir múltiplas relacionamentos entre os mesmos usuários. Cada relacionamento é representar com uma aresta.
+A estrutura de relacionamentos foi construída com um relacionamento de muitos para muitos entre usuários através de arestas. As aresta possuem o usuário de origem, o usuário de destino, o \textit{status}, pode estar ativo ou inativo, se é bidirecional ou não, que  especifica relacionamentos como bidirecional ou unidirecional, e um rótulo com o nome do relacionamento. Pode-se existir múltiplos relacionamentos entre os mesmos usuários. Cada relacionamento é representar com uma aresta.
 
 Para criar um novo relacionamento entre dois usuários deve-se utilizar o método `create\_relationship' definido na classe de usuário. Esse método possui a seguinte assinatura:
 
@@ -373,7 +371,7 @@ create_relationship(destiny, label, bidirectional=true, active=false)
 
 O usuário que pede o relacionamento deve chamar este método e passar o usuário de destino e rótulo para o relacionamento. Por padrão é criada um relacionamento bidirecional e inativa entre esse usuários. É possível mudar esse comportamento passando os outros parâmetros para o método.
 
-Para ativar o relacionamento criado é necessário uma confirmaçaõ. Para confirmar de usuário de destino deve invocar o método `confirm\_relationship'. Esse método possui a seguinte assinatura:
+Para ativar o relacionamento criado é necessário uma confirmação. Para confirmar de usuário de destino deve invocar o método `confirm\_relationship'. Esse método possui a seguinte assinatura:
 
 \begin{lstlisting}[
     label=listing:confirm_relationship,
@@ -410,8 +408,8 @@ remove_relationship(destiny, label)
 A classe de usuário fornece também um método para obter os usuários que estão relacionados com um usuário, para isso deve-se invocar o seguinte método:
 
 \begin{lstlisting}[
-    label=listing:remove_relationship,
-    caption=Método para remover relacionamento,
+    label=listing:relationships,
+    caption=Método para recuperar usuários com um tipo de relacionamento,
     numbers=none,
     language=Ruby,
     basicstyle=\footnotesize\sffamily,
@@ -423,13 +421,13 @@ A classe de usuário fornece também um método para obter os usuários que est�
 relationships(label, status = true, created_by = "any")
 \end{lstlisting}
 
-O ``label'' representa com qual tipo de relacionamento se deseja obter os usuários, o ``status'' é usado para os usuários com relacionamentos ativos ou inativos, o padrão é \textit{true}, o parâmetro ``created\_by'' é usado para especificar qual usuário pode ter criado o relacionamento, se for `any' qualquer usuário poderá ter criado o relacionamento, se for ``self'' os relacionamentos devem possuir como usuário de origem o próprio usuário ou se for ``other'' os relacionamentos devem possuir como usuário de destino o próprio usuário.
+O rótulo representa com qual tipo de relacionamento se deseja obter os usuários, o \textit{status} é usado para os usuários com relacionamentos ativos ou inativos, o padrão é \textit{true}, o parâmetro criado por é usado para especificar qual usuário pode ter criado o relacionamento, caso seja ``any'' qualquer usuário poderá ter criado o relacionamento, caso seja ``self'' os relacionamentos devem possuir como usuário de origem o próprio usuário ou caso seja ``other'' os relacionamentos devem possuir como usuário de destino o próprio usuário.
 
-O módulo de usuários usa um grafo para fornecer algumas funcionalidades, como buscas na rede e sugestão de relacionamentos. Todas estas funcionalidades estão presentes no ``NetworkHelper'' que implementa as classes ``Graph'', ``Vertex'' e ``Edge''. O gráfico pode ser acessado a partir do método `graph', que está prensente na classe de usuário. Na ação \textit{sign\_in} o grafo é construido com o usuário logado como \textit{root}. O grafo é construído até que a profundidade especificada no \textit{initializer} `social\_framework.rb' na variável `depth\_to\_build', o valor padrão é de três. O método `graph' possui a seguinte assinatura.
+O módulo de usuários usa um grafo para fornecer algumas funcionalidades, como buscas na rede e sugestão de relacionamentos. Todas estas funcionalidades estão presentes no ``NetworkHelper'' que implementa as classes ``Graph'', ``Vertex'' e ``Edge''. O grafo pode ser acessado a partir do método `graph', que está prensente na classe de usuário. Na ação \textit{sign\_in} o grafo é construido com o usuário logado como \textit{root}. O grafo é construído até que a profundidade especificada no \textit{initializer} `social\_framework.rb' na variável `depth\_to\_build', que tem o valor padrão como três. O método `build' possui a seguinte assinatura.
 
 \begin{lstlisting}[
-    label=listing:remove_relationship,
-    caption=Método para remover relacionamento,
+    label=listing:build,
+    caption=Método para construir o grafo,
     numbers=none,
     language=Ruby,
     basicstyle=\footnotesize\sffamily,
@@ -441,13 +439,13 @@ O módulo de usuários usa um grafo para fornecer algumas funcionalidades, como 
 build(root, attributes = [:username, :email, :title], relationships = "all")
 \end{lstlisting}
 
-O parametro ``root'' é um usuário que irá ser a raiz do grafo, o parâmetro ``attributes'' corresponde aos atributos de usuário e evento que serão mapeados para os vértices, por padrão contém `username', `email' e `title'. Os relacionamentos são o tipo de relacionamentos que serão utilizados para a construção do grafo, deve ser uma \textit{string} ou um \textit{array}, caso seja passado ``any'' o grafo é construido com qualquer relacionamento. Na ação \textit{sign\_in} o grafo é construído com atributos `username', `email' e `title', além de `id'.
+O parametro ``root'' é um usuário que irá ser a raiz do grafo, o parâmetro ``attributes'' corresponde aos atributos de usuário e evento que serão mapeados para os vértices, por padrão contém o nome de usuário, o email e o titulo. O parâmetro ``relationships'' são o tipo de relacionamentos que serão utilizados para a construção do grafo, deve ser uma \textit{string} para especificar um único relacionamento ou um \textit{array} para especificar mais de um relacionamento, caso seja passado a \textit{string} ``any'' o grafo é construido com qualquer relacionamento. Na ação \textit{sign\_in} o grafo é construído com atributos `username', `email' e `title', além de `id'.
 
-Com o grafo construído é possível sugerir relações. Para isso, analisa-se o terceiro nível do grafo para encontrar relacionamentos comuns com o tipo especificado no \textit{initialize} `social\_framework.rb' na variável `relationship\_type\_to\_suggest', o valor padrão é ``friend'', a variável `amount\_relationship\_to\_suggest' especifica a quantidade de relacionamentos para fazer a sugestão, o valor padrão é de cinco. Esse método possui a seguinte assinatura.
+Com o grafo construído é possível sugerir relacionamentos. Para isso, utiliza-se o algoritmo ~\nameref{subsec:dfs} para analisar o terceiro nível do grafo e encontrar relacionamentos comuns com o tipo especificado no \textit{initialize} `social\_framework.rb' na variável `relationship\_type\_to\_suggest', que possui o seu valor padrão como ``friend'', a variável `amount\_relationship\_to\_suggest' especifica a quantidade de relacionamentos para fazer a sugestão, o valor padrão é de cinco. Esse método possui a seguinte assinatura.
 
 \begin{lstlisting}[
-    label=listing:remove_relationship,
-    caption=Método para remover relacionamento,
+    label=listing:suggest_relationships,
+    caption=Método para sugerir relacionamento,
     numbers=none,
     language=Ruby,
     basicstyle=\footnotesize\sffamily,
@@ -460,13 +458,13 @@ suggest_relationships(type_relationships = SocialFramework.relationship_type_to_
   amount_relationships = SocialFramework.amount_relationship_to_suggest)
 \end{lstlisting}
 
-Considerando os valores padrão, se um usuário `A' e um usuário `C' tem cinco relacionamento com o tipo de ``friend'' com outros cinco usuários o sistema irá sugerir ao usuário `A' começar o mesmo relacionamento com o usuário `C'.
+Considerando os valores padrão, se um usuário `A' e um usuário `C' tem cinco relacionamento com o tipo de ``friend'' com outros cinco usuários, o sistema irá sugerir ao usuário `A' começar o mesmo relacionamento com o usuário `C'.
 
-A busca no grafo é executado usando o algoritmo BFS. O método da busca possui a seguinte assinatura.
+A busca no grafo é executado usando o algoritmo ~\nameref{subsec:bfs}. O método da busca possui a seguinte assinatura.
 
 \begin{lstlisting}[
-    label=listing:remove_relationship,
-    caption=Método para remover relacionamento,
+    label=listing:search,
+    caption=Método para fazer pesquisa,
     numbers=none,
     language=Ruby,
     basicstyle=\footnotesize\sffamily,
@@ -478,13 +476,13 @@ A busca no grafo é executado usando o algoritmo BFS. O método da busca possui 
 search(map, search_in_progress = false, elements_number = SocialFramework.elements_number_to_search)
 \end{lstlisting}
 
-É passado um mapa para ser usado na pesquisa, este mapa representa as chaves e valores para comparar com os vértices, por exemplo, o mapa `{username: `user', email: `user', title: `event'}' fará com que uma pesquisa retorne qualquer vértice que contem a \textit{string} `user' no \textit{username} ou email ou que contenha a \textit{string} ``event'' no \textit{title}. O parâmetro `search\_in\_progress' é usado para continuar uma busca para encontrar mais resultados, para continuar deve-se passar \textit{true}. O parâmetro `elements\_number' definir a quantidade de resultados para retornar, este valor é especificado no \textit{initialize} `social\_framework.rb' na variável `elements\_number\_to\_search', o valor padrão é de cinco.
+É passado um mapa para ser usado na pesquisa, este mapa representa as chaves e valores para comparar com os vértices, por exemplo, o mapa ``\{username: `user', email: `user', title: `event'\}'' fará com que uma pesquisa retorne qualquer vértice que contem a \textit{string} `user' no nome de usuário ou no email ou que contenha a \textit{string} ``event'' no título. O parâmetro `search\_in\_progress' é usado para continuar uma busca para encontrar mais resultados, para continuar deve-se passar \textit{true}. O parâmetro `elements\_number' defini a quantidade de resultados para se retornar, este valor é especificado no \textit{initialize} `social\_framework.rb' na variável `elements\_number\_to\_search', o valor padrão é de cinco.
 
-Um exemplo para continuar Pesquisas é mostrado abaixo. Por padrão, quando se continua a procurar o param `elements\_number' é usado para aumentar o tamanho máximo para os resultados encontrados. Neste caso, a primeira chamada retorna os primeiros cinco elementos encontrados no grafo, a segunda chamada retorna mais dez elementos e o tamanho final é quinze. O retorno é um hash com duas chaves, a primeira é ``users'' e seu valor é um \textit{array} usuários, e segunda é ``event" e seu valor é um \textit{array} de eventos encontrados.
+Um exemplo para continuar uma pesquisa é mostrado a seguir. Por padrão, quando se continua a procurar o parâmetro `elements\_number' é usado para aumentar o tamanho máximo para os resultados encontrados. Neste caso, a primeira chamada retorna os primeiros cinco elementos encontrados no grafo, a segunda chamada retorna mais dez elementos e o tamanho final é quinze. O retorno é um hash com duas chaves, a primeira é ``users'' e seu valor é um \textit{array} usuários, e segunda é ``event'' e seu valor é um \textit{array} de eventos encontrados.
 
 \begin{lstlisting}[
-    label=listing:remove_relationship,
-    caption=Método para remover relacionamento,
+    label=listing:elements_number,
+    caption=Bloco para aumentar o valor do elements_number,
     numbers=none,
     language=Ruby,
     basicstyle=\footnotesize\sffamily,
@@ -519,13 +517,13 @@ graph.search(map, true) { |elements_number| elements_number *= 2 }
 
 Nesse caso, o `elements\_number' vai dobrar a cada método de pesquisa chamado com esse bloco. Portanto, a primeira chamada retorna um elemento, devido ao valor passado, o segundo dois, a terceira quatro, e assim por diante.
 
-Quando a pesquisa chega ao fim do grafo e ainda não encontrou todos os elementos necessários uma pesquisa no banco de dados é feito para completar a \textit{hash}.
+Quando a pesquisa chega ao fim do grafo e ainda não encontrou todos os elementos necessários uma pesquisa no banco de dados é realizada para completar a \textit{hash}.
 
-\subsubsection{Módulo de agendas}
+\subsection{Módulo de agendas}
 
 Este módulo fornece a lógica para trabalhar com a agenda dos usuários de redes sociais, como criar, inserir, convidar, confirmar, sair e remover eventos.
 
-A estrutura de relacionamentos foi construída do seguinte modo: Uma Agenda pertence a um Usuário e tem um relacionamento de muitos para muitos com o Evento através de um ``Participant\_Event'', o ``Participant\_Event'' tem um atributo confirmado que indica se o usuário confirmou o evento ou se a confirmação está pendente. Além de um evento ser capaz de estar presente em várias agendas, um evento tem um título, uma descrição, uma data e hora de início, uma data e hora de termino, pode ou não ter uma rota associada, e se o evento for particular um outro usuário só poderá participar do evento se for convidado, se não for particular, qualquer usuário pode entrar no evento.
+A estrutura de relacionamentos foi construída do seguinte modo: Uma agenda pertence a um usuário e tem um relacionamento de muitos para muitos com o evento através de um ``Participant\_Event'', o ``Participant\_Event'' tem um atributo confirmado que indica se o usuário confirmou o evento ou se a confirmação está pendente. Além de um evento ser capaz de estar presente em várias agendas, um evento tem um título, uma descrição, uma data e hora de início, uma data e hora de termino, pode ou não ter uma rota associada, e se o evento for particular um outro usuário só poderá participar do evento se for convidado, se não for particular, qualquer usuário pode entrar no evento.
 
 Para criar um novo evento utiliza-se o método `create\_event', definido na classe de agenda. Esse método possuí a seguinte assinatura.
 
@@ -543,7 +541,7 @@ Para criar um novo evento utiliza-se o método `create\_event', definido na clas
 create_event(title, start, duration = nil, description = "", particular = false)
 \end{lstlisting}
 
-Caso não seje passado a duração do evento, a sua descrição ou se é particular, esse terá o seu termino como o final do dia em que o evento ocorrerá, a sua descrição será definida como uma string vazia e o evento não será particular. Estas opção poderão ser alteradas passando os respectivos parâmentros na chamada do método. Para o evento ser criado o usuário não poderá ter eventos em sua agenda que choque com o horário do evento que se deseja criar.
+Caso não seje passado a duração do evento, a sua descrição ou se é particular, esse terá o seu termino como o final do dia em que o evento ocorrerá, a sua descrição será definida como uma \textit{string} vazia e o evento não será particular. Estas opção poderão ser alteradas passando os respectivos parâmentros na chamada do método. Para o evento ser criado o usuário não poderá ter eventos em sua agenda que choque com o horário do evento que se deseja criar.
 
 Para um usuário entrar em um evento deve-se usar o método `enter\_in\_event', definido na classe de agenda. Este método possui a seguinte assinatura:
 
@@ -617,7 +615,7 @@ remove_event(event)
 
 É necessário passar como parâmetro o evento que se deseja apagar. Mas para conseguir apagar o evento o usuário deve ter o papel de `creator' do evento.
 
-Para verificar se um usuário possui eventos em um intervalo de tempo definido pode-se usar o método `events\_in\_period', definido na classe de Agenda. Esse método retorna todos os eventos que estão dentro desse intervalo de tempo e possui a seguinte assinatura:
+Para verificar se um usuário possui eventos em um intervalo de tempo definido pode-se usar o método `events\_in\_period', definido na classe de agenda. Esse método retorna todos os eventos que estão dentro desse intervalo de tempo e possui a seguinte assinatura:
 
 \begin{lstlisting}[
     label=listing:events_in_period,
@@ -689,7 +687,7 @@ remove_participant(remover, participant)
 
 É necessário passar como parâmetro o usuário que irá remover e o usuário que será removido do evento. Para que a remoção seja realizada com sucesso o usuário que irá remover deve ter a permissão de remover um usuário com o papel do usuário que será removido.
 
-Para adicionar uma rota no evento deve-se invocar o método `add\_route', definido na classe Evento. Esse método possui a seguinte assinatura:
+Para adicionar uma rota no evento deve-se invocar o método `add\_route', definido na classe evento. Esse método possui a seguinte assinatura:
 
 \begin{lstlisting}[
     label=listing:change_participant_role,
@@ -707,7 +705,7 @@ add_route(user, route)
 
 É necessário passar como parâmetro o usuário que irá adicionar a rota no evento e a rota a ser adicionada. Para que a adição seja realizada com sucesso o usuário deve ter a permissão de `:add\_route'.
 
-O Módulo de Agenda usa um grafo para fornecer os slotes de tempo de forma ordenada levando em consideração a maior quantidade de peso dos slotes. Essa funcionalidade está presente no `ScheduleHelper', que inclue as classes Vertice e Aresta e implementa a classe Grafo.
+O módulo de agenda usa um grafo para fornecer os slotes de tempo de forma ordenada levando em consideração a maior quantidade de peso dos slotes. Essa funcionalidade está presente no `ScheduleHelper', que inclue as classes vertice e aresta e implementa a classe grafo.
 
 Neste grafo os vertices do tipo usuário só possuem ligação com os vértices do tipo slot, e os vértices do tipo slote só possuem ligação com os vértices do tipo usuário, formando assim um grafo bipartido.
 
@@ -727,7 +725,7 @@ Para construir o grafo é necessário incovar o método `build', definido na cla
 build(users, start_day, finish_day, start_hour = Time.parse("00:00"), finish_hour = Time.parse("23:59"), slots_size = SocialFramework.slots_size)
 \end{lstlisting}
 
-O parâmetro `users' são os usuários que terão suas agendas verficadas a afim de encontrar o melhor horário para uma possível marcação de evento. Este parâmetro pode ser uma Array, onde nenhum usuário possui peso no evento ou pode ser uma Hash, onde a chave é o usuário e o valor é o peso de sua presença no evento, este peso tem o seu valor máximo definido no arquivo de configuração na variável `max\_weight\_schedule', caso o usuário tenho o seu peso definido como o símbolo `:fixed' este usuário terá sua presença como obrigatória no evento, e só serão analisados os slotes que este usuário possuir disponibilidade.
+O parâmetro `users' são os usuários que terão suas agendas verficadas a afim de encontrar o melhor horário para uma possível marcação de evento. Este parâmetro pode ser uma \textit{array}, onde nenhum usuário possui peso no evento ou pode ser uma \textit{hash}, onde a chave é o usuário e o valor é o peso de sua presença no evento, este peso tem o seu valor máximo definido no arquivo de configuração na variável `max\_weight\_schedule', caso o usuário tenho o seu peso definido como o símbolo `:fixed' este usuário terá sua presença como obrigatória no evento, e só serão analisados os slotes que este usuário possuir disponibilidade.
 
 O parâmetro `start\_day' indica a partir de qual dia o evento poderá ser marcado, e o parâmetro `finish\_day' indica o dia limite para a marcação do evento. O parâmetro `start\_hour' e o parâmetro `finish\_hour' definem o horário de um dia em que o evento poderá ocorrer, por exemplo pode-se definir o horário comercial de 08:00 às 18:00, caso não sejam passados como pâmetro será considerado que o evento poderá ser marcado em qualquer horário.
 
@@ -737,18 +735,6 @@ A quantidade de slotes que serão adicionados no grafo depende do intervalo de t
 
 Para criar as arestas entre os usuários e os slotes é verificado se o usuário possuim disponibilidade em sua agenda no intervalo de tempo que o slote possui, caso o usuário possua disponibilidade para esse slote é criada uma aresta entre o usuário e o slote, e o peso do usuário é adicionado ao peso do slote. O método retorna os slotes ordenados pelo maior peso que cada slote possui.
 
-\subsubsection{Módulo de rotas}
+\subsection{Módulo de rotas}
 
 \section{Hotspots}
-
-\section{Relatório de testes}
-
-\section{Relatório de qualidade}
-
-\section{Relatório de desempenho}
-
-% \subsecton{Tempo de execução}
-
-% \subsecton{Memória}
-
-\section{Uso da rede social}
