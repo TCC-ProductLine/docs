@@ -81,7 +81,7 @@ Esse padrão fornece uma estrutura para criação de famílias de objetos relaci
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.5]{figuras/capitulo2/abstract_factory.eps}
+	\includegraphics[scale=0.5]{figuras/apendices/abstract_factory.eps}
 	\caption[Modelo genérico do Abstract Factory]{Modelo genérico do Abstract Factory \cite{Gamma:1995}}
 	\label{abstract_factory}
 \end{figure}
@@ -103,6 +103,51 @@ Este padrão oferece algumas vantagens e desvantagens que são apresentadas a se
 	\item \textbf{Fácil troca de famílias de produtos:} Basta trocar qual é a classe concreta que deverá ser usada que todo o comportamento dos produtos irá se alterar de acordo com essa classe. Isso pode ser feito facilmente no momento de instanciação da fábrica.
 	\item \textbf{Harmonia entre produtos:} Como o padrão permite aos clientes trabalharem apenas com uma família por vez, fica fácil alcançar harmonia, pois todos os produtos da família estão de alguma forma relacionados.
 	\item \textbf{Suporte a novos tipos de produtos é difícil:} Como a interface do ``\textit{Abstract Factory}'', no início, cria uma quantidade fixa de produtos para serem implementados, alterar isso fica difícil, pois é necessário mexer na classe principal e criar as subclasses concernentes.
+\end{itemize}
+
+\section{Padrão Factory Method}
+\label{sec:padrao_factory_method}
+
+Um outro padrão de criação bem parecido com o \nameref{sec:padrao_abstract_factory}, porém, diferentemente do anterior que cria famílias de objetos, o \textit{Factory Method} é responsável por criar um único objeto \cite{Gamma:1995}. A figura \ref{factory_method} apresenta o modelo de classes desse padrão:
+
+\newpage
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{figuras/apendices/factory_method.eps}
+	\caption[Modelo genérico do Factory Method]{Modelo genérico do Factory Method \cite{Gamma:1995}}
+	\label{factory_method}
+\end{figure}
+
+Com esse padrão fica fácil e prático fazer a alteração de uma sub-classe concreta, uma vez que, a aplicação passa a trabalhar com a interface de ``\textit{Product}'', o código pode trabalhar com quaisquer classes ``\textit{ConcrectProduct}'' definidas pelo usuário.
+
+As classes mostradas no modelo são descritas a seguir:
+
+\begin{itemize}
+	\item \textbf{\textit{Product}}: Interface de objetos que o método de fábrica irá criar;
+	\item \textbf{\textit{ConcretProduct}}: Implementação da interface ``\textit{Product}'';
+	\item \textbf{\textit{Creator}}: Interface com método para criação de um ``\textit{Product}'';
+	\item \textbf{\textit{ConcrectCreator}}: Implementação da interface ``\textit{Creator}'', reimplementa o método para criação de um ``\textit{ConcrectProduct}''.
+\end{itemize}
+
+\section{Padrão Strategy}
+\label{sec:padrao_strategy}
+
+O padrão ``\textit{Strategy}'' foi desenvolvido para auxiliar desenvolvedores a trabalhar com famílias de algoritmos que podem variar independentemente dos clientes que os usam \cite{Gamma:1995}. Com esse padrão é possível mudar facilmente o comportamento de um dado algoritmo apenas trocando a classe que é usada na implementação do mesmo. A seguir é apresentado o modelo de classes desse padrão na figura \ref{strategy}.
+
+\newpage
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{figuras/apendices/strategy.eps}
+	\caption[Modelo genérico do Strategy]{Modelo genérico do Strategy \cite{Gamma:1995}}
+	\label{strategy}
+\end{figure}
+
+As classes do modelo são descritas a seguir.
+
+\begin{itemize}
+	\item \textbf{\textit{Strategy}}: Interface comum para todos os algoritmos que serão suportados.
+	\item \textbf{\textit{ConcretStrategy}}: Implementação da interface ``\textit{Strategy}'' definindo cada método com um comportamento esperado para um determinado cliente;
+	\item \textbf{\textit{Context}}: Essa classe faz uso da interface ``\textit{Strategy}'' chamando cada um de seus métodos através de um objeto ``\textit{ConcretStrategy}'' que é definido, sendo assim,  o comportamento esperado será retornado de acordo com o ``\textit{ConcretStrategy}'' que é passado.
 \end{itemize}
 
 \end{apendicesenv}
