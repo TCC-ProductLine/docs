@@ -5,9 +5,9 @@
 
 Durante todo o desenvolvimento do SocialFramework foi eleborado uma suíte de testes para tentar garantir que cada ponto do código funcione da devida maneira. Desse modo, o desenvolvedor pode inserir novos códigos, módulos ou alterar um código existente, com mais tranquilidade e sabendo que o restante de código irá funcionar adequadamente. Caso algum resultado esperado seja diferente do obtido a suite de testes irá apontar a falha.
 
-Para a realização dos testes foi utilizada a \textit{gem} do Rspec, essa \textit{gem} é amplamente utilizada pela comunidade do Rails. E para a visualizar o relatório de testes foi utilizado o Code Climate, que é uma ferramenta online que realiza uma análise estática do código fonte, atualmente é suportado as linguagens: Ruby, Python, JavaScript e PHP.
+Para a realização dos testes foi utilizada a \textit{gem} do Rspec, essa \textit{gem} é amplamente utilizada pela comunidade do Rails. E para a visualização do relatório de testes foi utilizado o Code Climate, que é uma ferramenta online que realiza uma análise estática do código fonte, atualmente é suportado as linguagens: Ruby, Python, JavaScript e PHP.
 
-No inico do desenvolvimento foi estabelecido uma meta de que se deveria testar no mínimo 90\% do código fonte. Fui comprida essa meta obtendo-se 97\% de cobertura do código, porém essa métrica não corresponde a realidade. pois os arquivos ``elements\_factory.rb'', ``elements\_factory\_default.rb'' e ``graph\_elements.rb'' tiveram a cobertura, respectivamente, de 60\%, 80\% e 84\%, diminuindo a cobertura real do código fonte, entretando esses arquivos possuem classes ``abstratas'' e deveriam ser desconsiderados. Porém, em Ruby não existe o conceito de classe abstrata, porém Olsen apresenta uma abordagem de se obter esse conceito em seu livro \cite{Olsen:2007}. Um exemplo dessa abordagem pode ser observada a seguir:
+No inico do desenvolvimento foi estabelecido uma meta de que se deveria testar no mínimo 90\% do código fonte. Essa meta foi cumprida obtendo-se 97\% de cobertura do código, porém essa métrica não corresponde a realidade. pois os arquivos ``elements\_factory.rb'', ``elements\_factory\_default.rb'' e ``graph\_elements.rb'' tiveram a cobertura, respectivamente, de 60\%, 80\% e 84\%, diminuindo a cobertura real do código fonte, entretando esses arquivos possuem classes ``abstratas'' e deveriam ser desconsiderados. Porém, em Ruby não existe o conceito de classe abstrata, entretanto Olsen apresenta uma abordagem de se obter esse conceito em seu livro \cite{Olsen:2007}. Um exemplo dessa abordagem pode ser observada a seguir:
 
  \begin{lstlisting}[
     label=listing:classe_abstrata,
@@ -44,11 +44,117 @@ A seguir é apresentado na Figura \ref{Cobertura_teste} cada arquivo e sua cober
 
 \section{Relatório de desempenho}
 
-Após a verificação do correto fluxo que o \textit{framework} executa, foi realizado testes de desempenho do mesmo, analisando o tempo de processamento e o consumo de memória.
+Após a verificação do correto fluxo que o \textit{framework} executa, foi realizado testes de desempenho do mesmo, analisando o tempo de execução e o consumo de memória dos principais algoritmos desenvolvidos. Não foram realizados esses teste no módulo de rotas pois os seus métodos fazem somente requisições de rotas à API do Google Maps e comparações sobre sobre essas rotas.
 
-% \subsecton{Tempo de execução}
+Para se obter cada valor, foram feitas cinco medições e foi realizada a média aritmética dos valores.
 
-% \subsecton{Memória}
+\subsection{Módulo de usuário}
+
+Para o módulo de usuário foram realizados testes com 100 mil usuários, 50 mil usuários, 20 mil usuários e 10 mil usuários. Para todos esses casos cada usuário possuia 300 amigos e estava presente em 10 eventos.
+
+\subsubsection{Tempo de execução}
+
+Para o método ``build'', que é responsável por construir o grafo a partir de um usuário raiz, foi especificado que o grafo deveria ser construido com três níveis de profundidade. Obtendo-se o gráfico da Figura \ref{build_tempo} como resultado.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.8]{figuras/capitulo7/graficos/network/tempo/build.eps}
+	\caption[Construção]{Construção}
+	\label{build_tempo}
+\end{figure}
+
+Para o método ``search'', que é responsável por fazer pesquisas no grafo, foram feitas 3 tipos de pesquisas. A pesquisa padrão é uma pesquisa na qual será encontrado o os vértices até o segundo nível do grafo. A pesquisa no terceiro nível é uma pesquisa que irá percorrer até o último nível do grafo. A pesquisa inválida é uma pesquisa não será encontrado resultados no grafo e também não será encontrado no banco de dados, portanto todos os registros serão verificados. Pode-se visualizar o resultado dessas pesquisas na Figura \ref{search_tempo}.
+
+\newpage
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.8]{figuras/capitulo7/graficos/network/tempo/pesquisas.eps}
+	\caption[Pesquisas]{Pesquisas}
+	\label{search_tempo}
+\end{figure}
+
+Para o método ``suggest\_relationships'', foi utilizado o parâmetro padrão para a quantidade de relacionamento para realizar a sugestão, que é cinco. Os tempos de execução para esse método pode ser visualizado na Figura \ref{suggest}.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.8]{figuras/capitulo7/graficos/network/tempo/sugerir.eps}
+	\caption[Sugestão de Relacionamentos]{Sugestão de Relacionamentos}
+	\label{suggest}
+\end{figure}
+
+\subsubsection{Consumo de memória}
+
+O consumo de memória que o método ``build'' utilizou pode ser visualizado na Figura \ref{build_memoria}.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.8]{figuras/capitulo7/graficos/network/memoria/build_memoria.eps}
+	\caption[Consumo de memória do método build]{Consumo de memória do método build}
+	\label{build_memoria}
+\end{figure}
+
+Os métodos ``search'' e ``suggest\_relationships'', que tiveram seus tempos de execução apresentados na seção anterior não tiveram o seu consumo de memória medido, pois esses apenas utilizam a instância do grafo gerado pelo método ``build''.
+
+\subsection{Módulo de agenda}
+
+No módulo de agenda o método que teve o seu desempenho mensuarado foi o ``verify\_availabilities'', o qual verifica o melhor horário para um evento levando em consideração um conjunto de usuários. Para tal, fui utilizado o \textit{slote} com o tamanho de 1 hora e considerou-se que os eventos poderiam ser marcados no horário de 08:00 às 12:00.
+
+Para esse método deve-se considerar duas variáveis que podem inflênciar o seu desempenho, que são o número de usuários e o intervaldo de tempo. Portando foram feitas duas baterias de testes, no qual cada bateria de teste tinha uma dessas variáveis fixa, enquanto a outra variável era alterada.
+
+\subsubsection{Intervaldo de tempo fixo}
+
+Com o intervalo de tempo fixo, foram feitos testes com o número de usuários variando a partir dos valores: 10, 50, 100, 300 e 500.
+
+\subsubsubsection{Tempo de execução}
+A seguir é apresentado na Figura \ref{31dias_tempo} o tempo de execução do método ``verify\_availabilities'' com o intervalo de tempo de 31 dias.
+
+\newpage
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.8]{figuras/capitulo7/graficos/schedule/tempo/dias/31dias_tempo.eps}
+	\caption[Tempo de execução com disponibilidade de 31 dias]{Tempo de execução com disponibilidade de 31 dias}
+	\label{31dias_tempo}
+\end{figure}
+
+\subsubsubsection{Consumo de memória}
+
+Na Figura \ref{31dias_memoria} pode-se visualizar a quantidade de memória consumada com um intervalo de tempo de 31 dias.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.8]{figuras/capitulo7/graficos/schedule/memoria/dias/31dias_memoria.eps}
+	\caption[Consumo de memória com disponibilidade de 31 dias]{Consumo de memória com disponibilidade de 31 dias}
+	\label{31dias_memoria}
+\end{figure}
+
+\subsubsection{Número de usuários fixo}
+
+Com o número de usuários fixo, foi realizado testes com o intervalo de tempo variando entre 7, 15 e 31 dias.
+
+\subsubsubsection{Tempo de execução}
+
+É possível observar na Figura \ref{500users_tempo} o tempo de execução quando o número de usuários é fixo em 500 e o intervalo de tempo é variável.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.8]{figuras/capitulo7/graficos/schedule/tempo/users/500users_tempo.eps}
+	\caption[Tempo de execução para 500 usuários]{Tempo de execução para 500 usuários}
+	\label{500users_tempo}
+\end{figure}
+
+\subsubsubsection{Consumo de memória}
+
+A quantidade de memória consumida com 500 usuários fixos, pode ser obeservada na Figura \ref{500users_memoria}.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.8]{figuras/capitulo7/graficos/schedule/memoria/users/500users_memoria.eps}
+	\caption[Consumo de memória para 500 usuários]{Consumo de memória para 500 usuários}
+	\label{500users_memoria}
+\end{figure}
+
 % falar se é linear
 
 \section{Qualidade do SocialFramework}
@@ -57,9 +163,7 @@ Essa seção irá evidenciar o resultado da qualidade do código fonte do \texti
 
 Medir e monitorar a qualidade do software é fundamental. Mesmo uma ótima suíte de testes pode produzir informações apenas sobre características externas, não refletindo qualidades como manutenabilidade, modularidade, flexibilidade e simplicidade \cite{Filho:2013}.
 
-Filho afirma ainda que nem tudo vale a pena controlar. Portanto, não se deve procurar medir tudo, mas escolher bem as métricas para avaliar e controlar o projeto \cite{Filho:2013}.
-
-As métricas que foram monitoradas durante o projeto foram:
+Filho afirma ainda que nem tudo vale a pena controlar. Portanto, não se deve procurar medir tudo, mas escolher bem as métricas para avaliar e controlar o projeto \cite{Filho:2013}. Desse modo, as métricas que foram monitoradas durante o projeto foram:
 
 \begin{enumerate}
 	\item \textbf{Complexidade}: Essa métrica fornece uma análise da complexidade e do esforço gasto em um trecho de código. Para isso é utilazado as seguintes métricas;
@@ -69,11 +173,11 @@ As métricas que foram monitoradas durante o projeto foram:
 		\item \textbf{Complexidade ABC}: o cálculo da complexidade é baseado em três pontos:
 		\begin{enumerate}
 			\item \textbf{Assignment}: qualquer atribuição explícita de um dado para uma variável, por exemplo: = *= /= \%= += <<= >>= \&= |= >= ++ —, etc;
-		    \item \textbf{Branch}: quando um caminho fora do escopo do programa é feito, por exemplo: uma chamada de método de instância e/ou classe, um operador new instanciando uma classe, etc;
+		    \item \textbf{Branch}: quando um caminho fora do escopo do programa é feito, por exemplo: uma chamada de método de instância de um objeto, um operador new instanciando uma classe, etc;
     		\item \textbf{Condition}: qualquer teste lógico/booleano, == != <= >= < > else case default try catch ? e condicionais unários.
 		\end{enumerate}
 	\end{enumerate}
-	\item \textbf{Duplicação de código}: analiza a similaridade de trechos de código na aplicação. Para cada nível de similaridade, é atribuido um peso diferente, indo de similar até identico, resultando no número bruto que é a somatória de todos os arquivos. Espaços em branco, nomes de variáveis, métodos e classes são ignorados pela ferramenta;
+	\item \textbf{Duplicação de código}: analisa a similaridade de trechos de código na aplicação. Para cada nível de similaridade, é atribuido um peso diferente, indo de similar até identico, resultando no número que é a somatória de todos os arquivos. Espaços em branco, nomes de variáveis, métodos e classes são ignorados pela ferramenta;
 	\item \textbf{Estilo}: Verifica se o projeto utiliza o guia de estilo descrito pela comunidade Rails. E aponta onde estão as más práticas relacionadas a padrões e convenções que não estão sendo respeitadas na aplicação;
 	\item \textbf{Segurança}: Utiliza um \textit{fork} do Brakeman na versão 2.6.2 para identificar as vulnerabilidades do projeto Rails.
 \end{enumerate}
