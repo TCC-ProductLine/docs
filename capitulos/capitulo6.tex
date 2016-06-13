@@ -875,17 +875,48 @@ ModelFabric.get_class("NovaClasseModelo")
 
 Existe um outro facilitador desenvolvido no \textit{framework} para trabalhar com o padrão. Os nomes de todas as classes de modelo estão definidos no \textit{initializer} `social\_framework.rb', sendo assim, quando um desenvolvedor cria uma nova classe de modelo que extende de alguma model padrão basta que mude o nome da respectiva classe nesse arquivo e tudo já estará funcionando. Dessa forma, a classe \textit{ModelFabric} se torna transparente para um usuário do \textit{framework} pois está sendo chamada nos métodos internos, e basta fazer a alteração de nome no arquivo `social\_framework.rb', não se esquecendo, que ao se tratar da classe de usuário, que o nome dessa também deve ser alterado no arquivo `routes.rb' para o \textit{Devise} saber com qual classe de Usuário estará trabalhando.
 
+A seguir na figura \ref{padrao_factory_method} pode ser visto o diagrama das classes construídas para aplicação do padrão.
+
+\newpage
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.6]{figuras/capitulo6/factory_method.eps}
+    \caption{Classes no SocialFramework para aplicação do Factory Method}
+    \label{padrao_factory_method}
+\end{figure}
+
 Outro padrão de projeto de criação usado foi o \nameref{sec:padrao_abstract_factory}. Esse padrão foi utilizado para as classes usadas na construção dos Grafos usados na rede de usuários e na conciliação de agendas para marcação de um horário comum. As classe são \textit{Vertex} e \textit{Edge}, para cada um delas existe uma classe abstrata com as assinaturas dos métodos necessários. Também existe a classe abstrata \textit{ElementsFactory} que possui os métodos para criação de Vértices e Arestas.
 
 Para cada classe citada acima foi desenvolvida uma classe concreta que implementa todos os métodos abstrados com o comportamento padrão esperado para eles. As classes são \textit{VertexDefault}, \textit{EdgeDefault} e \textit{ElementsFactoryDefault} que constrói as duas classes anteriores.
 
 Um desenvolverdor com o intuito de alterar qualquer uma das classes \textit{Vertex} ou \textit{Edge} deve extender essas classes e sobrescrever seus métodos conforme sua necessidade, deve-se também extender a classe \textit{ElementsFactory} e sobrescrever os métodos de criação passando suas novas classes. Nas classes que fazem o uso dessas deve ser passado nas instâncias o novo \textit{ElementsFactory} criado e, assim, as novas classes desenvolvidas passarão a ser utilizadas.
 
+O diagrama com as classes construídas no \textit{framework} para aplicação do padrão \textit{Abstract Factory} pode ser visualizado na figura \ref{padrao_abstract_factory}.
+
+\newpage
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.45]{figuras/capitulo6/abstract_factory.eps}
+    \caption{Classes no SocialFramework para aplicação do Abstract Factory}
+    \label{padrao_abstract_factory}
+\end{figure}
+
+No diagrama é mostrado também um exemplo de como seria feita a adição de novas classes que mudem a implementação padrão desenvolvida no \textit{framework}.
+
 Por fim, foi utilizado também o \nameref{sec:padrao_strategy} para cada um dos três módulos do \textit{SocialFramework}. Para cada um dos módulos existe uma classe abstrata de estratégia que define todos os métodos públicos do módulo e uma classe de contexto que será utilizada pelo usuário do \textit{framework}. Essa classe de contexto que recebe o tipo de estratégia que será utilizado e o \textit{ElementsFactory} quando for alterado.
 
 Por padrão, o \textit{SocialFramework} já implementa uma classe de estratégia concreta para cada um dos módulos e já recebe essas classes no construtor de cada classe de contexto, porém, é simples para que um desenvolvedor altere a estratégia padrão utilizada, basta que esse crie sua nova classe que extenda da classe abstrata de estratégia do módulo e sobrescreva seus métodos conforme suas necessidades e na instanciação da classe de contexto do módulo deve ser passada a sua nova estratégia construída através do construtor, com isso toda a nova implementação passará a ser usada, sem nenhuma alteração real feita no framework.
 
 Os métodos públicos de cada módulo do \textit{SocialFramework} que devem ser implementados na mudança de uma estratégia são descritos detalhadamente nas subseções dos \nameref{sec:modulos_socialframework}. As classes de contexto de cada módulo são: \textit{GraphContext} para o módulo de usuário, \textit{ScheduleContext} para o módulo de agenda e \textit{RouteContext} para o móudlo de rotas.
+
+A seguir é apresentado na figura \ref{padrao_strategy} como está a disposição de classes para os três módulos do \textit{SocialFramework}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.45]{figuras/capitulo6/strategy.eps}
+    \caption{Classes no SocialFramework para aplicação do Strategy}
+    \label{padrao_strategy}
+\end{figure}
 
 A seguir é apresentado um exemplo de uso quando se altera a estratégia de um módulo.
 
