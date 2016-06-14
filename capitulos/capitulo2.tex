@@ -107,96 +107,6 @@ Como a maioria dos grafos possui um número bem maior de arestas do que os vért
 	\label{lista_adjacencia}
 \end{figure}
 
-\section{Algoritmos}
-
-\subsection{Busca em Grafos}
-
-A busca em grafos refere-se ao método de explorar o grafo, ou seja, obter um método sistemático para percorrer seus vértices e arestas. Para isto, há dois principais algoritmos, busca em profundidade (\textit{DFS - Depth First Search}) e busca em largura (\textit{BFS - Breadth First Search}). Em ambos os casos parte-se de um vértice qualquer.
-
-\subsubsection{DFS}
-\label{subsec:dfs}
-
-A ideia por trás do \textit{DFS} é alcançar ``mais fundo'' no grafo quanto possível. A ordem em que os vértices são visitados depende da ordem em que os vizinhos de cada vértice aparecem na lista de adjacência \cite{Cormen:2001}. A seguir é exemplificado um fluxo do funcionamento do DFS.
-
-Considere as Figuras a seguir para a exemplificação do DFS.
-
-\begin{figure}[!h]
-	\centering
-	\includegraphics[scale=0.25]{figuras/capitulo2/dfs/dfs1.eps}
-	\caption[Exemplo DFS etapa 1]{Exemplo DFS etapa 1 \cite{Cormen:2001}}
-	\label{dfs1}
-\end{figure}
-
-A busca irá partir do vértice arbitrário \textit{v}, chamado de vértice raiz. A partir do vértice raiz é possível percorrer três arestas: (\textit{v}, \textit{a}), (\textit{v}, \textit{b}) e (\textit{v}, \textit{c}). A aresta a ser seguida será (\textit{v}, \textit{a}).
-
-\begin{figure}[!h]
-	\centering
-	\includegraphics[scale=0.25]{figuras/capitulo2/dfs/dfs2.eps}
-	\caption[Exemplo DFS etapa 2]{Exemplo DFS etapa 2 \cite{Cormen:2001}}
-	\label{dfs2}
-\end{figure}
-
-O vértice \textit{a} possui três arestas, que são: (\textit{a}, \textit{v}), (\textit{a}, \textit{b}) e (\textit{a}, \textit{d}). Como o vértice \textit{v} já foi visitado, a aresta a ser seguida será (\textit{a}, \textit{b}).
-
-\begin{figure}[!h]
-	\centering
-	\includegraphics[scale=0.25]{figuras/capitulo2/dfs/dfs3.eps}
-	\caption[Exemplo DFS etapa 3]{Exemplo DFS etapa 3 \cite{Cormen:2001}}
-	\label{dfs3}
-\end{figure}
-
-A partir de \textit{b}, é possível escolher as seguintes arestas: (\textit{b}, \textit{v}), (\textit{b}, \textit{a}) e (\textit{b}, \textit{c}). Porém como os vértices \textit{v} e \textit{a} já foram visitados, a opção restante será a aresta (\textit{b}, \textit{c}).
-
-\newpage
-
-\begin{figure}[!h]
-	\centering
-	\includegraphics[scale=0.25]{figuras/capitulo2/dfs/dfs4.eps}
-	\caption[Exemplo DFS etapa 4]{Exemplo DFS etapa 4 \cite{Cormen:2001}}
-	\label{dfs4}
-\end{figure}
-
-Ao alcançar \textit{c}, há duas possibilidades: (\textit{c}, \textit{v}) e (\textit{c}, \textit{b}). Porém ambos os vértices \textit{v} e \textit{b} já são conhecidos. Neste caso não há para onde se aprofundar. Entretanto, ainda existem vértices não descobertos. Nesse caso, deve-se voltar até o vértice \textit{b}, verificando se há alguma aresta que leva a um vértice ainda não visitado. Caso ocorra tal situação, deve-se voltar novamente pelo caminho percorrido, chegando ao vértice \textit{a}. Em \textit{a}, a aresta (\textit{a}, \textit{d}) leva a um vértice ainda não descoberto, portanto, esse caminho deve ser tomado.
-
-\begin{figure}[!h]
-	\centering
-	\includegraphics[scale=0.25]{figuras/capitulo2/dfs/dfs5.eps}
-	\caption[Exemplo DFS etapa 5]{Exemplo DFS etapa 5 \cite{Cormen:2001}}
-	\label{dfs5}
-\end{figure}
-
-Em \textit{d}, há dois caminhos a seguir: (\textit{d}, \textit{a}) e (\textit{d}, \textit{e}). Porém a única aresta que leva a um vértice não visitado é (\textit{d}, \textit{e}). Esta deverá ser seguida.
-
-\begin{figure}[!h]
-	\centering
-	\includegraphics[scale=0.25]{figuras/capitulo2/dfs/dfs6.eps}
-	\caption[Exemplo DFS etapa 6]{Exemplo DFS etapa 6 \cite{Cormen:2001}}
-	\label{dfs6}
-\end{figure}
-
-Ao alcançar o vértice \textit{e}, não existem vértices não visitados, mesmo na volta no caminho. Portanto, o percurso realizado pelo \textit{DFS} pode ser observado na figura \ref{dfs_percurso}, o qual é uma árvore.
-
-\begin{figure}[!h]
-	\centering
-	\includegraphics[scale=0.25]{figuras/capitulo2/dfs/dfs_percurso.eps}
-	\caption[Percurso do DFS]{Percurso do DFS \cite{Cormen:2001}}
-	\label{dfs_percurso}
-\end{figure}
-
-\subsubsection{BFS}
-\label{subsec:bfs}
-
-O \textit{DFS}, a partir de um vértice \textit{v}, tenta visitar algum vizinho deste, em seguida, um vizinho deste vizinho, e assim por diante. O \textit{BFS}, a partir de um vértice \textit{v}, visita todos os vizinhos de \textit{v}. Quando visitado todos os vizinhos de um vértice, os vizinhos destes vizinhos serão visitados \cite{Brassard:1988}.
-
-A Figura \ref{bfs} exemplifica o algoritmo da busca \textit{BFS}, onde as letras significam o estado da busca e a ordem de cada estado. Os vértices marcados como vermelho representam que estes já foram visitados; os vértices marcados como azul representam que estes vértices serão os próximos a serem visitados.
-
-\begin{figure}[!h]
-	\centering
-	\includegraphics[scale=0.55]{figuras/capitulo2/bfs.eps}
-	\caption[Percurso do BFS]{Percurso do BFS \cite{Brassard:1988}}
-	\label{bfs}
-\end{figure}
-
 \section{Reutilização de Software}
 
 A reutilização de software tem como objetivos aumentar a qualidade e a produtividade no desenvolvimento, pois busca evitar duplicidade de código e do esforço aplicado para desenvolver determinadas tarefas, reaproveitando o máximo possível experiências passadas \cite{Lucredio:2009}.
@@ -345,7 +255,6 @@ Este capítulo apresentou o levantamento bibliográfico dos temas relacionados a
 \begin{itemize}
 	\item Redes Sociais: Este é o tema em que este trabalho é desenvolvido. Como a proposta tem o objetivo de desenvolver um \textit{framework} para redes sociais, é essencial o conhecimento e o entendimento deste tema para a realização do trabalho.
 	\item Teoria dos Grafos: O desenvolvimento de redes sociais têm como base o uso de grafos e, sendo assim, este é também um tema de suma importância para este trabalho.
-	\item Algoritmos: Neste tópico, são apresentados alguns dos principais algoritmos já consolidados no que diz respeito a aplicação de grafos como, por exemplo, a realização de pesquisas em um dado grafo.
 	\item Reutilização de Software: Este tópico representa um importante objetivo que se pretende alcançar ao final deste trabalho. A reutilização de software é apresentada no uso de \textit{frameworks}, padrões de projeto e serviços, todos estes deverão ser usados na implementação do \textit{framework} proposto.
 \end{itemize}
 

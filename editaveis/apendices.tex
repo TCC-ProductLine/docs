@@ -70,6 +70,95 @@ Um grafo é conectado se, para cada partição de seus vértices definido em doi
 
 O grau de um vértice \textit{v} em um grafo \textit{G}, designado por \textit{d$_G$}(\textit{v}), é o número de arestas de \textit{G} que incidem em \textit{v}; para cada \textit{loop} é contado duas arestas. Em particular, se \textit{G} é um grafo simples, \textit{d$_G$}(\textit{v}) é o número de vizinhos de \textit{v} em \textit{G}. Um vértice de grau zero é chamado um vértice isolado. Denominamos por $\delta$(\textit{G}) e $\Delta$(\textit{G}) mínimo e máximo graus dos vértices de \textit{G}, e por \textit{d}(\textit{G}), o seu grau médio, $\frac{1}{n}\sum_{\textit{v}\in\textit{V}} \textit{d}(\textit{v})$ \cite{Diestel:1997}.
 
+\section{Busca em Grafos}
+
+A busca em grafos refere-se ao método de explorar o grafo, ou seja, obter um método sistemático para percorrer seus vértices e arestas. Para isto, há dois principais algoritmos, busca em profundidade (\textit{DFS - Depth First Search}) e busca em largura (\textit{BFS - Breadth First Search}). Em ambos os casos parte-se de um vértice qualquer.
+
+\subsection{DFS}
+\label{subsec:dfs}
+
+A ideia por trás do \textit{DFS} é alcançar ``mais fundo'' no grafo quanto possível. A ordem em que os vértices são visitados depende da ordem em que os vizinhos de cada vértice aparecem na lista de adjacência \cite{Cormen:2001}. A seguir é exemplificado um fluxo do funcionamento do DFS.
+
+Considere as Figuras a seguir para a exemplificação do DFS.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.25]{figuras/capitulo2/dfs/dfs1.eps}
+	\caption[Exemplo DFS etapa 1]{Exemplo DFS etapa 1 \cite{Cormen:2001}}
+	\label{dfs1}
+\end{figure}
+
+A busca irá partir do vértice arbitrário \textit{v}, chamado de vértice raiz. A partir do vértice raiz é possível percorrer três arestas: (\textit{v}, \textit{a}), (\textit{v}, \textit{b}) e (\textit{v}, \textit{c}). A aresta a ser seguida será (\textit{v}, \textit{a}).
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.25]{figuras/capitulo2/dfs/dfs2.eps}
+	\caption[Exemplo DFS etapa 2]{Exemplo DFS etapa 2 \cite{Cormen:2001}}
+	\label{dfs2}
+\end{figure}
+
+O vértice \textit{a} possui três arestas, que são: (\textit{a}, \textit{v}), (\textit{a}, \textit{b}) e (\textit{a}, \textit{d}). Como o vértice \textit{v} já foi visitado, a aresta a ser seguida será (\textit{a}, \textit{b}).
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.25]{figuras/capitulo2/dfs/dfs3.eps}
+	\caption[Exemplo DFS etapa 3]{Exemplo DFS etapa 3 \cite{Cormen:2001}}
+	\label{dfs3}
+\end{figure}
+
+A partir de \textit{b}, é possível escolher as seguintes arestas: (\textit{b}, \textit{v}), (\textit{b}, \textit{a}) e (\textit{b}, \textit{c}). Porém como os vértices \textit{v} e \textit{a} já foram visitados, a opção restante será a aresta (\textit{b}, \textit{c}).
+
+\newpage
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.25]{figuras/capitulo2/dfs/dfs4.eps}
+	\caption[Exemplo DFS etapa 4]{Exemplo DFS etapa 4 \cite{Cormen:2001}}
+	\label{dfs4}
+\end{figure}
+
+Ao alcançar \textit{c}, há duas possibilidades: (\textit{c}, \textit{v}) e (\textit{c}, \textit{b}). Porém ambos os vértices \textit{v} e \textit{b} já são conhecidos. Neste caso não há para onde se aprofundar. Entretanto, ainda existem vértices não descobertos. Nesse caso, deve-se voltar até o vértice \textit{b}, verificando se há alguma aresta que leva a um vértice ainda não visitado. Caso ocorra tal situação, deve-se voltar novamente pelo caminho percorrido, chegando ao vértice \textit{a}. Em \textit{a}, a aresta (\textit{a}, \textit{d}) leva a um vértice ainda não descoberto, portanto, esse caminho deve ser tomado.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.25]{figuras/capitulo2/dfs/dfs5.eps}
+	\caption[Exemplo DFS etapa 5]{Exemplo DFS etapa 5 \cite{Cormen:2001}}
+	\label{dfs5}
+\end{figure}
+
+Em \textit{d}, há dois caminhos a seguir: (\textit{d}, \textit{a}) e (\textit{d}, \textit{e}). Porém a única aresta que leva a um vértice não visitado é (\textit{d}, \textit{e}). Esta deverá ser seguida.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.25]{figuras/capitulo2/dfs/dfs6.eps}
+	\caption[Exemplo DFS etapa 6]{Exemplo DFS etapa 6 \cite{Cormen:2001}}
+	\label{dfs6}
+\end{figure}
+
+Ao alcançar o vértice \textit{e}, não existem vértices não visitados, mesmo na volta no caminho. Portanto, o percurso realizado pelo \textit{DFS} pode ser observado na figura \ref{dfs_percurso}, o qual é uma árvore.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.25]{figuras/capitulo2/dfs/dfs_percurso.eps}
+	\caption[Percurso do DFS]{Percurso do DFS \cite{Cormen:2001}}
+	\label{dfs_percurso}
+\end{figure}
+
+\subsection{BFS}
+\label{subsec:bfs}
+
+O \textit{DFS}, a partir de um vértice \textit{v}, tenta visitar algum vizinho deste, em seguida, um vizinho deste vizinho, e assim por diante. O \textit{BFS}, a partir de um vértice \textit{v}, visita todos os vizinhos de \textit{v}. Quando visitado todos os vizinhos de um vértice, os vizinhos destes vizinhos serão visitados \cite{Brassard:1988}.
+
+A Figura \ref{bfs} exemplifica o algoritmo da busca \textit{BFS}, onde as letras significam o estado da busca e a ordem de cada estado. Os vértices marcados como vermelho representam que estes já foram visitados; os vértices marcados como azul representam que estes vértices serão os próximos a serem visitados.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.55]{figuras/capitulo2/bfs.eps}
+	\caption[Percurso do BFS]{Percurso do BFS \cite{Brassard:1988}}
+	\label{bfs}
+\end{figure}
+
+
 \chapter{Reutilização de Software}
 
 \section{Padrão Abstract Factory}
@@ -149,5 +238,81 @@ As classes do modelo são descritas a seguir.
 	\item \textbf{\textit{ConcretStrategy}}: Implementação da interface ``\textit{Strategy}'' definindo cada método com um comportamento esperado para um determinado cliente;
 	\item \textbf{\textit{Context}}: Essa classe faz uso da interface ``\textit{Strategy}'' chamando cada um de seus métodos através de um objeto ``\textit{ConcretStrategy}'' que é definido, sendo assim,  o comportamento esperado será retornado de acordo com o ``\textit{ConcretStrategy}'' que é passado.
 \end{itemize}
+
+\chapter{Metodologia}
+\label{apend_chap:metodologia}
+
+Metodologias específicas colaboram para estabelecer diretrizes e boas práticas na condução do trabalho, conferindo padronização, noções de pesquisa científica, dentre outras contribuições \cite{Wohlin:2000}.
+
+A metodologia pode ser entendida como um conjunto de etapas a serem realizadas na condução do processo investigativo em um determinado contexto. É a metodologia que define os passos que serão seguidos para realização das pesquisas, escolha do tema, planejamento da investigação, desenvolvimento, coleta e análise dos dados, análise dos resultados e conclusões a respeito das lições aprendidas \cite{Moresi:2003}.
+
+Pesquisar significa identificar uma dúvida que necessite ser esclarecida, construir e executar o processo que apresente a solução desta, quando não há teorias que a expliquem ou quando as teorias que existem não estão aptas para fazê-lo \cite{Koche:1997}. A seguir, serão apresentadas as formas de se classificar uma pesquisa.
+
+\section{Classificação da pesquisa}
+
+\begin{itemize}
+	\item Do ponto de vista da natureza da pesquisa, esta pode ser:
+		\begin{itemize}
+			\item \textbf{Pesquisa Básica:} Possui o objetivo de gerar novos conhecimentos para a ciência. Neste tipo de pesquisa não é obrigatório que o conhecimento gere um uso prático \cite{Silva:Tafner:2007}.
+			\item \textbf{Pesquisa Aplicada:} Visa gerar uma maior compreensão para assuntos práticos dirigidos à solução de problemas específicos \cite{Silva:Tafner:2007}.
+		\end{itemize}
+
+	\item Do ponto de vista da forma de abordagem do problema,tem-se:
+		\begin{itemize}
+			\item \textbf{Pesquisa Quantitativa:} O estudo quantitativo considera que tudo pode ser quantificável, ou seja, que os números podem ser classificados, gerando informações ao analisá-los, através da análise estatística \cite{Travassos:2002}.
+			\item \textbf{Pesquisa Qualitativa:} O estudo qualitativo está relacionado à pesquisa sobre os objetos, quando os resultados são apresentados em termos naturais, usando conjuntos nebulosos, porcentagens de satisfação, dentre outras formas de classificar algo subjetivo \cite{Travassos:2002}.
+		\end{itemize}
+
+	\item Do ponto de vista de seus objetivos, tem-se:
+		\begin{itemize}
+			\item \textbf{Pesquisa Exploratória:} Esta pesquisa tem como objetivo proporcionar maior familiaridade com o problema, possibilitando o aprimoramento de ideias ou a descoberta de intuições \cite{Gil:2010}.
+			\item \textbf{Pesquisa Descritiva:} Seu principal objetivo é a descrição das características de determinada população ou fenômeno ou, então, o estabelecimento de relações entre variáveis \cite{Gil:2010}.
+			\item \textbf{Pesquisa Explicativa:} Tem como preocupação central identificar os fatores que determinam ou que contribuem para a ocorrência dos fenômenos. Esse é o tipo de pesquisa que mais aprofunda o conhecimento da realidade, porque explica a razão, o porquê das coisas \cite{Gil:2010}.
+		\end{itemize}
+
+	\item Do ponto de vista dos procedimentos técnicos, pode ser:
+		\begin{itemize}
+			\item \textbf{Pesquisa Bibliográfica:} Visa encontrar as fontes primárias e secundárias e os materiais científicos e tecnológicos necessários para a realização do trabalho científico ou técnico-científico. Muitos estudos fazem uso do levantamento bibliográfico ou são desenvolvidas exclusivamente por fontes bibliográficas. Sua principal vantagem é possibilitar ao investigador a cobertura de uma gama de acontecimentos muito ampla \cite{Silva:Tafner:2007}.
+
+			\item \textbf{Pesquisa Documental:} Assemelha-se à pesquisa bibliográfica. Porém, esta é realizada a partir de materiais que não receberam tratamento analítico. Por exemplo, reportagens de jornal, cartas, contratos, diários, filmes, fotografias e gravações. A pesquisa documental pode ser realizada ainda através de documentos de segunda mão, que de alguma forma já foram analisados. Por exemplo, relatórios de empresas e tabelas estatísticas \cite{Gil:2010}.
+
+			\item \textbf{Levantamento:} É uma investigação realizada em retrospecto, que em seguida, mediante análise quantitativa, chega às conclusões correspondentes aos dados coletados. O levantamento feito com informações de todos os integrantes do universo da pesquisa origina um censo. \cite{Mafra:Travassos:2006}.
+			
+			\item \textbf{Estudo de Caso:} São estudos conduzidos com o propósito de se investigar uma entidade ou um fenômeno dentro de um espaço de tempo específico. Estes são usados principalmente para a monitoração de atributos presentes em projetos, atividades ou atribuições. Durante a sua condução, dados são coletados e analisados estatisticamente de forma a permitir a avaliação de um determinado atributo ou do relacionamento entre diferentes atributos. \cite{Mafra:Travassos:2006}
+			
+			\item \textbf{Pesquisa-Ação:} É realizada em conjunto com uma ação ou com a resolução de um problema coletivo, visando definir o campo de investigação, as expectativas dos interessados e o tipo de auxílio que estes poderão exercer ao longo do processo de pesquisa. Esta pesquisa implica no contato direto com o campo de estudo, envolvendo o reconhecimento visual do local, consulta a documentos diversos e a discussão com os envolvidos na pesquisa. A abordagem dos problemas dos grupos investigados na pesquisa-ação é mais qualitativa do que quantitativa \cite{Silva:Tafner:2007}.
+			
+			\item \textbf{Pesquisa Participante:} A intenção é obter um maior conhecimento sobre o grupo. O grupo investigado tem ciência da finalidade, dos objetivos da pesquisa e da identidade do pesquisador. A pesquisa participante permite a observação das ações no próprio momento em que ocorrem \cite{Silva:Tafner:2007}.
+			
+			\item \textbf{Pesquisa Experimental:} É conduzida quando deseja-se obter um maior controle da situação, ao se manipular as variáveis envolvidas no estudo de forma direta, sistemática e precisa. A pesquisa experimental necessita de previsão de relações entre as variáveis a serem estudadas, como também o seu controle. O objetivo é manipular uma ou mais variáveis e controlar todas as outras variáveis em um valor fixo. O efeito da manipulação das variáveis é então medido e, baseado nessa medição, análises estatísticas são conduzidas. A condução de experimentos reais é rara em Engenharia de Software, devido à dificuldade de se alocar os participantes do estudo a diferentes tratamentos de forma aleatória. Nessas situações, tais estudos denominam-se quasi-experimentos \cite{Mafra:Travassos:2006}.
+			
+			\item \textbf{Pesquisa Ex-Post-Facto:} Realizada quando o experimento se dá depois dos fatos. Neste caso, o pesquisador não tem controle sobre as variáveis. Esta pesquisa difere da pesquisa experimental pelo fato de o fenômeno ocorrer naturalmente sem que o pesquisador tenha controle sobre ele, ou seja, o pesquisador passa a ser um mero observador do acontecimento \cite{Silva:Tafner:2007}.
+		\end{itemize}
+
+\end{itemize}
+
+\chapter{Prova de Conceito}
+\label{chap:prova_conceito}
+
+Foi desenvolvida uma pequena aplicação para implementação de alguns conceitos discutidos neste trabalho.
+
+De modo geral, a aplicação desenvolvida implementa uma rede de usuários ligados entre si, formando um grafo. A solução contêm as classes \textit{User}, \textit{Edge} e \textit{Graph}. A classe \textit{Edge} é usada para fazer as ligações entre as entidades. A classe \textit{Graph} representa a própria rede com todos os usuários. A classe de \textit{User} pode ser vista como os vértices do grafo. Foram implementadas as funcionalidades de relacionamento descritas nas figuras \ref{segue} e \ref{amigo}, além de uma varredura dos usuários presentes no grafo pelos algoritmos de busca ~\nameref{subsec:bfs}, \textit{Breadth-First Search}, e ~\nameref{subsec:dfs}, \textit{Depth-First Search}.
+
+A Figura \ref{modelo prova de conceito} apresenta o modelo das classes desenvolvidas na aplicação de prova de conceito e seus respectivos relacionamentos.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.8]{figuras/capitulo5/classes_prova_conceito.eps}
+	\caption{Classes da prova de conceito}
+	\label{modelo prova de conceito}
+\end{figure}
+
+Fica exemplificado o relacionamento entre as classes \textit{Graph} e \textit{User} na forma de uma composição, que indica que um usuário não pode existir sem estar presente na rede. O relacionamento entre usuários, como pode ser visto na Figura \ref{modelo prova de conceito}, é feito através das arestas que possuem: (i) um atributo \textit{origin}, que representa de qual usuário parte o relacionamento e (ii) um atributo \textit{destiny}, que representa a qual usuário é indicado o relacionamento criado. Cada aresta possui ainda uma lista de \textit{labels} que representam os nomes dos relacionamentos entre os usuários.
+
+Pode-se ver ainda na Figura \ref{modelo prova de conceito} a apresentação dos métodos construídos. A classe \textit{User} possui os métodos responsáveis por estabelecer os relacionamentos entre usuários, conforme apresentado nas figuras \ref{segue} e \ref{amigo}. O método \textit{``follow\_user''} é responsável por criar um relacionamento unidirecional, que representa seguir um usuário. O método \textit{``add\_friend''} é responsável por relacionamentos bidirecionais. Este último, por sua vez, necessita ainda ser complementado pelo método \textit{``confirm\_friend''}, pois, ao se invocar o método \textit{``add\_friend''} cria-se uma aresta que possui o \textit{label} amigo e pendente, o que indica que o relacionamento ainda não está completo. Ao se invocar o método \textit{``confirm\_friend''}, outra aresta é criada no outro sentido e o \textit{label} pendente é removido, completando-se assim, o relacionamento entre os dois usuários.
+
+A classe \textit{Graph} possui o método \textit{``add\_user''}, que é chamado sempre na criação de um novo usuário, visando adicionar este a rede. O método \textit{``set\_white''} tem como objetivo definir a cor de todos os usuários no grafo para branco. Esse atributo é usado ao se trabalhar com os recursos de buscas no grafo. Colorir o nó com a cor branca significa que este ainda não foi visitado. O método \textit{``dfs''} implementa o algoritmo de busca ~\nameref{subsec:dfs} e faz uma varredura no grafo. O mesmo acontece para o método \textit{``bfs''} que implementa a varredura de acordo com o algoritmo ~\nameref{subsec:bfs}. Os métodos \textit{``dfs\_visit''} e \textit{``bfs\_visit''} são métodos auxiliares que visitam o nó corrente e definem o próximo nó que será visitado de acordo com as regras definidas nos algoritmos.
+
+A abordagem de lista de adjacência foi utilizada na implementação do grafo. Como as arestas trabalhadas possuem outras informações além da representação das ligações entre os nós, essa abordagem ocupa menos espaço em memória. Isso ocorre pois não existe representação de arestas que não estejam presentes no grafo. Além da redução da memória gasta, o tempo gasto para listar todos os nós que fazem ligação a um outro nó é reduzido, quando se usa lista de adjacência, pois basta realizar a leitura da lista para se obter essas informações. Já na matriz de adjacência e incidência, é necessário realizar uma busca em uma linha da matriz para verificar todas as ligações que um nó possui. O código fonte dessa aplicação pode ser encontrado em \url{https://github.com/TCC-SocialNetwork/concept-test}.
 
 \end{apendicesenv}

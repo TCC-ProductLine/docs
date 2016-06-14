@@ -1,7 +1,7 @@
 \chapter{Proposta}
 \label{chapter:Proposta}
 
-A seguir será apresentado cada ponto proposto em tópicos mais detalhados. Dessa forma, o capitulo está organizado para apresentar a visão geral do \textit{framework} proposto, enfatizado como o mesmo será utilizado; a prova de conceito desenvolvida no intuito de avaliar a adequação de algumas soluções tecnológicas ao tema em investigação, e alguns trabalhos relacionados.
+A seguir será apresentado cada ponto proposto em tópicos mais detalhados. Dessa forma, o capitulo está organizado para apresentar a visão geral do \textit{framework} proposto, enfatizado como o mesmo será utilizado, e alguns trabalhos relacionados.
 
 Ao final deste capítulo, pretende-se que o leitor forme uma ideia mais concreta sobre a proposta deste trabalho.
 
@@ -28,7 +28,7 @@ Na montagem da estrutura de relacionamentos entre os usuários para redes sociai
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.45]{figuras/capitulo5/amigo.eps}
+	\includegraphics[scale=0.55]{figuras/capitulo5/amigo.eps}
 	\caption{Exemplo de aresta bidirecional de amizade}
 	\label{amigo}
 \end{figure}
@@ -56,7 +56,7 @@ Rota\footnote{\url{http://www.dicio.com.br/rota/}} é um itinerário que se perc
 \end{figure}
 \footnotetext{\url{http://sede.wikidot.com/andy-s-brainstorm}}
 
-O \textit{framework} oferece recursos que auxiliem o usuário a definir os horários de cada percurso, e buscar rotas de outros usuários que coincidam em parte ou integralmente com as suas. Redes sociais podem utilizar estes dados para aplicações diversas como, por exemplo, caronas e encontros para ciclistas.
+O \textit{framework} oferece recursos que auxiliem o usuário a definir as rotas que percorrem e buscar rotas de outros usuários que coincidam em parte ou integralmente com as suas. Redes sociais podem utilizar estes dados para aplicações diversas como, por exemplo, caronas e encontros para ciclistas.
 
 Conforme mostrado na Figura \ref{rota}, pode-se ver uma rota que leva do ponto ``0'' ao ponto ``5''. Podem existir diversos usuários com rotas comuns nesse caminho, por exemplo, um usuário que siga todo o caminho traçado, ou um usuário que partisse do ponto ``2'' e chegasse ao ponto ``4'' e assim por diante. Uma das funcionalidades do \textit{framework}, neste contexto, seria encontrar todos os usuários que compartilhassem esses caminhos, ou encontrar um caminho compartilhado entre um grupo de usuários, por exemplo.
 
@@ -106,34 +106,11 @@ A Figura \ref{uso_proposto} apresenta um modelo que procura ilustrar e contextua
 	\label{uso_proposto}
 \end{figure}
 
-O modelo apresentado na Figura \ref{uso_proposto} mostra a instanciação do \textit{framework}  visando o desenvolvimento de uma rede social. Essa instanciação traz consigo toda a implementação desenvolvida no \textit{framework} e a disponibiliza para ser usada na aplicação. Ao analisar a Figura \ref{uso_proposto}, percebe-se um \textit{framework} \textit{``black box''}. Entretanto, a real proposta apresenta um \textit{framework} \textit{``grey box''}, pois, grande parte das classes disponibilizadas podem ser estendidas e ter os métodos alterados, ou atributos acrescentados, entre outros aspectos. Ressalta-se ainda, que os componentes mostrados no diagrama na seção anterior são disponibilizados como pacotes na forma de \textit{hotspots} \cite{Franca:2001} garantindo, assim, uma maior flexibilidade ao desenvolvedor na escolha dos componentes que serão utilizados. O \textit{framework} possui como \textit{frozenspots} \cite{Franca:2001} a sua estrutura de relacionamento entre as classes principais e os algoritmos de varredura em grafos ~\nameref{subsec:bfs} e ~\nameref{subsec:dfs}.
+O modelo apresentado na Figura \ref{uso_proposto} mostra a instanciação do \textit{framework}  visando o desenvolvimento de uma rede social. Essa instanciação traz consigo toda a implementação desenvolvida no \textit{framework} e a disponibiliza para ser usada na aplicação. Ao analisar a Figura \ref{uso_proposto}, percebe-se um \textit{framework} \textit{``black box''}. Entretanto, a real proposta apresenta um \textit{framework} \textit{``grey box''}, pois, grande parte das classes disponibilizadas podem ser estendidas e ter os métodos alterados, ou atributos acrescentados, entre outros aspectos. Ressalta-se ainda, que os componentes mostrados no diagrama na seção anterior são disponibilizados como pacotes na forma de \textit{hotspots} \cite{Franca:2001} garantindo, assim, uma maior flexibilidade ao desenvolvedor na escolha dos componentes que serão utilizados.
 
 Seguindo ainda o modelo na Figura \ref{uso_proposto}, é indicado o uso de serviços \textit{RESTFul} para a aplicação desenvolvida. Esses serviços reforçam mais uma vez a ideia de reutilização de software ao fornecerem recursos simples e leves para utilização em dispositivos móveis, por exemplo, sem a necessidade de replicação da lógica de negócio desenvolvida por trás da aplicação. Contudo, esse é um uso recomendado, e cabe ao desenvolvedor disponibilizar esses serviços em sua rede social.
 
-\section{Prova de Conceito}
-
-Foi desenvolvida uma pequena aplicação para implementação de alguns conceitos discutidos neste trabalho.
-
-De modo geral, a aplicação desenvolvida implementa uma rede de usuários ligados entre si, formando um grafo. A solução contêm as classes \textit{User}, \textit{Edge} e \textit{Graph}. A classe \textit{Edge} é usada para fazer as ligações entre as entidades. A classe \textit{Graph} representa a própria rede com todos os usuários. A classe de \textit{User} pode ser vista como os vértices do grafo. Foram implementadas as funcionalidades de relacionamento descritas nas figuras \ref{segue} e \ref{amigo}, além de uma varredura dos usuários presentes no grafo pelos algoritmos de busca ~\nameref{subsec:bfs}, \textit{Breadth-First Search}, e ~\nameref{subsec:dfs}, \textit{Depth-First Search}.
-
-A Figura \ref{modelo prova de conceito} apresenta o modelo das classes desenvolvidas na aplicação de prova de conceito e seus respectivos relacionamentos.
-
-\begin{figure}[!h]
-	\centering
-	\includegraphics[scale=0.8]{figuras/capitulo5/classes_prova_conceito.eps}
-	\caption{Classes da prova de conceito}
-	\label{modelo prova de conceito}
-\end{figure}
-
-Fica exemplificado o relacionamento entre as classes \textit{Graph} e \textit{User} na forma de uma composição, que indica que um usuário não pode existir sem estar presente na rede. O relacionamento entre usuários, como pode ser visto na Figura \ref{modelo prova de conceito}, é feito através das arestas que possuem: (i) um atributo \textit{origin}, que representa de qual usuário parte o relacionamento e (ii) um atributo \textit{destiny}, que representa a qual usuário é indicado o relacionamento criado. Cada aresta possui ainda uma lista de \textit{labels} que representam os nomes dos relacionamentos entre os usuários.
-
-Pode-se ver ainda na Figura \ref{modelo prova de conceito} a apresentação dos métodos construídos. A classe \textit{User} possui os métodos responsáveis por estabelecer os relacionamentos entre usuários, conforme apresentado nas figuras \ref{segue} e \ref{amigo}. O método \textit{``follow\_user''} é responsável por criar um relacionamento unidirecional, que representa seguir um usuário. O método \textit{``add\_friend''} é responsável por relacionamentos bidirecionais. Este último, por sua vez, necessita ainda ser complementado pelo método \textit{``confirm\_friend''}, pois, ao se invocar o método \textit{``add\_friend''} cria-se uma aresta que possui o \textit{label} amigo e pendente, o que indica que o relacionamento ainda não está completo. Ao se invocar o método \textit{``confirm\_friend''}, outra aresta é criada no outro sentido e o \textit{label} pendente é removido, completando-se assim, o relacionamento entre os dois usuários.
-
-A classe \textit{Graph} possui o método \textit{``add\_user''}, que é chamado sempre na criação de um novo usuário, visando adicionar este a rede. O método \textit{``set\_white''} tem como objetivo definir a cor de todos os usuários no grafo para branco. Esse atributo é usado ao se trabalhar com os recursos de buscas no grafo. Colorir o nó com a cor branca significa que este ainda não foi visitado. O método \textit{``dfs''} implementa o algoritmo de busca ~\nameref{subsec:dfs} e faz uma varredura no grafo. O mesmo acontece para o método \textit{``bfs''} que implementa a varredura de acordo com o algoritmo ~\nameref{subsec:bfs}. Os métodos \textit{``dfs\_visit''} e \textit{``bfs\_visit''} são métodos auxiliares que visitam o nó corrente e definem o próximo nó que será visitado de acordo com as regras definidas nos algoritmos.
-
-A abordagem de lista de adjacência foi utilizada na implementação do grafo. Como as arestas trabalhadas possuem outras informações além da representação das ligações entre os nós, essa abordagem ocupa menos espaço em memória. Isso ocorre pois não existe representação de arestas que não estejam presentes no grafo. Além da redução da memória gasta, o tempo gasto para listar todos os nós que fazem ligação a um outro nó é reduzido, quando se usa lista de adjacência, pois basta realizar a leitura da lista para se obter essas informações. Já na matriz de adjacência e incidência, é necessário realizar uma busca em uma linha da matriz para verificar todas as ligações que um nó possui. O código fonte dessa aplicação pode ser encontrado em \url{https://github.com/TCC-SocialNetwork/concept-test}.
-
-Essa aplicação representa a prova de conceito que possuia o objetivo de entender detalhes básicos de redes sociais, e compreender as reais dificuldades para o pleno desenvolvimento do \textit{framework} proposto. Essa prova de conceito procurou lidar com uma funcionalidade chave em redes sociais, no caso, o relacionamento de usuários. Portanto, é foi um passo inicial para o desenvolvimento da proposta. O desenvolvimento completo foi realizado na segunda parte deste trabalho, conforme evidenciado no fluxo de trabalho bem como no cronograma, ambos apresentados no capítulo de ~\nameref{chapter:Metodologia}.
+Com o objetivo de entender detalhes básicos de redes sociais, e compreender algumas das dificuldades para o pleno desenvolvimento do \textit{framework} proposto foi desenvolvido uma \nameref{chap:prova_conceito}. Essa prova de conceito procurou lidar com uma funcionalidade chave em redes sociais, no caso, o relacionamento de usuários. Portanto, foi um passo inicial para o desenvolvimento da proposta. O desenvolvimento completo foi realizado na segunda parte deste trabalho, conforme evidenciado no fluxo de trabalho bem como no cronograma, ambos apresentados no capítulo de ~\nameref{chapter:Metodologia}.
 
 \section{Trabalhos Relacionados}
 
