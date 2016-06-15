@@ -566,7 +566,6 @@ graph.search(map, false, 1)
 graph.search(map, true) { |elements_number| elements_number *= 2 }
 \end{lstlisting}
 
-
 Nesse caso, o `elements\_number' vai dobrar a cada método de pesquisa chamado com esse bloco. Portanto, a primeira chamada retorna um elemento, devido ao valor passado, o segundo dois, a terceira quatro, e assim por diante.
 
 Quando a pesquisa chega ao fim do grafo e ainda não encontrou todos os elementos necessários, uma pesquisa no banco de dados é realizada para completar a pesquisa.
@@ -575,9 +574,11 @@ Quando a pesquisa chega ao fim do grafo e ainda não encontrou todos os elemento
 
 Este módulo fornece a lógica para trabalhar com a agenda dos usuários de redes sociais, como criar, inserir, convidar, confirmar, sair e remover eventos.
 
-A estrutura de relacionamentos foi construída do seguinte modo: Uma agenda pertence a um usuário e tem um relacionamento de muitos para muitos com o evento através de um ``Participant\_Event'', o ``Participant\_Event'' tem um atributo confirmado que indica se o usuário confirmou o evento ou se a confirmação está pendente. Além de um evento ser capaz de estar presente em várias agendas, um evento tem um título, uma descrição, uma data e hora de início, uma data e hora de termino, pode ou não ter uma rota associada, e se o evento for particular um outro usuário só poderá participar do evento se for convidado, se não for particular, qualquer usuário pode entrar no evento.
+A estrutura de relacionamentos foi construída do seguinte modo: Uma agenda pertence a um usuário e tem um relacionamento de muitos para muitos com o evento através de um ``Participant\_Event'', o ``Participant\_Event'' tem um atributo confirmado que indica se o usuário confirmou o evento ou se a confirmação está pendente. Além de um evento ser capaz de estar presente em várias agendas, um evento tem um título, uma descrição, uma data e hora de início, uma data e hora de término, pode ou não ter uma rota associada, e se o evento for particular um outro usuário só poderá participar do evento se for convidado, se não for particular, qualquer usuário pode entrar no evento.
 
-Para criar um novo evento utiliza-se o método `create\_event', definido na classe de agenda. Esse método possuí a seguinte assinatura.
+A classe ``Participant\_Event'' possui também o atributo `role' que representa qual o papel que o usuário terá dentro de um evento. Os pápeis definidos por padrão no SocialFramework são: `creator', `admin', `inviter' e `participant'. No \textit{initialize} `social\_framework.rb' estão definidas todas as permissões para cada tipo desses papéis, as permissões dizem respeito a quais ações um usuário pode executar dentro de um evento, como remover ou convidar usuários, por exemplo.
+
+Para criar um novo evento utiliza-se o método `create\_event', definido na classe de agenda. Pode-se acessar a agenda a partir de um usuário pelo método `schedule'. A assinatura no método `create\_event' é mostrada a seguir.
 
 \begin{lstlisting}[
     label=listing:create_evente,
@@ -593,9 +594,10 @@ Para criar um novo evento utiliza-se o método `create\_event', definido na clas
 create_event(title, start, duration = nil, description = "", particular = false)
 \end{lstlisting}
 
-Caso não seje passado a duração do evento, a sua descrição ou se é particular, esse terá o seu termino como o final do dia em que o evento ocorrerá, a sua descrição será definida como uma \textit{string} vazia e o evento não será particular. Estas opção poderão ser alteradas passando os respectivos parâmentros na chamada do método. Para o evento ser criado o usuário não poderá ter eventos em sua agenda que choque com o horário do evento que se deseja criar.
+Caso a duração do evento não seja passada o término do evento será marcado para o fim do dia.
+Para o evento ser criado o usuário não poderá ter eventos em sua agenda que choquem com o horário do evento que se deseja criar.
 
-Para um usuário entrar em um evento deve-se usar o método `enter\_in\_event', definido na classe de agenda. Este método possui a seguinte assinatura:
+Um usuário que queira entrar em um evento público sem um convite deve-se usar o método `enter\_in\_event', definido na classe de agenda. Este método possui a seguinte assinatura:
 
 \begin{lstlisting}[
     label=listing:enter_in_event,
@@ -611,9 +613,9 @@ Para um usuário entrar em um evento deve-se usar o método `enter\_in\_event', 
 enter_in_event(event)
 \end{lstlisting}
 
-É necessário passar como parâmetro o evento que o usuário deseja entrar. Para que o usuário consiga entrar no evento, ele não poderá ter eventos em sua agenda que choque com o horário do evento que se deseja entrar.
+É necessário passar como parâmetro o evento que o usuário deseja entrar.
 
-Para um usuário possa confirmar um convite para entrar em um evento deve-se usar o método `confirm\_event', definido na classe de agenda. Este método possui a seguinte assinatura:
+A confirmação de um convite para um evento dá-se por meio do método `confirm\_event', definido na classe de agenda. Este método possui a seguinte assinatura:
 
 \begin{lstlisting}[
     label=listing:confirm_event,
@@ -629,7 +631,7 @@ Para um usuário possa confirmar um convite para entrar em um evento deve-se usa
 confirm_event(event)
 \end{lstlisting}
 
-É necessário passar como parâmetro o evento que o usuário deseja confirmar. Para que o usuário consiga entrar no evento, este não poderá ter eventos em sua agenda que choque com o horário do evento que se deseja confirmar.
+É necessário passar como parâmetro o evento que o usuário deseja confirmar.
 
 Para sair de um evento deve-se invocar o método `exit\_event', definido na classe de agenda. Esse método possui a seguinte assinatura:
 
@@ -665,7 +667,7 @@ Para apagar um evento é necessário invocar o método `remove\_event', definido
 remove_event(event)
 \end{lstlisting}
 
-É necessário passar como parâmetro o evento que se deseja apagar. Mas para conseguir apagar o evento o usuário deve ter o papel de `creator' do evento.
+É necessário passar como parâmetro o evento que se deseja apagar. Somente o usuário criador de um evento tem a permissão para remover o mesmo.
 
 Para verificar se um usuário possui eventos em um intervalo de tempo definido pode-se usar o método `events\_in\_period', definido na classe de agenda. Esse método retorna todos os eventos que estão dentro desse intervalo de tempo e possui a seguinte assinatura:
 
@@ -683,7 +685,7 @@ Para verificar se um usuário possui eventos em um intervalo de tempo definido p
 events_in_period(start, finish = start.end_of_day)
 \end{lstlisting}
 
-Caso não seje passado o final do período como parâmetro, esse terá o seu termino como o final do dia de início.
+O valor padrão para o parâmetro `finish' é o fim do dia da data de `start'.
 
 Para convidar um usuário para um evento deve-se invocar o método `invite', definido na classe evento. Esse método possui a seguinte assinatura:
 
@@ -701,7 +703,7 @@ Para convidar um usuário para um evento deve-se invocar o método `invite', def
 invite(inviting, guest, relationship = SocialFramework.relationship_type_to_invite)
 \end{lstlisting}
 
-É necessário passar como parâmetro o usuário que está convidando e o usuário convidado, caso não seja passado o tipo de relacionameto que os usuários devem possuir será utilizado o tipo definido no arquivo de configuração. Para convidar um usuário para um evento o usuário que convida deve estar confirmado no evento, ter a permissão de `invite' e ter o convidado em seu círculo de relacionamentos com o tipo de relacionamento específicado, deve-se utilizar o tipo `all' para qualquer tipo de relacionamento.
+É necessário passar como parâmetro o usuário que está convidando e o usuário convidado. Caso o tipo de relacionameto que os usuários devem possuir não seja passado será utilizado o tipo definido no arquivo de configuração. Para convidar um usuário para um evento o usuário que convida deve estar confirmado no evento, ter a permissão de `invite' e ter o convidado em seu círculo de relacionamentos com o tipo de relacionamento especificado, deve-se utilizar o tipo `all' para qualquer tipo de relacionamento.
 
 Para alterar o papel de um participante em um evento deve-se invocar o método `change\_participant\_role', definido na classe evento. Esse método possui a seguinte assinatura:
 
@@ -737,9 +739,9 @@ Para remover um participante de um evento deve-se invocar o método `remove\_par
 remove_participant(remover, participant)
 \end{lstlisting}
 
-É necessário passar como parâmetro o usuário que irá remover e o usuário que será removido do evento. Para que a remoção seja realizada com sucesso o usuário que irá remover deve ter a permissão de remover um usuário com o papel do usuário que será removido.
+É necessário passar como parâmetro o usuário que irá remover e o usuário que será removido do evento.
 
-Para adicionar uma rota no evento deve-se invocar o método `add\_route', definido na classe evento. Esse método possui a seguinte assinatura:
+Para adicionar uma rota no evento deve-se chamar o método `add\_route', definido na classe evento. Esse método possui a seguinte assinatura:
 
 \begin{lstlisting}[
     label=listing:change_participant_role,
@@ -755,7 +757,7 @@ Para adicionar uma rota no evento deve-se invocar o método `add\_route', defini
 add_route(user, route)
 \end{lstlisting}
 
-É necessário passar como parâmetro o usuário que irá adicionar a rota no evento e a rota a ser adicionada. Para que a adição seja realizada com sucesso o usuário deve ter a permissão de `:add\_route'.
+É necessário passar como parâmetro o usuário que irá adicionar a rota no evento e a rota a ser adicionada.
 
 Para ver todos os usuários do evento, que confirmaram a participção ou não basta chamar o método `users' da classe evento, com a seguinte assinatura:
 
@@ -773,13 +775,11 @@ Para ver todos os usuários do evento, que confirmaram a participção ou não b
 users(confirmed = true, role = "all")
 \end{lstlisting}
 
-O parâmetro `confirmed' é responsável por determinar se o retorno deve ser dos usuários que confirmaram participação ou não no evento. O parâmetro `role' define o tipo do papel dos usuários no evento, o valor `all' é para todos os papeis.
+O parâmetro `confirmed' é responsável por determinar se o retorno deve ser dos usuários que confirmaram participação ou não no evento. O parâmetro `role' define o tipo do papel dos usuários no evento, o valor `all' é para todos os papéis.
 
-O módulo de agenda usa um grafo para fornecer os slots de tempo de forma ordenada levando em consideração a maior quantidade de peso dos slots. Essa funcionalidade está presente no módulo `ScheduleHelper', que inclue a classe `ScheduleContext' responsável por invocar os métodos referentes ao módulo de agenda.
+O módulo de agenda possui a funcionalidade de verificar a disponibilidade de um determinado grupo de usuários para marcação de um evento, para isso é usado um grafo bipartido com vértices de usuários e slots, onde os vérticies de usuários só têm ligação com slots e vice-versa. Os slots representam os possíveis horários para marcação de eventos e são ordenados de acordo com o maior peso de usuários. O peso dos usuários representa o nível de importância para este no momento de marcação de um evento, o peso máximo assumido é denido na variável `max\_weight\_schedule' no \textit{initializer} `social\_framework.rb'. Existe também o valor `:fixed' para peso dos usuários, esse valor representa que é obrigatório que o usuário esteja presente no evento que deseja-se marcar.
 
-Neste grafo os vértices do tipo usuário só possuem ligação com os vértices do tipo slot, e os vértices do tipo slot só possuem ligação com os vértices do tipo usuário, formando assim um grafo bipartido.
-
-Para construir o grafo é necessário incovar o método `build', definido na classe grafo. Esse método possui a seguinte assinatura:
+Para verificar a disponibilidade dos usuários deve-se chamar o método `verify\_availabilities' da classe `ScheduleContext' com a seguinte assinatura:
 
 \begin{lstlisting}[
     label=listing:change_participant_role,
@@ -792,22 +792,22 @@ Para construir o grafo é necessário incovar o método `build', definido na cla
     showspaces=false,
     showstringspaces=false,
 ]
-build(users, start_day, finish_day, start_hour = Time.parse("00:00"), finish_hour = Time.parse("23:59"), slots_size = SocialFramework.slots_size)
+verify_availabilities(users, start_day, finish_day, start_hour = Time.parse("00:00"), finish_hour = Time.parse("23:59"), slots_size = SocialFramework.slots_size)
 \end{lstlisting}
 
-O parâmetro `users' são os usuários que terão suas agendas verficadas a afim de encontrar o melhor horário para uma possível marcação de evento. Este parâmetro pode ser uma \textit{array}, onde nenhum usuário possui peso no evento ou pode ser uma \textit{hash}, onde a chave é o usuário e o valor é o peso de sua presença no evento, este peso tem o seu valor máximo definido no arquivo de configuração na variável `max\_weight\_schedule', caso o usuário tenho o seu peso definido como o símbolo `:fixed' este usuário terá sua presença como obrigatória no evento, e só serão analisados os slots que este usuário possuir disponibilidade.
+O parâmetro `users' representa os usuários que terão suas agendas verficadas a afim de encontrar o melhor horário para uma possível marcação de evento. Este parâmetro pode ser um \textit{array}, onde nenhum usuário possui peso no evento ou pode ser uma \textit{hash}, onde a chave é o usuário e o valor é o peso de sua presença no evento.
 
-O parâmetro `start\_day' indica a partir de qual dia o evento poderá ser marcado, e o parâmetro `finish\_day' indica o dia limite para a marcação do evento. O parâmetro `start\_hour' e o parâmetro `finish\_hour' definem o horário de um dia em que o evento poderá ocorrer, por exemplo pode-se definir o horário comercial de 08:00 às 18:00, caso não sejam passados como pâmetro será considerado que o evento poderá ser marcado em qualquer horário.
+O parâmetro `start\_day' indica a partir de qual dia o evento poderá ser marcado, e o parâmetro `finish\_day' indica o dia limite para a marcação do evento. O parâmetro `start\_hour' e o parâmetro `finish\_hour' definem o horário de um dia em que o evento poderá ocorrer, por exemplo pode-se definir o horário comercial de 08:00 às 18:00, caso estes valores não sejam passados como pâmetros será considerado que o evento poderá ser marcado em qualquer horário.
 
 O parâmetro `slots\_size' indica o tempo de duração dos slots, caso não seja passado como parâmetro é utilizado o tempo padrão, definido no arquivo configuração e com duração de 1 hora.
 
-A quantidade de slots que serão adicionados no grafo depende do intervalo de tempo que se deseja analisar e do tempo de duração de cada slot.
+A quantidade de slots que serão adicionados no grafo depende do intervalo de tempo em que se deseja analisar e do tempo de duração de cada slot.
 
-Para criar as arestas entre os usuários e os slots é verificado se o usuário possuim disponibilidade em sua agenda no intervalo de tempo que o slot possui, caso o usuário possua disponibilidade para esse slot é criada uma aresta entre o usuário e o slot, e o peso do usuário é adicionado ao peso do slot. O método retorna os slots ordenados pelo maior peso que cada slot possui.
+Para criar as arestas entre os usuários e os slots é verificado se o usuário possui disponibilidade em sua agenda no intervalo de tempo que o slot possui, caso o usuário possua disponibilidade para esse slot é criada uma aresta entre o usuário e o slot, e o peso do usuário é adicionado ao peso do slot. O método retorna os slots ordenados decrescentemente pelo peso.
 
 \subsection{Módulo de rotas}
 
-Este módulo fornece a lógica para trabalhar com rotas. É usado a API do Google Maps para fornecer os alguns recursos para este módulo, como construir uma rota e obter uma localização a partir de uma latitude e uma longitude.
+Este módulo fornece a lógica para trabalhar com rotas. É usado a API do Google Maps\footenote{\url{https://developers.google.com/maps/?hl=pt-br}} para fornecer alguns recursos para este módulo, como construir uma rota e obter uma localização a partir de uma latitude e uma longitude.
 
 Para um usuário criar uma rota deve-se utilizar o método `create\_route', presente na classe de usuário. A seguir pode-se visualizar a sua assinatura:
 
@@ -826,7 +826,7 @@ create_route(title, distance, locations, mode_of_travel = "driving")
 \end{lstlisting}
 
 
-Os parâmetros são o título da rota, a distância que a rota possui e as localizações, que é um \textit{array} com todos os pontos de latitude e longitude para construir rota, a seguir é ilustrado um exemplo do parâmetro \textit{locations}:
+Os parâmetros são o título da rota, a distância que a rota possui e as localizações, que é um \textit{array} de \textit{hashs} com todos os pontos de latitude e longitude para construir rota, a seguir é ilustrado um exemplo do parâmetro \textit{locations}:
 
 \begin{lstlisting}[
     label=listing:locations,
@@ -843,9 +843,9 @@ locations = [{latitude: -15.792740000000, longitude: -47.876360000000},
              {latitude: -15.792520000000, longitude: -47.876900000000}]
 \end{lstlisting}
 
-E o parâmetro modo de transporte  representa qual o meio de transpote que será utilizado para percorrer a rota, pode ser `driving', `bycicling', `walking' ou `transit', o valor padrão é `walking' para viajar de carro.
+O parâmetro `mode_of_travel'  representa qual o meio de transpote que será utilizado para percorrer a rota, pode ser `driving', `bycicling', `walking' ou `transit', o valor padrão é `walking' para viajar de carro.
 
-Este módulo também fornece um recurso para verificar a compatibilidade entre duas rotas. Para isso deve-se chamar o método `compare\_routes' presente no `route\_helper.rb'.
+Este módulo também fornece um recurso para verificar a compatibilidade entre duas rotas. Para isso deve-se chamar o método `compare\_routes' presente na classe `RouteContext'.
 
 \begin{lstlisting}[
     label=listing:compare_routes,
@@ -863,7 +863,7 @@ compare_routes(principal_route, secondary_route,
           secondary_deviation = SocialFramework.secondary_deviation)
 \end{lstlisting}
 
-Este método é utilizado para verificar se duas rotas podem ser conectadas em apenas uma rota. O parâmetro `principal\_route' representa a rota que será alterada para auxliar a rota `secondary\_route', se possível. Quando a rota principal não pode ser alterada pode-se tentar alterar a rota secundária para atingir o objetivo. Os parâmetros `principal\_deviation' e `secondary\_deviation' representam um mapa com o modo de transporte e o desvio máximo que rota pode sofrer, o desvio máximo é a distância que uma rota pode ser desviada para atingir o objetivo. Os valores padrões para os desvios das rotas princial e secundária estão presentes no \textit{initialize} `social\_framework.rb' e podem ser alterados.
+Este método é utilizado para verificar se duas rotas podem ser conectadas em apenas uma rota. O parâmetro `principal\_route' representa a rota que será alterada para auxiliar a rota secundária representada pelo parâmetro `secondary\_route', se possível. Quando a rota principal não pode ser alterada pode-se tentar alterar a rota secundária para atingir o objetivo. Os parâmetros `principal\_deviation' e `secondary\_deviation' representam um mapa com o modo de transporte e o desvio máximo que rota pode sofrer, o desvio máximo é a distância que uma rota pode ser desviada para atingir o objetivo. Os valores padrões para os desvios das rotas princial e secundária estão presentes no \textit{initializer} `social\_framework.rb' e podem ser alterados.
 
 O método \textit{compare\_routes} retorna um mapa com as informações de compatibilidade, como pode ser visualizado a seguir:
 
@@ -882,7 +882,7 @@ O método \textit{compare\_routes} retorna um mapa com as informações de compa
           distance: 0}, secondary_route: {deviation: :none, distance: 0}}
 \end{lstlisting}
 
-A chave `compatible' é falsa quando as rotas são incompatíveis ou verdadeira quando são compatíveis. O desvio representa onde a rota poderá ser desviada, pode ser `none', `both', `origin' ou `destiny', e o `distance' é de valor da distância total que a rota possui com o desvio incluso.
+A chave `compatible' é falsa quando as rotas são incompatíveis ou verdadeira quando são compatíveis. O desvio representa onde a rota poderá ser desviada, pode ser `none', `both', `origin' ou `destiny', e o `distance' é o valor da distância total que a rota possui com o desvio incluso.
 
 As rotas também podem ser relacionadas com eventos. Para fazer o relacionamento deve-se invocar o método `add\_route', presente na classe de evento.
 
