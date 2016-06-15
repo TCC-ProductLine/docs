@@ -1,165 +1,218 @@
-\chapter{Proposta}
-\label{chapter:Proposta}
+\chapter{Resultados}
+\label{chapter:Resultados}
 
-A seguir será apresentado cada ponto proposto em tópicos mais detalhados. Dessa forma, o capitulo está organizado para apresentar a visão geral do \textit{framework} proposto, enfatizado como o mesmo será utilizado, e alguns trabalhos relacionados.
+\section{Testes unitários}
 
-Ao final deste capítulo, pretende-se que o leitor forme uma ideia mais concreta sobre a proposta deste trabalho.
+Durante todo o desenvolvimento do SocialFramework foi eleborado uma suíte de testes para tentar garantir que cada ponto do código funcione da devida maneira. Desse modo, o desenvolvedor pode inserir novos códigos, módulos ou alterar um código existente, com mais tranquilidade e sabendo que o restante de código irá funcionar adequadamente. Caso algum resultado esperado seja diferente do obtido a suite de testes irá apontar a falha.
 
-\section{O Framework}
+Para a realização dos testes foi utilizada a \textit{gem} do Rspec, essa \textit{gem} é amplamente utilizada pela comunidade do Rails. E para a visualização do relatório de testes foi utilizado o Code Climate, que é uma ferramenta online que realiza uma análise estática do código fonte, atualmente é suportado as linguagens: Ruby, Python, JavaScript e PHP.
 
-A proposta deste trabalho é desenvolver um \textit{framework} que auxilie no desenvolvimento de redes sociais. Este \textit{framework} deve oferecer recursos gerais com toda a lógica de usuários e relacionamentos, e recursos mais específicos para redes sociais baseadas em rotas e agendas. O recurso de rotas deve ser capaz de fazer um mapeamento de rotas de interesse de um determinado usuário e auxiliar este a fazer comparações com rotas de outros usuários. A agenda deve oferecer recursos de controle de ocupações no decorrer de dias e horários e auxiliar um usuário a encontrar dias e/ou horários comuns entre um grupo de usuários qualquer.
+No inico do desenvolvimento foi estabelecido uma meta de que se deveria testar no mínimo 90\% do código fonte. Essa meta foi cumprida obtendo-se 97\% de cobertura do código, porém essa métrica não corresponde a realidade. pois os arquivos ``elements\_factory.rb'', ``elements\_factory\_default.rb'' e ``graph\_elements.rb'' tiveram a cobertura, respectivamente, de 60\%, 80\% e 84\%, diminuindo a cobertura real do código fonte, entretando esses arquivos possuem classes ``abstratas'' e deveriam ser desconsiderados. Porém, em Ruby não existe o conceito de classe abstrata, entretanto Olsen apresenta uma abordagem de se obter esse conceito em seu livro \cite{Olsen:2007}. Um exemplo dessa abordagem pode ser observada a seguir:
 
-Parte do \textit{framework} será extensível, possibilitando ao desenvolvedor reutilizá-lo a partir de seus pontos flexíveis, modelados e implementados usando o conceito de herança. O desenvolvedor poderá, portanto, acrescentar e/ou alterar suas implementações conforme as suas necessidades. O \textit{framework}, por si só, oferecerá recursos que poderão ser reutilizados diretamente pelo desenvolvedor, não necessitando estendê-los. A extensibilidade só será necessária caso sejam desejados níveis de especificidade maiores.
+ \begin{lstlisting}[
+    label=listing:classe_abstrata,
+    caption=Classe abstrata,
+    numbers=left,
+    language=Ruby,
+    basicstyle=\footnotesize\sffamily,
+    keywordstyle=\color{red},
+    stringstyle=\color{blue},
+]
+# Define abstract methods to Vertex
+class Edge
+  attr_accessor :origin, :destiny, :labels
+  
+  # Constructor to Edge
+  # ====== Params:
+  # +origin+:: +Vertex+ relationship origin
+  # +destiny+:: +Vertex+ relationship destiny
+  # Returns NotImplementedError
+  def initialize origin, destiny
+    raise 'Must implement method in subclass'
+  end
+end
+\end{lstlisting}
 
-A seguir, têm-se um maior detalhamento de cada um dos três principais componentes fornecidos pelo \textit{framework}.
-
-\subsection{Relacionamento de Usuários}
-
-O relacionamento em redes sociais dá-se por meio de interações entre os usuários. Estas interações variam de acordo com a rede em que o usuário está inserido. Alguém pode apenas seguir outras pessoas e acompanhar suas postagens. Este é um relacionamento unidirecional, pois não é necessário que uma pessoa seguida acompanhe também postagens de seus seguidores. Existe também outro tipo de relacionamento, onde é necessário que as duas pessoas estejam diretamente ligadas entre si, o que o torna necessariamente bidirecional. Neste tipo, podem ser considerados relacionamentos entre conhecidos, amigos, namorados, familiares, entre outros.
-
-Na montagem da estrutura de relacionamentos entre os usuários para redes sociais, é necessário fazer uso de grafos, onde os usuários serão representados como os vértices e os relacionamentos como as arestas. No caso dos relacionamentos unidirecionais, apenas uma aresta é criada. Esta aresta faz uma ligação a partir do vértice do usuário seguidor para o vértice do usuário que este deseja seguir, como pode ser observado na Figura \ref{segue}. No caso dos relacionamentos bidirecionais, a ligação deverá ser feita usando-se duas arestas. É necessário que para ambos os usuários exista uma possibilidade de se chegar ao outro, portanto, deve existir uma aresta que ligue um usuário ``A'' a um usuário ``B'' e uma aresta que ligue o usuário ``B'' ao usuário ``A'', vide a Figura \ref{amigo}.
+A seguir é apresentado na Figura \ref{Cobertura_teste} cada arquivo e sua cobertura.
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.45]{figuras/capitulo5/segue.eps}
-	\caption{Exemplo de aresta de seguir usuário}
-	\label{segue}
+	\includegraphics[scale=0.55]{figuras/capitulo7/cobertura.eps}
+	\caption[Cobertura de teste]{Cobertura de teste}
+	\label{Cobertura_teste}
 \end{figure}
+
+\section{Relatório de desempenho}
+
+Após a verificação do correto fluxo que o \textit{framework} executa, foi realizado testes de desempenho do mesmo, analisando o tempo de execução e o consumo de memória dos principais algoritmos desenvolvidos. Não foram realizados esses teste no módulo de rotas pois os seus métodos fazem somente requisições de rotas à API do Google Maps e comparações sobre sobre essas rotas.
+
+Para se obter cada valor, foram feitas cinco medições e foi realizada a média aritmética dos valores.
+
+\subsection{Módulo de usuário}
+
+Para o módulo de usuário foram realizados testes com 100 mil usuários, 50 mil usuários, 20 mil usuários e 10 mil usuários. Para todos esses casos cada usuário possuia 300 amigos e estava presente em 10 eventos.
+
+\subsubsection{Tempo de execução}
+
+Para o método ``build'', que é responsável por construir o grafo a partir de um usuário raiz, foi especificado que o grafo deveria ser construido com três níveis de profundidade. Obtendo-se o gráfico da Figura \ref{build_tempo} como resultado.
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.55]{figuras/capitulo5/amigo.eps}
-	\caption{Exemplo de aresta bidirecional de amizade}
-	\label{amigo}
+	\includegraphics[scale=0.8]{figuras/capitulo7/graficos/network/tempo/build.eps}
+	\caption[Construção]{Construção}
+	\label{build_tempo}
 \end{figure}
 
-Cada aresta deverá possuir uma ou mais descrições que detalham qual o relacionamento entre os usuários. Isso fica mais claro ao se falar de relacionamentos bidirecionais, onde pode existir entre duas pessoas um relacionamento de amizade e parentesco, por exemplo. Esse relacionamento pode ser visualizado na Figura \ref{parentes}.
+Para o método ``search'', que é responsável por fazer pesquisas no grafo, foram feitas 3 tipos de pesquisas. A pesquisa padrão é uma pesquisa na qual será encontrado os vértices até o segundo nível do grafo. A pesquisa no terceiro nível é uma pesquisa que irá percorrer até o último nível do grafo. A pesquisa inválida é uma pesquisa que não serão encontrado resultados no grafo e também não serão encontrados no banco de dados, portanto todos os registros serão verificados. Pode-se visualizar o resultado dessas pesquisas na Figura \ref{search_tempo}.
 
 \newpage
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.55]{figuras/capitulo5/parentes.eps}
-	\caption{Exemplo de aresta bidirecional de parentesco}
-	\label{parentes}
+	\includegraphics[scale=0.8]{figuras/capitulo7/graficos/network/tempo/pesquisas.eps}
+	\caption[Pesquisas]{Pesquisas}
+	\label{search_tempo}
 \end{figure}
 
-\subsection{Controle de Rotas}
-
-Rota\footnote{\url{http://www.dicio.com.br/rota/}} é um itinerário que se percorre para ir de um lugar a outro, indicando a direção ou rumo a ser percorrido. Um exemplo de rota pode ser visualizado na Figura \ref{rota}.
+Para o método ``suggest\_relationships'', foi utilizado o parâmetro padrão para a quantidade de relacionamento para realizar a sugestão, que é cinco. Os tempos de execução para esse método pode ser visualizado na Figura \ref{suggest}.
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.55]{figuras/capitulo5/rota.eps}
-	\caption[Exemplo de rota]{Exemplo de rota\footnotemark}
-	\label{rota}
+	\includegraphics[scale=0.8]{figuras/capitulo7/graficos/network/tempo/sugerir.eps}
+	\caption[Sugestão de relacionamentos]{Sugestão de relacionamentos}
+	\label{suggest}
 \end{figure}
-\footnotetext{\url{http://sede.wikidot.com/andy-s-brainstorm}}
 
-O \textit{framework} oferece recursos que auxiliem o usuário a definir as rotas que percorrem e buscar rotas de outros usuários que coincidam em parte ou integralmente com as suas. Redes sociais podem utilizar estes dados para aplicações diversas como, por exemplo, caronas e encontros para ciclistas.
+\subsubsection{Consumo de memória}
 
-Conforme mostrado na Figura \ref{rota}, pode-se ver uma rota que leva do ponto ``0'' ao ponto ``5''. Podem existir diversos usuários com rotas comuns nesse caminho, por exemplo, um usuário que siga todo o caminho traçado, ou um usuário que partisse do ponto ``2'' e chegasse ao ponto ``4'' e assim por diante. Uma das funcionalidades do \textit{framework}, neste contexto, seria encontrar todos os usuários que compartilhassem esses caminhos, ou encontrar um caminho compartilhado entre um grupo de usuários, por exemplo.
-
-\subsection{Controle de Agenda}
-
-Outra funcionalidade que o \textit{framework} fornece é a conciliação de agendas entre os usuários, possibilitando assim encontrar dias da semana e horários específicos que são comuns a um determinado grupo. Esta funcionalidade pode auxiliar os usuários em diversos aspectos como, por exemplo, encontrar um horário em comum para realizar uma tarefa.
-
-A Figura \ref{agenda semanal} mostra um exemplo de uma agenda semanal com todos os horários livres.
+O consumo de memória que o método ``build'' utilizou pode ser visualizado na Figura \ref{build_memoria}.
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.55]{figuras/capitulo5/agenda_semanal.eps}
-	\caption[Exemplo de agenda semanal]{Exemplo de agenda semanal\footnotemark}
-	\label{agenda semanal}
-\end{figure}
-\footnotetext{\url{http://universovocesaude.com.br/wp-content/uploads/2014/08/horario-semanal_JPG.jpg}}
-
-Agendas dessa forma auxiliam usuários a terem um melhor controle de suas tarefas semanais, marcarem eventos, entre outros aspectos. O período compreendido por uma agenda pode variar de acordo com cada contexto. Pode ser uma agenda semanal, conforme a apresentada, mensal, anual, ou ainda um período não necessariamente pré-definido, o que poderia auxiliar usuários a marcarem eventos para datas futuras. De modo simplificado, basta dados como dia e horários de início e fim de uma tarefa para aplicar um controle de agenda.
-
-O \textit{framework} oferece o suporte para criação de agendas conforme apresentado. Assim, é possível a partir de um período pré-determinado encontrar um horário e dia comuns a um conjunto de usuários. Isso pode auxiliar a criação e marcação de eventos visando atender o maior número de usuários, conforme o contexto da aplicação.
-
-\subsection{Modelo Inicial}
-
-A Figura \ref{diagrama de componentes} apresenta os principais componentes que são oferecidos pelo \textit{framework}. Fica evidenciado, no modelo, o relacionamento de \textit{Users} com \textit{Routes} e \textit{Schedules}. Em cada um desses componentes, existe classes que implementam todo o modelo e as regras de negócio propostas.
-
-\begin{figure}[!h]
-	\centering
-	\includegraphics[scale=0.55]{figuras/capitulo5/diagrama_componentes.eps}
-	\caption{Diagrama de componentes inicial}
-	\label{diagrama de componentes}
+	\includegraphics[scale=0.8]{figuras/capitulo7/graficos/network/memoria/build_memoria.eps}
+	\caption[Consumo de memória do método build]{Consumo de memória do método build}
+	\label{build_memoria}
 \end{figure}
 
-O diagrama mostra apenas um modelo preliminar que deu base para a implementação das funcionalidades propostas. Cada componente conterá algoritmos relacionados e aplica padrões de projetos que se encaixem, buscando a melhor qualidade, soluções reutilizáveis e fácil manutenção e evolução.
+Os métodos ``search'' e ``suggest\_relationships'', que tiveram seus tempos de execução apresentados na seção anterior não tiveram o seu consumo de memória medido, pois esses apenas utilizam a instância do grafo gerado pelo método ``build''.
 
-\section{Uso do Framework}
+\subsection{Módulo de agenda}
 
-O \textit{framework} é \textit{opensorce} e desenvolvido em \textit{``Ruby on Rails''} e tem sua \textit{``Gem''}\footnote{\url{httpttp://www.akitaonrails.com/2009/2/2/entendendo-rubygems}} publicada em um repositório \textit{online} para uso de outros desenvolvedores.
+No módulo de agenda o método que teve o seu desempenho mensuarado foi o ``verify\_availabilities'', o qual verifica o melhor horário para um evento levando em consideração um conjunto de usuários. Para tal, fui utilizado o \textit{slote} com o tamanho de 1 hora e considerou-se que os eventos poderiam ser marcados no horário de 08:00 às 12:00.
 
-Para comprovação do funcionamento do \textit{framework}, este trabalho se propos a desenvolver uma rede social que faça uso do mesmo. Esta rede faz uso dos principais recursos providos pelo \textit{framework}. Possibilitando assim avaliar o seu uso na prática.
+Para esse método deve-se considerar duas variáveis que podem inflênciar o seu desempenho, que são o número de usuários e o intervaldo de tempo. Portando foram feitas duas baterias de testes, no qual cada bateria de teste tinha uma dessas variáveis fixa, enquanto a outra variável era alterada.
 
-A Figura \ref{uso_proposto} apresenta um modelo que procura ilustrar e contextualizar um possível uso para o \textit{framework}.
+\subsubsection{Intervaldo de tempo fixo}
 
-\begin{figure}[!h]
-	\centering
-	\includegraphics[scale=0.45]{figuras/capitulo5/uso_proposto.eps}
-	\caption{Modelo ilustrando um possível uso do \textit{Framework}}
-	\label{uso_proposto}
-\end{figure}
+Com o intervalo de tempo fixo, foram feitos testes com o número de usuários variando a partir dos valores: 10, 50, 100, 300 e 500.
 
-O modelo apresentado na Figura \ref{uso_proposto} mostra a instanciação do \textit{framework}  visando o desenvolvimento de uma rede social. Essa instanciação traz consigo toda a implementação desenvolvida no \textit{framework} e a disponibiliza para ser usada na aplicação. Ao analisar a Figura \ref{uso_proposto}, percebe-se um \textit{framework} \textit{``black box''}. Entretanto, a real proposta apresenta um \textit{framework} \textit{``grey box''}, pois, grande parte das classes disponibilizadas podem ser estendidas e ter os métodos alterados, ou atributos acrescentados, entre outros aspectos. Ressalta-se ainda, que os componentes mostrados no diagrama na seção anterior são disponibilizados como pacotes na forma de \textit{hotspots} \cite{Franca:2001} garantindo, assim, uma maior flexibilidade ao desenvolvedor na escolha dos componentes que serão utilizados.
-
-Seguindo ainda o modelo na Figura \ref{uso_proposto}, é indicado o uso de serviços \textit{RESTFul} para a aplicação desenvolvida. Esses serviços reforçam mais uma vez a ideia de reutilização de software ao fornecerem recursos simples e leves para utilização em dispositivos móveis, por exemplo, sem a necessidade de replicação da lógica de negócio desenvolvida por trás da aplicação. Contudo, esse é um uso recomendado, e cabe ao desenvolvedor disponibilizar esses serviços em sua rede social.
-
-Com o objetivo de entender detalhes básicos de redes sociais, e compreender algumas das dificuldades para o pleno desenvolvimento do \textit{framework} proposto foi desenvolvido uma \nameref{chap:prova_conceito}. Essa prova de conceito procurou lidar com uma funcionalidade chave em redes sociais, no caso, o relacionamento de usuários. Portanto, foi um passo inicial para o desenvolvimento da proposta. O desenvolvimento completo foi realizado na segunda parte deste trabalho, conforme evidenciado no fluxo de trabalho bem como no cronograma, ambos apresentados no capítulo de ~\nameref{chapter:Metodologia}.
-
-\section{Trabalhos Relacionados}
-
-Em algumas pesquisas relacionadas sobre trabalhos parecidos com o que se propos, pode-se encontrar alguns sistemas semelhantes, os quais serão apresentados a seguir.
-
-Existe uma comparação entre vinte e cinco plataformas, as quais permitem começar um serviço de rede social\footnote{\url{http://www.tripwiremagazine.com/2010/07/25-best-social-networking-platforms-to-start-your-own-service.html}}  próprio. Porém, algumas das plataformas apresentadas são pagas ou não são voltadas para desenvolvedores, ou seja, são plataformas que fornecem funcionalidades para usuários comuns poderem montar uma rede social a partir de um \textit{template} visual já definido.
-
-A Tabela \ref{comparacao} apresenta um comparativo entre algumas das plataformas que apresentam suporte à criação de redes sociais. Durante a pesquisa realizada para constatar as características de cada plataforma, percebeu-se que as plataformas feitas a partir da linguagem de programação PHP são predominantes. Porém, no intuito de focar nas plataformas que fornecem suporte para outras linguagens, foram apresentadas apenas cinco das plataformas que fornecem suporte ao PHP, dando assim um maior enfoque nos diferentes tipos de linguagens.
-
-Uma outra característica importante que foi observada na comparação é que os componentes customizáveis que as plataformas afirmam possuir são, em sua maioria, via interface gráfica. Em poucas plataformas é possível a customização via código, sendo, nesses casos, a maior parte feita via construção de \textit{plugins}.
+\subsubsubsection{Tempo de execução}
+A seguir é apresentado na Figura \ref{31dias_tempo} o tempo de execução do método ``verify\_availabilities'' com o intervalo de tempo de 31 dias.
 
 \newpage
 
-\begin{table}[]
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.8]{figuras/capitulo7/graficos/schedule/tempo/dias/31dias_tempo.eps}
+	\caption[Tempo de execução com disponibilidade de 31 dias]{Tempo de execução com disponibilidade de 31 dias}
+	\label{31dias_tempo}
+\end{figure}
+
+\subsubsubsection{Consumo de memória}
+
+Na Figura \ref{31dias_memoria} pode-se visualizar a quantidade de memória consumada com um intervalo de tempo de 31 dias.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.8]{figuras/capitulo7/graficos/schedule/memoria/dias/31dias_memoria.eps}
+	\caption[Consumo de memória com disponibilidade de 31 dias]{Consumo de memória com disponibilidade de 31 dias}
+	\label{31dias_memoria}
+\end{figure}
+
+\subsubsection{Número de usuários fixo}
+
+Com o número de usuários fixo, foi realizado testes com o intervalo de tempo variando entre 7, 15 e 31 dias.
+
+\subsubsubsection{Tempo de execução}
+
+É possível observar na Figura \ref{500users_tempo} o tempo de execução quando o número de usuários é fixo em 500 e o intervalo de tempo é variável.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.8]{figuras/capitulo7/graficos/schedule/tempo/users/500users_tempo.eps}
+	\caption[Tempo de execução para 500 usuários]{Tempo de execução para 500 usuários}
+	\label{500users_tempo}
+\end{figure}
+
+\subsubsubsection{Consumo de memória}
+
+A quantidade de memória consumida com 500 usuários fixos, pode ser obeservada na Figura \ref{500users_memoria}.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.8]{figuras/capitulo7/graficos/schedule/memoria/users/500users_memoria.eps}
+	\caption[Consumo de memória para 500 usuários]{Consumo de memória para 500 usuários}
+	\label{500users_memoria}
+\end{figure}
+
+% falar se é linear
+
+\section{Qualidade do SocialFramework}
+
+Essa seção irá evidenciar o resultado da qualidade do código fonte do \textit{framework}. A partir da análise de código fonte realizada pela ferramenta Code Climate foi possível obter as métricas e realizar uma análise qualitatica dos resultados obtidos.
+
+Medir e monitorar a qualidade do software é fundamental. Mesmo uma ótima suíte de testes pode produzir informações apenas sobre características externas, não refletindo qualidades como manutenabilidade, modularidade, flexibilidade e simplicidade \cite{Filho:2013}.
+
+Filho afirma ainda que nem tudo vale a pena controlar. Portanto, não se deve procurar medir tudo, mas escolher bem as métricas para avaliar e controlar o projeto \cite{Filho:2013}. Desse modo, as métricas que foram monitoradas durante o projeto foram:
+
+\begin{enumerate}
+	\item \textbf{Complexidade}: Essa métrica fornece uma análise da complexidade e do esforço gasto em um trecho de código. Para isso é utilazado as seguintes métricas;
+	\begin{enumerate}
+		\item \textbf{Complexidade ciclomática}: é calculada pela quantidade de caminhos que é possível percorrer no método. Dessa forma, sempre começa em 1, pois todo método tem pelo menos um caminho possível. Para cada estrutura condicional ou repetitiva( if, unless, elsif, while, until, for, when, rescue ) é adicionado mais 1 para a complexidade;
+		\item \textbf{Tamanho do código}: que é a quantidade de linhas que o código possui, desconsiderando comentários e espaços em branco;
+		\item \textbf{Complexidade ABC}: o cálculo da complexidade é baseado em três pontos:
+		\begin{enumerate}
+			\item \textbf{Assignment}: qualquer atribuição explícita de um dado para uma variável, por exemplo: = *= /= \%= += <<= >>= \&= |= >= ++ —, etc;
+		    \item \textbf{Branch}: quando um caminho fora do escopo do programa é feito, por exemplo: uma chamada de método de instância de um objeto, um operador new instanciando uma classe, etc;
+    		\item \textbf{Condition}: qualquer teste lógico/booleano, == != <= >= < > else case default try catch ? e condicionais unários.
+		\end{enumerate}
+	\end{enumerate}
+	\item \textbf{Duplicação de código}: analisa a similaridade de trechos de código na aplicação. Para cada nível de similaridade, é atribuido um peso diferente, indo de similar até identico, resultando no número que é a somatória de todos os arquivos. Espaços em branco, nomes de variáveis, métodos e classes são ignorados pela ferramenta;
+	\item \textbf{Estilo}: Verifica se o projeto utiliza o guia de estilo descrito pela comunidade Rails. E aponta onde estão as más práticas relacionadas a padrões e convenções que não estão sendo respeitadas na aplicação;
+	\item \textbf{Segurança}: Utiliza um \textit{fork} do Brakeman na versão 2.6.2 para identificar as vulnerabilidades do projeto Rails.
+\end{enumerate}
+
+\newpage
+
+A partir dessas métricas o Code Climate realiza o cálculo do GPA (\textit{grade point average}) que é uma espécie de média de todos os arquivos do projeto, o GPA possui um intervalo de 0 a 4 pontos, levando em consideração as notas dos arquivos, que varia de `A' a `F'. Desse modo, no início do projeto foi estabelacio uma meta de 3 pontos. Essa meta foi atingida com exito, obtendo-se 3.29 pontos, como pode ser observado na Figura \ref{GPA}.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{figuras/capitulo7/gpa.eps}
+	\caption[GPA]{GPA}
+	\label{GPA}
+\end{figure}
+
+Esse valor do GPA foi obtido de acordo com a Tabela \ref{gpa_arquivos}, que ilustra a quantidade de arquivos com as notas de `A' até `F'.
+
+\begin{table}[!h]
 \centering
-\caption{Comparação entre os trabalhos relacionados}
-\label{comparacao}
-\begin{adjustbox}{width=\textwidth}
-\begin{tabular}{@{}llllll@{}}
+\caption{Nota de cada arquivo}
+\label{gpa_arquivos}
+\begin{tabular}{cccccc}
 \toprule
-\textbf{Rede Social}  & \textbf{Licença} & \textbf{Preço}        & \textbf{Linguagem}  & \textbf{Customizável}                                    \\ \midrule
-SocialEngine          & Customizada      & A partir de \$ 299,99 & PHP                 & Sim                                                      \\
-Elgg                  & GPL 2.0          & Grátis                & PHP                 & Extensível via plugins e com uma API flexível            \\
-XOOPS                 & GPL 2.0          & Grátis                & PHP                 & Extensível via módulos                                   \\
-mooSocial             & Customizada      & A partir de \$ 149,99 & PHP                 &                                                          \\
-Anahita Social Engine & GPL 2.0          & Grátis                & PHP                 & Sim                                                      \\
-Telligent Community   & Customizada      & Grátis com limitações & ASP .NET            & Extensível via plugins, widgets, tarefas, eventos e REST \\
-Newebe                & AGPL             & Grátis                & Python/Coffeescript & Sim                                                      \\
-Buddycloud            & Apache 2.0       & Grátis                & NodeJS/Java         & Sim                                                      \\
-eXo Platform          & LGPL             & Grátis                & Java                & Extensível via plugins e com uma API flexível            \\
-Kune                  & AGPLv3           & Grátis                & Java                & Extensível via widgets e módulos                         \\
-Diaspora              & AGPLv3           & Grátis                & Ruby                & Sim                                                      \\
-Insoshi               & MIT              & Grátis                & Ruby                & Sim                                                      \\
-Libertree             & AGPLv3           & Grátis                & Ruby                & Sim                                                      \\ \bottomrule
+\textbf{Nota A} & \textbf{Nota B} & \textbf{Nota C} & \textbf{Nota D} & \textbf{Nota E} & \textbf{Nota F} \\ \midrule
+50 & 1 & 1 & 1 & 0 & 0							   \\ \bottomrule
 \end{tabular}
-\end{adjustbox}
 \end{table}
 
-Existem também alguns \textit{frameworks} semelhantes desenvolvidos em \textit{Ruby}\footnote{\url{https://www.ruby-toolbox.com/categories/social_networking}}. Estes, em sua maioria, fornecem recursos a desenvolvedores, porém apenas a parte geral de relacionamento de usuários. A seguir é possível visualizar, na Figura \ref{ruby_social_network}, uma comparação da popularidade desses \textit{frameworks}. O cálculo da popularidade é feito com base na quantidade de observadores e de \textit{forks} que o repositório do \textit{framework} possui.
+\section{SocialBike}
 
-\begin{figure}[!h]
-	\centering
-	\includegraphics[scale=0.45]{figuras/capitulo5/ruby_social_network.eps}
-	\caption{Popularidade dos \textit{Frameworks} em \textit{Ruby}}
-	\label{ruby_social_network}
-\end{figure}
+O código da SocialBike pode ser acessado através do endereço \url{https://github.com/TCC-SocialNetwork/social_bike}.
 
 \section{Resumo do Capítulo}
+Este capítulo foi responsável por apresentar os resultados obtidos durante todo o processo de desenvolvimento, tanto do SocialFramewok quanto da rede social SocialBike.
 
-Este capítulo descreveu a proposta deste trabalho apresentando seus pontos principais e alguns detalhes técnicos.
+Foram apresentados alguns relatórios contendo todos os resultados. Como o relatório de testes mostrando toda a cobertura de código, os principais relatórios de desempenho, que apresentam como os algoritmos se comportaram em complexidade e uso de memória e os principais relatórios de qualidade onde foi usado o \textit{CodeClimate} para aferir as principais medidas de qualidade de software.
 
-A partir desse escopo inicial, e da prova de conceito realizada, desenvolveu-se um \textit{framework}  capaz de auxiliar interessados no desenvolvimento de redes sociais, das funcionalidades básicas às específicas dos domínios de rota e agenda, e esse será apresentado no próximo capítulo.
+Além disso também foi apresentada a rede social SocialBike e suas funcionalidades que foram todas desenvolvidas a partir dos recursos do SocialFramework para uma melhor análise de uso do mesmo.

@@ -20,7 +20,7 @@ EDITAVEIS_SOURCES = informacoes.tex dedicatoria.tex \
 					abreviaturas.tex simbolos.tex apendices.tex anexos.tex
 
 CAPITULOS_DIR = capitulos
-CAPITULOS_SOURCES = capitulo1.tex capitulo2.tex capitulo3.tex capitulo4.tex capitulo5.tex capitulo6.tex capitulo7.tex capitulo8.tex
+CAPITULOS_SOURCES = capitulo1.tex capitulo2.tex capitulo3.tex capitulo4.tex capitulo5.tex capitulo6.tex
 
 EDITAVEIS_FILES = $(addprefix $(EDITAVEIS_DIR)/, $(EDITAVEIS_SOURCES))
 CAPITULOS_FILES = $(addprefix $(CAPITULOS_DIR)/, $(CAPITULOS_SOURCES))

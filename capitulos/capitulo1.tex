@@ -1,83 +1,263 @@
-\chapter[Introdução]{Introdução}
+\chapter{Referencial Teórico}
+\label{chapter:Referencial_Teorico}
 
-Este capítulo irá apresentar a contextualização deste trabalho, o tema proposto, o problema que se tentou resolver, os objetivos almejados e como o trabalho está organizado.
+Neste capítulo, serão abordados os tópicos considerados mais relevantes para atingir o embasamento teórico necessário para a realização deste trabalho.
 
-Desde a sua concepção, \textit{sites} de redes sociais têm atraído milhões de usuários, muitos dos quais têm integrado esses \textit{sites} em suas rotinas diárias. Existem centenas de redes sociais com diversas capacidades tecnológicas suportando uma ampla gama de interesses e práticas. Os principais recursos tecnológicos envolvidos são bem consistentes e semelhantes, porém as culturas que estão impregnadas podem variar bastante. Alguns \textit{sites} tendem a atender diversos tipos de pessoas com interesses variados, outros se voltam a grupos mais específicos, que se comunicam em uma linguagem comum possuem outros interesses \cite{Boyd:Ellison:2007}.
+\section{Redes Sociais}
 
-Nos últimos tempos, sistemas que promovem a interação de pessoas, o compartilhamento de informações e a formação de grupos como as redes sociais, deixaram de ser uma tendência, e se estabeleceram de maneira irreversível. Tal fato tem atraído cada vez mais pessoas para o uso dessas tecnologias, mudando a forma de interação e comunicação entre os indivíduos \cite{Santana:Melo-Solarte:Neris:Miranda:Baranauskas:2009}.
+Quando se pensa em rede, surge a ideia de um conjunto de nós interligados entre si, como uma teia que ocupa um determinado espaço em um ambiente. Os nós ou pontos estão ligados em pares e podem representar várias situações em áreas de interesse em comum \cite{Newman:2010}.
 
-O aumento do número de usuários de redes sociais dá-se principalmente pela facilidade de acesso das pessoas a aparelhos que permitem se conectar a internet a qualquer hora e em qualquer lugar, como é o caso dos smartphones. Como pode ser visualizado na Figura \ref{social_network_brazil} o Brasil, até o ano de 2017, faz-se uma projeção de que cerca de 110 milhões de pessoas utilizem as redes sociais, o que representa mais de 89\% dos usuários com acesso à internet \cite{eMarketer:2013}.
+Para Sodré \cite{Sodre:2002}, rede é onde as conexões e as interseções tomam o lugar do que seria antes apenas linearidade. Essas conexões e interações ocorrem pelo contato direto, face a face, e pelo contato indireto, utilizando-se um veículo mediador, como o telefone.
 
-\newpage
+As pessoas estão inseridas na sociedade por meio das relações que desenvolvem durante toda sua vida, primeiro no âmbito familiar, em seguida na escola, na comunidade em que vivem e no trabalho; enfim, as relações que as pessoas desenvolvem e mantêm fortalecem a esfera social. A própria natureza humana nos liga a outras pessoas, estruturando a sociedade em rede \cite{Tomae:Alcara:Chiara:2005}.
+
+Os tipos de relações também podem ser de movimentação entre lugares, como migração, mobilidade física ou social; de conexão física, como uma estrada, um rio ou uma ponte que conecta dois lugares; de relações de autoridade, ou de relação biológica, como descendência, por exemplo \cite{Wasserman:1994}.
+
+Com base em seu dinamismo, as redes, dentro do ambiente organizacional, funcionam como espaços para o compartilhamento de informação e conhecimento. Espaços que podem ser tanto presenciais quanto virtuais, em que pessoas com os mesmos objetivos trocam experiências, criando bases e gerando informações relevantes para o setor em que atuam \cite{Tomae:Alcara:Chiara:2005}.
+
+\begin{quote}
+	``[...] na era da informação – na qual vivemos – as
+	funções e processos sociais organizam-se cada vez
+	mais em torno de redes. Quer se trate das grandes
+	empresas, do mercado financeiro, dos meios de
+	comunicação ou das novas ONGs globais,
+	constatamos que a organização em rede tornou-se
+	um fenômeno social importante e uma fonte crítica
+	de poder.'' \cite{Capra:2002}
+\end{quote}
+
+O contexto em que estamos inseridos desencadeia uma série de mudanças na rotina dos indivíduos, e uma delas evidencia as redes como ponto de convergência da informação e do conhecimento \cite{Tomae:Alcara:Chiara:2005}.
+
+O conhecimento que a rede possui repercute sobre o meio que esta se encontra, pois Wellman \cite{Wellman:1996} verifica, na rede, sua identidade singular em determinada situação, isto é, a representação e a interpretação das relações em rede estão fortemente ligadas à realidade que a cerca; a rede é influenciada pelo seu contexto e esse por ela. Portanto, para \cite{Marteleto:2001}, os efeitos das redes podem ser percebidos fora de seu espaço, nas interações com o estado, na sociedade ou em outras instituições representativas.
+
+A interação constante ocasiona mudanças estruturais e, em relação às interações em que a troca é a informação, a mudança estrutural que pode ser percebida é a do conhecimento. Quanto mais informação troca-se com o ambiente, com os atores da rede, maior será a bagagem de conhecimento, e maior será o estoque de informação, e é nesse conjunto de significados que se inserem as redes sociais \cite{Tomae:Alcara:Chiara:2005}.
+
+Milgram, em sua tese \cite{Milgram:1967}, defende que qualquer pessoa está distante de qualquer outra pessoa do mundo, a no máximo seis graus de separação. Essa tese ficou conhecida como ``mundo pequeno'' e ``teoria dos seis degraus''. Sua pesquisa demonstra que a rede social constitui importante recurso profissional e pessoal. Estar em contato com pessoas que conheçam uma pessoa-alvo, em razão de um interesse específico, já é um passo além para a conquista de um objetivo.
+
+\section{Teoria dos Grafos}
+
+A análise de redes sociais tem como fundamento a teoria dos grafos. A seguir serão apresentados os principais conceitos sobre grafos.
+
+\subsection{História}
+
+O primeiro livro sobre a teoria dos grafos foi publicado por König (1936). Isso levou ao desenvolvimento de uma forte escola de teóricos em grafos na Hungria que incluíram P. Erdős e T. Gallai. Também na década de trinta, H. Whitney publicou uma série de artigos influentes \cite{Bondy:2007}.
+
+De acordo com Ore \cite{Ore:1963}, Leonhard Euler\footnote{Grande matemático e físico suíço, 1707-1783, fez importantes descobertas em campos variados como Cálculo e Grafos.} teria sido um dos matemáticos mais importantes quando se refere a teoria dos grafos. Contam que o povo da cidade de Königsberg \footnote{Atualmente Caliningrado.}, localizado na Prússia e cortada pelo Rio Pregel, com sete pontes ligando duas ilhas e as margens opostas do rio, como pode ser visto na Figura \ref{Konigsberg}, propôs ao então famoso matemático Leonard Euler o seguinte problema:
+
+	``Será possível fazer um passeio pela cidade, começando e
+	terminando no mesmo lugar, cruzando cada ponte exatamente uma vez?''
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.8]{figuras/capitulo1/social_network_brazil.eps}
-	\caption[Uso de redes sociais no Brasil]{Uso de redes sociais no Brasil \cite{eMarketer:2013}}
-	\label{social_network_brazil}
+	\includegraphics[scale=0.35]{figuras/capitulo2/Konigsberg.eps}
+	\caption[Pontes de Königsberg]{Pontes de Königsberg\footnotemark}
+	\label{Konigsberg}
+\end{figure}
+\footnotetext{\url{http://www.mat.uc.pt/~alma/escolas/pontes/}}
+
+Não se tem conhecimento sobre o Euler ter resolvido esse problema usando a representação de grafos estudada hoje. A modelagem do problema por grafo passa por uma representação, na qual cada porção de terra  é representada por um ponto e as pontes estariam representadas por linhas \cite{Ore:1963}, conforme apresentado na Figura \ref{sete_pontes}.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.25]{figuras/capitulo2/sete_pontes.eps}
+	\caption[Problema das sete pontes]{Problema das sete pontes \cite{Ore:1963}}
+	\label{sete_pontes}
 \end{figure}
 
-Visando colaborar com o contexto de redes sociais, busca-se apresentar uma ferramenta que auxilie desenvolvedores a criar sistemas desse tipo, oferecendo recursos que são comuns à maioria das aplicações sociais. Mais precisamente, esse trabalho propõe-se a desenvolver um \textit{framework} que ofereça esses recursos para o desenvolvedor. Nas próximas seções, essa ideia será contextualizada e justificada.
+Analisando, então, este problema, Euler resolveu a questão provando que uma caminhada assim é possível se, e somente se, o grafo for conexo e todos os seus vértices tiverem grau par, termos estes que serão tratados mais à frente \cite{Malta:2008}.
 
-\section{Contextualização}
+Assim, Euler mostrou que, uma vez que o grafo de Königsberg tem vértices de grau ímpar, a resposta ao problema era que tal caminhada era impossível. Desde então, todo grafo conexo, cujos vértices possuem grau par, é chamado de grafo euleriano, e um caminho fechado em um grafo que passe por cada aresta deste exatamente uma vez é chamado de circuito (ou ciclo) euleriano \cite{Malta:2008}.
 
-Uma rede social virtual é uma comunidade \textit{online} que representa um conjunto de participantes (pessoas, organizações ou outras entidades), unindo ideias e recursos em torno de relacionamentos, valores e interesses compartilhados \cite{Marteleto:2001}.
+\subsection{Definições}
 
-Diversos sistemas conhecidos parecem estruturados como uma rede. Para a Biologia, há o interesse em saber quem se alimenta de quem, quando se estuda a cadeia alimentar. O cérebro faz ligações entre neurônios; as sinapses, para que a pessoa lembre ou resolva algum problema ou questão. A Internet é uma rede na qual as pessoas se conectam e se comunicam. As doenças, por exemplo, podem se propagar de uma pessoa para outras, deflagrando uma epidemia \cite{Goular:2014}.
+\textbf{Definição}: Um grafo é um par \textit{G} = (\textit{V}, \textit{E}) de conjuntos de tal modo que \textit{E}$\subseteq$[\textit{V}]$^2$. Assim, os elementos de \textit{E} são subconjuntos de pares ordenados de elementos de \textit{V}. Os elementos de \textit{V} são os vértices (ou nós ou pontos) do grafo \textit{G}, os elementos de \textit{E} são arestas (ou linhas) \cite{Diestel:1997}.
 
-Assim, a análise da relação entre os nós e da estrutura formada pela rede fornece informações a respeito de diversos fenômenos e situações: como o cérebro funciona, como a doença se propaga, como as pessoas se comunicam e trocam informações, isto é, as relações ou interações influenciam a própria rede \cite{Goular:2014}.
+Grafos são assim chamados porque eles podem ser representados graficamente, e é esta representação gráfica que possibilita entender muitas de suas propriedades. Cada vértice é indicado por um ponto, e cada aresta por uma linha que une os pontos que representam as suas extremidades \cite{Bondy:2007}. Um exemplo pode ser observado na Figura \ref{exemplo_grafo}.
 
-A relação entre os nós da rede tem várias denominações apresentadas em trabalhos científicos: vínculo, ligação, arco, interação, conexão e/ou relação. Os nós da rede, também chamados de atores, estão ligados por essas relações. Por exemplo, os atores podem se classificar como amigos, quem troca informação com quem, quem confia em quem. A relação pode indicar que os atores fazem parte de um clube, de uma associação, trabalham no mesmo departamento ou que mantêm transações comerciais, trocam mensagens, trabalham em equipe ou cooperam entre si para algum tipo de trabalho. Os atores podem ser pessoas ou empresas que estão relacionadas por alguma atividade, além de grupos, localidades, cidades, regiões, entre outros \cite{Hanneman:Riddle:2005}.
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.3]{figuras/capitulo2/exemplo_grafo.eps}
+	\caption[Exemplo de grafo]{Exemplo de grafo \cite{Bondy:2007}}
+	\label{exemplo_grafo}
+\end{figure}
 
-John Scott, em seu livro \cite{Scott:Carrington:2011}, diz que redes sociais são formadas por dois tipos principais de dados: dados de atributos e dados de relacionamentos. Diz-se que os dados de atributos são as opiniões e os comportamentos dos agentes demonstrados dentro da rede. Portanto, são qualidades e características que pertencem a eles como indivíduos. Esses dados podem ser quantificados e analisados. Os dados de relacionamentos dizem respeito aos contatos, laços e conexões. Esses dados não são dados de um agente, e sim, de um conjunto de agentes conectados que formam um sistema de relacionamentos. É possível também quantificar e analisar esses tipos de dados, podendo encontrar padrões de relacionamentos em grupos.
+A maioria das definições e conceitos na teoria dos grafos são sugeridas por esta representação gráfica. As extremidades de uma aresta são referidas como sendo incidentes com a aresta, e vice-versa. Dois vértices que são incidentes com uma aresta em comum são chamados de adjacentes, e dois vértices adjacentes distintos são chamados de vizinhos \cite{Costa:2011}.
 
-Para abstrair o contexto do mundo real para o mundo computacional deve-se utilizar um software para prover mecanismos de análise para melhor planejar e manter a rede de uma organização. Tendo como foco o produto de software e baseando-se nas plataformas tecnológicas, deve-se levar em conta a reutilização de software. Essa necessidade é evidenciada, pois uma empresa geralmente deixa de construir um produto de software isolado, e busca parcerias para construir suas soluções \cite{Lima:2015}.
+\subsection{Representação de Grafos}
 
-A reutilização de software é o processo de criar sistemas de software a partir de um software já existente, ao invés de criar a partir do zero \cite{Krueger:1992}. A meta da reutilização de software é reciclar o \textit{design}, código e outros componentes de um software e, assim, reduzir o custo, o tempo e melhorar a qualidade do produto \cite{Keswani:Joshi:Jatain:2014}.
+Embora desenhos são um meio conveniente de especificação de grafos, eles claramente não são adequados para armazenar grafos em computadores, ou para a aplicação de métodos matemáticos para estudar suas propriedades. Para estes fins, são consideradas duas matrizes associadas com um grafo; uma matriz de incidência e uma matriz de adjacência \cite{Bondy:2007}.
 
-Mesmo com todos os benefícios mencionados anteriormente, ao lidar com reutilização de software, deve-se planejar e conhecer bem quais são os objetivos esperados a partir dessa prática, como afirmam os autores Keswani, Joshi e Jatain, em sua publicação  \cite{Keswani:Joshi:Jatain:2014}, sobre reutilização de software: ``\textit{Para que um programa de reutilização de software confira o retorno apropriado, o mesmo deve ser sistematizado e planejado. Uma organização que implementa reutilização deve identificar os melhores métodos e estratégias para alcançar máxima produtividade}''.
+Seja \textit{G} um grafo, com conjunto de vértices \textit{V} e conjunto de arestas \textit{E}. A matriz de incidência de \textit{G} é a matriz $M_G:= (m_{ve})$, com dimensões \textit{n$\times$m}, onde $m_{ve}$ é o número de vezes que o vértice \textit{v} e a aresta \textit{e} estão conectados \cite{Bondy:2007}.
 
-\section{Questão de Pesquisa}
+A matriz de adjacência de \textit{G} é a matriz $A_G := (a_{uv})$, com dimensões \textit{n$\times$n}, em que $a_{uv}$ é o número de arestas que unem os vértices \textit{u} e \textit{v}. É possível verificar que a quantidade de memória necessária para essa representação é $\Theta(|\textit{V}|^2)$ \cite{Bondy:2007}. A Figura \ref{matriz} ilustra um grafo \textit{G} representado na matriz de incidência \textit{M} e na matriz de adjacência \textit{A}.
 
-Esse trabalho tem como intuito responder com a seguinte questão: É possível oferecer um \textit{framework} que auxilie no desenvolvimento de redes sociais, disponibilizando recursos gerais de relacionamentos e específicos de definições de rotas e agenda, proporcionando ao desenvolvedor facilidade ao lidar com preocupações intrínsecas desse contexto?
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.45]{figuras/capitulo2/matriz.eps}
+	\caption[Representação em matriz]{Representação em matriz \cite{Bondy:2007}}
+	\label{matriz}
+\end{figure}
 
-\section{Justificativa}
+Como a maioria dos grafos possui um número bem maior de arestas do que os vértices, a matriz de adjacência de um grafo geralmente é menor do que a sua matriz de incidência e, assim, necessita de menos espaço de armazenamento. Ao lidar com grafos, é possível utilizar uma represetação otimizada. Para cada vértice \textit{v}, os vizinhos de \textit{v} são armazenados em uma lista. A lista (\textit{N}(\textit{v}): \textit{v $\in$ V}) é chamada de lista de adjacência do grafo, onde \textit{N}(\textit{v}) representa os vizinhos do vértice \textit{v}. Um exemplo pode ser observado na Figura \ref{lista_adjacencia}. A quantidade de memória necessária para uma lista de adjacências é $\Theta(|\textit{V}| + |\textit{E}|)$. Grafos são normalmente armazenados em computadores como listas de adjacência, porém em casos em que o grafo possua muitos vértices e poucas arestas a representação em matriz de incidência é eficiente, o mesmo acontece para a representação em matriz de adjacência quando o grafo possui poucos vértices e muitas arestas \cite{Costa:2011}.
 
-As redes sociais ultrapassaram o âmbito acadêmico/científico, conquistando espaço em outras esferas. É possível observar esse movimento na Internet, onde encontramos adeptos com objetivos específicos \cite{Tomae:Alcara:Chiara:2005}.
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.3]{figuras/capitulo2/lista_adjacencia.eps}
+	\caption[Representação em lista de adjacência]{Representação em lista de adjacência \cite{Costa:2011}}
+	\label{lista_adjacencia}
+\end{figure}
 
-Nas últimas décadas, o trabalho pessoal em redes de conexões passou a ser percebido como um instrumento organizacional, apesar de o envolvimento das pessoas em redes fazer parte da história da humanidade há muito tempo \cite{Tomae:Alcara:Chiara:2005}.
+\section{Reutilização de Software}
 
-Com tal crescimento e repercussão, torna-se pertinente a criação de um suporte que auxilie a produção de novas redes sociais digitais. Diante dessa questão, este trabalho propõe a criação de um \textit{framework} em atendimento a esse tópico, focando em redes mais específicas, as quais fazem uso de definições de rotas ou controle de relacionamento de agendas.
+A reutilização de software tem como objetivos aumentar a qualidade e a produtividade no desenvolvimento, pois busca evitar duplicidade de código e do esforço aplicado para desenvolver determinadas tarefas, reaproveitando o máximo possível experiências passadas \cite{Lucredio:2009}.
 
-\section{Objetivos}
+Todas as formas de reutilização de software usam algum tipo de abstração.  Essa é uma característica importante presente nas técnicas de reutilização, pois facilita aos desenvolvedores o uso de objetos reutilizáveis. Sem abstrações, os desenvolvedores deveriam analisar todos os artefatos reutilizáveis buscando entender como cada um funciona e como e quando devem ser utilizados \cite{Krueger:1992}.
 
-Esse trabalho contém objetivos geral e específicos, conforme colocado nos subtópicos a seguir apresentados.
+Os próximos subtópicos irão apresentar temas deste trabalho que estão diretamente relacionados à reutilização de software.
 
-\subsection{Objetivo Geral}
+\subsection{Frameworks}
 
-Oferecer um \textit{framework} para ser utilizado no desenvolvimento de redes sociais, o qual disponibiliza recursos gerais de relacionamentos e específicos de definição de rotas e agenda, procurando auxiliar o desenvolvedor de software ao lidar com preocupações intrínsecas desse contexto.
+\textit{Frameworks} compartilham técnicas de reutilização em geral e são considerados uma importante parte da cultura de desenvolvimento no mundo da orientação a objetos \cite{Johnson:1997}.
 
-\subsection{Objetivos Específicos}
+Fayad e Schimidt, em seu artigo \cite{Fayad:Schimidt:1997} sobre \textit{frameworks} de aplicações orientadas a objetos, mostram quais são os principais benefícios no uso de \textit{frameworks}, dentre eles: modularização, reutilização, extensibilidade e inversão de controle.
 
-A partir do objetivo geral, pôde-se definir os objetivos específicos, os quais são:
+\begin{itemize}
+	\item \textbf{Modularização:} \textit{Frameworks} encapsulam e interfaceiam alguns detalhes de implementação. Isso reduz o esforço necessário para entender e manter partes do software existente, pois basta ao desenvolvedor usar o que lhe é oferecido sem necessariamente entender qual a implementação do \textit{framework}.
 
-\begin{enumerate}
-	\item Definir uma arquitetura com base no uso de grafos, alinhada às boas práticas da Engenharia de Software, para representar os relacionamento entre as pessoas bem como as rotas percorridas por elas;
-	\item Evoluir a arquitetura proposta, visando projetar algoritmos para compatibilizar agendas entre os interessados;
-	\item Usar estruturas de dados e algoritmos específicos, visando desempenho e facilidades na manutenção evolutiva do software;
-	\item Instanciar um produto de software - i.e. uma rede social específica - a partir do \textit{framework}, no intuito de coletar as primeiras impressões acerca do suporte desenvolvido como tema foco desse trabalho.
-\end{enumerate}
+	\item \textbf{Reutilização:} As interfaces providas por \textit{frameworks} ajudam também na reutilização através da definição de componentes genéricos, que podem ser aplicadas em outras aplicações. Assim sendo, soluções comuns para sistemas diferentes podem ser usadas da mesma forma sem a necessidade de recriação das mesmas. Entende-se então, que estas soluções são pensadas uma única vez, e ao estarem presentes em um \textit{framework}, basta que sejam usadas.
 
-\section{Organização do Documento}
+	\item \textbf{Extensibilidade:} Este é um dos principais pontos positivos dos \textit{frameworks}, pois estes fornecem métodos e interfaces estáveis que outras aplicações irão utilizar. Recomenda-se que essas aplicações façam uso desses métodos, visando resolver problemas parecidos em diferentes contextos. Uma boa estrutura de extensibilidade é essencial para garantir a customização de novos serviços e funcionalidades das aplicações.
 
-Este documento foi dividido em oito capítulos que são descritos brevemente à seguir:
+	\item \textbf{Inversão de controle:} A inversão de controle ocorre devido a forma como serão processados e entendidos muitos dos eventos de uma aplicação, que ficam invisíveis ao desenvolvedor quando este usa um \textit{framework}, pois é o próprio \textit{framework} quem decide o conjunto de métodos que será invocado para realizar uma determinada tarefa da aplicação.
+\end{itemize}
 
-\begin{enumerate}
-	\item ~\nameref{chapter:Referencial_Teorico}: Levantamento bibliográfico de tópicos relevantes para alcançar o embasamento teórico necessário para a realização deste trabalho;
-	\item ~\nameref{chapter:Suporte_Tecnologico}: Exposição das principais ferramentas e tecnologias que foram utilizadas no decorrer deste trabalho;
-	\item ~\nameref{chapter:Metodologia}: Apresentação de como foi conduzido o trabalho, abordando modelos de desenvolvimento e modelos de pesquisa utilizados;
-	\item ~\nameref{chapter:Proposta}: Apresentação completa do que este trabalho se propôs a fazer;
-	\item ~\nameref{chapter:SocialFramework}: Apresentação do \textit{framework} desenvolvido durante deste trabalho;
-	\item ~\nameref{chapter:Resultados}: Apresentação dos resultados obtidos durante todo o desenvolvimento do trabalho;
-	\item ~\nameref{chapter:Consideracoes_Finais}: Apresentação do que se pode concluir com ao término do trabalho.
-\end{enumerate}
+\subsubsection{Frameworks e Reutilização de Software}
+
+A tecnologia de reutilização ideal provê componentes que podem facilmente ser conectados para criar um novo sistema. Não é necessário ao desenvolvedor ter conhecimento de como o componente é implementado, e geralmente é fácil para ele aprender como o utilizar. O resultado é que o sistema será eficiente, fácil de manter e confiável \cite{Johnson:1997}.
+
+\textit{Frameworks} são aplicações especializadas em prover classes e componentes abstratos que podem ser usados por outros sistemas. Estes proveem técnicas de reutilização robustas e de maior granularidade. Sendo aplicações independentes é mais fácil usá-los em um maior número de sistemas \cite{Johnson:Foote:1988}.
+
+Para se alcançar a aplicação efetiva de um dado \textit{framework}, é necessário ao desenvolvedor conhecer as interfaces que o \textit{framework} proporciona antes de poder usá-las. Como podem existir diversas interfaces complexas, aprender a usar um novo \textit{framework} pode ser difícil. Porém, os \textit{frameworks} são poderosos e o tempo gasto em sua aprendizagem é recompensado, pois podem reduzir a quantidade de esforço aplicado para se desenvolver uma nova aplicação que os use \cite{Johnson:1997}.
+
+Ao longo do tempo, tornou-se muito caro desenvolver aplicações complexas a partir do zero. Isso porque todos os componentes que são desenvolvidos devem passar por um criterioso processo de validação e manutenção, e isso ocorre sempre que um novo sistema é desenvolvido. Ao se usar \textit{frameworks}, pode-se desenvolver componentes comuns e os processos citados são feitos em um único local \cite{Fayad:Schimidt:1997}.
+
+As técnicas de reutilização são diferentes de acordo como o tipo do \textit{framework} utilizado, esses tipos podem ser ``\textit{white box}'' ou ``\textit{black box}''. O primeiro diz respeito a quando o código do \textit{framework} é aberto e visível ao desenvolvedor, dessa forma, este pode estudar a implementação do \textit{framework} e modificar o código de determinadas partes de acordo com suas necessidades. Os \textit{frameworks} do tipo ``\textit{black box}'' disponibilizam apenas interfaces ao desenvolvedor para que este possa usá-las. A forma como tudo é implementado e processado é desconhecida. No primeiro tipo, têm-se uma maior flexibilidade, porém, o uso é mais complexo ao desenvolvedor. No segundo, o uso é bem simples, porém, não existe flexibilidade para mudança da implementação \cite{Kroth:2000}.
+
+Existe também uma metodologia no desenvolvimento de \textit{frameworks} que une as técnicas ``\textit{white box}'' e ``\textit{black box}'', assim, uma parte do \textit{framework} é fechada e o desenvolvedor não pode alterar o código, apenas usar as funções disponíveis; a outra parte é aberta ao desenvolvedor para realizar alterações no código. Essa abordagem é conhecida como \textit{frameworks} do tipo ``\textit{gray box}'' ou ``caixa cinza'' \cite{Kristensen:2004}.
+
+Além dos tipos de \textit{frameworks}, estes também podem ser divididos quanto a sua aplicabilidade. Podem ser desenvolvidos para serem aplicados em qualquer domínio, de forma genérica sem se preocupar com algo específico, \textit{frameworks horizontais}, ou podem ser desenvolvidos visando atender um tipo específico de domínio de problemas, \textit{frameworks verticais}. Essas características dependem das necessidades apresentadas ao se trabalhar com \textit{frameworks}, e isso impacta como será aplicada a reutilização \cite{Kroth:2000}.
+
+Na Engenharia de Software, busca-se cada vez mais o aumento da produtividade e da qualidade dos sistemas desenvolvidos. A reutilização de software, ao contrário de todas as outras partes de um sistema, é um fator que pode acarretar o aumento desses fatores, considerando que ao se utilizar componentes já desenvolvidos e depurados pode-se reduzir o tempo de desenvolvimento, de testes e as chances de ocorrência de erros que poderiam advir se fosse necessária a criação destes novos artefatos \cite{Silva:2000}.
+
+Na qualidade, a reutilização advinda dos \textit{frameworks} pode trazer ganhos de desempenho, confiabilidade e interoperabilidade de software \cite{Fayad:Schimidt:1997}.
+
+\subsubsection{Frameworks e Padrões}
+
+Padrões representam soluções recorrentes para problemas no desenvolvimento de software em um contexto específico. Tanto os padrões como os \textit{frameworks} são técnicas de reutilização. A grande diferença é que os \textit{frameworks} 	se concentram na reutilização de estruturas, algoritmos e implementações em uma dada linguagem de programação. Já os padrões focam em apresentar desenhos abstratos de como resolver problemas; como microarquiteturas de software \cite{Fayad:Schimidt:1997}.
+
+Um padrão descreve um problema a ser resolvido e apresenta uma solução e o contexto em que essa solução funciona, nomeia uma técnica e descreve seus custos e benefícios \cite{Johnson:1997}.
+
+Quando um \textit{framework} é implementado diversas vezes, este também pode ser considerado um padrão \cite{Johnson:1997}. O MVC (\textit{Model / View / Controller}) é um \textit{framework} conceitual de interface com usuário que é considerado um padrão \cite{Almeida:2006}.
+
+Segundo \cite{Fayad:Schimidt:1997}, quando usados em conjunto com padrões, os \textit{frameworks} podem aumentar significativamente a qualidade do software e reduzir o esforço de desenvolvimento.
+
+\subsection{Padrões de Projeto}
+
+Os padrões de Projeto são parte da vanguarda da tecnologia orientada a objetos, e este tema tem estado em constante crescimento no decorrer dos tempos. A proposição por trás dos padrões é que a qualidade do software pode ser medida objetivamente. Tal fato considera que ao se analisar o \textit{design} de um padrão, este pode ser considerado bom ou ruim, e assim resultando em uma boa ou má qualidade \cite{Shalloway:Trott:2004}.
+
+Alexander, em seu livro \cite{Alexander:1979} sobre padrões de construção, diz:
+
+\begin{quote}
+	``cada padrão descreve um problema no nosso
+ambiente e o cerne da sua solução, de tal forma que você possa usar essa solução mais
+de um milhão de vezes, sem nunca fazê-lo da mesma maneira''
+\end{quote}
+
+No livro de padrões de projeto \cite{Gamma:1995}, os autores concordam com as afirmações de Alexander. A diferença principal é que no âmbito de software os padrões são expressos em termos de objetos e interfaces ao invés de paredes e portas. Porém, ambos os tipos os padrões dizem respeito a uma solução para um problema em um contexto geral. Os autores consideram ainda que um padrão é dividido em quatro partes principais, que são:
+
+\begin{itemize}
+	\item \textbf{Nome:} Usado para descrever um problema de projeto, suas soluções e consequências em uma ou duas palavras. Quando um padrão possui um nome fica mais fácil de definir um vocabulário comum para tratar deste com outras pessoas.
+	\item \textbf{Problema:} O problema está ligado diretamente à situação em que deve ser aplicado o padrão, ou seja, qual o contexto. Algumas vezes o problema pode conter uma lista de condições que devem ser satisfeitas para que se possa alcançar sentido na aplicação do padrão.
+	\item \textbf{Solução:} Esta descreve todos os elementos que compõem o padrão, seus relacionamentos, responsabilidades e colaborações. É fornecida uma descrição abstrata de um problema de projeto e o arranjo geral de classes e objetos que resolvam o padrão. Não há uma solução ou implementação concreta, pois padrões são desenhados para serem usados em diferentes situações.
+	\item \textbf{Consequências:} As consequências apresentam uma série de resultados concernentes da aplicação do padrão, normalmente apresentando vantagens e desvantagens. São elementos críticos que entram na decisão da aplicação ou não do padrão que está em questão.
+\end{itemize}
+
+\subsubsection{Por que usar Padrões de Projeto?}
+
+Os três pontos que justificam de forma adequada o uso de padrões de projeto são brevemente descritos a seguir, de acordo com \cite{Shalloway:Trott:2004}:
+
+\begin{itemize}
+	\item \textbf{Soluções Reutilizáveis:} O tempo gasto para aprender a utilizar determinado padrão é compensado pela reutilização que é oferecida. Têm-se o benefício de aplicar o que foi aprendido para diversos projetos. Depois de ter o conhecimento fixado, não é necessário reinventar soluções para problemas recorrentes, basta reutilizar o que os padrões oferecem.
+	\item \textbf{Terminologia Comum:} Quando se está em um grupo de trabalho, são necessários uma base de vocabulário e pontos de visão do problema comuns. Os padrões de projeto providenciam um ponto comum de referência durante as fases de análise e \textit{design} de um projeto.
+	\item \textbf{Perspectiva de alto nível do problema:} Os padrões dão aos desenvolvedores essa perspectiva e ajudam na análise e entendimento dos problemas, facilitando a elaboração de uma solução mais adequada.
+\end{itemize}
+
+Os padrões ainda podem ajudar na refatoração de projetos. Uma das grandes dificuldades no desenvolvimento de software é que este tem de ser frequentemente reorganizado ou refatorado. Os padrões de projeto, ao oferecerem soluções comuns e já consolidadas, podem reduzir a quantidade de refatoração que deverá ser feita mais tarde \cite{Gamma:1995}.
+
+\subsubsection{Classificação de Padrões de Projeto}
+
+Em \cite{Gamma:1995}, foram definidos e classificados 23 padrões. Essa classificação está feita de acordo com dois critérios: \textbf{finalidade} e \textbf{escopo}. O primeiro critério diz respeito ao que o padrão faz. A finalidade pode ser de criação, estrutural ou comportamental. Os padrões com finalidade de criação se preocupam com o processo de criação de objetos. Os estruturais focam em composições de classes ou objetos. Os comportamentais caracterizam as maneiras que as classes ou objetos interagem e distribuem responsabilidades.
+
+O segundo critério especifica se o padrão é de classe ou objeto. Os padrões de classe lidam com relacionamentos entre classes e suas subclasses, para isso são utilizados relacionamentos de herança. E os padrões de objetos são mais dinâmicos, pois lidam com relacionamentos entre objetos que podem ser mudados em tempo de execução.
+
+O apêndice ~\nameref{sec:padrao_abstract_factory} apresenta a estrutura de um dos principais padrões conhecidos.
+
+\subsection{Serviços}
+
+De uma maneira geral, serviços são atividades providas e realizadas por uma máquina ou um humano. No desenvolvimento de software, serviços são considerados um bloco de construção reutilizável que oferece uma funcionalidade particular. A noção de reusabilidade apresentada lembra a reutilização antes comentada no conceito de componentes. De fato, essas duas abordagens estão próximas, pois representam uma ideia de desenvolvimento comum, onde blocos de software são construídos para serem usados por atores diferentes e em outros locais \cite{Stojanovic:Dahanayake:2005}.
+
+Com o advento dos serviços, surgiu um novo termo, a ``Orientação a serviços''. Que ocorre quando alguns processos são modelados e construídos como unidades bem definidas e formam serviços. Esses são encapsulados em componentes de software para serem usados por outras aplicações, conferindo a ideia de um sistema provedor (o sistema que provê o serviço) e um sistema consumidor (que consome os serviços prestados) \cite{Victorino:Brascher:2009}.
+
+Se todas as aplicações usassem a mesma interface de programação e o mesmo protocolo de interoperabilidade, todo trabalho de software seria mais simples. Essa é a premissa que trouxe o desenvolvimento orientado a serviços para o mundo da tecnologia da informação. Quando se desenvolve dessa forma, os serviços tornam-se a base para a criação de novas estratégias de solução \cite{Newcomer:Lomow:2004}.
+
+Apesar das abordagens de orientação a serviços e orientação a componentes serem bem similares, no livro \cite{Stojanovic:Dahanayake:2005}, são apresentadas algumas diferenças entre as mesmas, que são:
+
+\begin{itemize}
+	\item O tempo de integração. Na orientação baseada em componentes, a integração com a aplicação desenvolvida ocorre no momento da construção; enquanto, na orientação a serviços, a integração pode ocorrer antes ou durante a execução, pois apenas as descrições dos serviços estão disponíveis no momento da execução.
+	\item Nos serviços, o foco é a descoberta, existindo uma ênfase mais forte na separação entre a descrição do serviço e a implementação. Nos componentes, é a composição, onde as partes são integradas diretamente na aplicação.
+	\item Serviços são mais voltados para tarefas dinâmicas, ao contrário dos componentes que são mais voltados para pontos estáticos. Porém, esse comportamento pode ser feito também em componentes.
+	\item A orientação a componentes atribui maior responsabilidade para o ambiente e execução da própria aplicação. Os serviços não são necessariamente dessa forma, pois podem estar presentes em outras máquinas e servidores externos.
+\end{itemize}
+
+A seguir serão apresentadas duas formas conhecidas e já consolidadas de implementações de serviços, os \textit{Web Services} e os \textit{Serviços RESTful}.
+
+\subsubsection{Web Services}
+
+Os serviços são informatizados por tecnologias interoperáveis, que são capazes de se comunicar entre si, e isso independe da plataforma e linguagem de programação utilizadas. Dentre essas tecnologias, os ``\textit{Web Services}'' (serviços web) se destacam. Esses serviços fornecem um modo padronizado de integrar aplicativos web, e assim, organizações podem se comunicar sem que uma tenha conhecimento abrangente dos sistemas da outra \cite{Victorino:Brascher:2009}.
+
+Um ``\textit{Web Service}'' é uma noção abstrata que deve ser implementada por um agente concreto, sendo esse agente um pedaço de software que envia e recebe mensagens. O serviço é o recurso caracterizado pela funcionalidade abstrata que é servida.
+
+O XML hoje é amplamente utilizado quase como o protocolo HTTP, e faz parte da solução para aplicação de ``\textit{Web Services}''. Normalmente, usado para realizar a formatação dos dados \cite{Alonso:Casati:Kuno:Machiraju:2010}.
+
+Simplificando, os ``\textit{Web Services}'' possuem três características e tecnologias principais que são usadas para desenvolvê-los: o XML, que é a especificação sobre a qual estes são construídos; o WSDL, que provê as interfaces fundamentais que serão usadas, e SOAP, que é responsável pela comunicação com outros serviços. Pode-se dizer que um ``\textit{Web Service}'' deve fornecer interfaces de uso simples e se comunicar facilmente com outros serviços \cite{Newcomer:Lomow:2004}.
+
+\subsubsection{Serviços RESTFul}
+
+REST é um estilo arquitetural para sistemas hipermídia distribuídos, reunindo um grupo de critérios que serão incorporados ao projeto de aplicações distribuídas. Os Serviços RESTful são serviços web que seguem os critérios REST \cite{Filho:2009}.
+
+O uso de serviços RESTFul ganhou um grande impulso no desenvolvimento de aplicações distribuídas baseadas em padrões WEB tradicionais. Esses serviços são leves, práticos e fáceis de serem integrados em várias aplicações \cite{Rosenberg:Curbera:Duftler:Khalaf:2008}.
+
+Os serviços da web estão a cada dia buscando soluções mais simples e mais leves para compor suas funcionalidades. Os serviços RESTFul introduzem um novo tipo de abstração que busca oferecer as funcionalidades já existentes dos serviços da \textit{web} comuns. Porém, de uma forma mais leve e simples \cite{Pautasso:2009}.
+
+De acordo com \cite{Filho:2009}, os serviços RESTFul possuem cinco conceitos importantes, que são descritos a seguir:
+
+\begin{itemize}
+	\item \textbf{Recurso:} É uma abstração ou conceito relevante para o domínio tratado. Os recursos podem ser concretos ou abstratos e têm-se grande flexibilidade para definição dos mesmos. Um serviço pode ter mais de um recurso sem afetar a sua qualidade.
+	\item \textbf{Representação:} É a representação de um recurso, apresentando informações sobre o mesmo. Dependendo do serviço e do nível de abstração, são mostradas mais ou menos informações dos recursos. A representação é uma serialização do recurso em uma linguagem específica, as mais usadas são: XML, XHTML e JSON. Um serviço pode mostrar mais de um tipo de serialização de seus recursos, basta que as requisições informem qual o formato desejado que o serviço irá apresentar os dados na serialização correta.
+	\item \textbf{Identificador Uniforme:} Cada recurso deve ter ao menos um identificador para localização do mesmo. Se não existe um identificador uniforme, não se pode considerar que um objeto é um recurso. Pode-se ter ilimitados identificadores para um mesmo recurso.
+	\item \textbf{Interface Unificada:} A interface unificada diz respeito a todos os serviços utilizarem o mesmo protocolo, no caso, o HTTP. Dessa forma, um cliente que conheça esse protocolo pode facilmente utilizar os métodos que são proporcionados por ele para fazer requisições nos serviços disponíveis.
+	\item \textbf{Escopo de Execução:} Neste caso, o serviço RESTFul também se utiliza do protocolo HTTP, porém, diz respeito aos parâmetros que devem ser enviados junto da requisição para que o serviço possa tratar o recurso corretamente. Pode ser, por exemplo, a identificação de um objeto em um conjunto de recursos.
+\end{itemize}
+
+\section{Resumo do Capítulo}
+Este capítulo apresentou o levantamento bibliográfico dos temas relacionados ao desenvolvimento deste trabalho. A seguir são apresentados os temas descritos nesse capítulo.
+
+\begin{itemize}
+	\item Redes Sociais: Este é o tema em que este trabalho é desenvolvido. Como a proposta tem o objetivo de desenvolver um \textit{framework} para redes sociais, é essencial o conhecimento e o entendimento deste tema para a realização do trabalho.
+	\item Teoria dos Grafos: O desenvolvimento de redes sociais têm como base o uso de grafos e, sendo assim, este é também um tema de suma importância para este trabalho.
+	\item Reutilização de Software: Este tópico representa um importante objetivo que se pretende alcançar ao final deste trabalho. A reutilização de software é apresentada no uso de \textit{frameworks}, padrões de projeto e serviços, todos estes deverão ser usados na implementação do \textit{framework} proposto.
+\end{itemize}
+
+Mais detalhes de alguns tópicos apresentados neste capítulo podem ser encontrados na parte de apêndices deste documento.
+
+O próximo capítulo apresentará o suporte tecnológico com todas as principais ferramentas que serão usadas no decorrer da escrita e implementação deste trabalho.
