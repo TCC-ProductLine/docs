@@ -70,6 +70,34 @@ Um grafo é conectado se, para cada partição de seus vértices definido em doi
 
 O grau de um vértice \textit{v} em um grafo \textit{G}, designado por \textit{d$_G$}(\textit{v}), é o número de arestas de \textit{G} que incidem em \textit{v}; para cada \textit{loop} é contado duas arestas. Em particular, se \textit{G} é um grafo simples, \textit{d$_G$}(\textit{v}) é o número de vizinhos de \textit{v} em \textit{G}. Um vértice de grau zero é chamado um vértice isolado. Denominamos por $\delta$(\textit{G}) e $\Delta$(\textit{G}) mínimo e máximo graus dos vértices de \textit{G}, e por \textit{d}(\textit{G}), o seu grau médio, $\frac{1}{n}\sum_{\textit{v}\in\textit{V}} \textit{d}(\textit{v})$ \cite{Diestel:1997}.
 
+\chapter{Algoritmos}
+
+\section{Complexidade de algoritmos}
+\label{sec:complexidade_algoritmos}
+
+Quando existem vários algoritmos que podem solucionar um problema, qual se deve escolher? Uma opção pode ser os algoritmos que possuem um fácil entendimento e depuração, porém dependendo do tipo de aplicação em que o algoritmo irá rodar, utilizar algoritmos que fazem um uso eficiente dos recursos do computador é essencial.
+
+Para determinar qual algoritmo é mais eficiente que outro em determinado quesito, deve-se utilizar o cálculo de suas complexidades (custo). Este custo pode ser referente ao tempo de sua execução ou ao seu consumo de memória \cite{Albuquerque:2004}.
+
+Para o cálculo de complexidade, pode-se medir o número de passos de execução em um modelo matemático denominado maquina de Turing, ou medir o número de segundos gastos em um computador específico. A medida de complexidade é o crescimento assintótico dessa contagem de operações \cite{Junior:2014}.
+
+A objetivo de se fazer a análise de complexidade de um algoritmo é obter estimativas de tempos de execução do algoritmo \cite{Junior:2014}.
+
+\subsection{Big O}
+
+Uma das preocupações com a eficiência é com problemas que envolvem um grande número de elementos. Se existir uma tabela com apenas dez elementos, mesmo o algoritmo considerado menos eficiente resolvem o problema, no entanto, à medida que o número de elementos aumenta, o esforço necessário começa a fazer diferença de algoritmo para algoritmo. A notação \textit{Big O} faz uma estimativa de uma função de como o algoritmo se comporta com um número de elementos fixo ou tendendo ao infinito \cite{Junior:2014}. Pode-se observar na Figura \ref{grafico_complexidade} as principais funções que são utilizadas nesta notação.
+
+Por exemplo, é mais importante saber que o número de operações executadas num algoritmo dobra se dobrarmos o valor de n, do que saber que para n igual a 100 são executadas 300 operações \cite{Junior:2014}.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{figuras/apendices/grafico_complexidade.eps}
+	\caption[Complexidade Big O]{Complexidade Big O}
+	\label{grafico_complexidade}
+\end{figure}
+
+Os resultados expressos em notação \textit{Big O} devem ser interpretados com cuidado, pois indicam apenas que o tempo de execução do programa é proporcional a um determinado valor ou que nunca supera determinado valor. Na realidade o tempo de execução pode ser inferior ao valor indicado e pode ser que o pior caso nunca ocorra \cite{Junior:2014}.
+
 \section{Busca em Grafos}
 
 A busca em grafos refere-se ao método de explorar o grafo, ou seja, obter um método sistemático para percorrer seus vértices e arestas. Para isto, há dois principais algoritmos, busca em profundidade (\textit{DFS - Depth First Search}) e busca em largura (\textit{BFS - Breadth First Search}). Em ambos os casos parte-se de um vértice qualquer.
@@ -90,6 +118,8 @@ Considere as Figuras a seguir para a exemplificação do DFS.
 
 A busca irá partir do vértice arbitrário \textit{v}, chamado de vértice raiz. A partir do vértice raiz é possível percorrer três arestas: (\textit{v}, \textit{a}), (\textit{v}, \textit{b}) e (\textit{v}, \textit{c}). A aresta a ser seguida será (\textit{v}, \textit{a}).
 
+\newpage
+
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.25]{figuras/capitulo2/dfs/dfs2.eps}
@@ -107,8 +137,6 @@ O vértice \textit{a} possui três arestas, que são: (\textit{a}, \textit{v}), 
 \end{figure}
 
 A partir de \textit{b}, é possível escolher as seguintes arestas: (\textit{b}, \textit{v}), (\textit{b}, \textit{a}) e (\textit{b}, \textit{c}). Porém como os vértices \textit{v} e \textit{a} já foram visitados, a opção restante será a aresta (\textit{b}, \textit{c}).
-
-\newpage
 
 \begin{figure}[!h]
 	\centering
@@ -157,7 +185,6 @@ A Figura \ref{bfs} exemplifica o algoritmo da busca \textit{BFS}, onde as letras
 	\caption[Percurso do BFS]{Percurso do BFS \cite{Brassard:1988}}
 	\label{bfs}
 \end{figure}
-
 
 \chapter{Reutilização de Software}
 \label{chapter:reutilizacao_software}
