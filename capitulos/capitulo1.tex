@@ -1,7 +1,7 @@
 \chapter{Referencial Teórico}
 \label{chapter:Referencial_Teorico}
 
-Neste capítulo, serão abordados os tópicos considerados mais relevantes para atingir o embasamento teórico necessário para a realização deste trabalho.
+Neste capítulo, serão abordados os tópicos teóricos associados às Redes Sociais, aos Grafos e à Reutilização de Software. Esses tópicos conferiram o embasamento teórico para realização deste trabalho.
 
 \section{Redes Sociais}
 
@@ -42,10 +42,10 @@ A análise de redes sociais tem como fundamento a teoria dos grafos. A seguir se
 
 O primeiro livro sobre a teoria dos grafos foi publicado por König (1936). Isso levou ao desenvolvimento de uma forte escola de teóricos em grafos na Hungria que incluíram P. Erdős e T. Gallai. Também na década de trinta, H. Whitney publicou uma série de artigos influentes \cite{Bondy:2007}.
 
-De acordo com Ore \cite{Ore:1963}, Leonhard Euler\footnote{Grande matemático e físico suíço, 1707-1783, fez importantes descobertas em campos variados como Cálculo e Grafos.} teria sido um dos matemáticos mais importantes quando se refere a teoria dos grafos. Contam que o povo da cidade de Königsberg \footnote{Atualmente Caliningrado.}, localizado na Prússia e cortada pelo Rio Pregel, com sete pontes ligando duas ilhas e as margens opostas do rio, como pode ser visto na Figura \ref{Konigsberg}, propôs ao então famoso matemático Leonard Euler o seguinte problema:
+De acordo com Ore \cite{Ore:1963}, Leonhard Euler\footnote{Grande matemático e físico suíço, 1707-1783, fez importantes descobertas em campos variados como Cálculo e Grafos.} teria sido um dos matemáticos mais importantes quando se refere a teoria dos grafos. Contam que o povo da cidade de Königsberg \footnote{Atualmente Caliningrado.}, localizado na Prússia e cortada pelo Rio Pregel, com sete pontes ligando duas ilhas e as margens opostas do rio, como pode ser visto na Figura \ref{Konigsberg}, propôs, ao então famoso matemático Leonard Euler, o seguinte problema:
 
 	``Será possível fazer um passeio pela cidade, começando e
-	terminando no mesmo lugar, cruzando cada ponte exatamente uma vez?''
+	terminando no mesmo lugar, cruzando cada ponte exatamente uma vez?''\cite{Ore:1963}
 
 \begin{figure}[!h]
 	\centering
@@ -66,7 +66,7 @@ Não se tem conhecimento sobre o Euler ter resolvido esse problema usando a repr
 
 Analisando, então, este problema, Euler resolveu a questão provando que uma caminhada assim é possível se, e somente se, o grafo for conexo e todos os seus vértices tiverem grau par, termos estes que serão tratados mais à frente \cite{Malta:2008}.
 
-Assim, Euler mostrou que, uma vez que o grafo de Königsberg tem vértices de grau ímpar, a resposta ao problema era que tal caminhada era impossível. Desde então, todo grafo conexo, cujos vértices possuem grau par, é chamado de grafo euleriano, e um caminho fechado em um grafo que passe por cada aresta deste exatamente uma vez é chamado de circuito (ou ciclo) euleriano \cite{Malta:2008}.
+Assim, Euler mostrou que, uma vez que o grafo de Königsberg tem vértices de grau ímpar, a resposta ao problema era que tal caminhada era impossível. Desde então, todo grafo conexo, cujos vértices possuem grau par, é chamado de grafo euleriano, e um caminho fechado em um grafo que passe por cada aresta deste exatamente uma vez, é chamado de circuito (ou ciclo) euleriano \cite{Malta:2008}.
 
 \subsection{Definições}
 
@@ -81,7 +81,7 @@ Grafos são assim chamados porque eles podem ser representados graficamente, e �
 	\label{exemplo_grafo}
 \end{figure}
 
-A maioria das definições e conceitos na teoria dos grafos são sugeridas por esta representação gráfica. As extremidades de uma aresta são referidas como sendo incidentes com a aresta, e vice-versa. Dois vértices que são incidentes com uma aresta em comum são chamados de adjacentes, e dois vértices adjacentes distintos são chamados de vizinhos \cite{Costa:2011}.
+A maioria das definições e dos conceitos na teoria dos grafos são sugeridos por esta representação gráfica. As extremidades de uma aresta são referidas como sendo incidentes com a aresta, e vice-versa. Dois vértices que são incidentes com uma aresta em comum são chamados de adjacentes, e dois vértices adjacentes distintos são chamados de vizinhos \cite{Costa:2011}.
 
 \subsection{Representação de Grafos}
 
@@ -98,7 +98,7 @@ A matriz de adjacência de \textit{G} é a matriz $A_G := (a_{uv})$, com dimens�
 	\label{matriz}
 \end{figure}
 
-Como a maioria dos grafos possui um número bem maior de arestas do que os vértices, a matriz de adjacência de um grafo geralmente é menor do que a sua matriz de incidência e, assim, necessita de menos espaço de armazenamento. Ao lidar com grafos, é possível utilizar uma represetação otimizada. Para cada vértice \textit{v}, os vizinhos de \textit{v} são armazenados em uma lista. A lista (\textit{N}(\textit{v}): \textit{v $\in$ V}) é chamada de lista de adjacência do grafo, onde \textit{N}(\textit{v}) representa os vizinhos do vértice \textit{v}. Um exemplo pode ser observado na Figura \ref{lista_adjacencia}. A quantidade de memória necessária para uma lista de adjacências é $\Theta(|\textit{V}| + |\textit{E}|)$. Grafos são normalmente armazenados em computadores como listas de adjacência, porém em casos em que o grafo possua muitos vértices e poucas arestas a representação em matriz de incidência é eficiente, o mesmo acontece para a representação em matriz de adjacência quando o grafo possui poucos vértices e muitas arestas \cite{Costa:2011}.
+Como a maioria dos grafos possui um número bem maior de arestas do que os vértices, a matriz de adjacência de um grafo geralmente é menor do que a sua matriz de incidência e, assim, necessita de menos espaço de armazenamento. Ao lidar com grafos, é possível utilizar uma represetação otimizada. Para cada vértice \textit{v}, os vizinhos de \textit{v} são armazenados em uma lista. A lista (\textit{N}(\textit{v}): \textit{v $\in$ V}) é chamada de lista de adjacência do grafo, onde \textit{N}(\textit{v}) representa os vizinhos do vértice \textit{v}. Um exemplo pode ser observado na Figura \ref{lista_adjacencia}. A quantidade de memória necessária para uma lista de adjacências é $\Theta(|\textit{V}| + |\textit{E}|)$. Grafos são, normalmente, armazenados em computadores como listas de adjacência. Entretanto, em casos em que o grafo possua muitos vértices e poucas arestas, a representação em matriz de incidência é eficiente. O mesmo acontece para a representação em matriz de de adjacência, quando o grafo possui poucos vértices e muitas arestas \cite{Costa:2011}.
 
 \begin{figure}[!h]
 	\centering
@@ -106,6 +106,8 @@ Como a maioria dos grafos possui um número bem maior de arestas do que os vért
 	\caption[Representação em lista de adjacência]{Representação em lista de adjacência \cite{Costa:2011}}
 	\label{lista_adjacencia}
 \end{figure}
+
+Além dos conceitos de grafos apresentados, este trabalho propõe-se também a trabalhar bastante com conceitos de \nameref{sec:reutilizacao_software}, a seguir serão apresentados alguns, dos principais contextos desse tema.
 
 \section{Reutilização de Software}
 \label{sec:reutilizacao_software}
@@ -123,48 +125,48 @@ Os próximos subtópicos irão apresentar temas deste trabalho que estão direta
 Fayad e Schimidt, em seu artigo \cite{Fayad:Schimidt:1997} sobre \textit{frameworks} de aplicações orientadas a objetos, mostram quais são os principais benefícios no uso de \textit{frameworks}, dentre eles: modularização, reutilização, extensibilidade e inversão de controle.
 
 \begin{itemize}
-	\item \textbf{Modularização:} \textit{Frameworks} encapsulam e interfaceiam alguns detalhes de implementação. Isso reduz o esforço necessário para entender e manter partes do software existente, pois basta ao desenvolvedor usar o que lhe é oferecido sem necessariamente entender qual a implementação do \textit{framework}.
+	\item \textbf{modularização:} \textit{Frameworks} encapsulam e interfaceiam alguns detalhes de implementação. Isso reduz o esforço necessário para entender e manter partes do software existente, pois basta ao desenvolvedor usar o que lhe é oferecido sem necessariamente entender qual a implementação do \textit{framework};
 
-	\item \textbf{Reutilização:} As interfaces providas por \textit{frameworks} ajudam também na reutilização através da definição de componentes genéricos, que podem ser aplicadas em outras aplicações. Assim sendo, soluções comuns para sistemas diferentes podem ser usadas da mesma forma sem a necessidade de recriação das mesmas. Entende-se então, que estas soluções são pensadas uma única vez, e ao estarem presentes em um \textit{framework}, basta que sejam usadas.
+	\item \textbf{reutilização:} As interfaces providas por \textit{frameworks} ajudam também na reutilização através da definição de componentes genéricos, que podem ser aplicados em outras aplicações. Assim sendo, soluções comuns para sistemas diferentes podem ser usadas da mesma forma sem a necessidade de recriação das mesmas. Entende-se então, que estas soluções são pensadas uma única vez, e ao estarem presentes em um \textit{framework}, basta que sejam usadas;
 
-	\item \textbf{Extensibilidade:} Este é um dos principais pontos positivos dos \textit{frameworks}, pois estes fornecem métodos e interfaces estáveis que outras aplicações irão utilizar. Recomenda-se que essas aplicações façam uso desses métodos, visando resolver problemas parecidos em diferentes contextos. Uma boa estrutura de extensibilidade é essencial para garantir a customização de novos serviços e funcionalidades das aplicações.
+	\item \textbf{extensibilidade:} Este é um dos principais pontos positivos dos \textit{frameworks}, pois estes fornecem métodos e interfaces estáveis que outras aplicações irão utilizar. Recomenda-se que essas aplicações façam uso desses métodos, visando resolver problemas parecidos em diferentes contextos. Uma boa estrutura de extensibilidade é essencial para garantir a customização de novos serviços e funcionalidades das aplicações, e;
 
-	\item \textbf{Inversão de controle:} A inversão de controle ocorre devido a forma como serão processados e entendidos muitos dos eventos de uma aplicação, que ficam invisíveis ao desenvolvedor quando este usa um \textit{framework}, pois é o próprio \textit{framework} quem decide o conjunto de métodos que será invocado para realizar uma determinada tarefa da aplicação.
+	\item \textbf{inversão de controle:} A inversão de controle ocorre devido a forma como serão processados e entendidos muitos dos eventos de uma aplicação, que ficam invisíveis ao desenvolvedor quando este usa um \textit{framework}, pois é o próprio \textit{framework} quem decide o conjunto de métodos que será invocado para realizar uma determinada tarefa da aplicação.
 \end{itemize}
 
 \subsubsection{Frameworks e Reutilização de Software}
 
-A tecnologia de reutilização ideal provê componentes que podem facilmente ser conectados para criar um novo sistema. Não é necessário ao desenvolvedor ter conhecimento de como o componente é implementado, e geralmente é fácil para ele aprender como o utilizar. O resultado é que o sistema será eficiente, fácil de manter e confiável \cite{Johnson:1997}.
+A tecnologia de reutilização ideal provê componentes que podem facilmente ser conectados para criar um novo sistema. Não é necessário ao ao desenvolvedor - cliente do framework - ter conhecimento de como o componente é implementado, e geralmente é fácil para ele aprender como o utilizar. O resultado é que que o sistema tende a ser eficiente, fácil de manter e confiável \cite{Johnson:1997}.
 
-\textit{Frameworks} são aplicações especializadas em prover classes e componentes abstratos que podem ser usados por outros sistemas. Estes proveem técnicas de reutilização robustas e de maior granularidade. Sendo aplicações independentes é mais fácil usá-los em um maior número de sistemas \cite{Johnson:Foote:1988}.
+\textit{Frameworks} são aplicações especializadas em prover classes e componentes abstratos que podem ser usados por outros sistemas. Estes proveem técnicas de reutilização robustas e de maior granularidade. Sendo aplicações independentes, é mais fácil usá-los em um maior número de sistemas \cite{Johnson:Foote:1988}.
 
-Para se alcançar a aplicação efetiva de um dado \textit{framework}, é necessário ao desenvolvedor conhecer as interfaces que o \textit{framework} proporciona antes de poder usá-las. Como podem existir diversas interfaces complexas, aprender a usar um novo \textit{framework} pode ser difícil. Porém, os \textit{frameworks} são poderosos e o tempo gasto em sua aprendizagem é recompensado, pois podem reduzir a quantidade de esforço aplicado para se desenvolver uma nova aplicação que os use \cite{Johnson:1997}.
+Para se alcançar a aplicação efetiva de um dado \textit{framework}, é necessário ao desenvolvedor conhecer as interfaces que o \textit{framework} proporciona antes de poder usá-las. Como podem existir diversas interfaces complexas, aprender a usar um novo \textit{framework} pode ser difícil. Porém, os \textit{frameworks} são poderosos e o tempo gasto em sua aprendizagem tende a ser recompensado, pois podem reduzir a quantidade de esforço aplicado para se desenvolver uma nova aplicação que os use \cite{Johnson:1997}.
 
-Ao longo do tempo, tornou-se muito caro desenvolver aplicações complexas a partir do zero. Isso porque todos os componentes que são desenvolvidos devem passar por um criterioso processo de validação e manutenção, e isso ocorre sempre que um novo sistema é desenvolvido. Ao se usar \textit{frameworks}, pode-se desenvolver componentes comuns e os processos citados são feitos em um único local \cite{Fayad:Schimidt:1997}.
+Ao longo do tempo, tornou-se muito caro desenvolver aplicações complexas a partir do zero. Isso ocorre, pois os componentes que são desenvolvidos devem passar por um criterioso processo de validação e manutenção, e isso procede sempre que um novo sistema é desenvolvido. Ao se usar \textit{frameworks}, pode-se desenvolver componentes comuns e os processos citados são feitos em um único local \cite{Fayad:Schimidt:1997}.
 
-As técnicas de reutilização são diferentes de acordo como o tipo do \textit{framework} utilizado, esses tipos podem ser ``\textit{white box}'' ou ``\textit{black box}''. O primeiro diz respeito a quando o código do \textit{framework} é aberto e visível ao desenvolvedor, dessa forma, este pode estudar a implementação do \textit{framework} e modificar o código de determinadas partes de acordo com suas necessidades. Os \textit{frameworks} do tipo ``\textit{black box}'' disponibilizam apenas interfaces ao desenvolvedor para que este possa usá-las. A forma como tudo é implementado e processado é desconhecida. No primeiro tipo, têm-se uma maior flexibilidade, porém, o uso é mais complexo ao desenvolvedor. No segundo, o uso é bem simples, porém, não existe flexibilidade para mudança da implementação \cite{Kroth:2000}.
+As técnicas de reutilização são diferentes de acordo como o tipo do \textit{framework} utilizados. Esses tipos podem ser ``\textit{white box}'' ou ``\textit{black box}''. O primeiro diz respeito a quando o código do \textit{framework} é aberto e visível ao desenvolvedor, dessa forma, este pode estudar a implementação do \textit{framework} e modificar o código de determinadas partes de acordo com suas necessidades. Os \textit{frameworks} do tipo ``\textit{black box}'' disponibilizam apenas interfaces ao desenvolvedor para que este possa usá-las. A forma como tudo é implementado e processado é desconhecida. No primeiro tipo, têm-se uma maior flexibilidade, porém, o uso é mais complexo ao desenvolvedor. No segundo, o uso é bem simples, porém, não existe flexibilidade para mudança da implementação \cite{Kroth:2000}.
 
-Existe também uma metodologia no desenvolvimento de \textit{frameworks} que une as técnicas ``\textit{white box}'' e ``\textit{black box}'', assim, uma parte do \textit{framework} é fechada e o desenvolvedor não pode alterar o código, apenas usar as funções disponíveis; a outra parte é aberta ao desenvolvedor para realizar alterações no código. Essa abordagem é conhecida como \textit{frameworks} do tipo ``\textit{gray box}'' ou ``caixa cinza'' \cite{Kristensen:2004}.
+Existe também uma metodologia no desenvolvimento de \textit{frameworks} que une as técnicas ``\textit{white box}'' e ``\textit{black box}'', assim, uma parte do \textit{framework} é fechada e o desenvolvedor não pode alterar o código, apenas usar as funções disponíveis; outra parte é aberta ao desenvolvedor para realizar alterações no código. Essa abordagem é conhecida como \textit{frameworks} do tipo ``\textit{gray box}'' ou ``caixa cinza'' \cite{Kristensen:2004}.
 
-Além dos tipos de \textit{frameworks}, estes também podem ser divididos quanto a sua aplicabilidade. Podem ser desenvolvidos para serem aplicados em qualquer domínio, de forma genérica sem se preocupar com algo específico, \textit{frameworks horizontais}, ou podem ser desenvolvidos visando atender um tipo específico de domínio de problemas, \textit{frameworks verticais}. Essas características dependem das necessidades apresentadas ao se trabalhar com \textit{frameworks}, e isso impacta como será aplicada a reutilização \cite{Kroth:2000}.
+Além dos tipos de \textit{frameworks}, estes também podem ser divididos quanto a sua aplicabilidade. Podem ser desenvolvidos para serem aplicados em qualquer domínio, de forma genérica sem se preocupar com algo específico, \textit{frameworks horizontais}; ou podem ser desenvolvidos visando atender um tipo específico de domínio de problemas, \textit{frameworks verticais}. Essas características dependem das necessidades apresentadas ao se trabalhar com \textit{frameworks}, e isso impacta como será aplicada a reutilização \cite{Kroth:2000}.
 
-Na Engenharia de Software, busca-se cada vez mais o aumento da produtividade e da qualidade dos sistemas desenvolvidos. A reutilização de software, ao contrário de todas as outras partes de um sistema, é um fator que pode acarretar o aumento desses fatores, considerando que ao se utilizar componentes já desenvolvidos e depurados pode-se reduzir o tempo de desenvolvimento, de testes e as chances de ocorrência de erros que poderiam advir se fosse necessária a criação destes novos artefatos \cite{Silva:2000}.
+Na Engenharia de Software, busca-se cada vez mais o aumento da produtividade e da qualidade dos sistemas desenvolvidos. A reutilização de software, ao contrário de todas as demais partes de um sistema, é um fator que pode acarretar o aumento desses fatores, considerando que, ao se utilizar componentes já desenvolvidos e depurados, pode-se reduzir o tempo de desenvolvimento, de testes e as chances de ocorrência de erros que poderiam advir se fosse necessária a criação destes novos artefatos \cite{Silva:2000}.
 
 Na qualidade, a reutilização advinda dos \textit{frameworks} pode trazer ganhos de desempenho, confiabilidade e interoperabilidade de software \cite{Fayad:Schimidt:1997}.
 
 \subsubsection{Frameworks e Padrões}
 
-Padrões representam soluções recorrentes para problemas no desenvolvimento de software em um contexto específico. Tanto os padrões como os \textit{frameworks} são técnicas de reutilização. A grande diferença é que os \textit{frameworks} 	se concentram na reutilização de estruturas, algoritmos e implementações em uma dada linguagem de programação. Já os padrões focam em apresentar desenhos abstratos de como resolver problemas; como microarquiteturas de software \cite{Fayad:Schimidt:1997}.
+Padrões representam soluções recorrentes para problemas no desenvolvimento de software em um contexto específico. Tanto os padrões como os \textit{frameworks} são técnicas de reutilização. A grande diferença é que os \textit{frameworks} concentram-se na reutilização de estruturas, algoritmos e implementações em uma dada linguagem de programação. Já os padrões focam em apresentar desenhos abstratos de como resolver problemas; como microarquiteturas de software \cite{Fayad:Schimidt:1997}.
 
-Um padrão descreve um problema a ser resolvido e apresenta uma solução e o contexto em que essa solução funciona, nomeia uma técnica e descreve seus custos e benefícios \cite{Johnson:1997}.
+Um padrão descreve um problema a ser resolvido, apresenta uma solução e o contexto em que essa solução funciona, nomeia uma técnica, e descreve seus custos e benefícios \cite{Johnson:1997}.
 
-Quando um \textit{framework} é implementado diversas vezes, este também pode ser considerado um padrão \cite{Johnson:1997}. O MVC (\textit{Model / View / Controller}) é um \textit{framework} conceitual de interface com usuário que é considerado um padrão \cite{Almeida:2006}.
+Quando um \textit{framework} é implementado diversas vezes, este também pode ser considerado um padrão \cite{Johnson:1997}. O MVC (\textit{Model / View / Controller}) é um \textit{framework} conceitual de interface com usuário que é considerado um padrão arquitetural\cite{Almeida:2006}.
 
 Segundo \cite{Fayad:Schimidt:1997}, quando usados em conjunto com padrões, os \textit{frameworks} podem aumentar significativamente a qualidade do software e reduzir o esforço de desenvolvimento.
 
 \subsection{Padrões de Projeto}
 
-Os padrões de Projeto são parte da vanguarda da tecnologia orientada a objetos, e este tema tem estado em constante crescimento no decorrer dos tempos. A proposição por trás dos padrões é que a qualidade do software pode ser medida objetivamente. Tal fato considera que ao se analisar o \textit{design} de um padrão, este pode ser considerado bom ou ruim, e assim resultando em uma boa ou má qualidade \cite{Shalloway:Trott:2004}.
+Os padrões de Projeto são parte da vanguarda da tecnologia orientada a objetos, e este tema tem estado em constante crescimento no decorrer dos tempos\cite{Shalloway:Trott:2004}. A proposição por trás dos padrões é que a qualidade do software pode ser medida objetivamente. Tal fato considera que, ao se analisar, o \textit{design} de um padrão, este pode ser considerado bom ou ruim, e assim resultando em uma qualidade adequada ou inadequada\cite{Shalloway:Trott:2004}.
 
 Alexander, em seu livro \cite{Alexander:1979} sobre padrões de construção, diz:
 
@@ -174,13 +176,13 @@ ambiente e o cerne da sua solução, de tal forma que você possa usar essa solu
 de um milhão de vezes, sem nunca fazê-lo da mesma maneira''
 \end{quote}
 
-No livro de padrões de projeto \cite{Gamma:1995}, os autores concordam com as afirmações de Alexander. A diferença principal é que no âmbito de software os padrões são expressos em termos de objetos e interfaces ao invés de paredes e portas. Porém, ambos os tipos os padrões dizem respeito a uma solução para um problema em um contexto geral. Os autores consideram ainda que um padrão é dividido em quatro partes principais, que são:
+No livro de padrões de projeto \cite{Gamma:1995}, os autores concordam com as afirmações de Alexander. A diferença principal é que, no âmbito de software, os padrões são expressos em termos de objetos e interfaces ao invés de paredes e portas. Porém, ambos os tipos de padrões dizem respeito à solução para um problema em um contexto geral. Os autores consideram ainda que um padrão é dividido em quatro partes principais, que são:
 
 \begin{itemize}
-	\item \textbf{Nome:} Usado para descrever um problema de projeto, suas soluções e consequências em uma ou duas palavras. Quando um padrão possui um nome fica mais fácil de definir um vocabulário comum para tratar deste com outras pessoas.
-	\item \textbf{Problema:} O problema está ligado diretamente à situação em que deve ser aplicado o padrão, ou seja, qual o contexto. Algumas vezes o problema pode conter uma lista de condições que devem ser satisfeitas para que se possa alcançar sentido na aplicação do padrão.
-	\item \textbf{Solução:} Esta descreve todos os elementos que compõem o padrão, seus relacionamentos, responsabilidades e colaborações. É fornecida uma descrição abstrata de um problema de projeto e o arranjo geral de classes e objetos que resolvam o padrão. Não há uma solução ou implementação concreta, pois padrões são desenhados para serem usados em diferentes situações.
-	\item \textbf{Consequências:} As consequências apresentam uma série de resultados concernentes da aplicação do padrão, normalmente apresentando vantagens e desvantagens. São elementos críticos que entram na decisão da aplicação ou não do padrão que está em questão.
+	\item \textbf{nome:} Usado para descrever um problema de projeto, suas soluções e consequências em uma ou duas palavras. Quando um padrão possui um nome fica mais fácil de definir um vocabulário comum para tratar deste com outras pessoas;
+	\item \textbf{problema:} O problema está ligado diretamente à situação em que deve ser aplicado o padrão, ou seja, qual o contexto. Algumas vezes o problema pode conter uma lista de condições que devem ser satisfeitas para que se possa alcançar sentido na aplicação do padrão;
+	\item \textbf{solução:} Esta descreve todos os elementos que compõem o padrão, seus relacionamentos, responsabilidades e colaborações. É fornecida uma descrição abstrata de um problema de projeto e o arranjo geral de classes e objetos que resolvam o padrão. Não há uma solução ou implementação concreta, pois padrões são desenhados para serem usados em diferentes situações, e;
+	\item \textbf{consequências:} As consequências apresentam uma série de resultados concernentes da aplicação do padrão, normalmente apresentando vantagens e desvantagens. São elementos críticos que entram na decisão da aplicação ou não do padrão que está em questão.
 \end{itemize}
 
 \subsubsection{Por que usar Padrões de Projeto?}
@@ -188,9 +190,9 @@ No livro de padrões de projeto \cite{Gamma:1995}, os autores concordam com as a
 Os três pontos que justificam de forma adequada o uso de padrões de projeto são brevemente descritos a seguir, de acordo com \cite{Shalloway:Trott:2004}:
 
 \begin{itemize}
-	\item \textbf{Soluções Reutilizáveis:} O tempo gasto para aprender a utilizar determinado padrão é compensado pela reutilização que é oferecida. Têm-se o benefício de aplicar o que foi aprendido para diversos projetos. Depois de ter o conhecimento fixado, não é necessário reinventar soluções para problemas recorrentes, basta reutilizar o que os padrões oferecem.
-	\item \textbf{Terminologia Comum:} Quando se está em um grupo de trabalho, são necessários uma base de vocabulário e pontos de visão do problema comuns. Os padrões de projeto providenciam um ponto comum de referência durante as fases de análise e \textit{design} de um projeto.
-	\item \textbf{Perspectiva de alto nível do problema:} Os padrões dão aos desenvolvedores essa perspectiva e ajudam na análise e entendimento dos problemas, facilitando a elaboração de uma solução mais adequada.
+	\item \textbf{soluções reutilizáveis:} O tempo gasto para aprender a utilizar determinado padrão é compensado pela reutilização que é oferecida. Têm-se o benefício de aplicar o que foi aprendido para diversos projetos. Depois de ter o conhecimento fixado, não é necessário reinventar soluções para problemas recorrentes, basta reutilizar o que os padrões oferecem;
+	\item \textbf{terminologia comum:} Quando se está em um grupo de trabalho, são necessários uma base de vocabulário e pontos de visão do problema comuns. Os padrões de projeto providenciam um ponto comum de referência durante as fases de análise e \textit{design} de um projeto, e;
+	\item \textbf{perspectiva de alto nível do problema:} Os padrões dão aos desenvolvedores essa perspectiva, e ajudam na análise e entendimento dos problemas, facilitando a elaboração de uma solução mais adequada.
 \end{itemize}
 
 Os padrões ainda podem ajudar na refatoração de projetos. Uma das grandes dificuldades no desenvolvimento de software é que este tem de ser frequentemente reorganizado ou refatorado. Os padrões de projeto, ao oferecerem soluções comuns e já consolidadas, podem reduzir a quantidade de refatoração que deverá ser feita mais tarde \cite{Gamma:1995}.
@@ -201,64 +203,17 @@ Em \cite{Gamma:1995}, foram definidos e classificados 23 padrões. Essa classifi
 
 O segundo critério especifica se o padrão é de classe ou objeto. Os padrões de classe lidam com relacionamentos entre classes e suas subclasses, para isso são utilizados relacionamentos de herança. E os padrões de objetos são mais dinâmicos, pois lidam com relacionamentos entre objetos que podem ser mudados em tempo de execução.
 
-O apêndice ~\nameref{sec:padrao_abstract_factory} apresenta a estrutura de um dos principais padrões conhecidos.
-
-\subsection{Serviços}
-
-De uma maneira geral, serviços são atividades providas e realizadas por uma máquina ou um humano. No desenvolvimento de software, serviços são considerados um bloco de construção reutilizável que oferece uma funcionalidade particular. A noção de reusabilidade apresentada lembra a reutilização antes comentada no conceito de componentes. De fato, essas duas abordagens estão próximas, pois representam uma ideia de desenvolvimento comum, onde blocos de software são construídos para serem usados por atores diferentes e em outros locais \cite{Stojanovic:Dahanayake:2005}.
-
-Com o advento dos serviços, surgiu um novo termo, a ``Orientação a serviços''. Que ocorre quando alguns processos são modelados e construídos como unidades bem definidas e formam serviços. Esses são encapsulados em componentes de software para serem usados por outras aplicações, conferindo a ideia de um sistema provedor (o sistema que provê o serviço) e um sistema consumidor (que consome os serviços prestados) \cite{Victorino:Brascher:2009}.
-
-Se todas as aplicações usassem a mesma interface de programação e o mesmo protocolo de interoperabilidade, todo trabalho de software seria mais simples. Essa é a premissa que trouxe o desenvolvimento orientado a serviços para o mundo da tecnologia da informação. Quando se desenvolve dessa forma, os serviços tornam-se a base para a criação de novas estratégias de solução \cite{Newcomer:Lomow:2004}.
-
-Apesar das abordagens de orientação a serviços e orientação a componentes serem bem similares, no livro \cite{Stojanovic:Dahanayake:2005}, são apresentadas algumas diferenças entre as mesmas, que são:
-
-\begin{itemize}
-	\item O tempo de integração. Na orientação baseada em componentes, a integração com a aplicação desenvolvida ocorre no momento da construção; enquanto, na orientação a serviços, a integração pode ocorrer antes ou durante a execução, pois apenas as descrições dos serviços estão disponíveis no momento da execução.
-	\item Nos serviços, o foco é a descoberta, existindo uma ênfase mais forte na separação entre a descrição do serviço e a implementação. Nos componentes, é a composição, onde as partes são integradas diretamente na aplicação.
-	\item Serviços são mais voltados para tarefas dinâmicas, ao contrário dos componentes que são mais voltados para pontos estáticos. Porém, esse comportamento pode ser feito também em componentes.
-	\item A orientação a componentes atribui maior responsabilidade para o ambiente e execução da própria aplicação. Os serviços não são necessariamente dessa forma, pois podem estar presentes em outras máquinas e servidores externos.
-\end{itemize}
-
-A seguir serão apresentadas duas formas conhecidas e já consolidadas de implementações de serviços, os \textit{Web Services} e os \textit{Serviços RESTful}.
-
-\subsubsection{Web Services}
-
-Os serviços são informatizados por tecnologias interoperáveis, que são capazes de se comunicar entre si, e isso independe da plataforma e linguagem de programação utilizadas. Dentre essas tecnologias, os ``\textit{Web Services}'' (serviços web) se destacam. Esses serviços fornecem um modo padronizado de integrar aplicativos web, e assim, organizações podem se comunicar sem que uma tenha conhecimento abrangente dos sistemas da outra \cite{Victorino:Brascher:2009}.
-
-Um ``\textit{Web Service}'' é uma noção abstrata que deve ser implementada por um agente concreto, sendo esse agente um pedaço de software que envia e recebe mensagens. O serviço é o recurso caracterizado pela funcionalidade abstrata que é servida.
-
-O XML hoje é amplamente utilizado quase como o protocolo HTTP, e faz parte da solução para aplicação de ``\textit{Web Services}''. Normalmente, usado para realizar a formatação dos dados \cite{Alonso:Casati:Kuno:Machiraju:2010}.
-
-Simplificando, os ``\textit{Web Services}'' possuem três características e tecnologias principais que são usadas para desenvolvê-los: o XML, que é a especificação sobre a qual estes são construídos; o WSDL, que provê as interfaces fundamentais que serão usadas, e SOAP, que é responsável pela comunicação com outros serviços. Pode-se dizer que um ``\textit{Web Service}'' deve fornecer interfaces de uso simples e se comunicar facilmente com outros serviços \cite{Newcomer:Lomow:2004}.
-
-\subsubsection{Serviços RESTFul}
-
-REST é um estilo arquitetural para sistemas hipermídia distribuídos, reunindo um grupo de critérios que serão incorporados ao projeto de aplicações distribuídas. Os Serviços RESTful são serviços web que seguem os critérios REST \cite{Filho:2009}.
-
-O uso de serviços RESTFul ganhou um grande impulso no desenvolvimento de aplicações distribuídas baseadas em padrões WEB tradicionais. Esses serviços são leves, práticos e fáceis de serem integrados em várias aplicações \cite{Rosenberg:Curbera:Duftler:Khalaf:2008}.
-
-Os serviços da web estão a cada dia buscando soluções mais simples e mais leves para compor suas funcionalidades. Os serviços RESTFul introduzem um novo tipo de abstração que busca oferecer as funcionalidades já existentes dos serviços da \textit{web} comuns. Porém, de uma forma mais leve e simples \cite{Pautasso:2009}.
-
-De acordo com \cite{Filho:2009}, os serviços RESTFul possuem cinco conceitos importantes, que são descritos a seguir:
-
-\begin{itemize}
-	\item \textbf{Recurso:} É uma abstração ou conceito relevante para o domínio tratado. Os recursos podem ser concretos ou abstratos e têm-se grande flexibilidade para definição dos mesmos. Um serviço pode ter mais de um recurso sem afetar a sua qualidade.
-	\item \textbf{Representação:} É a representação de um recurso, apresentando informações sobre o mesmo. Dependendo do serviço e do nível de abstração, são mostradas mais ou menos informações dos recursos. A representação é uma serialização do recurso em uma linguagem específica, as mais usadas são: XML, XHTML e JSON. Um serviço pode mostrar mais de um tipo de serialização de seus recursos, basta que as requisições informem qual o formato desejado que o serviço irá apresentar os dados na serialização correta.
-	\item \textbf{Identificador Uniforme:} Cada recurso deve ter ao menos um identificador para localização do mesmo. Se não existe um identificador uniforme, não se pode considerar que um objeto é um recurso. Pode-se ter ilimitados identificadores para um mesmo recurso.
-	\item \textbf{Interface Unificada:} A interface unificada diz respeito a todos os serviços utilizarem o mesmo protocolo, no caso, o HTTP. Dessa forma, um cliente que conheça esse protocolo pode facilmente utilizar os métodos que são proporcionados por ele para fazer requisições nos serviços disponíveis.
-	\item \textbf{Escopo de Execução:} Neste caso, o serviço RESTFul também se utiliza do protocolo HTTP, porém, diz respeito aos parâmetros que devem ser enviados junto da requisição para que o serviço possa tratar o recurso corretamente. Pode ser, por exemplo, a identificação de um objeto em um conjunto de recursos.
-\end{itemize}
+Nos apêndices em \nameref{chapter:reutilizacao_software} são encontrados alguns outros aspectos de reutilização, como serviços e o detalhamento de três padrões de projeto que foram implementados no desenvolvimento deste trabalho.
 
 \section{Resumo do Capítulo}
 Este capítulo apresentou o levantamento bibliográfico dos temas relacionados ao desenvolvimento deste trabalho. A seguir são apresentados os temas descritos nesse capítulo.
 
 \begin{itemize}
-	\item Redes Sociais: Este é o tema em que este trabalho é desenvolvido. Como a proposta tem o objetivo de desenvolver um \textit{framework} para redes sociais, é essencial o conhecimento e o entendimento deste tema para a realização do trabalho.
-	\item Teoria dos Grafos: O desenvolvimento de redes sociais têm como base o uso de grafos e, sendo assim, este é também um tema de suma importância para este trabalho.
-	\item Reutilização de Software: Este tópico representa um importante objetivo que se pretende alcançar ao final deste trabalho. A reutilização de software é apresentada no uso de \textit{frameworks}, padrões de projeto e serviços, todos estes deverão ser usados na implementação do \textit{framework} proposto.
+	\item Redes Sociais: este é o tema em que este trabalho é desenvolvido. Como o presente trabalho focou no desenvolvimento de um \textit{framework} para redes sociais, é essencial o conhecimento e o entendimento deste tema para a realização deste tema.
+	\item Teoria dos Grafos: o desenvolvimento de redes sociais têm como base o uso de grafos e, sendo assim, este é também um tema de suma importância para este trabalho.
+	\item Reutilização de Software: este tópico representa um importante objetivo investigado ao longo desse trabalho. A reutilização de software é apresentada no uso de \textit{frameworks}, padrões de projeto e serviços, todos estes utilizados na implementação do \textit{framework}.
 \end{itemize}
 
-Mais detalhes de alguns tópicos apresentados neste capítulo podem ser encontrados na parte de apêndices deste documento.
+Outros detalhes de alguns tópicos apresentados neste capítulo podem ser encontrados na parte de apêndices deste documento.
 
-O próximo capítulo apresentará o suporte tecnológico com todas as principais ferramentas que serão usadas no decorrer da escrita e implementação deste trabalho.
+O próximo capítulo apresenta a metodologia usada no decorrer do desenvolvimento deste trabalho.
