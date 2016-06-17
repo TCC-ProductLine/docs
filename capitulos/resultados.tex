@@ -209,6 +209,108 @@ Esse valor do GPA foi obtido de acordo com a Tabela \ref{gpa_arquivos}, que ilus
 \section{SocialBike}
 \label{sec:SocialBike}
 
+A SocialBike é a rede social desenvolvida para fazer uso do SocialFramework e, dessa forma, aplicá-lo em um uso real para comprovação de seus recuros. É uma rede voltada para ciclistas que auxilia os mesmos a principalmente marcarem eventos em comum para andar de bicicleta e/ou verificar rotas de outros usuários que coincidam com as suas. Nessa rede foram desenvolvidas funcionalidades que perpassam pelos três módulos do SocialFramework, Usuários, Agenda e Rotas.
+
+Para os módulos de usuários foram desenvolvidas funcionalidades gerais de redes sociais, com cadastro de usuários, login, relacionamentos e pesquisas. A seguir são apresentadas uma sequência de imagens da SocialBike com as telas dessas funcionalidades.
+
+A figura \ref{cadastrar_usuario} apresenta a tela de cadastro de usuários. Quando um usuário se cadastra na rede é automaticamente logado na mesma.
+
+\newpage
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.4]{figuras/resultados/cadastrar_usuario.eps}
+	\caption[Tela de cadastro de usuários]{Tela de cadastro de usuários}
+	\label{cadastrar_usuario}
+\end{figure}
+
+A figura \ref{login} apresenta a tela para entrar na rede social.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{figuras/resultados/login.eps}
+	\caption[Tela de login]{Tela de login}
+	\label{login}
+\end{figure}
+
+A figura \ref{home} mostra a tela principal da rede social, com as listas dos amigos e sugestões de amizades para o usuário logado além de um campo para relaização de pesquisas.
+
+\newpage
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{figuras/resultados/home.eps}
+	\caption[Tela principal]{Tela principal}
+	\label{home}
+\end{figure}
+
+A figura \ref{pesquisa} mostra os resultados retornados quando um usuário faz uma pesquisa. Ao se realizar uma pesquisa é apresentado o botão ``Continuar'', para que o usuário continue retornando mais resultados da pesquisa realizada, nesse caso a tabela com os resultados é incrementada.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{figuras/resultados/pesquisa.eps}
+	\caption[Resultados da pesquisa]{Resultados da pesquisa}
+	\label{pesquisa}
+\end{figure}
+
+Na sequência, as figuras \ref{criar_evento} e \ref{evento} mostram, respectivamente, as telas para criação de eventos e a visualização desses eventos, com a possibilidade de convidar usuários.
+
+\newpage
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{figuras/resultados/criar_evento.eps}
+	\caption[Criar Evento]{Criar Evento}
+	\label{criar_evento}
+\end{figure}
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{figuras/resultados/evento.eps}
+	\caption[Visualizar Evento]{Visualizar Evento}
+	\label{evento}
+\end{figure}
+
+A tela apresentada na figura \ref{compatibilidade_horarios} é usada para verificar a compatibilidade de horários para marcação de um evento em um determinado período de tempo. Têm-se a lista de amigos do usuário logado para que este possa adicioná-los juntamente com seus pesos para realizar a verificação. Outros atributos que devem ser passados são os já mencionados antes que são necessários para a execução do algoritmo.
+
+\newpage
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{figuras/resultados/compatibilidade_horarios.eps}
+	\caption[Verificar compatibilidade de horários]{Verificar compatibilidade de horários}
+	\label{compatibilidade_horarios}
+\end{figure}
+
+As imagens \ref{cadastrar_rota} e \ref{ver_rota} mostram, respectivamente, as telas para criação e visualização de rotas.
+
+\newpage
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{figuras/resultados/cadastrar_rota.eps}
+	\caption[Cadastrar Rota]{Cadastrar Rota}
+	\label{cadastrar_rota}
+\end{figure}
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{figuras/resultados/ver_rota.eps}
+	\caption[Visualizar Rota]{Visualizar Rota}
+	\label{ver_rota}
+\end{figure}
+
+Por fim, têm-se as imagens \ref{comparar_rotas} e \ref{resultado_comparacao}. Nessas imagens pode-se ver um formulário para realizar a comparação entre duas rotas e o resultado dessa comparação, em que é apresentado que as rotas são compatíveis e qual a nova distância total para a rota principal que será alterada para atender a rota secundária.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{figuras/resultados/comparar_rotas.eps}
+	\caption[Comparar rotas]{Comparar rotas}
+	\label{comparar_rotas}
+\end{figure}
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{figuras/resultados/resultado_comparacao.eps}
+	\caption[Resultado da comparação]{Resultado da comparação}
+	\label{resultado_comparacao}
+\end{figure}
+
 O código da SocialBike pode ser acessado através do endereço \url{https://github.com/TCC-SocialNetwork/social_bike}.
 
 \section{Resumo do Capítulo}
