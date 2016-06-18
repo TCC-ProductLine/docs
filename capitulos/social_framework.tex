@@ -787,9 +787,16 @@ O problema de atribuição dos funcionários pode possuir também, um atributo q
 
 Dessa forma, o grafo de \textit{slots} e usuários ficou com a seguinte configuração: Existem vértices de \textit{slots} e usuários que possuem relação entre si através de arestas e cada uma dessas arestas pode possuir um peso associado. O algoritmo constrói todas as arestas do grafo analisando as diponibilidades de horário dos usuários no intervalo de tempo de cada slot, caso haja o usuário possua disponibilidade, a aresta é criada relacionando os usuários com o slot, ao fim pode-se obter o maior peso de um \textit{slot} analisando suas arestas.
 
-O peso máximo assumido para os usuários é definido na variável `max\_weight\_schedule' no \textit{initializer} `social\_framework.rb'. Existe também o valor `:fixed' para peso dos usuários, esse valor representa que é obrigatório que o usuário esteja presente no evento que deseja-se marcar.
+Na Figura \ref{melhor_horario}, pode-se observar um exemplo que como o grafo bipartido é montado. Neste exemplo serão analisados os horários de 08:00 às 13:00 horas, e o tamanho do \textit{slot} é de uma hora. Foram considerados três usuários, o primeiro não possui horário disponível em sua agenda entre 11:00 e 13:00 horas, e sua participação no evento tem o peso igual a um. O segundo usuário possui uma disponibilidade de 09:00 às 11:00 horas, e o seu peso é igual a dois. O usuário três possui disponiblidade em sua agende de 08:00 às 09:00 horas e de 11:00 às 13:00 horas, a sua participação no evento possui um peso igual a três. Deste modo é possível verificar que o \textit{slot} que possui uma maior quantidade de pesos é o \textit{slot} de 08:00 às 09:00 horas, totalizando um peso igual a quatro.
 
-% colocar uma imagem explicando!
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.6]{figuras/social_framework/melhor_horario.eps}
+    \caption{Exemplo de um grafo bipartido para o problema de melhor horário}
+    \label{melhor_horario}
+\end{figure}
+
+O peso máximo assumido para os usuários é definido na variável `max\_weight\_schedule' no \textit{initializer} `social\_framework.rb'. Existe também o valor `:fixed' para peso dos usuários, esse valor representa que é obrigatório que o usuário esteja presente no evento que deseja-se marcar.
 
 A verificação do melhor horário para a marcação de eventos foi implementada através do método `verify\_availabilities' da classe `ScheduleContext' com a seguinte assinatura:
 
