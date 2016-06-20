@@ -47,7 +47,7 @@ Isto irá instalar o SocialFramework na aplicação.
 
 Nas seções a seguir será apresentado o funcionamento do SocialFramework como um \textit{framework} do tipo caixa preta e do tipo caixa cinza, mais especificamente nas seções ~\nameref{sec:primeiros_passos} e \nameref{sec:modulos_socialframework} será apresentado o seu uso como um \textit{framework} caixa preta e na seção \nameref{sec:hotspots} será apresentado o seu uso como um \textit{framework} caixa cinza.
 
-\section{Primeiros passos}
+\section{Primeiros Passos}
 \label{sec:primeiros_passos}
 
 O uso do SocialFramework é indicado para quem já possui algum conhecimento do \textit{framework} Rails para um maior entendimento e aproveitamento de seus recursos fornecidos.
@@ -119,7 +119,7 @@ config.action_mailer.smtp_settings = {
 
 Pode-se alterar os valores em `domain', `user\_name', e `password' ou criar as variáveis de ambiente locais, isso é indicado para esconder essas informações sigilosas e garantir uma maior segurança. As mesmas configurações são válidas para os ambientes de teste e produção, nos arquivos `test.rb' e `production.rb'.
 
-\subsection{Helpers e filtros das controladoras}
+\subsection{Helpers e Filtros das Controladoras}
 
 O Devise fornece alguns elementos para serem usados nas controladoras e \textit{views}. Para configurar uma controladora com uma autenticação de usuário basta adicionar o seguinte filtro. Isto funciona porque o SocialFramework já contem a classe de usuário.
 
@@ -183,7 +183,7 @@ user_session
 
 Após o usuário logar, confirmar a conta ou atualizar a senha o Devise irá procurar por um caminho \textit{root} para redirecionar. Para alterar esse comportamento padrão, pode-se sobrescrever os métodos ``after\_sing\_in\_path\_for'' e ``after\_sing\_out\_path\_for'', para definir para onde o usuário deve ser redirecionado após realizar o login e o logout respectivamente.
 
-\subsection{Configuração das modelos}
+\subsection{Configuração das Modelos}
 \label{configuracao_das_modelos}
 
 A classe de usuário no SocialFramework implementa os módulos padrões do Devise. Na documentação completa do Devise é possível encontrar todos os módulos e suas características.
@@ -192,7 +192,7 @@ Além dos módulos do Devise, a classe de usuário do SocialFramework possui mé
 
 \begin{lstlisting}[
     label=listing:extensao_user_class,
-    caption=Extensão da classe de usuário,
+    caption=Estensão da classe de usuário,
     numbers=none,
     language=Ruby,
     basicstyle=\footnotesize\sffamily,
@@ -229,7 +229,7 @@ Além disso deve-se colocar o nome da nova classe de usuário também no arquivo
 
 \begin{lstlisting}[
     label=listing:change_user_class_name,
-    caption=Configurando a nova classe de usuário para o framework,
+    caption=Configurando a nova classe de usuário para o \textit{framework},
     numbers=none,
     language=Ruby,
     basicstyle=\footnotesize\sffamily,
@@ -243,14 +243,14 @@ config.user_class = 'OtherUserClass'
 
 Maiores detalhes sobre esse aspecto podem ser encontrados na seção \nameref{sec:hotspots}.
 
-\subsection{Configuração das migrations}
+\subsection{Configuração das Migrations}
 \label{configuracao_das_migrations}
 
 A classe de usuário fornece como padrão os atributos nome de usuário, e-mail e senha. Para adicionar ou remover atributos para esta ou qualquer outra classe pode-se adicionar a \textit{migrate} na aplicação. O SocialFramework dispõe de um gerador para fazer isso, neste caso só é necessário executar:
 
 \begin{lstlisting}[
     label=listing:generate_migrate,
-    caption=Geração das migrations,
+    caption=Geração das \textit{migrations},
     numbers=none,
     language=Bash,
     basicstyle=\footnotesize\sffamily,
@@ -291,13 +291,13 @@ end
 
 Isto faz com que o \textit{sign\_up} e o \textit{account\_update} receba o novo atributo. Pode-se usar o método de remoção para remover os atributos existentes. Para adiconar ou remover o parâmetro em outras ações, por exemplo o \textit{sign\_in}, deve-se fazer o mesmo procedimento.
 
-\subsection{Configuração das controllers}
+\subsection{Configuração das Controllers}
 
 Todas as controladoras do Devise podem ser extendidas e ter o seus métodos sobrescritos. Por exemplo:
 
 \begin{lstlisting}[
     label=listing:extensao_controller,
-    caption=Extensão de uma controller,
+    caption=Estensão de uma controller,
     numbers=none,
     language=Ruby,
     basicstyle=\footnotesize\sffamily,
@@ -313,13 +313,13 @@ end
 
 Outras controladoras são: ``confirmations'', ``omniauth\_callbacks'', ``passwords'', ``sessions'' e ``unlocks''. Para usar os módulos de ``omniauth\_callbacks'', ``unlocks'' e ``confirmations'' é necessário adicionar esses respectivos módulos do Devise na aplicação. Todas as controladoras do Devise no SocialFramework possuem o prefixo ``Users''.
 
-\subsection{Configuração das rotas}
+\subsection{Configuração das Rotas}
 
 Quando se substitui algumas controladoras do Devise deve-se definir essas novas controladoras nas rotas. Isto pode ser feito alterando o caminho para a controladora na configuração \textit{devise\_for}, como no exemplo a seguir:
 
 \begin{lstlisting}[
     label=listing:configuracao_controller,
-    caption=Configuração de uma controller,
+    caption=Configuração de uma \textit{controller},
     numbers=none,
     language=Ruby,
     basicstyle=\footnotesize\sffamily,
@@ -336,13 +336,13 @@ devise_for :users, class_name: 'SocialFramework::User',
 
 A controladora de registro foi extendida e a nova controladora foi adicionada nas configurações de rotas do Devise.
 
-\subsection{Configuração das views}
+\subsection{Configuração das Views}
 
 Para adicionar as \textit{views} do Devise na aplicação o SocialFramework possui um gerador para executar esta tarefa, para executá-lo deve-se usar o seguinte comando:
 
 \begin{lstlisting}[
     label=listing:gerar_views,
-    caption=Geração das views,
+    caption=Geração das \textit{views},
     numbers=none,
     language=Bash,
     basicstyle=\footnotesize\sffamily,
@@ -358,7 +358,7 @@ Para adicionar uma \textit{view} específica deve-se usar o parâmetro `-v' e pa
 
 \begin{lstlisting}[
     label=listing:gerar_views,
-    caption=Geração das views,
+    caption=Geração das \textit{views},
     numbers=none,
     language=Bash,
     basicstyle=\footnotesize\sffamily,
@@ -377,7 +377,7 @@ Este comando irá adicionar as \textit{views} ``registrations'', ``sessions'' e 
 
 Atualmente o SocialFramework possui os módulos de usuário, de rotas e de agendas. Que serão detalhados a seguir.
 
-\subsection{Módulo de usuários}
+\subsection{Módulo de Usuários}
 
 Este módulo fornece a lógica principal à redes sociais, como criar, confirmar e remover relacionamentos entre os usuários, além de buscas, registros, atualizações e autenticações.
 
@@ -530,7 +530,7 @@ search(map, search_in_progress = false, elements_number = SocialFramework.elemen
 
 É passado um mapa para ser usado na pesquisa, este mapa representa as chaves e valores para comparar com os vértices, por exemplo, o mapa ``\{username: `user', email: `user', title: `event'\}'' fará com que uma pesquisa retorne qualquer vértice que contem a \textit{string} `user' no nome de usuário ou no email ou que contenha a \textit{string} ``event'' no título. O parâmetro `search\_in\_progress' é usado para continuar uma busca para encontrar mais resultados, para continuar deve-se passar \textit{true}. O parâmetro `elements\_number' define a quantidade de resultados para se retornar, este valor é especificado no \textit{initializer} `social\_framework.rb' na variável `elements\_number\_to\_search', o valor padrão é cinco.
 
-Um exemplo para continuar uma pesquisa é mostrado no código \ref{listing:elements_number}. Por padrão, quando se continua a procurar, o parâmetro `elements\_number' é usado para incrementar o número máximo de resultados que devem ser retornados. Neste caso, a primeira chamada retorna os primeiros cinco elementos encontrados no grafo, a segunda chamada retorna mais cinco elementos, totalizando no final dez elementos, e assim por diante. O retorno do método é um hash com duas chaves, a primeira é ``users'' e seu valor é um \textit{array} com os usuários encontrados, e segunda é ``events'' e seu valor é um \textit{array} com os eventos encontrados.
+Um exemplo para continuar uma pesquisa é mostrado no código \ref{listing:elements_number}. Por padrão, quando se continua a procurar, o parâmetro `elements\_number' é usado para incrementar o número máximo de resultados que devem ser retornados. Neste caso, a primeira chamada retorna os primeiros cinco elementos encontrados no grafo, a segunda chamada retorna mais cinco elementos, totalizando no final dez elementos, e assim por diante. O retorno do método é uma \textit{hash} com duas chaves, a primeira é ``users'' e seu valor é um \textit{array} com os usuários encontrados, e segunda é ``events'' e seu valor é um \textit{array} com os eventos encontrados.
 
 \begin{lstlisting}[
     label=listing:elements_number,
@@ -570,7 +570,7 @@ Nesse caso, o `elements\_number' vai dobrar a cada método de pesquisa chamado c
 
 Quando a pesquisa chega ao fim do grafo e ainda não encontrou todos os elementos necessários, uma pesquisa no banco de dados é realizada para completar a pesquisa.
 
-\subsection{Módulo de agendas}
+\subsection{Módulo de Agendas}
 
 Este módulo fornece a lógica para trabalhar com a agenda dos usuários de redes sociais, como criar, inserir, convidar, confirmar, sair e remover eventos.
 
@@ -798,7 +798,7 @@ Na Figura \ref{melhor_horario}, pode-se observar um exemplo que como o grafo bip
 
 O peso máximo assumido para os usuários é definido na variável `max\_weight\_schedule' no \textit{initializer} `social\_framework.rb'. Existe também o valor `:fixed' para peso dos usuários, esse valor representa que é obrigatório que o usuário esteja presente no evento que deseja-se marcar.
 
-A verificação do melhor horário para a marcação de eventos foi implementada através do método `verify\_availabilities' da classe `ScheduleContext' com a seguinte assinatura:
+A verificação do melhor horário para a marcação de eventos foi implementada através do método `verify\_availabilities' da classe `ScheduleContext', com a seguinte assinatura:
 
 \begin{lstlisting}[
     label=listing:change_participant_role,
@@ -814,21 +814,21 @@ A verificação do melhor horário para a marcação de eventos foi implementada
 verify_availabilities(users, start_day, finish_day, start_hour = Time.parse("00:00"), finish_hour = Time.parse("23:59"), slots_size = SocialFramework.slots_size)
 \end{lstlisting}
 
-O parâmetro `users' representa os usuários que terão suas agendas verficadas a afim de encontrar o melhor horário para uma possível marcação de evento. Este parâmetro pode ser um \textit{array}, onde nenhum usuário possui peso no evento ou pode ser uma \textit{hash}, onde a chave é o usuário e o valor é o peso de sua presença no evento.
+O parâmetro `users' representa os usuários que terão suas agendas verificadas, no intuito de encontrar o melhor horário para uma possível marcação de evento. Este parâmetro pode ser um \textit{array}, onde nenhum usuário possui peso no evento ou pode ser uma \textit{hash}, onde a chave é o usuário e o valor é o peso de sua presença no evento.
 
-O parâmetro `start\_day' indica a partir de qual dia o evento poderá ser marcado, e o parâmetro `finish\_day' indica o dia limite para a marcação do evento. O parâmetro `start\_hour' e o parâmetro `finish\_hour' definem o horário de um dia em que o evento poderá ocorrer, por exemplo pode-se definir o horário comercial de 08:00 às 18:00, caso estes valores não sejam passados como pâmetros será considerado que o evento poderá ser marcado em qualquer horário.
+O parâmetro `start\_day' indica a partir de qual dia o evento poderá ser marcado, e o parâmetro `finish\_day' indica o dia limite para a marcação do evento. O parâmetro `start\_hour' e o parâmetro `finish\_hour' definem o horário de um dia em que o evento poderá ocorrer. Por exemplo pode-se definir o horário comercial de 08:00 às 18:00. Caso estes valores não sejam passados como pâmetros, será considerado que o evento poderá ser marcado em qualquer horário.
 
-O parâmetro `slots\_size' indica o tempo de duração dos slots, caso não seja passado como parâmetro é utilizado o tempo padrão, definido no arquivo configuração e com duração de 1 hora.
+O parâmetro `slots\_size' indica o tempo de duração dos \textit{slots}. Caso não seja passado como parâmetro, é utilizado o tempo padrão, definido no arquivo configuração e com duração de 1 hora.
 
-A quantidade de \textit{slots} que serão adicionados no grafo depende do intervalo de tempo em que se deseja analisar e do tempo de duração de cada slot.
+A quantidade de \textit{slots} que serão adicionados no grafo depende do intervalo de tempo em que se deseja analisar e do tempo de duração de cada \textit{slot}.
 
-Para criar as arestas entre os usuários e os \textit{slots} é verificado se o usuário possui disponibilidade em sua agenda no intervalo de tempo que o \textit{slot} possui, caso o usuário possua disponibilidade para esse \textit{slot} é criada uma aresta entre o usuário e o slot, e o peso do usuário é adicionado ao peso do slot. O método retorna os \textit{slots} ordenados decrescentemente pelo peso.
+Para criar as arestas entre os usuários e os \textit{slots}, é verificado se o usuário possui disponibilidade em sua agenda no intervalo de tempo que o \textit{slot} possui. Caso o usuário possua disponibilidade para esse \textit{slot}, é criada uma aresta entre o usuário e o \textit{slot}, e o peso do usuário é adicionado ao peso do \textit{slot}. O método retorna os \textit{slots} ordenados decrescentemente pelo peso.
 
-\subsection{Módulo de rotas}
+\subsection{Módulo de Rotas}
 
-Este módulo fornece a lógica para trabalhar com rotas. É usado a API do Google Maps\footnote{\url{https://developers.google.com/maps/?hl=pt-br}} para fornecer alguns recursos para este módulo, como construir uma rota e obter uma localização a partir de uma latitude e uma longitude.
+Este módulo fornece a lógica para trabalhar com rotas. É utilizada a API do Google Maps\footnote{\url{https://developers.google.com/maps/?hl=pt-br}} para fornecer alguns recursos para este módulo, como construir uma rota e obter uma localização a partir de uma latitude e uma longitude.
 
-Para um usuário criar uma rota deve-se utilizar o método `create\_route', presente na classe de usuário. A seguir pode-se visualizar a sua assinatura:
+Para um usuário criar uma rota, deve-se utilizar o método `create\_route', presente na classe de usuário. A seguir, pode-se visualizar a sua assinatura:
 
 \begin{lstlisting}[
     label=listing:create_route,
@@ -845,7 +845,7 @@ create_route(title, distance, locations, mode_of_travel = "driving")
 \end{lstlisting}
 
 
-Os parâmetros são o título da rota, a distância que a rota possui e as localizações, que é um \textit{array} de \textit{hashs} com todos os pontos de latitude e longitude para construir rota, a seguir é ilustrado um exemplo do parâmetro \textit{locations}:
+Os parâmetros são o título da rota, a distância que a rota possui e as localizações, sendo esse último parâmetro um \textit{array} de \textit{hashs} com todos os pontos de latitude e longitude para construir rota, a seguir é ilustrado um exemplo do parâmetro \textit{locations}:
 
 \begin{lstlisting}[
     label=listing:locations,
@@ -862,9 +862,9 @@ locations = [{latitude: -15.792740000000, longitude: -47.876360000000},
              {latitude: -15.792520000000, longitude: -47.876900000000}]
 \end{lstlisting}
 
-O parâmetro `mode\_of\_travel'  representa qual o meio de transpote que será utilizado para percorrer a rota, pode ser `driving', `bycicling', `walking' ou `transit', o valor padrão é `walking' para viajar de carro.
+O parâmetro `mode\_of\_travel'  representa qual o meio de transporte que será utilizado para percorrer a rota, podendo ser `driving', `bycicling', `walking' ou `transit', o valor padrão é `walking' para viajar de carro.
 
-Este módulo também fornece um recurso para verificar a compatibilidade entre duas rotas. Para isso deve-se chamar o método `compare\_routes' presente na classe `RouteContext'.
+Este módulo também fornece um recurso para verificar a compatibilidade entre duas rotas. Para isso, deve-se chamar o método `compare\_routes' presente na classe `RouteContext'.
 
 \begin{lstlisting}[
     label=listing:compare_routes,
@@ -882,7 +882,7 @@ compare_routes(principal_route, secondary_route,
           secondary_deviation = SocialFramework.secondary_deviation)
 \end{lstlisting}
 
-Este método é utilizado para verificar se duas rotas podem ser conectadas em apenas uma rota. O parâmetro `principal\_route' representa a rota que será alterada para auxiliar a rota secundária representada pelo parâmetro `secondary\_route', se possível. Quando a rota principal não pode ser alterada pode-se tentar alterar a rota secundária para atingir o objetivo. Os parâmetros `principal\_deviation' e `secondary\_deviation' representam um mapa com o modo de transporte e o desvio máximo que rota pode sofrer, o desvio máximo é a distância que uma rota pode ser desviada para atingir o objetivo. Os valores padrões para os desvios das rotas princial e secundária estão presentes no \textit{initializer} `social\_framework.rb' e podem ser alterados.
+Este método é utilizado para verificar se duas rotas podem ser conectadas em apenas uma rota. O parâmetro `principal\_route' representa a rota que será alterada para auxiliar a rota secundária representada pelo parâmetro `secondary\_route', se possível. Quando a rota principal não pode ser alterada, pode-se tentar alterar a rota secundária para atingir o objetivo. Os parâmetros `principal\_deviation' e `secondary\_deviation' representam um mapa com o modo de transporte e o desvio máximo que a rota pode sofrer. O desvio máximo é a distância que uma rota pode ser desviada para atingir o objetivo. Os valores padrões para os desvios das rotas principal e secundária estão presentes no \textit{initializer} `social\_framework.rb', e podem ser alterados.
 
 O método \textit{compare\_routes} retorna um mapa com as informações de compatibilidade, como pode ser visualizado a seguir:
 
@@ -901,9 +901,9 @@ O método \textit{compare\_routes} retorna um mapa com as informações de compa
           distance: 0}, secondary_route: {deviation: :none, distance: 0}}
 \end{lstlisting}
 
-A chave `compatible' é falsa quando as rotas são incompatíveis ou verdadeira quando são compatíveis. O desvio representa onde a rota poderá ser desviada, pode ser `none', `both', `origin' ou `destiny', e o `distance' é o valor da distância total que a rota possui com o desvio incluso.
+A chave `compatible' é falsa quando as rotas são incompatíveis ou verdadeira quando são compatíveis. O desvio representa onde a rota poderá ser desviada, podendo ser `none', `both', `origin' ou `destiny'. No caso, `distance' é o valor da distância total que a rota possui com o desvio incluso.
 
-As rotas também podem ser relacionadas com eventos. Para fazer o relacionamento deve-se invocar o método `add\_route', presente na classe de evento.
+As rotas também podem ser relacionadas aos eventos. Para fazer o relacionamento, deve-se invocar o método `add\_route', presente na classe de evento.
 
 \begin{lstlisting}[
     label=listing:compatible,
@@ -919,14 +919,14 @@ As rotas também podem ser relacionadas com eventos. Para fazer o relacionamento
 add_route(user, route)
 \end{lstlisting}
 
-O primeiro parâmetro é o usuário que tentará adicionar a rota no evento, é necessário que o usuário tenha a permissão `add\_route' no evento (as permissões para executar as ações nos eventos estão definidas no \textit{initialize} `social\_framework.rb'). O segundo parâmetro é a rota que será adicionada no evento. Quando uma rota é adicionada a um evento todos os usuários neste evento recebem essa rota.
+O primeiro parâmetro é o usuário que tentará adicionar a rota no evento, sendo necessário que o usuário tenha a permissão `add\_route' no evento (as permissões para executar as ações nos eventos estão definidas no \textit{initialize} `social\_framework.rb'). O segundo parâmetro é a rota que será adicionada no evento. Quando uma rota é adicionada a um evento, todos os usuários neste evento recebem essa rota.
 
 \section{Hotspots}
 \label{sec:hotspots}
 
-O SocialFramework possui três pontos de \textit{Hotspots} principais, nesses pontos foram implementados três padrões de projeto para auxiliar na estruturação dos elementos do \textit{framework}. Além desses pontos mencionados, o \textit{framework} é todo extensível, e permite ao usuário mudar qualquer comportamento padrão implementado através de heranças e sobrecrita de métodos.
+O SocialFramework possui três pontos de \textit{Hotspots} principais. Nesses pontos foram implementados três padrões de projeto para auxiliar na estruturação dos elementos do \textit{framework}. Além dos pontos mencionados, o \textit{framework} é extensível, e permite ao usuário mudar qualquer comportamento padrão implementado através de heranças e sobrecrita de métodos.
 
-O primeiro Hotspot definido para o \textit{framework} está presente nas classes de modelo. Como mencionada nas sessões \nameref{configuracao_das_modelos} e \nameref{configuracao_das_migrations} é mostrada a possibilidade de se extender uma classe de modelo ou mudar uma \textit{migration} adicionando ou removendos novos atributos para a classe. Porém, existe um problema, quando se extendende uma classe de modelo para sobrescrever algum método padrão essas alterações não serão refletidas para todos os pontos do \textit{framework} onde aquele método é usado. O \nameref{sec:padrao_factory_method} foi usado para resolver esse problema e, com isso agora é possível, usando-se a classe \textit{ModelFabric} dizer qual classe de modelo deve ser construída para ser usada, ou seja, se um usuário do \textit{framework} extender uma classe de modelo qualquer e sobrescrever um de seus métodos, este poderá simplesmente chamar o método estático \textit{get\_class} passando o nome de sua nova classe e essa classe passará a ser usada pelo \textit{framework}. A seguir é apresentado um modelo de uso desse método para melhor entendimento.
+O primeiro Hotspot definido para o \textit{framework} está presente nas classes de modelo. Como mencionada nas sessões \nameref{configuracao_das_modelos} e \nameref{configuracao_das_migrations}, é mostrada a possibilidade de se estender uma classe de modelo ou mudar uma \textit{migration} adicionando ou removendos novos atributos para a classe. Porém, existe um problema, quando se estende uma classe de modelo para sobrescrever algum método padrão, essas alterações não serão refletidas para todos os pontos do \textit{framework} onde aquele método é usado. O \nameref{sec:padrao_factory_method} foi usado para resolver esse problema e, com isso, agora é possível, usando-se a classe \textit{ModelFabric}, dizer qual classe de modelo deve ser construída para ser usada. Dessa forma, caso um usuário do \textit{framework} estende uma classe de modelo qualquer, sobrescrevendo um de seus métodos, este poderá simplesmente chamar o método estático \textit{get\_class}, passando o nome de sua nova classe. E essa classe passará a ser usada pelo \textit{framework}. A seguir, é apresentado um modelo de uso desse método para facilitar o entendimento.
 
 \begin{lstlisting}[
     label=listing:get_class,
@@ -942,9 +942,9 @@ O primeiro Hotspot definido para o \textit{framework} está presente nas classes
 ModelFabric.get_class("NovaClasseModelo")
 \end{lstlisting}
 
-Existe um outro facilitador desenvolvido no \textit{framework} para trabalhar com o padrão mencionado. Os nomes de todas as classes de modelo estão definidos no \textit{initializer} `social\_framework.rb', sendo assim, quando um desenvolvedor cria uma nova classe de modelo que extende de alguma \textit{model} padrão basta que mude o nome da respectiva classe nesse arquivo e tudo já estará funcionando. Dessa forma, a classe \textit{ModelFabric} se torna transparente para um usuário do \textit{framework} pois está sendo chamada nos métodos internos, e basta fazer a alteração de nome no arquivo `social\_framework.rb', não se esquecendo, que ao se tratar da classe de usuário, que o nome dessa também deve ser alterado no arquivo `routes.rb' para o Devise saber com qual classe de usuário estará trabalhando.
+Existe outro facilitador desenvolvido no \textit{framework} para trabalhar com o padrão mencionado. Os nomes de todas as classes de modelo estão definidos no \textit{initializer} `social\_framework.rb', sendo assim, quando um desenvolvedor cria uma nova classe de modelo que estende de alguma \textit{model} padrão, basta que mude o nome da respectiva classe nesse arquivo e tudo estará funcionando. Dessa forma, a classe \textit{ModelFabric} se torna transparente para um usuário do \textit{framework}, pois está sendo chamada nos métodos internos, e basta fazer a alteração de nome no arquivo `social\_framework.rb', não se esquecendo, que ao se tratar da classe de usuário, que o nome dessa também deve ser alterado no arquivo `routes.rb' para o Devise saber com qual classe de usuário estará trabalhando.
 
-A seguir na figura \ref{padrao_factory_method} pode ser visto o diagrama das classes construídas para aplicação do padrão.
+A seguir na figura \ref{padrao_factory_method}, pode ser visto o diagrama das classes construído para aplicação do padrão.
 
 \newpage
 \begin{figure}[h]
@@ -954,13 +954,13 @@ A seguir na figura \ref{padrao_factory_method} pode ser visto o diagrama das cla
     \label{padrao_factory_method}
 \end{figure}
 
-Outro padrão de projeto de criação utilizado foi o \nameref{sec:padrao_abstract_factory}. Esse padrão foi utilizado para as classes usadas na construção dos grafos usados na rede de usuários e na conciliação de agendas para marcação de um horário comum. As classe são \textit{Vertex} e \textit{Edge}, para cada um delas existe uma classe abstrata com as assinaturas dos métodos necessários. Também existe a classe abstrata \textit{ElementsFactory} que possui os métodos para criação de Vértices e Arestas.
+Outro padrão de projeto de criação utilizado foi o \nameref{sec:padrao_abstract_factory}. Esse padrão foi utilizado para as classes que fazem parte da construção dos grafos, os quais foram utilizados na rede de usuários e na conciliação de agendas para marcação de um horário comum. As classes são \textit{Vertex} e \textit{Edge}. Para cada um delas, existe uma classe abstrata com as assinaturas dos métodos necessários. Também existe a classe abstrata \textit{ElementsFactory} que possui os métodos para criação de \textit{Vertex} e \textit{Edge}.
 
-Para cada classe citada acima foi desenvolvida uma classe concreta que implementa todos os métodos abstrados com o comportamento padrão esperado para eles. As classes são \textit{VertexDefault}, \textit{EdgeDefault} e \textit{ElementsFactoryDefault} que constrói as duas classes anteriores.
+Para cada classe citada anteriormente, foi desenvolvida uma classe concreta que implementa todos os métodos abstrados com o comportamento padrão esperado para eles. As classes são \textit{VertexDefault}, \textit{EdgeDefault} e \textit{ElementsFactoryDefault} que constrói as duas classes anteriores.
 
-Um desenvolverdor com o intuito de alterar qualquer uma das classes \textit{Vertex} ou \textit{Edge} deve extender essas classes e sobrescrever seus métodos conforme sua necessidade, deve-se também extender a classe \textit{ElementsFactory} e sobrescrever os métodos de criação passando suas novas classes. Nas classes que fazem o uso dessas deve ser passado nas instâncias o novo \textit{ElementsFactory} criado e, assim, as novas classes desenvolvidas passarão a ser utilizadas.
+Um desenvolverdor com o intuito de alterar qualquer uma das classes \textit{Vertex} ou \textit{Edge} deve estender essas classes e sobrescrever seus métodos conforme sua necessidade. Deve-se também estender a classe \textit{ElementsFactory} e sobrescrever os métodos de criação, passando suas novas classes. Nas classes que fazem o uso dessas, deve ser passado nas instâncias o novo \textit{ElementsFactory} criado e, assim, as novas classes desenvolvidas passarão a ser utilizadas.
 
-O diagrama com as classes construídas no \textit{framework} para aplicação do padrão \textit{Abstract Factory} pode ser visualizado na figura \ref{padrao_abstract_factory}.
+O diagrama com as classes construídas no \textit{framework} para aplicação do padrão \textit{Abstract Factory} pode ser visualizado na Figura \ref{padrao_abstract_factory}.
 
 \newpage
 \begin{figure}[h]
@@ -970,15 +970,15 @@ O diagrama com as classes construídas no \textit{framework} para aplicação do
     \label{padrao_abstract_factory}
 \end{figure}
 
-No diagrama é mostrado também um exemplo de como seria feita a adição de novas classes que mudem a implementação padrão desenvolvida no \textit{framework}.
+No diagrama, é mostrado também um exemplo de como seria feita a adição de novas classes que mudem a implementação padrão desenvolvida no \textit{framework}.
 
-Por fim, foi utilizado também o \nameref{sec:padrao_strategy} para cada um dos três módulos do SocialFramework. Para cada um dos módulos existe uma classe abstrata de estratégia que define todos os métodos públicos do módulo e uma classe de contexto que será utilizada pelo usuário do \textit{framework}. Essa classe de contexto que recebe o tipo de estratégia que será utilizado e o \textit{ElementsFactory} quando for alterado.
+Por fim, foi utilizado também o \nameref{sec:padrao_strategy} para cada um dos três módulos do SocialFramework. Para cada um dos módulos, existe uma classe abstrata de estratégia que define todos os métodos públicos do módulo, e uma classe de contexto que será utilizada pelo usuário do \textit{framework}. Essa classe de contexto recebe o tipo de estratégia que será utilizado e o \textit{ElementsFactory} quando for alterado.
 
-Por padrão, o SocialFramework já implementa uma classe de estratégia concreta para cada um dos módulos e já recebe essas classes no construtor de cada classe de contexto, porém, é simples para que um desenvolvedor altere a estratégia padrão utilizada, basta que esse crie sua nova classe que extenda da classe abstrata de estratégia do módulo e sobrescreva seus métodos conforme suas necessidades e na instanciação da classe de contexto do módulo deve ser passada a sua nova estratégia construída através do construtor, com isso toda a nova implementação passará a ser usada, sem nenhuma alteração real feita no framework.
+Por padrão, o SocialFramework já implementa uma classe de estratégia concreta para cada um dos módulos e já recebe essas classes no construtor de cada classe de contexto. Porém, é simples para que um desenvolvedor altere a estratégia padrão utilizada, basta que esse crie sua nova classe que estenda a classe abstrata de estratégia do módulo e sobrescreva seus métodos, conforme suas necessidades. Adicionalmente, na instanciação da classe de contexto do módulo, deve ser passada a sua nova estratégia, construída através do construtor. Com isso, toda a nova implementação passará a ser usada, sem alteração real alguma sendo feita pelo \textit{framework}.
 
-Os métodos públicos de cada módulo do SocialFramework que devem ser implementados na mudança de uma estratégia são descritos detalhadamente nas subseções dos \nameref{sec:modulos_socialframework}. As classes de contexto de cada módulo são: \textit{GraphContext} para o módulo de usuário, \textit{ScheduleContext} para o módulo de agenda e \textit{RouteContext} para o móudlo de rotas.
+Os métodos públicos de cada módulo do SocialFramework, que devem ser implementados na mudança de uma estratégia, são descritos detalhadamente nas subseções dos \nameref{sec:modulos_socialframework}. As classes de contexto de cada módulo são: \textit{GraphContext} para o módulo de usuário, \textit{ScheduleContext} para o módulo de agenda, o e \textit{RouteContext} para o módulo de rotas.
 
-A seguir é apresentado na figura \ref{padrao_strategy} como está a disposição de classes para os três módulos do SocialFramework.
+A seguir, é apresentada na Figura \ref{padrao_strategy} como está a disposição de classes para os três módulos do SocialFramework.
 
 \begin{figure}[h]
     \centering
@@ -987,11 +987,11 @@ A seguir é apresentado na figura \ref{padrao_strategy} como está a disposiçã
     \label{padrao_strategy}
 \end{figure}
 
-Em seguida é apresentado um exemplo de uso quando se altera a estratégia de um módulo.
+Em seguida, é apresentado um exemplo de uso quando se altera a estratégia de um módulo.
 
 \begin{lstlisting}[
     label=listing:get_class,
-    caption=Instanciação do ScheduleContext quando mudou-se a estratégia,
+    caption=Instanciação do \textit{ScheduleContext} quando se muda a estratégia,
     numbers=none,
     language=Ruby,
     basicstyle=\footnotesize\sffamily,
@@ -1004,13 +1004,13 @@ Em seguida é apresentado um exemplo de uso quando se altera a estratégia de um
 ScheduleContext.new(NovaEstrategiaDesenvolvida)
 \end{lstlisting}
 
-Com isso ao se chamar o método \textit{verify\_availabilities} dessá classe estará chamando de fato o método desenvolvido na class da `NovaEstrategiaDesenvolvida'.
+Com isso, ao se chamar o método \textit{verify\_availabilities} dessa classe, estará chamando de fato o método desenvolvido na classe `NovaEstrategiaDesenvolvida'.
 
-Um exemplo de instancição com alteração da estratégia e também da fábrica de vértices e arestas pode ser visualizado abaixo.
+Um exemplo de instanciação, com alteração da estratégia e também da fábrica de vértices e arestas, pode ser visualizado abaixo.
 
 \begin{lstlisting}[
     label=listing:get_class,
-    caption=Instanciação do ScheduleContext quando mudou-se a estratégia e a fábrica,
+    caption=Instanciação do \textit{ScheduleContext} quando foram mudadas a estratégia e a fábrica,
     numbers=none,
     language=Ruby,
     basicstyle=\footnotesize\sffamily,
@@ -1023,8 +1023,8 @@ Um exemplo de instancição com alteração da estratégia e também da fábrica
 ScheduleContext.new(NovaEstrategiaDesenvolvida, NovaFabricaDeElementos)
 \end{lstlisting}
 
-Nesse caso nenhuma das classes padrão do SocialFramework desenvolvidas para serem usadas no módulo de agenda estarão sendo usadas, e sim, as novas classes implementadas pelo usuário do \textit{framework}.
+Nesse caso, nenhuma das classes padrão do SocialFramework, desenvolvidas para serem usadas no módulo de agenda, estarão sendo usadas, e sim, as novas classes implementadas pelo usuário do \textit{framework}.
 
 \section{Resumo do Capítulo}
 
-Este capítulo apresentou as funcionalidades desenvolvidas para o SocialFramework, passando por toda a sua interface pública e apresentando cada comportamento. Também foi possível conhecer mais a fundo cada módulo que foi proposto e como foram implementados, além dos \textit{Hotstpos} criados que trabalham como facilitadores para alterações que se tornem necessárias nas diversas instaciações possíveis do \textit{framework}.
+Este capítulo apresentou as funcionalidades desenvolvidas para o SocialFramework, passando por toda a sua interface pública e apresentando cada comportamento. Também foi possível conhecer mais a fundo cada módulo que foi proposto e como foram implementados, além dos \textit{Hotspots} criados que trabalham como facilitadores para alterações que se tornem necessárias nas diversas instaciações possíveis do \textit{framework}. A partir dos padrões de projeto implentados nos \textit{Hotspots}, gerou-se uma maior capacidade de reutilização e manutenção do \textit{framework}.
