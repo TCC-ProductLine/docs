@@ -107,7 +107,35 @@ Como a maioria dos grafos possui um número bem maior de arestas do que os vért
 	\label{lista_adjacencia}
 \end{figure}
 
-Além dos conceitos de grafos apresentados, este trabalho propõe-se também a trabalhar bastante com conceitos de \nameref{sec:reutilizacao_software}, a seguir serão apresentados alguns, dos principais contextos desse tema.
+Um conceito que torna-se muito importante ao se trabalhar com algoritmos complexos é a complexidades desses algoritmos, e como estes irão se comportar em uma aplicação. Certas complexidades podem tornar um algoritmo impraticável, a depender do caso. A seguir é apresentado um pouco mais sobre aspectos de complexidade de algoritmos.
+
+\section{Complexidade de algoritmos}
+\label{sec:complexidade_algoritmos}
+
+Quando existem vários algoritmos que podem solucionar um problema, qual se deve escolher? Uma opção pode ser os algoritmos que possuem um fácil entendimento e depuração, porém dependendo do tipo de aplicação em que o algoritmo irá rodar, utilizar algoritmos que fazem um uso eficiente dos recursos do computador é essencial.
+
+Para determinar qual algoritmo é mais eficiente que outro em determinado quesito, deve-se utilizar o cálculo de suas complexidades (custo). Este custo pode ser referente ao tempo de sua execução ou ao seu consumo de memória \cite{Albuquerque:2004}.
+
+Para o cálculo de complexidade, pode-se medir o número de passos de execução em um modelo matemático denominado maquina de Turing, ou medir o número de segundos gastos em um computador específico. A medida de complexidade é o crescimento assintótico dessa contagem de operações \cite{Junior:2014}.
+
+A objetivo de se fazer a análise de complexidade de um algoritmo é obter estimativas de tempos de execução do algoritmo \cite{Junior:2014}.
+
+\subsection{Big O}
+
+Uma das preocupações com a eficiência é com problemas que envolvem um grande número de elementos. Se existir uma tabela com apenas dez elementos, mesmo o algoritmo considerado menos eficiente resolvem o problema, no entanto, à medida que o número de elementos aumenta, o esforço necessário começa a fazer diferença de algoritmo para algoritmo. A notação \textit{Big O} faz uma estimativa de uma função de como o algoritmo se comporta com um número de elementos fixo ou tendendo ao infinito \cite{Junior:2014}. Pode-se observar na Figura \ref{grafico_complexidade} as principais funções que são utilizadas nesta notação.
+
+Por exemplo, é mais importante saber que o número de operações executadas num algoritmo dobra se dobrarmos o valor de n, do que saber que para n igual a 100 são executadas 300 operações \cite{Junior:2014}.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{figuras/apendices/grafico_complexidade.eps}
+	\caption[Complexidade Big O]{Complexidade Big O}
+	\label{grafico_complexidade}
+\end{figure}
+
+Os resultados expressos em notação \textit{Big O} devem ser interpretados com cuidado, pois indicam apenas que o tempo de execução do programa é proporcional a um determinado valor ou que nunca supera determinado valor. Na realidade o tempo de execução pode ser inferior ao valor indicado e pode ser que o pior caso nunca ocorra \cite{Junior:2014}.
+
+Além dos conceitos de grafos e complexidade apresentados, este trabalho propõe-se também a trabalhar bastante com conceitos de \nameref{sec:reutilizacao_software}, a seguir serão apresentados alguns, dos principais contextos desse tema.
 
 \section{Reutilização de Software}
 \label{sec:reutilizacao_software}
