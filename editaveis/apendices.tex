@@ -365,4 +365,196 @@ A classe \textit{Graph} possui o método \textit{``add\_user''}, que é chamado 
 
 A abordagem de lista de adjacência foi utilizada na implementação do grafo. Como as arestas trabalhadas possuem outras informações além da representação das ligações entre os nós, essa abordagem ocupa menos espaço em memória. Isso ocorre pois não existe representação de arestas que não estejam presentes no grafo. Além da redução da memória gasta, o tempo gasto para listar todos os nós que fazem ligação a um outro nó é reduzido, quando se usa lista de adjacência, pois basta realizar a leitura da lista para se obter essas informações. Já na matriz de adjacência e incidência, é necessário realizar uma busca em uma linha da matriz para verificar todas as ligações que um nó possui. O código fonte dessa aplicação pode ser encontrado em \url{https://github.com/TCC-SocialNetwork/concept-test}.
 
+\chapter{Sprints}
+\label{chap:sprints}
+
+\begin{table}[]
+\centering
+\caption{Sprint 1}
+\label{sprint_1}
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{@{}cp{10cm}cl@{}}
+\toprule
+\textbf{Id}  & \textbf{Estória} & \textbf{Pontos} & \textbf{Status} \\ \midrule
+1 & Como desenvolvedor gostaria de fornecer cadastro de usuários para ser usado em aplicações que utilizem o framework. & 3 & Completa \\
+
+2 & Como desenvolvedor gostaria de fornecer autenticação de usuários para ser usada em aplicações que utilizem o framework. & 5 & Completa \\
+
+3 & Como desenvolvedor gostaria de fornecer funcionalidades para relacionamento entre usuários para ser usada em aplicações que utilizem o framework. & 13 & Completa \\
+
+4 & Como desenvolvedor gostaria que o framework monte uma rede com os usuários cadastrados apresentando todos os relacionamentos e vínculos entre os mesmos para facilitar consultas. & 13 & Completa \\ \bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+\begin{table}[]
+\centering
+\caption{Sprint 2}
+\label{sprint_2}
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{@{}cp{10cm}cl@{}}
+\toprule
+\textbf{Id}  & \textbf{Estória} & \textbf{Pontos} & \textbf{Status} \\ \midrule
+5 & Como desenvolvedor gostaria de fornecer pesquisas para encontrar algum elemento presente na rede social. & 13 & Completa \\
+
+6 & O framework deve ser capaz de sugerir amigos a um usuário para que este possa aumentar sua rede de relacionamentos. & 13 & Completa \\
+
+8 & Como desenvolvedor gostaria que o framework forneça scripts que auxiliem no uso do mesmo para suporte nas configurações e gerações de arquivos de acordo com um template definido. & 5 & Completa \\
+
+9 & Como desenvolvedor gostaria de fornecer um script que gere as Views de usuários para acesso das suas funcionalidades. & 3 & Completa \\ \bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+\begin{table}[]
+\centering
+\caption{Sprint 3}
+\label{sprint_3}
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{@{}cp{10cm}cl@{}}
+\toprule
+\textbf{Id}  & \textbf{Estória} & \textbf{Pontos} & \textbf{Status} \\ \midrule
+7 & Como desenvolvedor gostaria que o Framework possibilite ao usuário a adição ou remoção de atributos das classes de modelo para mudar conforme as suas necessidades. & 8 & Completa \\
+
+12 & Como desenvolvedor gostaria que o framework possibilite, na montagem do grafo, passar quais serão os atributos que os vértices terão para facilitar em pesquisas futuras. & 3 & Completa \\
+
+13 & Como desenvolvedor gostaria que o framework possibilite a continuação de pesquisas no Grafo mesmo após ter retornado a quantidade padrão de resultados para visualização de mais resultados. & 13 & Completa \\
+
+14 & Como desenvolvedor gostaria de fazer algumas refatorações para garantir a integridade do Módulo de Usuários. & 3 & Completa \\
+
+21 & Como desenvolvedor gostaria que o Framework possibilite a definição de um período para buscar o melhor horário para marcação de um evento entre um conjunto de usuários. & 8 & Completa \\ \bottomrule
+
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+\begin{table}[]
+\centering
+\caption{Sprint 4}
+\label{sprint_4}
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{@{}cp{10cm}cl@{}}
+\toprule
+\textbf{Id}  & \textbf{Estória} & \textbf{Pontos} & \textbf{Status} \\ \midrule
+10 & Como desenvolvedor gostaria de fornecer uma documentação do framework para facilitar o uso do mesmo. & 3 & Completa \\
+
+11 & BUG: Como desenvolvedor gostaria de especificar relacionamentos como unidirecionais ou bidirecionais para detalhar melhor. & 5 & Completa \\
+
+15 & Como desenvolvedor gostaria que o Framework possibilite a qualquer usuário checar a sua disponibilidade antes de aceitar participar ou não de um evento para maior controle. & 3 & Completa \\
+
+16 & Como desenvolvedor gostaria que o Framework possibilite tornar membros como ``Administradores'' em um evento para que possam gerenciar e/ou convidar mais pessoas para o evento em questão. & 3 & Completa \\
+
+18 & Como desenvolvedor gostaria que o Framework possibilite verificar o horário que contemple o maior peso de um conjunto de usuários para marcação de um evento. & 20 & Completa \\ \bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+\begin{table}[]
+\centering
+\caption{Sprint 5}
+\label{sprint_5}
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{@{}cp{10cm}cl@{}}
+\toprule
+\textbf{Id}  & \textbf{Estória} & \textbf{Pontos} & \textbf{Status} \\ \midrule
+17 & Como desenvolvedor gostaria que o Framework possibilite convidar qualquer um dos meus relacionamentos para um determinado evento para um melhor controle. & 3 & Completa \\
+
+19 & Como desenvolvedor gostaria que o Framework possibilite definir usuários `Fixos' em um evento que deverá ser marcado para garantir que esses usuários poderão estar presentes. & 13 & Completa \\
+
+20 & Como desenvolvedor gostaria que o Framework possibilite a definição de um peso para os usuários para auxiliar no casamento de horários buscando o maior peso. & 3 & Completa \\
+
+24 & Como desenvolvedor gostaria que o Framework possibilite aos usuários a criação de agendas para um maior controle de suas participações em qualquer evento. & 1 & Completa \\
+
+25 & Como desenvolvedor gostaria que o Framework realizasse pesquisa em eventos levando em consideração os usuários presentes na rede de um usuário para aumentar os elementos das pesquisas. & 8 & Completa \\
+
+26 & Como desenvolvedor gostaria que o Framework possibilite a qualquer usuário participar de um evento público para facilitar a divulgação do mesmo. & 2 & Completa \\
+
+27 & Como desenvolvedor gostaria que o Framework possibilite ao usuário criador de um evento remover o mesmo para cancelamento. & 2 & Completa \\ \bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+\begin{table}[]
+\centering
+\caption{Sprint 6}
+\label{sprint_6}
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{@{}cp{10cm}cl@{}}
+\toprule
+\textbf{Id}  & \textbf{Estória} & \textbf{Pontos} & \textbf{Status} \\ \midrule
+22 & Como desenvolvedor gostaria que o Framework possibilite a criação de eventos definindo a data, hora e duração quando for o caso para anunciar o mesmo a outros usuários. & 8 & Completa \\ 
+
+28 & Como desenvolvedor gostaria que o Framework possibilite ao usuário Criador e aos Administradores de um evento remover convidados para manter um melhor controle. & 2 & Completa \\
+
+29 & Como desenvolvedor gostaria de fornecer uma documentação do Módulo de Agenda para auxiliar no uso do mesmo. & 3 & Completa \\
+
+30 & Como desenvolvedor gostaria que o Framework possa salvar rotas para os usuários para que possam comparar com outros. & 3 & Completa \\
+
+32 & Como desenvolvedor gostaria que o Framework possibilite relacionar rotas com um evento para verificar os horários. & 5 & Completa \\
+
+35 & Como desenvolvedor gostaria que o Framework verifique se duas rotas são compatíveis para sugerir aos usuários. & 5 & Completa \\
+
+36 & Como desenvolvedor gostaria que o Framework sugira uma pequena alteração de rotas para se adequar a rotas de outros usuários. & 5 & Completa \\
+
+37 & Como desenvolvedor gostaria de fornecer uma documentação do Módulo de Rotas para auxiliar no uso do mesmo. & 3 & Completa \\ \bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+\begin{table}[]
+\centering
+\caption{Sprint 7}
+\label{sprint_7}
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{@{}cp{10cm}cl@{}}
+\toprule
+\textbf{Id}  & \textbf{Estória} & \textbf{Pontos} & \textbf{Status} \\ \midrule
+34 & Como desenvolvedor gostaria que o Framework calcule a menor distância entre dois pontos dentro de um raio pré-definido para obter os pontos com a menor distância. & 8 & Completa \\
+
+40 & BUG: Como desenvolvedor gostaria de ajustar retorno da pesquisa quando já está finalizada para que o retorno seje consistente. & 1 & Completa \\
+
+41 & Como desenvolvedor gostaria de adicionar o Padrão Strategy para os helpers do framework para criar um ponto flexivel no framework. & 5 & Completa \\
+
+42 & Como desenvolvedor gostaria de adicionar o padrão Abstract Factory para os Vértices e Arestas para criar um ponto flexivel no framework. & 3 & Completa \\
+
+43 & Como desenvolvedor gostaria de colocar  os atributos para construção dos vértices no grafo no arquivo de inicialização do social framework. & 1 & Completa \\
+
+45 & Como desenvolvedor gostaria de adicionar o padrão factory method para as classes de modelo para criar um ponto flexivel no framework. & 3 & Completa \\
+
+46 & Como desenvolvedor gostaria de criar método em Evento que retorne os usuários confirmados ou não do evento para saber os usuários que realmente estão participando do evento. & 2 & Completa \\
+
+47 & Como desenvolvedor gostaria de tornar método ``execute\_action?'' do evento público para que seja possível a sua utilização fora de sua classe. & 2 & Completa \\ \bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+\begin{table}[]
+\centering
+\caption{Sprint 8 - SocialBike}
+\label{sprint_8}
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{@{}cp{10cm}cl@{}}
+\toprule
+\textbf{Id}  & \textbf{Estória} & \textbf{Pontos} & \textbf{Status} \\ \midrule
+1 & Como usuário gostaria de me registrar para ter acesso a rede social. & 2 & Completa \\
+
+2 & Como usuário gostaria de me relacionar com outros usuários rede para interagir com a minha rede de contatos. & 2 & Completa \\
+
+4 & Como usuário gostaria de criar eventos para outros usuários participarem. & 3 & Completa \\
+
+5 & Como usuário gostaria de pesquisar outros usuários e eventos na rede para me relacionar. & 3 & Completa \\
+
+6 & Como usuário gostaria de ver usuários sugeridos para facilitar meus relacionamentos. & 2 & Completa \\
+
+7 & ABERTA: Como usuário gostaria de ver um horário em que o maior peso de um conjunto de usuários possa participar para marcar um evento. & 3 & Completa \\
+
+8 & Como usuário gostaria de criar uma rota para melhor controle dos caminhos percorridos. & 8 & Completa \\
+
+9 & ABERTA: Como usuário gostaria de definir um horário de partida para uma rota para melhor controle dos meus compromissos. & 3  & Completa \\
+
+10 & ABERTA: Como usuário gostaria de verificar se algum usuário em um grupo tem uma rota compatível com uma rota específica. & 5 & Completa \\ \bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
 \end{apendicesenv}
