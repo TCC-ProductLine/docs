@@ -841,7 +841,7 @@ Para um usuário criar uma rota, deve-se utilizar o método `create\_route', pre
     showspaces=false,
     showstringspaces=false,
 ]
-create_route(title, distance, locations, mode_of_travel = "driving")
+create_route(title, distance, locations, mode_of_travel = "driving", accepted_deviation = 0)
 \end{lstlisting}
 
 
@@ -862,7 +862,7 @@ locations = [{latitude: -15.792740000000, longitude: -47.876360000000},
              {latitude: -15.792520000000, longitude: -47.876900000000}]
 \end{lstlisting}
 
-O parâmetro `mode\_of\_travel'  representa qual o meio de transporte que será utilizado para percorrer a rota, podendo ser `driving', `bycicling', `walking' ou `transit', o valor padrão é `walking' para viajar de carro.
+O parâmetro `mode\_of\_travel'  representa qual o meio de transporte que será utilizado para percorrer a rota, podendo ser `driving', `bycicling', `walking' ou `transit', o valor padrão é `walking' para viajar de carro. Além disso, existe também o parâmetro `accepted\_deviation' com valor padrão igual a zero. Esse parâmetro diz respeito a quanto uma rota pode ter a sua distância alterada, é usado na comparação de rotas.
 
 Este módulo também fornece um recurso para verificar a compatibilidade entre duas rotas. Para isso, deve-se chamar o método `compare\_routes' presente na classe `RouteContext'.
 
@@ -877,12 +877,10 @@ Este módulo também fornece um recurso para verificar a compatibilidade entre d
     showspaces=false,
     showstringspaces=false,
 ]
-compare_routes(principal_route, secondary_route,
-          principal_deviation = SocialFramework.principal_deviation,
-          secondary_deviation = SocialFramework.secondary_deviation)
+compare_routes(principal_route, secondary_route)
 \end{lstlisting}
 
-Este método é utilizado para verificar se duas rotas podem ser conectadas em apenas uma rota. O parâmetro `principal\_route' representa a rota que será alterada para auxiliar a rota secundária representada pelo parâmetro `secondary\_route', se possível. Quando a rota principal não pode ser alterada, pode-se tentar alterar a rota secundária para atingir o objetivo. Os parâmetros `principal\_deviation' e `secondary\_deviation' representam um mapa com o modo de transporte e o desvio máximo que a rota pode sofrer. O desvio máximo é a distância que uma rota pode ser desviada para atingir o objetivo. Os valores padrões para os desvios das rotas principal e secundária estão presentes no \textit{initializer} `social\_framework.rb', e podem ser alterados.
+Este método é utilizado para verificar se duas rotas podem ser conectadas em apenas uma rota. O parâmetro `principal\_route' representa a rota que será alterada para auxiliar a rota secundária representada pelo parâmetro `secondary\_route', se possível. Quando a rota principal não pode ser alterada, pode-se tentar alterar a rota secundária para atingir o objetivo. O método utiliza os valores de desvio máximo das rotas para poder verificar se as rotas podem ser desviadas para atender os objetivos esperados.
 
 O método \textit{compare\_routes} retorna um mapa com as informações de compatibilidade, como pode ser visualizado a seguir:
 
@@ -946,7 +944,6 @@ Existe outro facilitador desenvolvido no \textit{framework} para trabalhar com o
 
 A seguir na figura \ref{padrao_factory_method}, pode ser visto o diagrama das classes construído para aplicação do padrão.
 
-\newpage
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.6]{figuras/social_framework/factory_method.eps}
