@@ -344,7 +344,81 @@ Oferecer um \textit{framework} para ser utilizado no desenvolvimento de redes so
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.35]{figuras/melhor_horario.eps}
+	\caption{Grafo bipartido para procura do melhor horário}
 \end{figure}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Módulo de Rotas}
+
+\begin{itemize}
+	\item Definição de muitas rotas para muitos usuários;
+	\item Mesma rota para múltiplos usuários;
+	\item Comparação de rotas;
+	\item Google Maps API;
+	\begin{itemize}
+		\item Requisições de pontos de Latitude e Longitude;
+		\item Tipos de rotas: Carro, A Pé, Bicicleta ou Transporte público.
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Comparação de Rotas}
+
+\begin{itemize}
+	\item Rota principal e rota secundária;
+	\item Uso de desvio aceito definido para cada rota;
+	\item Alteração da rota principal para atender a rota secundária e vice-versa;
+	\item Algoritmo inteligente para buscar a melhor opção para a rota secundária;
+	\item Informações de compatibilidade, pontos de mudanças e distância.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Comparação de Rotas}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.35]{figuras/rota1.eps}
+	\caption{Rota principal original}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Comparação de Rotas}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.35]{figuras/rota2.eps}
+	\caption{Rota secundária original}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Comparação de Rotas}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.35]{figuras/juncao_rotas.eps}
+	\caption{Rota principal final passando pela origem e destino da rota secundária}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Comparação de Rotas}
+
+\begin{itemize}
+	\item Rotas podem ser alteradas em ambos os pontos de origem e destino, apenas em algum deles, apenas na origem, apenas no destino ou em nenhum ponto.
+	\item No caso de não ser possível alterar a rota principal, a rota secundária deve poder ser alterada;
+	\item Caso a rota secundária não possa ser alterada as rotas são imcompatíveis.
+\end{itemize}
 
 \end{frame}
 
