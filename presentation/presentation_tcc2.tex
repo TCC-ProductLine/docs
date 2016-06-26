@@ -119,35 +119,12 @@ Prof. Dr. Milene Serrano
 %	PRESENTATION SLIDES
 %----------------------------------------------------------------------------------------
 
-\section{Contextualização}
-
-\begin{frame}
-\frametitle{Contextualização}
-
-\begin{itemize}
-\item Reutilização de Software;
-	\begin{itemize}
-		\item Processo de criar sistemas de software a partir de um software já existente \cite{krueger}.
-	\end{itemize}
-\item Redes Sociais.
-	\begin{itemize}
-		\item Conjunto de participantes unindo ideias e recursos em torno de relacionamentos, valores e interesses compartilhados \cite{marteleto}.
-	\end{itemize}
-\end{itemize}
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=0.45]{figuras/social_network.eps}
-\end{figure}
-
-\end{frame}
-
 \section{Questão de Pesquisa}
 
 \begin{frame}
 \frametitle{Questão de Pesquisa}
 
-É possível oferecer um \textbf{\textit{framework}} que auxilie no desenvolvimento de redes sociais, disponibilizando \textbf{específicos de definições de rotas e agenda} e \textbf{recursos gerais de relacionamentos}, proporcionando ao desenvolvedor facilidade ao lidar com preocupações intrínsecas desse contexto?
+É possível oferecer um \textbf{\textit{framework}} que auxilie no desenvolvimento de redes sociais, disponibilizando recursos \textbf{específicos de definições de rotas e agenda} e recursos \textbf{gerais de relacionamentos}, proporcionando ao desenvolvedor facilidade ao lidar com preocupações intrínsecas desse contexto?
 
 \begin{figure}[h]
 	\centering
@@ -191,7 +168,6 @@ Oferecer um \textit{framework} para ser utilizado no desenvolvimento de redes so
 \frametitle{Objetivos Específicos}
 
 \begin{itemize}
-	\item \textbf{Aprofundar os conhecimentos em termos de redes sociais} e afins, através da leitura de materiais bibliográficos.
 	\item Definir uma arquitetura com base no \textbf{uso de grafos}, alinhada às boas práticas da Engenharia de Software, para representar os relacionamento entre as pessoas bem como as rotas percorridas por elas.
 	\item Evoluir a arquitetura proposta, visando lidar com \textbf{algoritmos para compatibilizar agendas entre os interessados}.
 \end{itemize}
@@ -202,7 +178,7 @@ Oferecer um \textit{framework} para ser utilizado no desenvolvimento de redes so
 \frametitle{Objetivos Específicos}
 
 \begin{itemize}
-	\item \textbf{Usar estruturas de dados e algoritmos específicos}, implementados de forma otimizada, visando \textbf{desempenho e facilidades na manutenção evolutiva do software}.
+	\item \textbf{Usar estruturas de dados e algoritmos específicos}, visando \textbf{desempenho e facilidades na manutenção evolutiva do software}.
 	\item \textbf{Instanciar um produto de software} - i.e. uma rede social específica - a partir do \textit{framework}, no intuito de coletar as primeiras impressões acerca do suporte desenvolvido como tema foco desse trabalho.
 \end{itemize}
 
@@ -372,7 +348,7 @@ Oferecer um \textit{framework} para ser utilizado no desenvolvimento de redes so
 	\item Rota principal e rota secundária;
 	\item Uso de desvio aceito definido para cada rota;
 	\item Alteração da rota principal para atender a rota secundária e vice-versa;
-	\item Algoritmo inteligente para buscar a melhor opção para a rota secundária;
+	\item Algoritmo para buscar a melhor opção para a rota secundária;
 	\item Informações de compatibilidade, pontos de mudanças e distância.
 \end{itemize}
 
@@ -417,8 +393,84 @@ Oferecer um \textit{framework} para ser utilizado no desenvolvimento de redes so
 \begin{itemize}
 	\item Rotas podem ser alteradas em ambos os pontos de origem e destino, apenas em algum deles, apenas na origem, apenas no destino ou em nenhum ponto.
 	\item No caso de não ser possível alterar a rota principal, a rota secundária deve poder ser alterada;
-	\item Caso a rota secundária não possa ser alterada as rotas são imcompatíveis.
+	\item Caso a rota secundária não possa ser alterada as rotas são incompatíveis.
 \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Hotspots}
+
+\begin{itemize}
+	\item Pontos de flexibilidade do framework;
+	\item Framework todo extensível;
+	\item Três padrões implementados: \textit{Factory Method}, \textit{Abstract Factory} e \textit{Strategy}.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Hotspots - Factory Method}
+
+\begin{itemize}
+	\item Adaptação do padrão utilizada;
+	\item Usado para as classes de modelo;
+	\item Nomes das classes de modelo definidas no arquivo de configurações `social\_framework.rb';
+\end{itemize}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.35]{figuras/factory_method.eps}
+	\caption{Modelo do Factory Method}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Hotspots - Abstract Factory}
+
+\begin{itemize}
+	\item Usado para os elementos dos grafos (Vértices e Arestas);
+	\item Classes com comportamento padrão implementadas;
+\end{itemize}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.25]{figuras/abstract_factory.eps}
+	\caption{Modelo do Abstract Factory}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Hotspots - Strategy}
+
+\begin{itemize}
+	\item Usado para cada um dos módulos do SocialFramework.
+\end{itemize}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.25]{figuras/graph_strategy.eps}
+	\caption{Modelo do Strategy para o módulo de usuários}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Hotspots - Strategy}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.25]{figuras/schedule_strategy.eps}
+	\caption{Modelo do Strategy para o módulo de agenda}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.25]{figuras/route_strategy.eps}
+	\caption{Modelo do Strategy para o módulo de rotas}
+\end{figure}
 
 \end{frame}
 
