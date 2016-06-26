@@ -7,9 +7,9 @@ Ao final deste capítulo, pretende-se que o leitor forme uma ideia mais concreta
 
 \section{O Framework}
 
-A proposta deste trabalho é desenvolver um \textit{framework} que auxilie no desenvolvimento de redes sociais. Este \textit{framework} deve oferecer recursos gerais com toda a lógica de usuários e relacionamentos, e recursos mais específicos para redes sociais baseadas em rotas e agendas. O recurso de rotas deve ser capaz de fazer um mapeamento de rotas de interesse de um determinado usuário e auxiliar este a fazer comparações com rotas de outros usuários. A agenda deve oferecer recursos de controle de ocupações no decorrer de dias e horários e auxiliar um usuário a encontrar dias e/ou horários comuns entre um grupo de usuários qualquer.
+A proposta deste trabalho foi desenvolver um \textit{framework} que auxilie no desenvolvimento de redes sociais. Este \textit{framework} deve oferecer recursos gerais com toda a lógica de usuários e relacionamentos, e recursos mais específicos para redes sociais baseadas em rotas e agendas. O recurso de rotas deve ser capaz de fazer um mapeamento de rotas de interesse de um determinado usuário e auxiliar este a fazer comparações com rotas de outros usuários. A agenda deve oferecer recursos de controle de ocupações no decorrer de dias e horários e auxiliar um usuário a encontrar dias e/ou horários comuns entre um grupo de usuários qualquer.
 
-Parte do \textit{framework} será extensível, possibilitando ao desenvolvedor reutilizá-lo a partir de seus pontos flexíveis, modelados e implementados usando o conceito de herança. O desenvolvedor poderá, portanto, acrescentar e/ou alterar suas implementações conforme as suas necessidades. O \textit{framework}, por si só, oferecerá recursos que poderão ser reutilizados diretamente pelo desenvolvedor, não necessitando estendê-los. A extensibilidade só será necessária caso sejam desejados níveis de especificidade maiores.
+Parte do \textit{framework} é extensível, possibilitando ao desenvolvedor reutilizá-lo a partir de seus pontos flexíveis, modelados e implementados usando o conceito de herança. O desenvolvedor poderá, portanto, acrescentar e/ou alterar suas implementações conforme as suas necessidades. O \textit{framework}, por si só, oferecerá recursos que poderão ser reutilizados diretamente pelo desenvolvedor, não necessitando estendê-los. A extensibilidade só será necessária caso sejam desejados níveis de especificidade maiores.
 
 A seguir, têm-se um maior detalhamento de cada um dos três principais componentes fornecidos pelo \textit{framework}.
 
@@ -17,7 +17,7 @@ A seguir, têm-se um maior detalhamento de cada um dos três principais componen
 
 O relacionamento em redes sociais dá-se por meio de interações entre os usuários. Estas interações variam de acordo com a rede em que o usuário está inserido. Alguém pode apenas seguir outras pessoas e acompanhar suas postagens. Este é um relacionamento unidirecional, pois não é necessário que uma pessoa seguida acompanhe também postagens de seus seguidores. Existe também outro tipo de relacionamento, onde é necessário que as duas pessoas estejam diretamente ligadas entre si, o que o torna necessariamente bidirecional. Neste tipo, podem ser considerados relacionamentos entre conhecidos, amigos, namorados, familiares, entre outros.
 
-Na montagem da estrutura de relacionamentos entre os usuários para redes sociais, é necessário fazer uso de grafos, onde os usuários serão representados como os vértices e os relacionamentos como as arestas. No caso dos relacionamentos unidirecionais, apenas uma aresta é criada. Esta aresta faz uma ligação a partir do vértice do usuário seguidor para o vértice do usuário que este deseja seguir, como pode ser observado na Figura \ref{segue}. No caso dos relacionamentos bidirecionais, a ligação deverá ser feita usando-se duas arestas. É necessário que para ambos os usuários exista uma possibilidade de se chegar ao outro, portanto, deve existir uma aresta que ligue um usuário ``A'' a um usuário ``B'', e uma aresta que ligue o usuário ``B'' ao usuário ``A'', vide a Figura \ref{amigo}.
+Na montagem da estrutura de relacionamentos entre os usuários para redes sociais, foi necessário fazer uso de grafos, onde os usuários serão representados como os vértices e os relacionamentos como as arestas. No caso dos relacionamentos unidirecionais, apenas uma aresta é criada. Esta aresta faz uma ligação a partir do vértice do usuário seguidor para o vértice do usuário que este deseja seguir, como pode ser observado na Figura \ref{segue}. No caso dos relacionamentos bidirecionais, a ligação deverá ser feita usando-se duas arestas. É necessário que para ambos os usuários exista uma possibilidade de se chegar ao outro, portanto, deve existir uma aresta que ligue um usuário ``A'' a um usuário ``B'', e uma aresta que ligue o usuário ``B'' ao usuário ``A'', vide a Figura \ref{amigo}.
 
 \begin{figure}[!h]
 	\centering
@@ -93,9 +93,9 @@ O diagrama mostra apenas um modelo preliminar que conferiu uma base para a imple
 
 \section{Uso do Framework}
 
-O \textit{framework} é \textit{open sorce}, desenvolvido em \textit{``Ruby on Rails''}, e tem sua \textit{``Gem''}\footnote{\url{httpttp://www.akitaonrails.com/2009/2/2/entendendo-rubygems}} no repositório oficil do Rails\footnote{\url{https://rubygems.org/}} para uso de outros desenvolvedores. O endereço completo para a \textit{Gem} do SocialFramework é \url{https://rubygems.org/gems/social_framework}.
+O \textit{framework} é \textit{open sorce}, desenvolvido em \textit{``Ruby on Rails''}, e tem sua \textit{``Gem''}\footnote{\url{httpttp://www.akitaonrails.com/2009/2/2/entendendo-rubygems}} no repositório oficial do Rails\footnote{\url{https://rubygems.org/}} para uso de outros desenvolvedores. O endereço completo para a \textit{Gem} do SocialFramework é \url{https://rubygems.org/gems/social_framework}.
 
-Para comprovação do funcionamento do \textit{framework}, este trabalho se propos a desenvolver uma rede social que faça uso do mesmo. Esta rede faz uso dos principais recursos providos pelo \textit{framework}. Possibilitando assim, avaliar o seu uso na prática.
+Para comprovação do funcionamento do \textit{framework}, este trabalho se propôs a desenvolver uma rede social que faça uso do mesmo. Esta rede faz uso dos principais recursos providos pelo \textit{framework}. Possibilitando assim, avaliar o seu uso na prática.
 
 A Figura \ref{uso_proposto} apresenta um modelo que procura ilustrar e contextualizar um possível uso para o \textit{framework}.
 
@@ -114,7 +114,7 @@ Com o objetivo de entender detalhes básicos de redes sociais, e compreender alg
 
 \section{Trabalhos Relacionados}
 
-Em algumas pesquisas relacionadas sobre trabalhos parecidos com o que se propos, pode-se encontrar alguns sistemas semelhantes, os quais serão apresentados a seguir.
+Em algumas pesquisas relacionadas sobre trabalhos parecidos com o que se propôs, pode-se encontrar alguns sistemas semelhantes, os quais serão apresentados a seguir.
 
 Existe uma comparação entre vinte e cinco plataformas, as quais permitem começar um serviço de rede social\footnote{\url{http://www.tripwiremagazine.com/2010/07/25-best-social-networking-platforms-to-start-your-own-service.html}}  próprio. Porém, algumas das plataformas apresentadas são pagas ou não são voltadas para desenvolvedores, ou seja, são plataformas que fornecem funcionalidades para usuários comuns poderem montar uma rede social a partir de um \textit{template} visual já definido.
 
@@ -122,7 +122,6 @@ A Tabela \ref{comparacao} apresenta um comparativo entre algumas das plataformas
 
 Outra característica importante que foi observada na comparação é que os componentes customizáveis que as plataformas afirmam possuir são, em sua maioria, via interface gráfica. Em poucas plataformas, é possível a customização via código, sendo, nesses casos, a maior parte feita via construção de \textit{plugins}.
 
-\newpage
 \begin{table}[]
 \centering
 \caption{Comparação entre os trabalhos relacionados}

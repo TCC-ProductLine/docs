@@ -52,7 +52,7 @@ Nas seções a seguir, será apresentado o funcionamento do SocialFramework como
 
 O uso do SocialFramework é indicado para quem já possui algum conhecimento do \textit{framework} Rails para um maior entendimento e aproveitamento de seus recursos fornecidos.
 
-O SocialFramework utiliza o Devise\footnote{\url{https://github.com/plataformatec/devise}}, que é uma solução de autenticação flexível para Rails. Toda a documentação do Devise pode ser encontrada no repositório do projeto no GitHub, no endereço \url{https://github.com/TCC-SocialNetwork/social_framework}.
+O SocialFramework utiliza o Devise\footnote{\url{https://github.com/plataformatec/devise}}, que é uma solução de autenticação flexível para Rails. Toda a documentação do Devise pode ser encontrada no repositório do projeto no GitHub, no endereço \url{https://github.com/plataformatec/devise}.
 
 A classe de usuário foi implementada no SocialFramework, e possui algumas diferenças da classe de usuário padrão do Devise, como a adição do atributo nome e dos relacionamentos dos usuários. As \textit{controllers} e \textit{views} do Devise também foram alteradas para adicionar os novos recursos.
 
@@ -72,7 +72,7 @@ $ rails generate social_framework:install
 
 Este comando irá criar o arquivo ``config/initializers/devise.rb'', contendo as configurações do Devise; o arquivo ``config/initializers/social\_framework.rb'', que contém as configurações do SocialFramework; o arquivo i18n do Devise, e irá adicionar a rota ``devise\_for'', para mapear as \textit{controllers} e \textit{views} do Devise. Dessa forma, a aplicação estará preparada para usar o módulo de usuários com as configurações e comportamentos padrões.
 
-Todas as tabelas do \textit{framework} serão criadas no banco de dados da aplicação. Portanto, para testar a aplicação não se deve esquecer de executar as \textit{migrations}:
+Todas as tabelas do \textit{framework} deverão criadas no banco de dados da aplicação. Portanto, para testar a aplicação não se deve esquecer de executar as \textit{migrations}:
 
 \begin{lstlisting}[
     label=listing:migrations,
@@ -262,7 +262,7 @@ A classe de usuário fornece como padrão os atributos nome de usuário, \textit
 $ rails generate social_framework:install_migrations -m users
 \end{lstlisting}
 
-A \textit{migrate} de usuário será adicionada na aplicação e poderá ser alterada. O parâmetro `m' é usado para gerar \textit{migrations} específicas. O \textit{script} espera os nomes das \textit{migrations}. Caso não exista a \textit{migration} na aplicação, esta será gerada.
+A \textit{migrate} de usuário será adicionada na aplicação e poderá ser alterada. O parâmetro `-m' é usado para gerar \textit{migrations} específicas. O \textit{script} espera os nomes das \textit{migrations}. Caso não exista a \textit{migration} na aplicação, esta será gerada.
 
 Caso seja adicionado ou removido um atributo para o usuário, deve-se notificar o Devise, usando um filtro \textit{before} na ``ApplicationController'':
 

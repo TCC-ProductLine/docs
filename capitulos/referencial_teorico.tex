@@ -1,7 +1,7 @@
 '\chapter{Referencial Teórico}
 \label{chapter:Referencial_Teorico}
 
-Neste capítulo, serão abordados os tópicos teóricos associados às Redes Sociais, aos Grafos e à Reutilização de Software. Esses tópicos conferiram o embasamento teórico para realização deste trabalho.
+Neste capítulo, serão abordados os tópicos teóricos associados às redes sociais, aos grafos e à reutilização de software. Esses tópicos conferiram o embasamento teórico para realização deste trabalho.
 
 \section{Redes Sociais}
 
@@ -98,7 +98,7 @@ A matriz de adjacência de \textit{G} é a matriz $A_G := (a_{uv})$, com dimens�
 	\label{matriz}
 \end{figure}
 
-Como a maioria dos grafos possui um número bem maior de arestas do que os vértices, a matriz de adjacência de um grafo geralmente é menor do que a sua matriz de incidência e, assim, necessita de menos espaço de armazenamento. Ao lidar com grafos, é possível utilizar uma represetação otimizada. Para cada vértice \textit{v}, os vizinhos de \textit{v} são armazenados em uma lista. A lista (\textit{N}(\textit{v}): \textit{v $\in$ V}) é chamada de lista de adjacência do grafo, onde \textit{N}(\textit{v}) representa os vizinhos do vértice \textit{v}. Um exemplo pode ser observado na Figura \ref{lista_adjacencia}. A quantidade de memória necessária para uma lista de adjacências é $\Theta(|\textit{V}| + |\textit{E}|)$. Grafos são, normalmente, armazenados em computadores como listas de adjacência. Entretanto, em casos em que o grafo possua muitos vértices e poucas arestas, a representação em matriz de incidência é eficiente. O mesmo acontece para a representação em matriz de de adjacência, quando o grafo possui poucos vértices e muitas arestas \cite{Costa:2011}.
+Como a maioria dos grafos possui um número bem maior de arestas do que os vértices, a matriz de adjacência de um grafo geralmente é menor do que a sua matriz de incidência e, assim, necessita de menos espaço de armazenamento. Ao lidar com grafos, é possível utilizar uma representação otimizada. Para cada vértice \textit{v}, os vizinhos de \textit{v} são armazenados em uma lista. A lista (\textit{N}(\textit{v}): \textit{v $\in$ V}) é chamada de lista de adjacência do grafo, onde \textit{N}(\textit{v}) representa os vizinhos do vértice \textit{v}. Um exemplo pode ser observado na Figura \ref{lista_adjacencia}. A quantidade de memória necessária para uma lista de adjacências é $\Theta(|\textit{V}| + |\textit{E}|)$. Grafos são, normalmente, armazenados em computadores como listas de adjacência. Entretanto, em casos em que o grafo possua muitos vértices e poucas arestas, a representação em matriz de incidência é eficiente. O mesmo acontece para a representação em matriz de de adjacência, quando o grafo possui poucos vértices e muitas arestas \cite{Costa:2011}.
 
 \begin{figure}[!h]
 	\centering
@@ -164,7 +164,7 @@ Fayad e Schimidt, em seu artigo \cite{Fayad:Schimidt:1997} sobre \textit{framewo
 
 \subsubsection{Frameworks e Reutilização de Software}
 
-A tecnologia de reutilização ideal provê componentes que podem facilmente ser conectados para criar um novo sistema. Não é necessário ao ao desenvolvedor - cliente do framework - ter conhecimento de como o componente é implementado, e geralmente é fácil para ele aprender como o utilizar. O resultado é que que o sistema tende a ser eficiente, fácil de manter e confiável \cite{Johnson:1997}.
+A tecnologia de reutilização ideal provê componentes que podem facilmente ser conectados para criar um novo sistema. Não é necessário ao desenvolvedor - cliente do framework - ter conhecimento de como o componente é implementado, e geralmente é fácil para ele aprender como o utilizar. O resultado é que o sistema tende a ser eficiente, fácil de manter e confiável \cite{Johnson:1997}.
 
 \textit{Frameworks} são aplicações especializadas em prover classes e componentes abstratos que podem ser usados por outros sistemas. Estes proveem técnicas de reutilização robustas e de maior granularidade. Sendo aplicações independentes, é mais fácil usá-los em um maior número de sistemas \cite{Johnson:Foote:1988}.
 
@@ -178,7 +178,7 @@ Existe também uma metodologia no desenvolvimento de \textit{frameworks} que une
 
 Além dos tipos de \textit{frameworks}, estes também podem ser divididos quanto a sua aplicabilidade. Podem ser desenvolvidos para serem aplicados em qualquer domínio, de forma genérica sem se preocupar com algo específico, \textit{frameworks horizontais}; ou podem ser desenvolvidos visando atender um tipo específico de domínio de problemas, \textit{frameworks verticais}. Essas características dependem das necessidades apresentadas ao se trabalhar com \textit{frameworks}, e isso impacta como será aplicada a reutilização \cite{Kroth:2000}.
 
-Na Engenharia de Software, busca-se cada vez mais o aumento da produtividade e da qualidade dos sistemas desenvolvidos. A reutilização de software, ao contrário de todas as demais partes de um sistema, é um fator que pode acarretar o aumento desses fatores, considerando que, ao se utilizar componentes já desenvolvidos e depurados, pode-se reduzir o tempo de desenvolvimento, de testes e as chances de ocorrência de erros que poderiam advir se fosse necessária a criação destes novos artefatos \cite{Silva:2000}.
+Na engenharia de software, busca-se cada vez mais o aumento da produtividade e da qualidade dos sistemas desenvolvidos. A reutilização de software, ao contrário de todas as demais partes de um sistema, é um fator que pode acarretar o aumento desses fatores, considerando que, ao se utilizar componentes já desenvolvidos e depurados, pode-se reduzir o tempo de desenvolvimento, de testes e as chances de ocorrência de erros que poderiam advir se fosse necessária a criação destes novos artefatos \cite{Silva:2000}.
 
 Na qualidade, a reutilização advinda dos \textit{frameworks} pode trazer ganhos de desempenho, confiabilidade e interoperabilidade de software \cite{Fayad:Schimidt:1997}.
 
@@ -199,9 +199,9 @@ Os padrões de Projeto são parte da vanguarda da tecnologia orientada a objetos
 Alexander, em seu livro \cite{Alexander:1979} sobre padrões de construção, diz:
 
 \begin{quote}
-	``cada padrão descreve um problema no nosso
+	``Cada padrão descreve um problema no nosso
 ambiente e o cerne da sua solução, de tal forma que você possa usar essa solução mais
-de um milhão de vezes, sem nunca fazê-lo da mesma maneira''
+de um milhão de vezes, sem nunca fazê-lo da mesma maneira.''
 \end{quote}
 
 No livro de padrões de projeto \cite{Gamma:1995}, os autores concordam com as afirmações de Alexander. A diferença principal é que, no âmbito de software, os padrões são expressos em termos de objetos e interfaces ao invés de paredes e portas. Porém, ambos os tipos de padrões dizem respeito à solução para um problema em um contexto geral. Os autores consideram ainda que um padrão é dividido em quatro partes principais, que são:
