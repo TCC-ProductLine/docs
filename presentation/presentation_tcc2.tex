@@ -243,6 +243,70 @@ Oferecer um \textit{framework} para ser utilizado no desenvolvimento de redes so
 
 \section{SocialFramework}
 
+\begin{frame}
+\frametitle{SocialFramework - Primeiros Passos}
+
+\begin{itemize}
+	\item Publicado oficialmente no RubyGems versão 1.0.1;
+	\item gem `social\_framework';
+	\item Arquivos de configuração:
+	\begin{itemize}
+		\item devise.rb
+		\item social\_framework.rb
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Scripts de Geração}
+
+\begin{itemize}
+	\item Arquivos de configuração: rails generate social\_framework:install;
+	\item \textit{Models}: \textit{User}, \textit{Edge}, \textit{Schedule}, \textit{Event}, \textit{ParticipantEvent}, \textit{Route}, \textit{Location};
+	\item \textit{Controllers} do plugin `Devise';
+	\item \textit{Views} do plugin `Devise';
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Módulo de Usuários}
+
+\begin{itemize}
+	\item Recursos gerais de redes sociais;
+	\item Uso do plugin `Devise':
+	\begin{itemize}
+		\item Registros;
+		\item Autenticações;
+		\item Validações;
+	\end{itemize}
+	\item Relacionamentos;
+	\item Pesquisas;
+	\item Sugestão de relacionamentos.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Módulo de Usuários - Estrutura}
+
+\begin{itemize}
+	\item Classes de modelo \textit{User} e \textit{Edge};
+	\item Muitos relacionamentos;
+	\begin{itemize}
+		\item Bidirecionais;
+		\item Unidirecionais;
+		\item Muitos tipos;
+		\item Uma aresta para cada tipo de relacionamento;
+	\end{itemize}
+	\item Grafo construído até uma profundidade pré-estabelecida (Usuários e Eventos);
+	\item Sugestão de amizades considerando o terceiro nível do grafo com algoritmo DFS;
+	\item Pesquisas realizadas no grafo com o algoritmo BFS e em banco de dados;
+\end{itemize}
+
+\end{frame}
+
 \section{Resultados}
 
 \begin{frame}
