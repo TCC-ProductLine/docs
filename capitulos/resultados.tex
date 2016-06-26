@@ -5,11 +5,11 @@ Neste capítulo, serão apresentados os principais resultados obtidos referentes
 
 \section{Testes Unitários}
 
-Durante o desenvolvimento do SocialFramework foi eleborada uma suíte de testes para tentar garantir que cada ponto do código funcione da devida maneira. Desse modo, o desenvolvedor pode inserir novos códigos, módulos ou alterar um código existente, com mais tranquilidade e sabendo que o restante do código irá funcionar adequadamente. Caso algum resultado esperado seja diferente do obtido, a suíte de testes irá apontar a falha.
+Durante o desenvolvimento do SocialFramework foi elaborada uma suíte de testes para tentar garantir que cada ponto do código funcione da devida maneira. Desse modo, o desenvolvedor pode inserir novos códigos, módulos ou alterar um código existente, com mais tranquilidade e sabendo que o restante do código irá funcionar adequadamente. Caso algum resultado esperado seja diferente do obtido, a suíte de testes irá apontar a falha.
 
 Para a realização dos testes, foi utilizada a \textit{gem} do Rspec\footnote{\url{http://rspec.info/}}. Essa \textit{gem} é amplamente utilizada pela comunidade do Rails. E para a visualização do relatório de testes, foi utilizado o Code Climate\footnote{\url{https://codeclimate.com/}}, que é uma ferramenta \textit{online} que realiza uma análise estática do código fonte. Atualmente, são suportadas as linguagens: Ruby, Python, JavaScript e PHP.
 
-No início do desenvolvimento, foi estabelecida uma meta de que se deveria testar no mínimo 90\% do código fonte. Essa meta foi cumprida, obtendo-se 98,8\% de cobertura do código. Porém essa métrica não corresponde à realidade, pois os arquivos ``elements\_factory.rb'', ``elements\_factory\_default.rb'' e ``graph\_elements.rb'' tiveram a cobertura, respectivamente, de 60\%, 80\% e 84\%, diminuindo a cobertura real do código fonte. Entretando, esses arquivos possuem classes ``abstratas'' e deveriam ser desconsiderados. Porém, em Ruby, não existe o conceito de classe abstrata. Olsen em seu livro \cite{Olsen:2007}, apresenta uma abordagem de se obter esse conceito. Um exemplo dessa abordagem pode ser observado, conforme consta no \ref{listing:classe_abstrata}:
+No início do desenvolvimento, foi estabelecida uma meta de que se deveria testar no mínimo 90\% do código fonte. Essa meta foi cumprida, obtendo-se 98,8\% de cobertura do código. Porém essa métrica não corresponde à realidade, pois o arquivo ``engine.rb'', que teve sua cobertura de 47.83\%, é um arquivo de configuração do \textit{framework} e não deveria ser testado, e os arquivos  ``elements\_factory.rb'', ``elements\_factory\_default.rb'' e ``graph\_elements.rb'' tiveram a cobertura, respectivamente, de 60\%, 80\% e 84\%, diminuindo a cobertura real do código fonte. Entretanto, esses arquivos possuem classes ``abstratas'' e deveriam ser desconsiderados. Porém, em Ruby, não existe o conceito de classe abstrata. Olsen em seu livro \cite{Olsen:2007}, apresenta uma abordagem de se obter esse conceito. Um exemplo dessa abordagem pode ser observado, conforme consta no \ref{listing:classe_abstrata}:
 
  \begin{lstlisting}[
     label=listing:classe_abstrata,
@@ -111,9 +111,9 @@ Os métodos ``search'' e ``suggest\_relationships'', que tiveram seus tempos de 
 
 No módulo de agenda, o método que teve o seu desempenho medido foi o ``verify\_availabilities'', o qual verifica o melhor horário para um evento levando em consideração um conjunto de usuários. Para tal, fui utilizado o \textit{slot} com o tamanho de 1 hora e considerou-se que os eventos poderiam ser marcados no horário de 08:00 às 12:00.
 
-Para esse método, devem ser considerar duas variáveis que podem influnciar o seu desempenho, que são o número de usuários e o intervaldo de tempo. Portanto, foram feitas duas baterias de testes. Cada bateria de teste tinha uma dessas variáveis fixa. Já a outra era alterada.
+Para esse método, devem ser consideradas duas variáveis que podem influenciar o seu desempenho, que são o número de usuários e o intervalo de tempo. Portanto, foram feitas duas baterias de testes. Cada bateria de teste tinha uma dessas variáveis fixa. Já a outra era alterada.
 
-\subsubsection{Intervaldo de Tempo Fixo}
+\subsubsection{Intervalo de Tempo Fixo}
 
 Com o intervalo de tempo fixo, foram feitos testes com o número de usuários variando a partir dos valores: 10, 50, 100, 300 e 500.
 
@@ -171,7 +171,7 @@ O consumo de memória de todos os algoritmos que foram medidos tiveram os seus g
 
 Essa seção procurará exibir os resultados quanto à qualidade do código fonte do \textit{framework}. A partir da análise de código fonte realizada pela ferramenta Code Climate, foi possível obter as métricas e realizar uma análise qualitativa dos resultados obtidos.
 
-Medir e monitorar a qualidade do software é fundamental. Mesmo uma ótima suíte de testes pode produzir informações apenas sobre características externas, não refletindo qualidades como manutenabilidade, modularidade, flexibilidade e simplicidade \cite{Filho:2013}.
+Medir e monitorar a qualidade do software é fundamental. Mesmo uma ótima suíte de testes pode produzir informações apenas sobre características externas, não refletindo qualidades como manutenibilidade, modularidade, flexibilidade e simplicidade \cite{Filho:2013}.
 
 Filho, em \cite{Filho:2013}, afirma ainda que nem tudo é relevante para ser controlado. Portanto, não se deve procurar medir tudo, mas escolher bem as métricas para avaliar e controlar o projeto. Desse modo, as métricas que foram monitoradas durante o projeto foram:
 
@@ -182,19 +182,19 @@ Filho, em \cite{Filho:2013}, afirma ainda que nem tudo é relevante para ser con
 		\item \textbf{Tamanho do código}: que é a quantidade de linhas que o código possui, desconsiderando comentários e espaços em branco;
 		\item \textbf{Complexidade ABC}: o cálculo da complexidade é baseado em três pontos:
 		\begin{enumerate}
-			\item \textbf{Assignment}: qualquer atribuição explícita de um dado para uma variável, por exemplo: = *= /= \%= += <<= >>= \&= |= >= ++ —, etc;
+			\item \textbf{Assignment}: qualquer atribuição explícita de um dado para uma variável, por exemplo: = *= /= \%= += <<= >>= \&= |= >= ++ —, entre outros;
 		    \item \textbf{Branch}: quando um caminho fora do escopo do programa é feito, por exemplo, uma chamada de método de instância de um objeto, um operador \textit{new} instanciando uma classe, etc;
     		\item \textbf{Condition}: qualquer teste lógico/booleano, == != <= >= < > \textit{else case default try catch} ? e condicionais unários.
 		\end{enumerate}
 	\end{enumerate}
-	\item \textbf{Duplicação de código}: analisa a similaridade de trechos de código na aplicação. Para cada nível de similaridade, é atribuido um peso diferente, indo de similar até idêntico, resultando no número que é a somatória de todos os arquivos. Espaços em branco, nomes de variáveis, métodos e classes são ignorados pela ferramenta;
+	\item \textbf{Duplicação de código}: analisa a similaridade de trechos de código na aplicação. Para cada nível de similaridade, é atribuído um peso diferente, indo de similar até idêntico, resultando no número que é a somatória de todos os arquivos. Espaços em branco, nomes de variáveis, métodos e classes são ignorados pela ferramenta;
 	\item \textbf{Estilo}: verifica se o projeto utiliza o guia de estilo descrito pela comunidade Rails. Aponta onde estão as práticas não adequadas relacionadas, relacionadas a padrões e convenções, as quais não estão sendo respeitadas na aplicação, e
 	\item \textbf{Segurança}: utiliza um \textit{fork} do Brakeman na versão 2.6.2 para identificar as vulnerabilidades do projeto Rails.
 \end{enumerate}
 
 \newpage
 
-A partir dessas métricas, o Code Climate realiza o cálculo do GPA (\textit{grade point average}) que é uma espécie de média de todos os arquivos do projeto. O GPA possui um intervalo de 0 a 4 pontos, levando em consideração as notas dos arquivos, que varia de `A' a `F'. Desse modo, no início do projeto, foi estabelacio uma meta de 3 pontos. Essa meta foi atingida com êxito, obtendo-se 3.45 pontos, como pode ser observado na Figura \ref{GPA}.
+A partir dessas métricas, o Code Climate realiza o cálculo do GPA (\textit{grade point average}) que é uma espécie de média de todos os arquivos do projeto. O GPA possui um intervalo de 0 a 4 pontos, levando em consideração as notas dos arquivos, que varia de `A' a `F'. Desse modo, no início do projeto, foi estabelecido uma meta de 3 pontos. Essa meta foi atingida com êxito, obtendo-se 3.45 pontos, como pode ser observado na Figura \ref{GPA}.
 
 \begin{figure}[!h]
 	\centering
@@ -242,7 +242,7 @@ A Figura \ref{login} apresenta a tela para entrar na rede social.
 	\label{login}
 \end{figure}
 
-A Figura \ref{home} mostra a tela principal da rede social, com as listas dos amigos e sugestões de amizades para o usuário logado, além de um campo para relaização de pesquisas.
+A Figura \ref{home} mostra a tela principal da rede social, com as listas dos amigos e sugestões de amizades para o usuário logado, além de um campo para realização de pesquisas.
 
 \newpage
 \begin{figure}[!h]
