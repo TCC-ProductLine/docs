@@ -265,10 +265,20 @@ Oferecer um \textit{framework} para ser utilizado no desenvolvimento de redes so
 \end{frame}
 
 \begin{frame}
+\frametitle{Classes}
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.6]{figuras/modulo_usuarios.eps}
+	\caption{Classes de Modelo do Módulo de Usuários}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
 \frametitle{Módulo de Usuários - Estrutura}
 
 \begin{itemize}
-	\item Classes de modelo \textit{User} e \textit{Edge};
 	\item Muitos relacionamentos;
 	\begin{itemize}
 		\item Bidirecionais;
@@ -290,8 +300,18 @@ Oferecer um \textit{framework} para ser utilizado no desenvolvimento de redes so
 	\item Conciliação de horários;
 	\item Marcação de eventos;
 	\item Uma agenda para cada usuário;
-	\item Classes de modelo \textit{Schedule}, \textit{Event} e \textit{ParticipantEvent}.
 \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Classes}
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.45]{figuras/modulo_agenda.eps}
+	\caption{Classes de Modelo do Módulo de Agenda}
+\end{figure}
 
 \end{frame}
 
@@ -338,6 +358,17 @@ Oferecer um \textit{framework} para ser utilizado no desenvolvimento de redes so
 		\item Tipos de rotas: Carro, A Pé, Bicicleta ou Transporte público.
 	\end{itemize}
 \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Classes}
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.6]{figuras/modulo_rotas.eps}
+	\caption{Classes de Modelo do Módulo de Rotas}
+\end{figure}
 
 \end{frame}
 
@@ -390,11 +421,11 @@ Oferecer um \textit{framework} para ser utilizado no desenvolvimento de redes so
 \begin{frame}
 \frametitle{Comparação de Rotas}
 
-\begin{itemize}
-	\item Rotas podem ser alteradas em ambos os pontos de origem e destino, apenas em algum deles, apenas na origem, apenas no destino ou em nenhum ponto.
-	\item No caso de não ser possível alterar a rota principal, a rota secundária deve poder ser alterada;
-	\item Caso a rota secundária não possa ser alterada as rotas são incompatíveis.
-\end{itemize}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.35]{figuras/desvio_destino.eps}
+	\caption{Rota principal final passando apenas pelo destino da rota secundária}
+\end{figure}
 
 \end{frame}
 
