@@ -161,9 +161,13 @@ A quantidade de memória consumida com 500 usuários fixos, pode ser observada n
 
 \subsection{Complexidade}
 
-A partir dos gráficos apresentados anteriormente e da pesquisa realizada e documentada na seção \nameref{sec:complexidade_algoritmos}, pode-se avaliar a complexidade dos algoritmos utilizados.
+A partir dos gráficos apresentados anteriormente e da pesquisa realizada e documentada na seção \nameref{sec:complexidade_algoritmos}, pôde-se avaliar a complexidade dos algoritmos utilizados.
 
-O tempo para a construção do grafo têm sua função aproximada a uma equação de \textit{x*log(x)}. Portanto, pode-se concluir que esse método possuem uma complexidade em seu tempo de O(n*log(n)). Já o tempo nos algoritmos de pesquisa, de sugestão de relacionamentos, e de verificar a disponibilidade de agendas tiveram o seu tempo de execução aproximados a uma reta. Portanto, esses algoritmos possui uma complexidade de tempo de execução de O(n).
+O tempo para a construção do grafo têm sua função aproximada a uma complexidade O(n\textsuperscript{2}). Isso se dá, devido ao algoritmo usar o \label{subsec:bfs} que têm uma complexidade O(n) e ser necessário verificar, no momento de inserção de um vértice no grafo, se o vértice já não foi adicionado, essa verificação também tem a complexidade O(n), resultando assim, na complexidade final mencionada. Já o tempo no algoritmo de pesquisa é linear, pois esse utiliza puramente o \label{subsec:bfs}, sendo assim, sua complexidade é O(n).
+
+A complexidade de exeução para a sugestão de relacionamentos é O(n) já que esse algoritmo usa puramente o \label{subsec:dfs}. Vale ressaltar que, nesse caso, apenas três níveis do grafo são considerados.
+
+No algoritmo de complexidade têm-se a complexidade como O(n * m), onde `n' representa a quantidade de usuários e `m' a quantidade de \textit{slots}.
 
 O consumo de memória de todos os algoritmos que foram medidos tiveram os seus gráficos aproximados a uma reta. Desse modo pode dizer que esses algoritmos possuem uma complexidade de consumo de memória de O(n).
 
@@ -191,8 +195,6 @@ Filho, em \cite{Filho:2013}, afirma ainda que nem tudo é relevante para ser con
 	\item \textbf{Estilo}: verifica se o projeto utiliza o guia de estilo descrito pela comunidade Rails. Aponta onde estão as práticas não adequadas relacionadas, relacionadas a padrões e convenções, as quais não estão sendo respeitadas na aplicação, e
 	\item \textbf{Segurança}: utiliza um \textit{fork} do Brakeman na versão 2.6.2 para identificar as vulnerabilidades do projeto Rails.
 \end{enumerate}
-
-\newpage
 
 A partir dessas métricas, o Code Climate realiza o cálculo do GPA (\textit{grade point average}) que é uma espécie de média de todos os arquivos do projeto. O GPA possui um intervalo de 0 a 4 pontos, levando em consideração as notas dos arquivos, que varia de `A' a `F'. Desse modo, no início do projeto, foi estabelecido uma meta de 3 pontos. Essa meta foi atingida com êxito, obtendo-se 3.45 pontos, como pode ser observado na Figura \ref{GPA}.
 
@@ -225,7 +227,6 @@ Para o módulo de usuários, foram desenvolvidas funcionalidades gerais de redes
 
 A Figura \ref{cadastrar_usuario} apresenta a tela de cadastro de usuários. Quando um usuário se cadastra na rede, esse é automaticamente logado na mesma.
 
-\newpage
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.4]{figuras/resultados/cadastrar_usuario.eps}
@@ -290,7 +291,6 @@ A tela apresentada na Figura \ref{compatibilidade_horarios} é usada para verifi
 
 As Figuras \ref{cadastrar_rota} e \ref{ver_rota} mostram, respectivamente, as telas para criação e visualização de rotas.
 
-\newpage
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.45]{figuras/resultados/cadastrar_rota.eps}
@@ -298,6 +298,7 @@ As Figuras \ref{cadastrar_rota} e \ref{ver_rota} mostram, respectivamente, as te
 	\label{cadastrar_rota}
 \end{figure}
 
+\newpage
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.45]{figuras/resultados/ver_rota.eps}
@@ -314,6 +315,7 @@ Por fim, têm-se as Figuras \ref{comparar_rotas} e \ref{resultado_comparacao}. N
 	\label{comparar_rotas}
 \end{figure}
 
+\newpage
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.45]{figuras/resultados/resultado_comparacao.eps}
